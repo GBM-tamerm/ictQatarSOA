@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="v1_0" 
+	targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" 
+	xmlns:tns="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" 
+    targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" 
+    xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" 
+    xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/"
+    xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+      
+      
+      <xsd:complexType name="getEstablishmentInfoByIdRequest">
+        <xsd:sequence>
+          <xsd:element name="estId" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfogetEstablishmentInfoByIdRequest1" type="tns:getEstablishmentInfoByIdRequest"/>
+      <xsd:complexType name="getEstablishmentInfoByIdResponse">
+        <xsd:sequence>
+          <xsd:element name="establishmentInfo" type="moixsd:EstablishmentInfoType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1" type="tns:getEstablishmentInfoByIdResponse"/>
+      <xsd:element name="EstablishmentSecurityInfogetEstablishmentInfoByIdFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="IsRestrictedRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfoisRestrictedRequest1" type="tns:IsRestrictedRequest"/>
+      <xsd:complexType name="IsRestrictedResponse">
+        <xsd:sequence>
+          <xsd:element name="restricted" type="moixsd:RestrictedEstablishment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfoisRestrictedResponse1" type="tns:IsRestrictedResponse"/>
+      <xsd:element name="EstablishmentSecurityInfoisRestrictedFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="getLaborStatisticsRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfogetLaborStatisticsRequest1" type="tns:getLaborStatisticsRequest"/>
+      <xsd:complexType name="getLaborStatisticsResponse">
+        <xsd:sequence>
+          <xsd:element name="estStatistics" type="moixsd:StatisticsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentSecurityInfogetLaborStatisticsResponse1" type="tns:getLaborStatisticsResponse"/>
+      <xsd:element name="EstablishmentSecurityInfogetLaborStatisticsFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGOVHeaderMessage">
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetEstablishmentInfoByIdRequest">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdRequest1" name="estID"/>
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetEstablishmentInfoByIdResponse">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1" name="estInfo"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetEstablishmentInfoByIdFault">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfoisRestrictedRequest">
+    <wsdl:part element="tns:EstablishmentSecurityInfoisRestrictedRequest1" name="estID"/>
+	<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfoisRestrictedResponse">
+    <wsdl:part element="tns:EstablishmentSecurityInfoisRestrictedResponse1" name="restricted"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfoisRestrictedFault">
+    <wsdl:part element="tns:EstablishmentSecurityInfoisRestrictedFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetLaborStatisticsRequest">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetLaborStatisticsRequest1" name="estID"/>
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetLaborStatisticsResponse">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetLaborStatisticsResponse1" name="laborStatistics"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentSecurityInfogetLaborStatisticsFault">
+    <wsdl:part element="tns:EstablishmentSecurityInfogetLaborStatisticsFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="EstablishmentSecurityInfo">
+    <wsdl:operation name="getEstablishmentInfoById">
+      <wsdl:input message="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdRequest"/>
+      <wsdl:output message="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdResponse"/>
+      <wsdl:fault message="tns:EstablishmentSecurityInfogetEstablishmentInfoByIdFault" name="getEstablishmentInfoByIdFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="isRestricted">
+      <wsdl:input message="tns:EstablishmentSecurityInfoisRestrictedRequest"/>
+      <wsdl:output message="tns:EstablishmentSecurityInfoisRestrictedResponse"/>
+      <wsdl:fault message="tns:EstablishmentSecurityInfoisRestrictedFault" name="isRestrictedFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getLaborStatistics">
+      <wsdl:input message="tns:EstablishmentSecurityInfogetLaborStatisticsRequest"/>
+      <wsdl:output message="tns:EstablishmentSecurityInfogetLaborStatisticsResponse"/>
+      <wsdl:fault message="tns:EstablishmentSecurityInfogetLaborStatisticsFault" name="getLaborStatisticsFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

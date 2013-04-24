@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmThrow.msgnode="ComIbmThrow.msgnode" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:Log4jLoggingPlugin.msgnode="Log4jLoggingPlugin.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor" xmlns:qa_gov_igov_gsb_channel_http_consumer_binding_RequestBinding.msgflow="qa/gov/igov/gsb/channel/http/consumer/binding/RequestBinding.msgflow"
+    xmlns:qa_gov_igov_gsb_channel_http_consumer_binding_ResponseBinding.msgflow="qa/gov/igov/gsb/channel/http/consumer/binding/ResponseBinding.msgflow" xmlns:qa_gov_igov_gsb_fault_FaultHandler.msgflow="qa/gov/igov/gsb/fault/FaultHandler.msgflow" xmlns:qa_gov_igov_gsb_gateway_ServiceGateway.msgflow="qa/gov/igov/gsb/gateway/ServiceGateway.msgflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="qa/gov/igov/gsb/channel/http/consumer/MainMF.msgflow"
+    nsPrefix="qa_gov_igov_gsb_channel_http_consumer_MainMF.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.timeoutForClient" name="timeoutForClient" lowerBound="1" defaultValueLiteral="180">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.validateMaster" name="validateMaster" lowerBound="1" eType="//@eClassifiers.1" defaultValueLiteral="none"/>
+    <translation xmi:type="utility:TranslatableString" key="MainMF" bundleName="qa/gov/igov/gsb/channel/http/consumer/MainMF" pluginId="gsb_igov_gateway_brokerFlow"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj16/MainMF.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj30/MainMF.gif"/>
+    <version xmi:type="utility:ConstantString" string="1.0"/>
+    <composition>
+      <nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" URLSpecifier="/igov/*" useHTTPS="true" setDestinationList="true" parseQueryString="true" messageDomainProperty="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="HTTP_CONSUMER"/>
+        <nsMappingTable nsPrefix="soapenv" namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <monitorEvents eventEnabled="false" eventSourceDescription="Transaction start" eventSourceName="HTTP_CONSUMER.transaction.start" eventIdentity="INBOUND_REQUEST">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$LocalEnvironment/HTTP/Input/RequestLine/RequestURI" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$LocalEnvironment/Destination/HTTP/RequestIdentifier" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="INBOUND_REQUEST"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventEnabled="false" eventSourceDescription="Transaction end" eventSourceName="HTTP_CONSUMER.transaction.end" eventIdentity="INBOUND_RESPONSE">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$LocalEnvironment/HTTP/Input/RequestLine/RequestURI" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$LocalEnvironment/Destination/HTTP/RequestIdentifier" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="INBOUND_RESPONSE"/>
+          </eventXMLDoc>
+        </monitorEvents>
+        <monitorEvents eventEnabled="false" eventSourceDescription="Transaction rollback" eventSourceName="HTTP_CONSUMER.transaction.rollback" eventIdentity="GATEWAY_FAULT">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$LocalEnvironment/HTTP/Input/RequestLine/RequestURI" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$LocalEnvironment/Destination/HTTP/RequestIdentifier" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="GATEWAY_FAULT"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="479,20">
+        <translation xmi:type="utility:ConstantString" string="ConsumerReply"/>
+        <nsMappingTable nsPrefix="soapenv" namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <nsMappingTable nsPrefix="igovhdr" namespace="igov.gov.qa/xml/schemas/v1_0/"/>
+        <monitorEvents eventSourceDescription="Out terminal" eventSourceName="ConsumerReply.terminal.out" eventIdentity="INBOUND_RESPONSE">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$Environment/igov" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope/soapenv:Header/igovhdr:IGOVHeader" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$Environment/igov/trackingID" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="INBOUND_RESPONSE"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="qa_gov_igov_gsb_gateway_ServiceGateway.msgflow:FCMComposite_1" xmi:id="FCMComposite_1_7" location="237,20">
+        <translation xmi:type="utility:ConstantString" string="ForwardToGateway"/>
+      </nodes>
+      <nodes xmi:type="qa_gov_igov_gsb_fault_FaultHandler.msgflow:FCMComposite_1" xmi:id="FCMComposite_1_11" location="138,99">
+        <translation xmi:type="utility:ConstantString" string="HandleFault"/>
+      </nodes>
+      <nodes xmi:type="qa_gov_igov_gsb_channel_http_consumer_binding_RequestBinding.msgflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="137,20">
+        <translation xmi:type="utility:ConstantString" string="BindRequest"/>
+      </nodes>
+      <nodes xmi:type="qa_gov_igov_gsb_channel_http_consumer_binding_ResponseBinding.msgflow:FCMComposite_1" xmi:id="FCMComposite_1_8" location="372,20">
+        <translation xmi:type="utility:ConstantString" string="BindResponse"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="237,99">
+        <translation xmi:type="utility:ConstantString" string="GatewayFaultReply"/>
+        <nsMappingTable nsPrefix="soapenv" namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
+      </nodes>
+      <nodes xmi:type="ComIbmThrow.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="384,99">
+        <translation xmi:type="utility:ConstantString" string="RollBack"/>
+        <nsMappingTable nsPrefix="soapenv" namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <nsMappingTable nsPrefix="igovhdr" namespace="igov.gov.qa/xml/schemas/v1_0/"/>
+        <monitorEvents eventSourceDescription="In terminal" eventSourceName="RollBack.terminal.in" eventIdentity="GATEWAY_FAULT">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$Environment/igov" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope/soapenv:Header/igovhdr:IGOVHeader" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$Environment/igov/trackingID" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="GATEWAY_FAULT"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_9" location="594,20" computeExpression="esql://routine/qa.gov.igov.gsb.channel.http.consumer#MainMF_Commit.Main" computeMode="exception" throwExceptionOnDatabaseError="false">
+        <translation xmi:type="utility:ConstantString" string="Commit"/>
+      </nodes>
+      <nodes xmi:type="Log4jLoggingPlugin.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="10,375" log4jConfigFile="/var/mqsi/logConfig/ictJLogCnf.xml" logLevel="ERROR" logText="$Environment.Variables.Log4j.TraceText$">
+        <translation xmi:type="utility:ConstantString" string="LogException"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_12" targetNode="FCMComposite_1_8" sourceNode="FCMComposite_1_7" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_10" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_11" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.catch" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_11" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.iGovConfig" propertyEditor="com.ibm.etools.mft.ibmnodes.editors.PositiveIntegerPropertyEditor" describedAttribute="Property.timeoutForClient">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.timeoutForClient" bundleName="ComIbmWSInput" pluginId="com.ibm.etools.mft.ibmnodes"/>
+        <propertyDescriptor groupName="Group.iGovConfig" propertyEditor="com.ibm.etools.mft.ibmnodes.editors.ValidateMasterForOpaqueParsingAndBuildTreePropertyEditor" configurable="true" describedAttribute="Property.validateMaster">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.validateMaster" bundleName="ComIbmWSInput" pluginId="com.ibm.etools.mft.ibmnodes"/>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+    <attributeLinks promotedAttribute="Property.timeoutForClient" overriddenNodes="FCMComposite_1_1">
+      <overriddenAttribute href="ComIbmWSInput.msgnode#Property.timeoutForClient"/>
+    </attributeLinks>
+    <attributeLinks promotedAttribute="Property.validateMaster" overriddenNodes="FCMComposite_1_1">
+      <overriddenAttribute href="ComIbmWSInput.msgnode#Property.validateMaster"/>
+    </attributeLinks>
+  </eClassifiers>
+  <eClassifiers xmi:type="ecore:EEnum">
+    <eLiterals xmi:id="validateMaster.none" name="none"/>
+    <eLiterals xmi:id="validateMaster.contentAndValue" name="contentAndValue" value="1"/>
+    <eLiterals xmi:id="validateMaster.content" name="content" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

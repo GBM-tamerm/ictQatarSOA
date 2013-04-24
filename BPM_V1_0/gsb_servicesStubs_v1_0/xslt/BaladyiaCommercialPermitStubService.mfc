@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="BaladyiaCommercialPermitStubService" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/BaladyiaCommercialPermitStubService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:CommercialPermitInfo"/>
+  </interfaces>
+  <references>
+    <reference name="CommercialPermitInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:CommercialPermitInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getCommercialPermitInfo" target="getCommercialPermitInfo" sourcePortType="ns1:CommercialPermitInfo" targetReference="CommercialPermitInfoPartner"/>
+  <operationFlow medflow="BaladyiaCommercialPermitStubService.medflow"/>
+</mfc:interfaceMediationFlow>

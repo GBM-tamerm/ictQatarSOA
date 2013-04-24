@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:Log4jLoggingPlugin.msgnode="Log4jLoggingPlugin.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:mbmonitor="http://www.ibm.com/wbi/2008/eflow_mbmonitor" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="qa/gov/igov/gsb/channel/http/consumer/binding/RequestBinding.msgflow"
+    nsPrefix="qa_gov_igov_gsb_channel_http_consumer_binding_RequestBinding.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="RequestBinding" bundleName="qa/gov/igov/gsb/channel/http/consumer/binding/RequestBinding" pluginId="gsb_igov_gateway_brokerFlow"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj16/RequestBinding.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj30/RequestBinding.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="10,20">
+        <translation xmi:type="utility:TranslatableString" key="InTerminal.In" bundleName="qa/gov/igov/gsb/channel/http/consumer/binding/RequestBinding" pluginId="gsb_igov_gateway_brokerFlow"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="608,20">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.Out" bundleName="qa/gov/igov/gsb/channel/http/consumer/binding/RequestBinding" pluginId="gsb_igov_gateway_brokerFlow"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="93,20" computeExpression="esql://routine/qa.gov.igov.gsb.channel.http.consumer.binding#RequestBinding_ApplyBinding.Main" computeMode="destinationAndMessage" parserXmlnscUseForXmlnsDomain="true">
+        <translation xmi:type="utility:ConstantString" string="ApplyBinding"/>
+        <nsMappingTable nsPrefix="soapenv" namespace="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <nsMappingTable nsPrefix="igovhdr" namespace="igov.gov.qa/xml/schemas/v1_0/"/>
+        <monitorEvents eventSourceDescription="Out terminal" eventSourceName="ApplyBinding.terminal.out" eventIdentity="INBOUND_REQUEST">
+          <eventXMLDoc xmi:type="mbmonitor:MonitorEvent">
+            <applicationData dataLocation="$Environment/igov" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <applicationData dataLocation="$Root/XMLNSC/soapenv:Envelope/soapenv:Header/igovhdr:IGOVHeader" isXPath="true" complexData="true">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </applicationData>
+            <globalTransactionCorrelator/>
+            <parentTransactionCorrelator/>
+            <localTransactionCorrelator dataLocation="$Environment/igov/trackingID" eventCorrelation="dataLocation">
+              <nsPrefixMap prefix="soapenv" nsURI="http://schemas.xmlsoap.org/soap/envelope/"/>
+              <nsPrefixMap prefix="igovhdr" nsURI="igov.gov.qa/xml/schemas/v1_0/"/>
+            </localTransactionCorrelator>
+            <bitStreamData encoding="none" bitstreamContent="none"/>
+            <eventName literal="INBOUND_REQUEST"/>
+          </eventXMLDoc>
+        </monitorEvents>
+      </nodes>
+      <nodes xmi:type="Log4jLoggingPlugin.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="194,20" log4jConfigFile="/var/mqsi/logConfig/ictJLogCnf.xml">
+        <translation xmi:type="utility:ConstantString" string="Debug-Entry"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="328,20" computeExpression="esql://routine/qa.gov.igov.gsb.channel.http.consumer.binding#RequestBinding_prepareLogString.Main" computeMode="destination">
+        <translation xmi:type="utility:ConstantString" string="prepareLogString"/>
+      </nodes>
+      <nodes xmi:type="Log4jLoggingPlugin.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="461,20" log4jConfigFile="/var/mqsi/logConfig/ictJLogCnf.xml" logLevel="INFO">
+        <translation xmi:type="utility:ConstantString" string="LogInboundRequest"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_1" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="OutTerminal.Output" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>

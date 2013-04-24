@@ -1,0 +1,259 @@
+
+BROKER SCHEMA qa.gov.igov.shared.notification
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE govhdr NAMESPACE 'urn:igov.gov.qa/xml/schemas/v1_0/';
+DECLARE igov NAMESPACE 'urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/';
+DECLARE ntfNS NAMESPACE 'urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/';
+CREATE COMPUTE MODULE MainMF_ExtractNotificationRecords
+	-- ========================
+	-- The INPUT message format
+	-- ========================
+	-- SET at main flow level
+	DECLARE CONTAINER CHARACTER '*:*';
+	DECLARE ELEMENTNAME CHARACTER '*:*';
+	DECLARE BadMsgAction CHARACTER 'Cancel';
+	--DECLARE LoggingOn EXTERNAL BOOLEAN TRUE;
+
+	/*
+	===================================
+	Main function to control processing
+	===================================
+	*/
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		-- Save Headers and local environment
+		SET Environment.Reply.Header = InputRoot.HTTPInputHeader;
+		SET Environment.Reply.LocalEnvironment = InputLocalEnvironment;
+		-- Define Environment Variables
+		SET Environment.PatternVariables.NumberOfRecordsFound = 0;
+		SET Environment.PatternVariables.Completion = -1;
+		-- Copy properties and headers
+		-- Call CopyMessageHeaders();
+		Set OutputRoot.Properties = InputRoot.Properties;
+		CALL ExtractRecordsProcess();
+		RETURN FALSE;
+	END;
+	/*
+	============================================================================================
+	> Declare variables
+	> Find first instance of the element to process
+	> For each instance found
+	1> Release memory used to store information about the previous instance (if appropriate)
+	2> Call a procedure to produce a single message the current instance
+	3> Look for a following instance
+	============================================================================================
+	*/
+	CREATE PROCEDURE ExtractRecordsProcess() 
+	BEGIN
+		-- These variables hold the actual names found if '*:*' used
+		DECLARE THIS_ROOT_NAME CHARACTER '';
+		DECLARE THIS_ELEMENT_NAME CHARACTER;
+		DECLARE THIS_ELEMENT_NAMESPACE CHARACTER;
+		DECLARE refEnvPatt REFERENCE TO Environment.PatternVariables;
+		/* Create a (local to this node) variable to hold a mutable tree */
+		DECLARE rowCachedInputXML ROW;		
+		/* Create an XMLNSC parser
+		As both the incoming message AND the new parser are XMLNSC no translation is required
+		and therefore the XML message is NOT fully parsed */
+
+		CREATE FIRSTCHILD OF rowCachedInputXML DOMAIN ('XMLNSC') NAME 'XMLNSC';
+		/* Create a mutable tree by copying the INPUT XML to the local parser
+		This is to allow data about parsed message elements to be deleted from the message tree
+		(which can not happen on the InputRoot as its message tree is immutable) */
+
+		SET rowCachedInputXML.XMLNSC = InputRoot.XMLNSC;
+		-- SET OutputRoot.XMLNSC.SOAP = InputRoot.SOAP ;
+		-- SET rowCachedInputXML.XMLNSC = OutputRoot.SOAP.ntfNS:NotificationsendNotificationRequest1.ntfNS:sendNotification ;
+		/* Create a reference variable to be used to traverse the input XML message	*/
+		--DECLARE referenceToInputMsg REFERENCE TO InputRoot.XMLNSC.soapenv:NotificationsendNotificationRequest1.soapenv:sendNotification;
+		DECLARE referenceToInputMsg REFERENCE TO rowCachedInputXML.XMLNSC;
+		-- Acquire the first root element...
+		--
+		MOVE referenceToInputMsg FIRSTCHILD TYPE XMLNSC.Folder NAMESPACE *;
+		--
+		-- -- Added these two lines to reach the correct level
+		MOVE referenceToInputMsg FIRSTCHILD TYPE XMLNSC.Folder NAMESPACE *;
+		-- MOVE referenceToInputMsg FIRSTCHILD TYPE XMLNSC.Folder NAMESPACE *;
+		---- MOVE referenceToInputMsg FIRSTCHILD TYPE XMLNSC.Folder NAMESPACE *;
+		--------------------------------------------------------------------
+
+		IF NOT LASTMOVE(referenceToInputMsg) THEN
+			THROW USER EXCEPTION CATALOG 'igovExCatalog' MESSAGE 2372 VALUES ('Invalid Notification Message Structure','No child elements of type Field (simple element) or Folder(complex element) found in the input message', '');
+		END IF;	
+
+		SET THIS_ROOT_NAME = FIELDNAME(referenceToInputMsg);
+		SET THIS_ELEMENT_NAMESPACE = FIELDNAMESPACE (referenceToInputMsg);
+		/******************************************************
+		* Next locate the first repeating structure...
+		* check if specific name required
+		* Ignore anything which is not a folder or field type
+		*******************************************************/
+
+		MOVE referenceToInputMsg FIRSTCHILD; -- NAMESPACE *;
+		FIRST: LOOP
+			SET Environment.PatternVariables.temp = FieldName(referenceToInputMsg);
+			-- IF FIELDTYPE(referenceToInputMsg)= XMLNSC.Folder THEN LEAVE FIRST; END IF;
+			IF FIELDTYPE(referenceToInputMsg)= 16777216 THEN LEAVE FIRST;
+			END IF;
+			-- IF FIELDTYPE(referenceToInputMsg)= XMLNSC.Field THEN LEAVE FIRST; END IF;
+			IF FIELDTYPE(referenceToInputMsg)= 50331648 THEN LEAVE FIRST;
+			END IF;
+			IF FIELDTYPE(referenceToInputMsg)IS NULL THEN
+				THROW USER EXCEPTION CATALOG 'igovExCatalog' MESSAGE 2372 VALUES ('Invalid Notification Message Structure','No root element found in the input message', '');
+			END IF;
+			MOVE referenceToInputMsg NEXTSIBLING;
+		END LOOP FIRST;
+		-- Loop around each repeating item
+		WHILE LASTMOVE(referenceToInputMsg) DO
+			-- SAVE ELEMENT NAME and namespace
+			SET THIS_ELEMENT_NAME = FIELDNAME (referenceToInputMsg);
+			SET THIS_ELEMENT_NAMESPACE = FIELDNAMESPACE (referenceToInputMsg);
+			-- Increment the count of repeating items found...
+			SET refEnvPatt.NumberOfRecordsFound = refEnvPatt.NumberOfRecordsFound + 1;
+			-- Are we on the second, or subsequent repeating item?
+			IF refEnvPatt.NumberOfRecordsFound > 1 THEN
+				-- YES, therefore erase the parsed details about the previous item to release memory
+				/* The following line is most significant with respect to memory usage. Its execution
+				results in the last-but-one *repeating* element, including subordinate elements,
+				of the message tree being deleted allowing the memory used to hold information
+				generated during parsing to be re
+				used for further parsing.
+				*/
+				DELETE PREVIOUSSIBLING OF referenceToInputMsg;
+			END IF;
+			/*
+			====================================================================
+			Produce a message consisting of one embedded record from the file
+			====================================================================
+			*/
+			-- Set body to extracted record from file
+			SET OutputRoot.XMLNSC.{THIS_ELEMENT_NAMESPACE}:{THIS_ELEMENT_NAME} = referenceToInputMsg;
+			-- Generate a new message consisting of one embedded record
+			SET refEnvPatt.ErrorState = 'OK';
+			IF EXISTS(OutputRoot.XMLNSC.{THIS_ELEMENT_NAMESPACE}:{THIS_ELEMENT_NAME}.{THIS_ELEMENT_NAMESPACE}:emailDetails[]) THEN
+				--SET OutputRoot.MQRFH2.(MQRFH2.Field)CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+				--SET OutputRoot.MQRFH2.(MQRFH2.Field)Encoding = InputRoot.Properties.Encoding;
+				PROPAGATE TO TERMINAL 'out';
+			ELSEIF EXISTS(OutputRoot.XMLNSC.{THIS_ELEMENT_NAMESPACE}:{THIS_ELEMENT_NAME}.{THIS_ELEMENT_NAMESPACE}:smsDetails[]) THEN
+				--SET OutputRoot.MQRFH2.(MQRFH2.Field)CodedCharSetId = InputRoot.Properties.CodedCharSetId;
+				--SET OutputRoot.MQRFH2.(MQRFH2.Field)Encoding = InputRoot.Properties.Encoding;
+				PROPAGATE TO TERMINAL 'out1';
+			ELSE
+				SET refEnvPatt.ErrorState = 'Failed';
+				THROW USER EXCEPTION CATALOG 'igovExCatalog' MESSAGE 2372 VALUES ('Invalid Notification Type','Notification Request contains one or more invalid notification structure', '');
+			END IF;
+			/****************************************************************************************
+			* Now search for another repeating element *
+			* Reject anything that is not of type FIELD(simple element) or FOLDER (Complex element) *
+			****************************************************************************************/
+			MOVE referenceToInputMsg NEXTSIBLING;
+			CHECK: LOOP
+				-- IF FIELDTYPE(referenceToInputMsg)= XMLNSC.Folder THEN LEAVE CHECK; END IF;
+				IF FIELDTYPE(referenceToInputMsg)= 16777216 THEN LEAVE CHECK;
+				END IF;
+				-- IF FIELDTYPE(referenceToInputMsg)= XMLNSC.Field THEN LEAVE CHECK; END IF;
+				IF FIELDTYPE(referenceToInputMsg)= 50331648 THEN LEAVE CHECK;
+				END IF;
+				IF FIELDTYPE(referenceToInputMsg) IS NULL THEN LEAVE CHECK;
+				END IF;
+				MOVE referenceToInputMsg NEXTSIBLING;
+			END LOOP CHECK;
+		END WHILE;
+	-- indicate no more records extracted
+	SET refEnvPatt.Completion = 0;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE MainMF_ConstructResponse
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot.Properties = InputRoot.Properties;
+		SET OutputRoot.HTTPInputHeader = Environment.Reply.Header;
+		SET OutputLocalEnvironment = Environment.Reply.LocalEnvironment ;
+		SET OutputRoot.SOAP.Header.govhdr:IGOVHeader = InputRoot.SOAP.Header.govhdr:IGOVHeader ;
+		IF (Environment.PatternVariables.Completion = 0) THEN
+			SET OutputRoot.SOAP.Body.ntfNS:NotificationsendNotificationResponse1.ntfNS:acknowledgment.ns8:acknowledgment = 'SENT';
+			SET OutputRoot.SOAP.Body.ntfNS:NotificationsendNotificationResponse1.ntfNS:acknowledgment.ns8:notificationId = InputLocalEnvironment.Destination.SOAP.Reply.ReplyIdentifier ;
+--		ELSE
+--			SET OutputRoot.SOAP.Body.ntfNS:NotificationsendNotificationResponse1.ntfNS:acknowledgment.ns8:acknowledgment = 'FAILED';
+--			SET OutputRoot.SOAP.Body.ntfNS:NotificationsendNotificationResponse1.ntfNS:acknowledgment.ns8:notificationId = InputLocalEnvironment.Destination.SOAP.Reply.ReplyIdentifier ;
+--			PROPAGATE TO TERMINAL 'out1';
+		END IF;
+		RETURN TRUE;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE MainMF_ConstructFault
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		DECLARE layerCode CHARACTER '003' ;
+		DECLARE networkLocationCode CHARACTER '001' ;
+		DECLARE serviceCode CHARACTER '005' ;
+		DECLARE runtimeErrorCode CHARACTER '9500' ;
+		DECLARE errorCode CHARACTER '' ;
+		DECLARE faultTmpString CHARACTER '' ;
+		DECLARE faultstring CHARACTER '' ;
+		DECLARE userMessage CHARACTER '' ;
+		DECLARE detailMessage CHARACTER '' ;
+		-- Create a reference to the first child of the exception list
+		declare ptrException reference to InputExceptionList.*[1];
+		-- keep looping while the moves to the child of exception list work
+		WHILE lastmove(ptrException) DO
+			move ptrException lastchild;
+		END WHILE;
+		move ptrException PARENT;
+		move ptrException PARENT;
+		-- store the current values for the error number and text
+		IF ptrException.Catalog = 'igovExCatalog' THEN
+			SET OutputRoot.SOAP.Body.soapenv:Fault.faultcode = 'Client' ;
+			SET errorCode = layerCode || '-' || networkLocationCode || '-' || serviceCode || '-' || (CAST(ptrException.Number AS CHARACTER));
+			SET faultTmpString = ptrException.Insert[1].Text;
+			SET userMessage = ptrException.Insert[2].Text;
+			SET detailMessage = ptrException.Insert[3].Text;
+		ELSE
+			SET OutputRoot.SOAP.Body.soapenv:Fault.faultcode = 'Server' ;
+			SET errorCode = layerCode || '-' || networkLocationCode || '-' || serviceCode || '-' || runtimeErrorCode;
+			SET faultTmpString = 'Infrastructure Fault';
+			SET userMessage = 'An unexpected runtime fault has occured during processing your request';
+			SET detailMessage = 'Root Exception: Catalog: ' || ptrException.Catalog || '. Number: ' || (CAST(ptrException.Number AS CHARACTER)) || '. Text: ' || ptrException.Text || '.' ;
+		END IF;
+		
+		SET OutputRoot.SOAP.Header.govhdr:IGOVHeader = InputRoot.SOAP.Header.govhdr:IGOVHeader ;
+		SET faultstring =  'i-GovNotification:' || errorCode || ': '  || faultTmpString ; -- || '. TrackingID:' || Environment.igov.trackingID;
+		SET OutputRoot.SOAP.Body.soapenv:Fault.faultstring = faultstring ;
+		--DECLARE rFault REFERENCE TO OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Body.soapenv:Fault;
+		SET OutputRoot.SOAP.Body.soapenv:Fault.detail.ntfNS:NotificationsendNotificationFault1.igov:errorCode = errorCode ;
+		DECLARE rFault REFERENCE TO OutputRoot.SOAP.Body.soapenv:Fault.detail.ntfNS:NotificationsendNotificationFault1 ;
+		SET rFault.igov:networkLocation = 'i-GovESB/Broker:' || BrokerName || '/Execution Group: ' || ExecutionGroupLabel || '/Queue Manager: ' || QueueManagerName ; --  || '/TrackingID: ' || Environment.igov.trackingID;
+		SET rFault.igov:failedMessage = NULL;
+		SET rFault.igov:detailMessage = detailMessage ;
+		SET rFault.igov:timeStamp = CURRENT_TIMESTAMP ;
+		SET rFault.igov:userMessage = userMessage ;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

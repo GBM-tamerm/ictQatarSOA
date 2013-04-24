@@ -1,0 +1,19 @@
+* SMAP
+XSLTransformation1_req_3.xsl
+XMLMAP
+*S XMLMAP
+*F
++ 1 XSLTransformation1_req_3.map
+/gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_3.map
+*L
+3:51,4
+2:47,4
+7:74,3
+10:83,3
+8:70,4
+5:64,3
+1:37,1
+4:55,3
+9:79,4
+6:60,4
+*E

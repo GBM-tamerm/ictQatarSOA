@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://mol.gov.qa/Labor/RecruitmentApplication/version/1.0" xmlns:ns2="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/" xmlns:ns3="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns4="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="LRApplicationService" name="LRApplicationService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns4:LaborRecruitmentApplication">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="LaborRecruitmentApplicationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:LaborRecruitmentApplication"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="LaborRecuirtmentService"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="LRApplicationService.mfc">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

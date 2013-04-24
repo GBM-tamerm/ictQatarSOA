@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" elementFormDefault="qualified" targetNamespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/">
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../igov/commontypes/xml/schemas/v10/CommonTypes_v1_0.mxsd"/>
+  <xsd:simpleType name="EstablishmentIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{7,8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="QIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{11}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="EstablishmentInfoType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="moixsd:EstablishmentIdType"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="address" type="igovxsd:AddressType"/>
+      <xsd:element name="phone" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element minOccurs="0" name="specialization" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="owners" type="igovxsd:PersonInfoType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="agents" type="igovxsd:PersonInfoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProfessionDetailsType">
+    <xsd:sequence>
+      <xsd:element name="profession" type="igovxsd:ProfessionType"/>
+      <xsd:element name="nationality" type="igovxsd:NationalityType"/>
+      <xsd:element name="gender" type="igovxsd:GenderType"/>
+      <xsd:element name="numberPermitted" type="xsd:int"/>
+      <xsd:element name="numberUsed" type="xsd:int"/>
+      <xsd:element name="numberRemaining" type="xsd:int"/>
+      <xsd:element name="currentNumberOfWorkers" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StatisticsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="professions" type="moixsd:ProfessionDetailsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="RestrictedEstablishment">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+</xsd:schema>

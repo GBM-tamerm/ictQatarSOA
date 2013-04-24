@@ -1,0 +1,81 @@
+
+BROKER SCHEMA qa.gov.igov.gsb.fault
+DECLARE igov NAMESPACE 'urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/';
+DECLARE govhdr NAMESPACE 'igov.gov.qa/xml/schemas/v1_0/';
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+
+CREATE COMPUTE MODULE FaultHandler_FormatFault
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		DECLARE layerCode CHARACTER '003' ;
+		DECLARE networkLocationCode CHARACTER '001' ;
+		DECLARE serviceCode CHARACTER '000' ;
+		DECLARE errorCode CHARACTER '' ;
+		DECLARE faultTmpString CHARACTER '' ;
+		DECLARE faultstring CHARACTER '' ;
+		DECLARE userMessage CHARACTER '' ;
+		DECLARE detailMessage CHARACTER '' ;
+		-- Create a reference to the first child of the exception list
+		declare ptrException reference to InputExceptionList.*[1];
+		-- keep looping while the moves to the child of exception list work
+		WHILE lastmove(ptrException) DO
+			move ptrException lastchild;
+		END WHILE;
+		move ptrException PARENT;
+		move ptrException PARENT;
+		-- store the current values for the error number and text
+		SET OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.govhdr:IGOVHeaderType = InputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.govhdr:IGOVHeaderType;
+		IF ptrException.Catalog = 'igovExCatalog' THEN
+			SET OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Body.soapenv:Fault.faultcode = 'Client' ;
+			SET errorCode = layerCode || '-' || networkLocationCode || '-' || serviceCode || '-' || (CAST(ptrException.Number AS CHARACTER));
+			SET faultTmpString = ptrException.Insert[1].Text;
+			SET userMessage = ptrException.Insert[2].Text;
+			SET detailMessage = ptrException.Insert[3].Text;
+		ELSE
+			SET OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Body.soapenv:Fault.faultcode = 'Server' ;
+			SET errorCode = layerCode || '-' || networkLocationCode || '-' || serviceCode || '-' || '9500';
+			SET faultTmpString = 'Infrastructure Fault';
+			SET userMessage = 'An unexpected runtime fault has occured during processing your request';
+			SET detailMessage = 'Root Exception: Catalog: ' || ptrException.Catalog || '. Number: ' || (CAST(ptrException.Number AS CHARACTER)) || '. Text: ' || ptrException.Text || '.' ;
+		END IF;
+
+		SET faultstring =  'i-GovESB:' || errorCode || ': '  || faultTmpString ; -- || '. TrackingID:' || Environment.igov.trackingID;
+		DECLARE rFault REFERENCE TO OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Body.soapenv:Fault;
+		SET rFault.faultstring = faultstring ;
+		SET rFault.faultactor = Environment.igov.service.actor ;
+		SET rFault.detail.igov:CommonErrorStructure.igov:ErrorCode = errorCode ;
+		DECLARE rCommonErr REFERENCE TO rFault.detail.igov:CommonErrorStructure ;
+		SET rCommonErr.igov:NetworkLocation = 'i-GovESB/Broker:' || BrokerName || '/Execution Group: ' || ExecutionGroupLabel || '/Queue Manager: ' || QueueManagerName ; --  || '/TrackingID: ' || Environment.igov.trackingID;
+		SET rCommonErr.igov:FailedMessage = InputRoot.XMLNSC;
+		SET rCommonErr.igov:DetailMessage = detailMessage ;
+		SET rCommonErr.igov:TimeStamp = CURRENT_TIMESTAMP ;
+		SET rCommonErr.igov:UserMessage = userMessage ;
+		
+		DECLARE iBSoptions INTEGER BITOR(FolderBitStream, ValidateNone);		
+		DECLARE InMsgBlob BLOB;
+		DECLARE InMESSAGE CHARACTER;
+		SET InMsgBlob = ASBITSTREAM(OutputRoot.XMLNSC.soapenv:Envelope CCSID InputRoot.Properties.CodedCharSetId OPTIONS iBSoptions TYPE '{http://schemas.xmlsoap.org/soap/envelope/}:Envelope' FORMAT 'XML1' );
+		SET InMESSAGE = CAST(InMsgBlob AS CHARACTER CCSID 1208);
+		IF InMESSAGE IS NULL THEN
+			SET InMESSAGE = 'NULL' ;	
+		END IF;
+		SET Environment.Variables.Log4j.LogText = Environment.Variables.Log4j.LogPrefix || 'serviceFault: ' || InMESSAGE;
+		RETURN TRUE;
+	END;
+
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

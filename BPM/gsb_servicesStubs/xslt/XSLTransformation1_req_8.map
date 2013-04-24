@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_8" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_8">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Aigov.gov.qa%252FsharedServices%252Fnotification%252Fspecifications%252Fv1_0%252F%257DNotificationsendNotificationRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Aigov.gov.qa%252FsharedServices%252Fnotification%252Fspecifications%252Fv1_0%252F%257DNotificationsendNotificationResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_8">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/NotificationsendNotificationResponse1/acknowledgment/acknowledgment"/>
+            <function ref="assign">
+                <property key="value" value="SENT"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/NotificationsendNotificationResponse1/acknowledgment/notificationId"/>
+            <function ref="assign">
+                <property key="value" value="123322"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

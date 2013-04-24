@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_2" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_2">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentInfogetEstablishmentInfoByIdRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentInfogetEstablishmentInfoByIdResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_2">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/name"/>
+            <function ref="assign">
+                <property key="value" value="العمادى"/>
+            </function>
+        </mapping>
+        <mapping>
+            <input path="EstablishmentInfogetEstablishmentInfoByIdRequest1/estId"/>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/Id"/>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/qID"/>
+            <function ref="assign">
+                <property key="value" value="2132243"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/mobilePhone"/>
+            <function ref="assign">
+                <property key="value" value="55816892"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/emailAddress"/>
+            <function ref="assign">
+                <property key="value" value="tamerm@qa.gbm.ihost.com"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/agents/qID"/>
+            <function ref="assign">
+                <property key="value" value="3333333"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/personName/name_Ar"/>
+            <function ref="assign">
+                <property key="value" value="عبد الله العمادى"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/agents/mobilePhone"/>
+            <function ref="assign">
+                <property key="value" value="7704343"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/agents/emailAddress"/>
+            <function ref="assign">
+                <property key="value" value="agent1@gmail.com"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentInfogetEstablishmentInfoByIdResponse1/establishmentInfo/currentCountOfWorkers"/>
+            <function ref="assign">
+                <property key="value" value="100"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

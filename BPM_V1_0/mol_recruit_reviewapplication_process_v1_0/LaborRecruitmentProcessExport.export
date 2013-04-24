@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ict.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:v1="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="LaborRecruitmentProcessExport" name="LaborRecruitmentProcessExport" target="LaborRecruitmentProcess">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="v1:ILaborRecuirmentApplication"/>
+  </interfaces>
+</scdl:export>

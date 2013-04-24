@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1273671657062-0" eventTrace="/1" clientID="1273671657062-0">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/SMSMF.msgflow" iD="1273671657062-4">
+        <inputNodes xsi:type="mq:MQInputNode" nodeName="MQInput" queue="SMS_Queue"/>
+      </testModules>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="WebSphere Message Broker v6.1" runtimeInstance="ict_cm^ict_broker^default^10.10.29.51^1414" runtimeMode="1" StopAtBeginning="true"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1273671657062-3" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1273671657062-1" children="/2 /7 /12"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1273673351343-122" readOnly="true" clientID="1273671657062-0" timestamp="1273673351343" children="/3 /4 /6" msgFlow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/SMSMF.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="MQInput" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1273671971375-10">
+    <request xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273671657062-3" headerName="Default Header"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http:DeploymentStatus iD="1273673392265-125" parentID="1273673351343-122" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Going to rebuild and deploy broker archive&#xD;&#xA;[Info]  Cleaning Broker Archive...&#xD;&#xA;[Info]  Rebuilding broker archive...&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Deploying broker archive to execution group...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1273673479515-136" readOnly="true" clientID="1273671657062-0" parentID="1273673351343-122" timestamp="1273673479515" invokeCommandId="1273673479515-133" children="/5"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;SMS_Queue&quot;" iD="1273673479609-137" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue" readOnly="true" clientID="1273671657062-0" parentID="1273673479515-136" invokeCommandId="1273673479515-134">
+    <message xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273673479609-139" applicationIdData="                                " applicationOriginData="    " characterSet="819" encoding="273" format="        " putApplicationName="                            " putDateTime="Wed May 12 17:11:19 AST 2010" replyToQueueManagerName="                                                " replyToQueueName="                                                " userId="            " msgId="AMQ+ict_qm++++++q%2C%C3%A0K%03%12%02+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00"/>
+    </message>
+  </mq:MQInformationEvent>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1273673479609-141" readOnly="true" clientID="1273671657062-0" parentID="1273673351343-122" timestamp="1273673479609" invokeCommandId="1273673479515-134"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1273673629609-143" readOnly="true" clientID="1273671657062-0" timestamp="1273673629609" children="/8 /9 /11" msgFlow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/SMSMF.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="MQInput" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1273671971375-10">
+    <request xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273671657062-3" headerName="Default Header"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http:DeploymentStatus iD="1273673629843-146" parentID="1273673629609-143" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Going to rebuild and deploy broker archive&#xD;&#xA;[Info]  Cleaning Broker Archive...&#xD;&#xA;[Info]  Rebuilding broker archive...&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Deploying broker archive to execution group...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1273673730078-158" readOnly="true" clientID="1273671657062-0" parentID="1273673629609-143" timestamp="1273673730078" invokeCommandId="1273673730078-154" children="/10"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;SMS_Queue&quot;" iD="1273673730171-159" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue" readOnly="true" clientID="1273671657062-0" parentID="1273673730078-158" invokeCommandId="1273673730078-155">
+    <message xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273673730171-162" applicationIdData="                                " applicationOriginData="    " characterSet="819" encoding="273" format="        " putApplicationName="                            " putDateTime="Wed May 12 17:15:30 AST 2010" replyToQueueManagerName="                                                " replyToQueueName="                                                " userId="            " msgId="AMQ+ict_qm++++++q%2C%C3%A0K%03%14%02+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00"/>
+    </message>
+  </mq:MQInformationEvent>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1273673730171-164" readOnly="true" clientID="1273671657062-0" parentID="1273673629609-143" timestamp="1273673730171" invokeCommandId="1273673730078-155"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1274005100921-147" readOnly="true" clientID="1273671657062-0" timestamp="1274005100921" children="/13 /14 /16" msgFlow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/SMSMF.msgflow" nodeId="FCMComposite_1_1" testScopeID="default" nodeName="MQInput" nodeType="ComIbmMQInput.msgnode" targetDeploymentLocationID="1274005101093-152">
+    <request xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273671657062-3" headerName="Default Header"/>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http:DeploymentStatus iD="1274005101093-150" parentID="1274005100921-147" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Going to rebuild and deploy broker archive&#xD;&#xA;[Info]  Cleaning Broker Archive...&#xD;&#xA;[Info]  Rebuilding broker archive...&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Deploying broker archive to execution group...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1274005185890-164" readOnly="true" clientID="1273671657062-0" parentID="1274005100921-147" timestamp="1274005185890" invokeCommandId="1274005185890-160" children="/15"/>
+  <mq:MQInformationEvent name="Sending Message to MQ Queue &quot;SMS_Queue&quot;" iD="1274005185968-165" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue" readOnly="true" clientID="1273671657062-0" parentID="1274005185890-164" invokeCommandId="1274005185890-161">
+    <message xsi:type="model2:TestMessage" iD="1273673351359-123" header="/0/@scopes.0/@messageHeaders.0">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="WSDL_URI"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText" stringValue="%3Cv12%3AnotificationMessage+xmlns%3Av12%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%0D%0A%3Cv12%3AsmsDetails%3E%0D%0A%3Cv12%3AsenderCode%3E123456789012345678901234567890%3C%2Fv12%3AsenderCode%3E%0D%0A%3Cv12%3Amessage%3EYARAB%3C%2Fv12%3Amessage%3E%0D%0A%3Cv12%3AmobileNumber%3E12345%3C%2Fv12%3AmobileNumber%3E%0D%0A%3Cv12%3AmessageLanguage%3EENGLISH%3C%2Fv12%3AmessageLanguage%3E%0D%0A%3C%2Fv12%3AsmsDetails%3E%0D%0A%3C%2Fv12%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1274005185968-168" applicationIdData="                                " applicationOriginData="    " characterSet="819" encoding="273" format="        " putApplicationName="                            " putDateTime="Sun May 16 13:19:45 AST 2010" replyToQueueManagerName="                                                " replyToQueueName="                                                " userId="            " msgId="AMQ+ict_qm++++++q%2C%C3%A0K%03%E2%80%A6%02+" correlId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" accountingToken="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00"/>
+    </message>
+  </mq:MQInformationEvent>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1274005185984-170" readOnly="true" clientID="1273671657062-0" parentID="1274005100921-147" timestamp="1274005185984" invokeCommandId="1274005185890-161"/>
+</xmi:XMI>

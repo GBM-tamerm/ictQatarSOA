@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LaborRecruitmentApplicationService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/LaborRecruitmentApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="LaborRecruitmentApplicationBinding" type="molspcxsd:LaborRecruitmentApplication">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="insertNewApplication">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/insertNewApplication/"/>
+      <wsdl:input>
+        <soap:body parts="appDetails" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="appID" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="insertNewApplicationFault">
+        <soap:fault name="insertNewApplicationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="insertCSRReviewResult">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/insertCSRReviewResult/"/>
+      <wsdl:input>
+        <soap:body parts="reviewResult" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="ack" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="insertCSRReviewResultFault">
+        <soap:fault name="insertCSRReviewResultFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="laborRecruitmentApplication">
+    <wsdl:port binding="tns:LaborRecruitmentApplicationBinding" name="LaborRecruitmentApplicationPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/laborRecruitmentApplication/LaborRecruitmentApplicationPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

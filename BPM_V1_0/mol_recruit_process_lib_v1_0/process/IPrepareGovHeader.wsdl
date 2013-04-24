@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IPrepareGovHeader" targetNamespace="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:bons1="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:bons2="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:tns="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://mol_recruit_process_lib/process/IPrepareGovHeader">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+            <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+      <xsd:element name="perpareGovHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="processHeader" nillable="true" type="bons2:ProcessHeader"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="perpareGovHeaderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="govHeader" nillable="true" type="bons1:IGOVHeaderType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="perpareGovHeaderRequestMsg">
+    <wsdl:part element="tns:perpareGovHeader" name="perpareGovHeaderParameters"/>
+  </wsdl:message>
+    <wsdl:message name="perpareGovHeaderResponseMsg">
+    <wsdl:part element="tns:perpareGovHeaderResponse" name="perpareGovHeaderResult"/>
+  </wsdl:message>
+    <wsdl:portType name="IPrepareGovHeader">
+    <wsdl:operation name="perpareGovHeader">
+      <wsdl:input message="tns:perpareGovHeaderRequestMsg" name="perpareGovHeaderRequest"/>
+      <wsdl:output message="tns:perpareGovHeaderResponseMsg" name="perpareGovHeaderResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

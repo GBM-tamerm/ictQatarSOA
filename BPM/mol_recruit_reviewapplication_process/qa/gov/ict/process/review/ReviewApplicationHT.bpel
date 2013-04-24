@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://LR_ReviewApplication/qa/gov/ict/process/review/ReviewApplicationHTArtifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1" xmlns:ns1="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:ns10="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/" xmlns:ns11="http://ict.gov.qa/Notification/xml/schemas/version1.0" xmlns:ns12="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns13="igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:ns14="igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns15="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns16="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns17="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns18="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:ns19="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns2="http://ict.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:ns20="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:ns21="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:ns22="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:ns23="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns24="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters" xmlns:ns25="http://mol.gov.qa/recruitment/process" xmlns:ns3="http:///ict.gov.qa/Process/XSD/ReviewResults/v1" xmlns:ns4="http:///ict.gov.qa/Process/XSD/ProcessHeader" xmlns:ns5="http://LR_ReviewApplication/ReviewPHTM" xmlns:ns6="http://LR_ReviewApplication/IPrepareNotifcationReview" xmlns:ns7="http://ict.gov.qa/Notification/NotificationService/version/1.0" xmlns:ns8="http://ict.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:ns9="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/" xmlns:tel="http://LR_ReviewApplication/qa/gov/ict/process/review/Task1" xmlns:tel0="http://LR_ReviewApplication/qa/gov/ict/process/review/Task2" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ReviewApplication" suppressJoinFailure="yes" targetNamespace="http://LR_ReviewApplication/qa/gov/ict/process/review" wpc:autonomy="child" wpc:continueOnError="yes" wpc:displayName="ReviewApplication" wpc:executionMode="longRunning" wpc:id="6" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-16T14:47:38">
+  <wpc:javaGlobals>
+    <wpc:import packages="java.util.logging.Logger"/>
+    <wpc:import packages="qa.gov.mol.lr.common.ICommonConstants"/>
+    <wpc:import packages="qa.gov.mol.lr.common.GovHeaderHelper"/>
+  </wpc:javaGlobals>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../ReviewApplicationProcess.wsdl" namespace="http://LR_ReviewApplication/ReviewApplicationHT"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ApplicationBO.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="ReviewApplicationHTArtifacts.wsdl" namespace="http://LR_ReviewApplication/qa/gov/ict/process/review/ReviewApplicationHTArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../ReviewApplicationProcess.wsdl" namespace="http://LR_ReviewApplication/ReviewApplicationHT"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IReviewApplicationHT.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IReviewApplicationHT/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ProcessHeader.xsd" namespace="http:///ict.gov.qa/Process/XSD/ProcessHeader"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ReviewResults.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/ReviewResults/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../ReviewPHTM.wsdl" namespace="http://LR_ReviewApplication/ReviewPHTM"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../PrepareNotifcationReview.wsdl" namespace="http://LR_ReviewApplication/IPrepareNotifcationReview"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/NotificationService-v1-0.wsdl" namespace="http://ict.gov.qa/Notification/NotificationService/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../ict/gov/qa/Notification/NotificationService-v1-0.wsdl" namespace="http://ict.gov.qa/Notification/NotificationService/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IReviewApplication.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication.wsdl" namespace="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.mol.gov.qa.labor.recruitmentApplication.xml.schemas.version1_0.xsd" namespace="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../ict/gov/qa/Notification/xml/schemas/version1_0/Notification-v1-0.xsd" namespace="http://ict.gov.qa/Notification/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentInfo_v1_0.wsdl" namespace="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/Notification_v1_0.xsd" namespace="igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../igov/gov/qa/sharedServices/notification/specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/NotificationSchema_v1_0.xsd" namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd" namespace="urn:igov.gov.qa/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_process_lib/process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_reviewapplication_process/PerpareEscalationsParamters.wsdl" namespace="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../PerpareEscalationsParamters.wsdl" namespace="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../process/EscalationParamters.xsd" namespace="http://mol.gov.qa/recruitment/process"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="ReviewApplicationProcessHT" partnerLinkType="ns:ReviewApplicationProcessHTPLT"/>
+    <bpws:partnerLink name="PrepareNotificationPartner" partnerLinkType="ns:PrepareNotificationPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="NotificaitonPartner" partnerLinkType="ns:NotificaitonPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="LRApplicationPartner" partnerLinkType="ns:LRApplicationPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="AdminFaultHandlerPartner" partnerLinkType="ns:AdminFaultHandlerPartnerPLT" partnerRole="Reference">
+      <wpc:processResolver processTemplateName="AdminFaultHandler"/>
+    </bpws:partnerLink>
+    <bpws:partnerLink name="IPrepareGovHeaderPartner" partnerLinkType="ns:IPrepareGovHeaderPLT" partnerRole="Interface"/>
+    <bpws:partnerLink name="PerpareEscalationsParamtersPartner" partnerLinkType="ns:PerpareEscalationsParamtersPLT" partnerRole="Interface"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="reviewResults" type="ns16:ReviewResultType" wpc:id="8"/>
+    <bpws:variable name="pHeader" type="ns16:ProcessHeader" wpc:id="9"/>
+    <bpws:variable name="userID" type="xsd:string" wpc:id="12">
+      <wpc:queryProperties>
+        <wpc:queryProperty name="userID" type="xsd:string"/>
+      </wpc:queryProperties>
+    </bpws:variable>
+    <bpws:variable name="retry" type="xsd:boolean" wpc:id="30"/>
+    <bpws:variable name="eGovHeader" type="ns22:IGOVHeaderType" wpc:id="49"/>
+    <bpws:variable name="application" type="ns16:ApplicationLW" wpc:id="4"/>
+    <bpws:variable name="currentDate" type="xsd:dateTime" wpc:id="35"/>
+    <bpws:variable name="insertResultRequest" type="ns17:InsertCSRReviewResultRequest" wpc:id="37"/>
+    <bpws:variable name="insertResultResponse" type="ns17:InsertCSRReviewResultResponse" wpc:id="38"/>
+    <bpws:variable name="notificationRequest" type="ns18:NotificationRequestType" wpc:id="39"/>
+    <bpws:variable name="sendNotificationRequest" type="ns19:SendNotificationRequest" wpc:id="40"/>
+    <bpws:variable name="sendNotificationResponse" type="ns19:SendNotificationResponse" wpc:id="41"/>
+    <bpws:variable name="escalationParams" type="ns25:EscalationParamters" wpc:id="63"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="operation1" partnerLink="ReviewApplicationProcessHT" portType="ns1:ReviewApplicationProcess" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="application" variable="application"/>
+        <wpc:parameter name="pHeader" variable="pHeader"/>
+        <wpc:parameter name="userID" variable="userID"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="updatestepID" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="update step ID" wpc:id="60">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[application.set(qa.gov.mol.lr.process.constants.XpathConstants.Step_ID,qa.gov.mol.lr.common.IProcessStep.CSR_Review);]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:invoke name="prepareescalationparamters" operation="getEscalationParams" partnerLink="PerpareEscalationsParamtersPartner" portType="ns24:PerpareEscalationsParamters" wpc:displayName="prepare escalation paramters" wpc:id="62">
+      <wpc:input>
+        <wpc:parameter name="app" variable="application"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="escalationParam" variable="escalationParams"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:invoke name="CSRReview" operation="reviewApplication" partnerLink="null" portType="ns21:IReviewApplicationHT" wpc:continueOnError="inherit" wpc:displayName="CSR Review" wpc:id="7" wpc:transactionalBehavior="participates">
+      <wpc:task name="tel:ReviewApplicationHTTask1"/>
+      <wpc:input>
+        <wpc:parameter name="ApplicationLW" variable="application"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="ReviewResultType" variable="reviewResults"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:assign name="initializeretry1" wpc:displayName="initialize retry" wpc:id="16">
+      <bpws:copy>
+        <bpws:from>true</bpws:from>
+        <bpws:to variable="retry"/>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:invoke name="setcurrentdate" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="set current date" wpc:id="36">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[currentDate= new java.util.Date();]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:assign name="setserviceinputs" wpc:displayName="set service inputs" wpc:id="34">
+      <bpws:copy>
+        <bpws:from variable="application">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationID]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="insertResultRequest">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[appID]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="reviewResults"/>
+        <bpws:to variable="insertResultRequest">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[reviewResult]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="currentDate"/>
+        <bpws:to variable="insertResultRequest">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[reviewResult/timeStamp]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:while name="whileretryisneeded1" wpc:displayName="while retry is needed" wpc:id="17">
+      <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($retry)]]></bpws:condition>
+      <bpws:scope name="Scope" wpc:displayName="Scope" wpc:id="50">
+        <bpws:faultHandlers>
+          <bpws:catchAll>
+            <bpws:sequence name="HiddenSequence5" wpc:id="1073741876">
+              <bpws:invoke name="logexception3" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="53">
+                <wpc:script>
+                  <wpc:javaCode><![CDATA[com.ibm.bpe.api.ProcessException e=getCurrentFaultAsException();
+Logger logger=Logger.getLogger("ReviewApplicationProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+e.getMessage()+"cause: "+e.getCause() );
+application.set(qa.gov.mol.lr.process.constants.XpathConstants.faultMessage,"the following excpetion raised :"+e.getMessage()+"cause: "+e.getCause());
+]]></wpc:javaCode>
+                </wpc:script>
+              </bpws:invoke>
+              <bpws:invoke name="AdministrationFaulthandler3" operation="retryFault" partnerLink="AdminFaultHandlerPartner" portType="ns20:IAdminFaultHandler" wpc:displayName="Administration Fault handler" wpc:id="54">
+                <wpc:input>
+                  <wpc:parameter name="ApplicationLW" variable="application"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="retry" variable="retry"/>
+                </wpc:output>
+              </bpws:invoke>
+            </bpws:sequence>
+          </bpws:catchAll>
+        </bpws:faultHandlers>
+        <bpws:sequence name="HiddenSequence4" wpc:id="1073741875">
+          <bpws:invoke name="persistreviewresults" operation="insertCSRReviewResult" partnerLink="LRApplicationPartner" portType="ns17:LaborRecruitmentApplication" wpc:continueOnError="inherit" wpc:displayName="persist review results " wpc:id="31">
+            <wpc:input>
+              <wpc:parameter name="reviewResult" variable="insertResultRequest"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="ack" variable="insertResultResponse"/>
+            </wpc:output>
+          </bpws:invoke>
+          <bpws:assign name="setapplicationstatus" wpc:displayName="set application status" wpc:id="43">
+            <bpws:copy>
+              <bpws:from variable="insertResultResponse">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[appStatus]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="application">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:assign name="resetretry1" wpc:displayName="reset retry" wpc:id="20">
+            <bpws:copy>
+              <bpws:from>false</bpws:from>
+              <bpws:to variable="retry"/>
+            </bpws:copy>
+          </bpws:assign>
+        </bpws:sequence>
+      </bpws:scope>
+    </bpws:while>
+    <bpws:invoke name="preparenotification" operation="perpareNotification" partnerLink="PrepareNotificationPartner" portType="ns6:PrepareNotifcationReview" wpc:displayName="prepare notification" wpc:id="21">
+      <wpc:input>
+        <wpc:parameter name="application" variable="application"/>
+        <wpc:parameter name="reviewResults" variable="reviewResults"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="notificationRequest" variable="notificationRequest"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:assign name="initializeretry" wpc:displayName="initialize retry" wpc:id="22">
+      <bpws:copy>
+        <bpws:from>true</bpws:from>
+        <bpws:to variable="retry"/>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:while name="whileretryisneeded" wpc:displayName="while retry is needed" wpc:id="23">
+      <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($retry)]]></bpws:condition>
+      <bpws:sequence name="HiddenSequence1" wpc:id="1073741848">
+        <bpws:invoke name="perpareGovHeader" operation="perpareGovHeader" partnerLink="IPrepareGovHeaderPartner" portType="ns23:IPrepareGovHeader" wpc:continueOnError="inherit" wpc:displayName="perpare GovHeader" wpc:id="61">
+          <wpc:input>
+            <wpc:parameter name="processHeader" variable="pHeader"/>
+          </wpc:input>
+          <wpc:output>
+            <wpc:parameter name="govHeader" variable="eGovHeader"/>
+          </wpc:output>
+        </bpws:invoke>
+        <bpws:assign name="setnotificationinput" wpc:displayName="set notification input" wpc:id="42">
+          <bpws:copy>
+            <bpws:from variable="notificationRequest"/>
+            <bpws:to variable="sendNotificationRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[sendNotification]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:scope name="Scope1" wpc:displayName="Scope1" wpc:id="55">
+          <bpws:faultHandlers>
+            <bpws:catchAll>
+              <bpws:sequence name="HiddenSequence2" wpc:id="1073741881">
+                <bpws:invoke name="logexception1" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="58">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.ProcessException e=getCurrentFaultAsException();
+Logger logger=Logger.getLogger("ReviewApplicationProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+e.getMessage()+"cause: "+e.getCause() );
+application.set(qa.gov.mol.lr.process.constants.XpathConstants.faultMessage,"the following excpetion raised :"+e.getMessage()+"cause: "+e.getCause());
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:invoke name="AdministrationFaulthandler2" operation="retryFault" partnerLink="AdminFaultHandlerPartner" portType="ns20:IAdminFaultHandler" wpc:displayName="Administration Fault handler" wpc:id="59">
+                  <wpc:input>
+                    <wpc:parameter name="ApplicationLW" variable="application"/>
+                  </wpc:input>
+                  <wpc:output>
+                    <wpc:parameter name="retry" variable="retry"/>
+                  </wpc:output>
+                </bpws:invoke>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:faultHandlers>
+          <bpws:sequence name="HiddenSequence3" wpc:id="1073741880">
+            <bpws:invoke name="notifyagent" operation="sendNotification" partnerLink="NotificaitonPartner" portType="ns19:Notification" wpc:displayName="notify agent" wpc:id="25">
+              <wpc:input>
+                <wpc:parameter name="notificationRequest" variable="sendNotificationRequest"/>
+                <wpc:parameter name="header" variable="eGovHeader"/>
+              </wpc:input>
+              <wpc:output>
+                <wpc:parameter name="notificationResponse" variable="sendNotificationResponse"/>
+              </wpc:output>
+            </bpws:invoke>
+            <bpws:assign name="resetretry" wpc:displayName="reset retry" wpc:id="29">
+              <bpws:copy>
+                <bpws:from>false</bpws:from>
+                <bpws:to variable="retry"/>
+              </bpws:copy>
+            </bpws:assign>
+          </bpws:sequence>
+        </bpws:scope>
+      </bpws:sequence>
+    </bpws:while>
+    <bpws:reply name="Reply" operation="operation1" partnerLink="ReviewApplicationProcessHT" portType="ns1:ReviewApplicationProcess" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="application" variable="application"/>
+        <wpc:parameter name="reviewResults" variable="reviewResults"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

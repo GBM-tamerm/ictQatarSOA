@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="SMSNotificationService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/SMSNotificationService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/SMSNotificationService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/SMSNotification_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="SMSNotificationBinding" type="molspcxsd:SMSNotification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendSMS">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/SMSNotificationService/sendSMS/"/>
+      <wsdl:input>
+        <soap:body parts="smsMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="sent" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="sendSMSFault">
+        <soap:fault name="sendSMSFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="smsNotification">
+    <wsdl:port binding="tns:SMSNotificationBinding" name="SMSNotificationPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/SMSNotificationService/smsNotification/SMSNotificationPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

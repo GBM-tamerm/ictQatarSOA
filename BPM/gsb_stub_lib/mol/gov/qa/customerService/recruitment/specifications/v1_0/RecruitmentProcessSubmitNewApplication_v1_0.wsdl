@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="SubmitApplicationRequest">
+        <xsd:sequence>
+          <xsd:element name="applicationDetails" type="molxsd:ApplicationDetailsLW"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest1" type="tns:SubmitApplicationRequest"/>
+      <xsd:element name="RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest2" type="molxsd:ProcessHeader"/>
+      <xsd:complexType name="SubmitApplicationResponse">
+        <xsd:sequence>
+          <xsd:element name="processAcknowledgment" type="molxsd:ProcessAcknowledgment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecruitmentProcessSubmitNewApplicationsubmitApplicationResponse1" type="tns:SubmitApplicationResponse"/>
+      <xsd:element name="RecruitmentProcessSubmitNewApplicationsubmitApplicationFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest">
+    <wsdl:part element="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest1" name="submitApplicationReq"/>
+    <wsdl:part element="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest2" name="processHeader"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessSubmitNewApplicationsubmitApplicationResponse">
+    <wsdl:part element="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationResponse1" name="submitApplicationRes"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessSubmitNewApplicationsubmitApplicationFault">
+    <wsdl:part element="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="RecruitmentProcessSubmitNewApplication">
+    <wsdl:operation name="submitApplication">
+      <wsdl:input message="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest"/>
+      <wsdl:output message="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationResponse"/>
+      <wsdl:fault message="tns:RecruitmentProcessSubmitNewApplicationsubmitApplicationFault" name="submitApplicationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

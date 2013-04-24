@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="getSuspendedApplicationsTasksRequest"/>
+      <xsd:element name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksRequest1" type="tns:getSuspendedApplicationsTasksRequest"/>
+      <xsd:complexType name="getSuspendedApplicationsTasksResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="suspendedApplicationList" type="molxsd:SuspendedApplication"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksResponse1" type="tns:getSuspendedApplicationsTasksResponse"/>
+      <xsd:element name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksRequest">
+    <wsdl:part element="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksRequest1" name="getSuspendedAppsTasksReq"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksResponse">
+    <wsdl:part element="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksResponse1" name="getSuspendedAppsTasksRes"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksFault">
+    <wsdl:part element="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="RecruitmentProcessGetSuspendedApplications">
+    <wsdl:operation name="getSuspendedApplicationsTasks">
+      <wsdl:input message="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksRequest"/>
+      <wsdl:output message="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksResponse"/>
+      <wsdl:fault message="tns:RecruitmentProcessGetSuspendedApplicationsgetSuspendedApplicationsTasksFault" name="getSuspendedApplicationsTasksFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

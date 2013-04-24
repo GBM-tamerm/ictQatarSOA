@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ReviewApplicationHT" targetNamespace="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:tns="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LR_ReviewApplication/ReviewApplicationHT">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="operation1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="application" nillable="true" type="bons1:ApplicationLW"/>
+                        <xsd:element name="userID" nillable="true" type="xsd:string"/>
+                        <xsd:element name="pHeader" nillable="true" type="bons1:ProcessHeader"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="operation1Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="application" nillable="true" type="bons1:ApplicationLW"/>
+                        <xsd:element name="reviewResults" nillable="true" type="bons1:ReviewResultType"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="operation1RequestMsg">
+    <wsdl:part element="tns:operation1" name="operation1Parameters"/>
+  </wsdl:message>
+    <wsdl:message name="operation1ResponseMsg">
+    <wsdl:part element="tns:operation1Response" name="operation1Result"/>
+  </wsdl:message>
+    <wsdl:portType name="ReviewApplicationProcess">
+    <wsdl:operation name="operation1">
+            <wsdl:input message="tns:operation1RequestMsg" name="operation1Request"/>
+            <wsdl:output message="tns:operation1ResponseMsg" name="operation1Response"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

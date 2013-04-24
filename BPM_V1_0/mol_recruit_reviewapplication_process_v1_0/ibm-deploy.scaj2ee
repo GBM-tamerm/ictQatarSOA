@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject>
+    <contextroot>
+      <name>customerService/recruitment/services/v1_0/RecruitmentProcessResumeApplicationService</name>
+    </contextroot>
+  </appProject>
+  <wsExports>
+    <wsExport>
+      <name>RecruitmentProcessResumeApplicationExport1</name>
+      <keepDefaultURLPattern>false</keepDefaultURLPattern>
+      <urlpattern>
+        <pattern>/recruitmentProcessResumeApplication/RecruitmentProcessResumeApplicationPort</pattern>
+      </urlpattern>
+    </wsExport>
+    <wsDescExtensions>
+      <wsDescExt wsDescNameLink="RecruitmentProcessResumeApplicationExport1_RecruitmentProcessResumeApplicationHttpService">
+        <pcBinding pcNameLink="RecruitmentProcessResumeApplicationExport1_RecruitmentProcessResumeApplicationHttpPort"/>
+      </wsDescExt>
+    </wsDescExtensions>
+    <wsDescBindings>
+      <wsdescBindings wsDescNameLink="RecruitmentProcessResumeApplicationExport1_RecruitmentProcessResumeApplicationHttpService">
+        <pcBindings pcNameLink="RecruitmentProcessResumeApplicationExport1_RecruitmentProcessResumeApplicationHttpPort"/>
+      </wsdescBindings>
+    </wsDescBindings>
+  </wsExports>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

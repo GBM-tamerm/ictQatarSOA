@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:java="http://ict.gov.qa/IGOVError/xml/schemas/version1.0" xmlns:java0="http://ict.gov.qa/IGOVError/xml/schemas/version1_0/" xmlns:ns="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/ValidationRulesProcessArtifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1" xmlns:ns1="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:ns10="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/" xmlns:ns11="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/EstablishmentLaborInfo/" xmlns:ns12="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentBusinessRules/" xmlns:ns13="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns14="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns15="igov.gov.qa/xml/schemas/v1_0/" xmlns:ns16="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns17="moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns18="kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:ns19="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns2="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0" xmlns:ns20="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns21="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns22="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns23="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:ns24="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:ns25="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns26="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:ns27="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns3="http:///ict.gov.qa/Process/XSD/commonTypes/v1" xmlns:ns4="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0" xmlns:ns5="http://mol.gov.qa/Labor/RecruitmentBusinessRules/version/1.0" xmlns:ns6="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:ns7="http://schemas.ict.gov.qa/2010/01/iGovHeader" xmlns:ns8="http://ict.gov.qa/Notification/NotificationService/version/1.0" xmlns:ns9="http:///ict.gov.qa/Process/XSD/ProcessHeader" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="ValidationRulesProcess" suppressJoinFailure="yes" targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation" wpc:autoDelete="onSuccessfulCompletion" wpc:autonomy="peer" wpc:compensationSphere="supports" wpc:continueOnError="yes" wpc:displayName="ValidationRulesProcess" wpc:executionMode="microflow" wpc:id="6" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-10T09:17:47">
+  <wpc:javaGlobals>
+    <wpc:import packages="java.util.logging.Logger"/>
+    <wpc:import packages="qa.gov.mol.lr.common.ICommonConstants"/>
+    <wpc:import packages="qa.gov.mol.lr.common.GovHeaderHelper"/>
+  </wpc:javaGlobals>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../wsdl/IValidateEstablishment.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.IPreconditionValidation.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="ValidationRulesProcessArtifacts.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/ValidationRulesProcessArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/EstablishmentLaborInfo-v1-0.wsdl" namespace="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../process/ProcessCommonTypes-v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/commonTypes/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/CommonTypes-v1-0.xsd" namespace="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/LaborRecruitmentBusinessRules-v1-0.wsdl" namespace="http://mol.gov.qa/Labor/RecruitmentBusinessRules/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/EstablishmentSecurityInfo-v1-0.wsdl" namespace="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.schemas.ict.gov.qa.2010.01.iGovHeader.xsd" namespace="http://schemas.ict.gov.qa/2010/01/iGovHeader"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/CommonError-v1-0.xsd" namespace="http://ict.gov.qa/IGOVError/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/NotificationService-v1-0.wsdl" namespace="http://ict.gov.qa/Notification/NotificationService/version/1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ProcessHeader.xsd" namespace="http:///ict.gov.qa/Process/XSD/ProcessHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/labor/recruitmentApplication/specifications/versions1_0/EstablishmentLaborInfo.wsdl" namespace="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/EstablishmentLaborInfo/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.mol.gov.qa.labor.recruitmentApplication.xml.schemas.version1_0.xsd" namespace="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../ict/gov/qa/IGOVError/xml/schemas/version1_0/CommonErrorStructure.xsd" namespace="http://ict.gov.qa/IGOVError/xml/schemas/version1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentBusinessRules.wsdl" namespace="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentBusinessRules/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo.wsdl" namespace="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentInfo_v1_0.wsdl" namespace="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd" namespace="urn:igov.gov.qa/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentSecurityInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd" namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../kahramaa/com/qa/billing/xml/schemas/v1_0/Billing_v1_0.xsd" namespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/BlacklistedEstablishmentInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentBusinessRules_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd" namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_process_lib/process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="IValidateEstablishment" partnerLinkType="ns:IValidateEstablishmentPLT"/>
+    <bpws:partnerLink name="EstHasActiveAppPartner" partnerLinkType="ns:EstLaborInfoPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="EstSecInfoPartner" partnerLinkType="ns:EstSecInfoPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="LaborBusinessRules" partnerLinkType="ns:LaborBusinessRulesPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="EstIsBlackListedPartner" partnerLinkType="ns:EstIsBlackListedPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="IPrepareGovHeaderPartner" partnerLinkType="ns:IPrepareGovHeaderPLT" partnerRole="Interface"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="validationResults" type="ns25:ValidationResults" wpc:id="5"/>
+    <bpws:variable name="eGovHeader" type="ns24:IGOVHeaderType" wpc:id="16"/>
+    <bpws:variable name="inValidResults" type="ns25:InValidType" wpc:id="20"/>
+    <bpws:variable name="faultMessage" type="xsd:string" wpc:id="43"/>
+    <bpws:variable name="faultCause" type="xsd:string" wpc:id="44"/>
+    <bpws:variable name="electricityNo" type="ns23:ElectricityNumberType" wpc:id="94"/>
+    <bpws:variable name="errorCode" type="xsd:string" wpc:id="167"/>
+    <bpws:variable name="estID" type="ns20:EstablishmentIdType" wpc:id="64"/>
+    <bpws:variable name="pHeader" type="ns25:ProcessHeader" wpc:id="65"/>
+    <bpws:variable messageType="ns1:validateEstablishment_faultMsg" name="fault" wpc:id="68"/>
+    <bpws:variable name="hasActiveAppRequest" type="ns21:hasEstablishmentActiveLaborRecAppRequest" wpc:id="86"/>
+    <bpws:variable name="hasActiveAppResponse" type="ns21:hasEstablishmentActiveLaborRecAppResponse" wpc:id="87"/>
+    <bpws:variable name="isEstBlacklistRequest" type="ns21:isEstablishmentBlacklistedRequest" wpc:id="88"/>
+    <bpws:variable name="isEstBlacklistResponse" type="ns21:isEstablishmentBlacklistedResponse" wpc:id="89"/>
+    <bpws:variable name="checkEstRequest" type="ns21:checkEstablishmentRequest" wpc:id="90"/>
+    <bpws:variable name="checkEstResponse" type="ns21:checkEstablishmentResponse" wpc:id="91"/>
+    <bpws:variable name="isRestrictedRequest" type="ns22:IsRestrictedRequest" wpc:id="92"/>
+    <bpws:variable name="isRestrictedResponse" type="ns22:IsRestrictedResponse" wpc:id="93"/>
+    <bpws:variable name="error" type="ns26:CommonErrorStructure" wpc:id="107"/>
+    <bpws:variable name="curDate" type="xsd:dateTime" wpc:id="166"/>
+    <bpws:variable name="networkLocation" type="xsd:string" wpc:id="168"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="estID" variable="estID"/>
+        <wpc:parameter name="pHeader" variable="pHeader"/>
+        <wpc:parameter name="electricityNo" variable="electricityNo"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:scope name="Scope" wpc:displayName="Scope" wpc:id="142">
+      <bpws:faultHandlers>
+        <bpws:catch faultMessageType="ns21:EstablishmentHasActiveLaborAppInfohasEstablishmentActiveLaborRecAppFault" faultName="ns21:hasEstablishmentActiveLaborRecAppFault" faultVariable="Variable" wpc:variableId="145">
+          <bpws:sequence name="HiddenSequence16" wpc:id="1073741970">
+            <bpws:invoke name="logexception1" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="101">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("ValidationRuleProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror" wpc:displayName="set common error" wpc:id="108">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns1:fault" name="Replywithfault1" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" variable="fault" wpc:displayName="Reply with fault" wpc:id="104"/>
+            <bpws:terminate name="Terminate1" wpc:displayName="Terminate" wpc:id="105"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catch faultMessageType="ns21:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedFault" faultName="ns21:isEstablishmentBlacklistedFault" faultVariable="Variable1" wpc:variableId="147">
+          <bpws:sequence name="HiddenSequence8" wpc:id="1073741972">
+            <bpws:invoke name="logexception2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="149">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("ValidationRuleProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror1" wpc:displayName="set common error" wpc:id="150">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns1:fault" name="Replywithfault2" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" variable="fault" wpc:displayName="Reply with fault" wpc:id="151"/>
+            <bpws:terminate name="Terminate2" wpc:displayName="Terminate" wpc:id="152"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catch faultMessageType="ns21:LaborRecruitmentBusinessRulescheckEstablishmentFault" faultName="ns21:checkEstablishmentFault" faultVariable="Variable2" wpc:variableId="153">
+          <bpws:sequence name="HiddenSequence9" wpc:id="1073741978">
+            <bpws:invoke name="logexception3" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="155">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("ValidationRuleProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror2" wpc:displayName="set common error" wpc:id="156">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns1:fault" name="Replywithfault3" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" variable="fault" wpc:displayName="Reply with fault" wpc:id="157"/>
+            <bpws:terminate name="Terminate3" wpc:displayName="Terminate" wpc:id="158"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catch faultMessageType="ns22:EstablishmentSecurityInfoisRestrictedFault" faultName="ns22:isRestrictedFault" faultVariable="Variable3" wpc:variableId="159">
+          <bpws:sequence name="HiddenSequence10" wpc:id="1073741984">
+            <bpws:invoke name="logexception4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="161">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("ValidationRuleProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror3" wpc:displayName="set common error" wpc:id="162">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns1:fault" name="Replywithfault4" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" variable="fault" wpc:displayName="Reply with fault" wpc:id="163"/>
+            <bpws:terminate name="Terminate4" wpc:displayName="Terminate" wpc:id="164"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catchAll>
+          <bpws:sequence name="HiddenSequence15" wpc:id="1073741968">
+            <bpws:invoke name="logexception" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="51">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+networkLocation=qa.gov.mol.lr.process.constants.ProcessErrorCodes.networkLocation;
+Logger logger=Logger.getLogger("ValidationRuleProcess");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setfaultvariable1" wpc:displayName="set fault variable" wpc:id="57">
+              <bpws:copy>
+                <bpws:from variable="errorCode"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="faultMessage"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[userMessage]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="faultCause"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[failedMessage]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="networkLocation"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[networkLocation]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="curDate"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[timeStamp]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns1:fault" name="Replywithfault" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" variable="fault" wpc:displayName="Reply with fault" wpc:id="61"/>
+            <bpws:terminate name="Terminate" wpc:displayName="Terminate" wpc:id="96"/>
+          </bpws:sequence>
+        </bpws:catchAll>
+      </bpws:faultHandlers>
+      <bpws:sequence name="HiddenSequence5" wpc:id="1073741967">
+        <bpws:assign name="setServiceinputs" wpc:displayName="set Service inputs" wpc:id="10">
+          <bpws:copy>
+            <bpws:from variable="estID"/>
+            <bpws:to variable="hasActiveAppRequest">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="checkHasActiveApplications" operation="hasEstablishmentActiveLaborRecApp" partnerLink="EstHasActiveAppPartner" portType="ns21:EstablishmentHasActiveLaborAppInfo" wpc:continueOnError="inherit" wpc:displayName="check Has Active Applications" wpc:id="7">
+          <wpc:input>
+            <wpc:parameter name="estID" variable="hasActiveAppRequest"/>
+          </wpc:input>
+          <wpc:output>
+            <wpc:parameter name="hasActiveApp" variable="hasActiveAppResponse"/>
+          </wpc:output>
+        </bpws:invoke>
+        <bpws:switch name="HasActiveApplications" wpc:displayName="Has Active Applications ?" wpc:id="18">
+          <bpws:case wpc:id="19">
+            <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($hasActiveAppResponse/estHasActiveApp)]]></bpws:condition>
+            <bpws:sequence name="HiddenSequence1" wpc:id="1073741846">
+              <bpws:assign name="populateInvalidresults" wpc:displayName="populate Invalid results " wpc:id="21">
+                <bpws:copy>
+                  <bpws:from><![CDATA[MOL]]></bpws:from>
+                  <bpws:to variable="inValidResults">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[agency]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from><![CDATA[ACTIVE_APP]]></bpws:from>
+                  <bpws:to variable="inValidResults">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[service]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="inValidResults"/>
+                  <bpws:to variable="validationResults">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[inValidResults]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:reply name="Replywithinvalidresults" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Reply with invalid results" wpc:id="23">
+                <wpc:input>
+                  <wpc:parameter name="validationResults" variable="validationResults"/>
+                </wpc:input>
+              </bpws:reply>
+            </bpws:sequence>
+          </bpws:case>
+          <bpws:otherwise>
+            <bpws:sequence name="HiddenSequence2" wpc:id="1073741873">
+              <bpws:assign name="setServiceinputs1" wpc:displayName="set Service inputs" wpc:id="74">
+                <bpws:copy>
+                  <bpws:from variable="estID"/>
+                  <bpws:to variable="isEstBlacklistRequest">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="checkLaborblackList" operation="isEstablishmentBlacklisted" partnerLink="EstIsBlackListedPartner" portType="ns21:BlacklistedEstablishmentsInfo" wpc:displayName="check Labor blackList" wpc:id="11">
+                <wpc:input>
+                  <wpc:parameter name="estID" variable="isEstBlacklistRequest"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="blacklisted" variable="isEstBlacklistResponse"/>
+                </wpc:output>
+              </bpws:invoke>
+              <bpws:switch name="IsLaborBlackListed" wpc:displayName="Is Labor BlackListed ?" wpc:id="24">
+                <bpws:case wpc:id="25">
+                  <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($isEstBlacklistResponse/blacklisted)]]></bpws:condition>
+                  <bpws:sequence name="HiddenSequence1" wpc:id="1073741850">
+                    <bpws:assign name="populateInvalidresults1" wpc:displayName="populate Invalid results " wpc:id="27">
+                      <bpws:copy>
+                        <bpws:from><![CDATA[MOL]]></bpws:from>
+                        <bpws:to variable="inValidResults">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[agency]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                      <bpws:copy>
+                        <bpws:from><![CDATA[BLACKLIST]]></bpws:from>
+                        <bpws:to variable="inValidResults">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[service]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                      <bpws:copy>
+                        <bpws:from variable="inValidResults"/>
+                        <bpws:to variable="validationResults">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[inValidResults]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                    </bpws:assign>
+                    <bpws:reply name="Replywithinvalidresults1" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Reply with invalid results" wpc:id="28">
+                      <wpc:input>
+                        <wpc:parameter name="validationResults" variable="validationResults"/>
+                      </wpc:input>
+                    </bpws:reply>
+                  </bpws:sequence>
+                </bpws:case>
+                <bpws:otherwise>
+                  <bpws:sequence name="HiddenSequence3" wpc:id="1073741874">
+                    <bpws:assign name="setServiceinputs2" wpc:displayName="set Service inputs" wpc:id="75">
+                      <bpws:copy>
+                        <bpws:from variable="estID"/>
+                        <bpws:to variable="checkEstRequest">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                    </bpws:assign>
+                    <bpws:invoke name="checkaddionalbusinessrules" operation="checkEstablishment" partnerLink="LaborBusinessRules" portType="ns21:LaborRecruitmentBusinessRules" wpc:continueOnError="inherit" wpc:displayName="check addional business rules" wpc:id="71">
+                      <wpc:input>
+                        <wpc:parameter name="estID" variable="checkEstRequest"/>
+                      </wpc:input>
+                      <wpc:output>
+                        <wpc:parameter name="validEstblishment" variable="checkEstResponse"/>
+                      </wpc:output>
+                    </bpws:invoke>
+                    <bpws:switch name="isValidEstablishement" wpc:displayName="is Valid Establishement" wpc:id="78">
+                      <bpws:case wpc:id="79">
+                        <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($checkEstResponse/validEstablishment)]]></bpws:condition>
+                        <bpws:sequence name="HiddenSequence6" wpc:id="1073741907">
+                          <bpws:invoke name="perpareGovHeader" operation="perpareGovHeader" partnerLink="IPrepareGovHeaderPartner" portType="ns27:IPrepareGovHeader" wpc:continueOnError="inherit" wpc:displayName="perpare GovHeader" wpc:id="169">
+                            <wpc:input>
+                              <wpc:parameter name="processHeader" variable="pHeader"/>
+                            </wpc:input>
+                            <wpc:output>
+                              <wpc:parameter name="govHeader" variable="eGovHeader"/>
+                            </wpc:output>
+                          </bpws:invoke>
+                          <bpws:assign name="setServiceinputs3" wpc:displayName="set Service inputs" wpc:id="85">
+                            <bpws:copy>
+                              <bpws:from variable="estID"/>
+                              <bpws:to variable="isRestrictedRequest">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                          </bpws:assign>
+                          <bpws:invoke name="checkisRestricted" operation="isRestricted" partnerLink="EstSecInfoPartner" portType="ns22:EstablishmentSecurityInfo" wpc:displayName="check is Restricted" wpc:id="14">
+                            <wpc:input>
+                              <wpc:parameter name="estID" variable="isRestrictedRequest"/>
+                              <wpc:parameter name="header" variable="eGovHeader"/>
+                            </wpc:input>
+                            <wpc:output>
+                              <wpc:parameter name="restricted" variable="isRestrictedResponse"/>
+                            </wpc:output>
+                          </bpws:invoke>
+                          <bpws:switch name="IsRestricted1" wpc:displayName="Is Restricted ?" wpc:id="29">
+                            <bpws:case wpc:id="30">
+                              <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($isRestrictedResponse/restricted)]]></bpws:condition>
+                              <bpws:sequence name="HiddenSequence1" wpc:id="1073741855">
+                                <bpws:assign name="populateInvalidresults2" wpc:displayName="populate Invalid results " wpc:id="32">
+                                  <bpws:copy>
+                                    <bpws:from><![CDATA[MOI]]></bpws:from>
+                                    <bpws:to variable="inValidResults">
+                                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[agency]]></bpws:query>
+                                    </bpws:to>
+                                  </bpws:copy>
+                                  <bpws:copy>
+                                    <bpws:from><![CDATA[RESTRICTED]]></bpws:from>
+                                    <bpws:to variable="inValidResults">
+                                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[service]]></bpws:query>
+                                    </bpws:to>
+                                  </bpws:copy>
+                                  <bpws:copy>
+                                    <bpws:from variable="inValidResults"/>
+                                    <bpws:to variable="validationResults">
+                                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[inValidResults]]></bpws:query>
+                                    </bpws:to>
+                                  </bpws:copy>
+                                </bpws:assign>
+                                <bpws:reply name="Replywithinvalidresults2" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Reply with invalid results" wpc:id="33">
+                                  <wpc:input>
+                                    <wpc:parameter name="validationResults" variable="validationResults"/>
+                                  </wpc:input>
+                                </bpws:reply>
+                              </bpws:sequence>
+                            </bpws:case>
+                            <bpws:otherwise>
+                              <bpws:sequence name="HiddenSequence7" wpc:id="1073741908">
+                                <bpws:assign name="populatevalidresults" wpc:displayName="populate valid results" wpc:id="48">
+                                  <bpws:copy>
+                                    <bpws:from><![CDATA[not required]]></bpws:from>
+                                    <bpws:to variable="validationResults">
+                                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/statisticsNote]]></bpws:query>
+                                    </bpws:to>
+                                  </bpws:copy>
+                                  <bpws:copy>
+                                    <bpws:from><![CDATA[not required]]></bpws:from>
+                                    <bpws:to variable="validationResults">
+                                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/electricityNote]]></bpws:query>
+                                    </bpws:to>
+                                  </bpws:copy>
+                                </bpws:assign>
+                                <bpws:reply name="Reply" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Reply" wpc:id="3">
+                                  <wpc:input>
+                                    <wpc:parameter name="validationResults" variable="validationResults"/>
+                                  </wpc:input>
+                                </bpws:reply>
+                              </bpws:sequence>
+                            </bpws:otherwise>
+                          </bpws:switch>
+                        </bpws:sequence>
+                      </bpws:case>
+                      <bpws:otherwise>
+                        <bpws:sequence name="HiddenSequence4" wpc:id="1073741904">
+                          <bpws:assign name="populateInvalidresults3" wpc:displayName="populate Invalid results " wpc:id="81">
+                            <bpws:copy>
+                              <bpws:from><![CDATA[MOL]]></bpws:from>
+                              <bpws:to variable="inValidResults">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[agency]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from><![CDATA[ADDITIONAL_RULES]]></bpws:from>
+                              <bpws:to variable="inValidResults">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[service]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="checkEstResponse">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[rejectionReason]]></bpws:query>
+                              </bpws:from>
+                              <bpws:to variable="inValidResults">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[molRejectionReason]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="inValidResults"/>
+                              <bpws:to variable="validationResults">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[inValidResults]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                          </bpws:assign>
+                          <bpws:reply name="Replywithinvalidresults3" operation="validateEstablishment" partnerLink="IValidateEstablishment" portType="ns1:IValidateEstablishment" wpc:displayName="Reply with invalid results" wpc:id="82">
+                            <wpc:input>
+                              <wpc:parameter name="validationResults" variable="validationResults"/>
+                            </wpc:input>
+                          </bpws:reply>
+                        </bpws:sequence>
+                      </bpws:otherwise>
+                    </bpws:switch>
+                  </bpws:sequence>
+                </bpws:otherwise>
+              </bpws:switch>
+            </bpws:sequence>
+          </bpws:otherwise>
+        </bpws:switch>
+      </bpws:sequence>
+    </bpws:scope>
+  </bpws:sequence>
+</bpws:process>

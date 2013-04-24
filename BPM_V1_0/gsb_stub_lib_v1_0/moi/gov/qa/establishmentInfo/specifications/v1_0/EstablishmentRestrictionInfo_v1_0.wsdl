@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:tns="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+      <xsd:complexType name="IsRestrictedRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentRestrictionInfoisRestrictedRequest1" type="tns:IsRestrictedRequest"/>
+      <xsd:complexType name="IsRestrictedResponse">
+        <xsd:sequence>
+          <xsd:element name="restricted" type="moixsd:RestrictedEstablishment"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentRestrictionInfoisRestrictedResponse1" type="tns:IsRestrictedResponse"/>
+      <xsd:element name="EstablishmentRestrictionInfoisRestrictedFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EstablishmentRestrictionInfoisRestrictedRequest">
+    <wsdl:part element="tns:EstablishmentRestrictionInfoisRestrictedRequest1" name="estID"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentRestrictionInfoisRestrictedResponse">
+    <wsdl:part element="tns:EstablishmentRestrictionInfoisRestrictedResponse1" name="restricted"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentRestrictionInfoisRestrictedFault">
+    <wsdl:part element="tns:EstablishmentRestrictionInfoisRestrictedFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="EstablishmentRestrictionInfo">
+    <wsdl:operation name="isRestricted">
+      <wsdl:input message="tns:EstablishmentRestrictionInfoisRestrictedRequest"/>
+      <wsdl:output message="tns:EstablishmentRestrictionInfoisRestrictedResponse"/>
+      <wsdl:fault message="tns:EstablishmentRestrictionInfoisRestrictedFault" name="isRestrictedFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

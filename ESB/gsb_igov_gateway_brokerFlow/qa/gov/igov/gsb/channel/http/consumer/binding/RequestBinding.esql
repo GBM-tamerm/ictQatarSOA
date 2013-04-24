@@ -1,0 +1,93 @@
+BROKER SCHEMA qa.gov.igov.gsb.channel.http.consumer.binding
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE igov NAMESPACE 'urn:igov.gov.qa/xml/schemas/v1_0/';
+
+CREATE COMPUTE MODULE RequestBinding_ApplyBinding
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE tmpAppID CHARACTER ; 
+		SET Environment.igov.channel = 'HTTP';
+		--SET Environment.igov.service.actor = InputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.wsa:Action ;	
+		SET Environment.igov.senderInfo = InputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.igov:IGOVHeader.igov:SenderInfo ;
+			
+		IF 	InputLocalEnvironment.HTTP.Input.RequestLine.RequestURI IS NOT NULL THEN
+			SET Environment.igov.service.lookupKey = InputLocalEnvironment.HTTP.Input.RequestLine.RequestURI ;
+		ELSE
+			SET Environment.igov.service.lookupKey = 'NULL' ;	
+		END IF; 
+		
+		IF 	InputLocalEnvironment.Destination.HTTP.RequestIdentifier IS NOT NULL THEN
+			SET Environment.igov.requestIdentifier = (CAST(InputLocalEnvironment.Destination.HTTP.RequestIdentifier AS CHARACTER)) ;
+		ELSE
+			SET Environment.igov.requestIdentifier = 'NULL' ;	
+		END IF; 							
+		
+		SET tmpAppID = Environment.igov.senderInfo.igov:ApplicationID; 
+		IF 	tmpAppID IS NOT NULL THEN
+			SET Environment.igov.trackingID = tmpAppID  || Environment.igov.requestIdentifier ;	
+		ELSE
+			SET Environment.igov.trackingID = Environment.igov.requestIdentifier ;	
+		END IF; 
+		
+		
+		CALL CopyEntireMessage();
+
+		SET OutputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.igov:IGOVHeader.igov:TrackingID = Environment.igov.trackingID;	
+		-- Log4J hassle starts here
+		SET Environment.Variables.Log4j.LogPrefix = 'trackingID: ' ||  Environment.igov.senderInfo.igov:TrackingID || '. serviceID: ' || Environment.igov.service.lookupKey || '. '; 			
+		DECLARE iBSoptions INTEGER BITOR(FolderBitStream, ValidateNone);		
+		DECLARE InMsgBlob BLOB;
+		DECLARE InHdrBlob BLOB;
+		SET InMsgBlob = ASBITSTREAM(InputRoot.XMLNSC.soapenv:Envelope CCSID InputRoot.Properties.CodedCharSetId OPTIONS iBSoptions TYPE '{http://schemas.xmlsoap.org/soap/envelope/}:Envelope' FORMAT 'XML1' );
+		SET InHdrBlob = ASBITSTREAM(InputRoot.XMLNSC.soapenv:Envelope.soapenv:Header.igov:IGOVHeader CCSID InputRoot.Properties.CodedCharSetId OPTIONS iBSoptions TYPE '{urn:igov.gov.qa/xml/schemas/v1_0/}:IGOVHeader' FORMAT 'XML1' );
+		
+		SET Environment.Variables.Log4j.Envelope = CAST(InMsgBlob AS CHARACTER CCSID 1208);	
+		SET Environment.Variables.Log4j.Header = CAST(InHdrBlob AS CHARACTER CCSID 1208);
+								
+		IF Environment.Variables.Log4j.Envelope IS NULL THEN
+			SET Environment.Variables.Log4j.Envelope = 'NULL' ;	
+		END IF;
+		
+		IF Environment.Variables.Log4j.Header IS NULL THEN
+			SET Environment.Variables.Log4j.Header = 'NULL' ;	
+		END IF;
+		SET Environment.Variables.Log4j.LogText = Environment.Variables.Log4j.LogPrefix || 'inboundRequest:' || Environment.Variables.Log4j.Envelope;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE RequestBinding_prepareLogString
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET Environment.Variables.Log4j.LogText = Environment.Variables.Log4j.LogPrefix || 'inboundRequestHeader:' || Environment.Variables.Log4j.Header;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

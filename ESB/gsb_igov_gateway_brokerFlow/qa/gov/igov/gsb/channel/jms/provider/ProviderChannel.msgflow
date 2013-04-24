@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmPassthru.msgnode="ComIbmPassthru.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="qa/gov/igov/gsb/channel/jms/provider/ProviderChannel.msgflow"
+    nsPrefix="qa_gov_igov_gsb_channel_jms_provider_ProviderChannel.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="ProviderChannel" bundleName="qa/gov/igov/gsb/channel/jms/provider/ProviderChannel" pluginId="gsb_igov_gateway_brokerFlow"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj16/ProviderChannel.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_gateway_brokerFlow/icons/full/obj30/ProviderChannel.gif"/>
+    <composition>
+      <nodes xmi:type="eflow:FCMSource" xmi:id="InTerminal.Input" location="105,84">
+        <translation xmi:type="utility:TranslatableString" key="InTerminal.In" bundleName="qa/gov/igov/gsb/channel/jms/provider/ProviderChannel" pluginId="gsb_igov_gateway_brokerFlow"/>
+      </nodes>
+      <nodes xmi:type="eflow:FCMSink" xmi:id="OutTerminal.Output" location="461,92">
+        <translation xmi:type="utility:TranslatableString" key="OutTerminal.Out" bundleName="qa/gov/igov/gsb/channel/jms/provider/ProviderChannel" pluginId="gsb_igov_gateway_brokerFlow"/>
+      </nodes>
+      <nodes xmi:type="ComIbmPassthru.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="260,80">
+        <translation xmi:type="utility:ConstantString" string="Passthrough"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_1" sourceNode="InTerminal.Input" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="OutTerminal.Output" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+  </eClassifiers>
+</ecore:EPackage>

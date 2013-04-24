@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns5="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="ElectricityInfoService" targetNamespace="http://gsb_servicesStubs/ElectricityInfoService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns5:BillInfo"/>
+  </interfaces>
+  <references>
+    <reference name="BillInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:BillInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getLastBillSummary" target="getLastBillSummary" sourcePortType="ns5:BillInfo" targetReference="BillInfoPartner"/>
+  <extendedOperationBinding source="getLastBillDetails" target="getLastBillDetails" sourcePortType="ns5:BillInfo" targetReference="BillInfoPartner"/>
+  <operationFlow medflow="Component1.medflow"/>
+</mfc:interfaceMediationFlow>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:notifyxsd="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:tns="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" elementFormDefault="qualified" targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../commontypes/xml/schemas/v10/CommonTypes_v1_0.mxsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v10/NotificationSchema_v1_0.mxsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../xml/schemas/v10/IgovHeader_v1_0.mxsd"/>
+
+      
+      <xsd:complexType name="SendNotificationRequest">
+        <xsd:sequence>
+          <xsd:element name="sendNotification" type="notifyxsd:NotificationRequestType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NotificationsendNotificationRequest1" type="tns:SendNotificationRequest">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/NotificationsendNotificationRequest1;XSDElementDeclaration$MRObject" schemaObject="/0/NotificationsendNotificationRequest1;XSDElementDeclaration">
+          <xmlMsgRep messageSetDefaultRep="XML1" outputPolicyForXsiTypeAttribute="Never"/>
+        </MRMessage>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+      <xsd:complexType name="SendNotificationResponse">
+        <xsd:sequence>
+          <xsd:element name="acknowledgment" type="notifyxsd:NotificationAcknowledgementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NotificationsendNotificationResponse1" type="tns:SendNotificationResponse">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/NotificationsendNotificationResponse1;XSDElementDeclaration=1$MRObject" schemaObject="/0/NotificationsendNotificationResponse1;XSDElementDeclaration=1">
+          <xmlMsgRep messageSetDefaultRep="XML1" outputPolicyForXsiTypeAttribute="Never"/>
+        </MRMessage>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+      <xsd:element name="NotificationsendNotificationFault1" type="igovxsd:CommonErrorStructure">
+    <xsd:annotation>
+      <xsd:appinfo source="WMQI_APPINFO">
+        <MRMessage messageDefinition="/0/NotificationsendNotificationFault1;XSDElementDeclaration=2$MRObject" schemaObject="/0/NotificationsendNotificationFault1;XSDElementDeclaration=2">
+          <xmlMsgRep messageSetDefaultRep="XML1" outputPolicyForXsiTypeAttribute="Never"/>
+        </MRMessage>
+      </xsd:appinfo>
+    </xsd:annotation>
+  </xsd:element>
+    </xsd:schema>

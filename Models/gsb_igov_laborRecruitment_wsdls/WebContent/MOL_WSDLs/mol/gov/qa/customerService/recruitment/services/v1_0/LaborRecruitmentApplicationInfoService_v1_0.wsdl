@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LaborRecruitmentApplicationInfoService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/LaborRecruitmentApplicationInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="ActiveLaborRecruitmentApplicationInfoBinding" type="molspcxsd:ActiveLaborRecruitmentApplicationInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getActiveApplicationByAppId">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService/getActiveApplicationByAppId/"/>
+      <wsdl:input>
+        <soap:body parts="appID" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="application" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getActiveApplicationByAppIdFault">
+        <soap:fault name="getActiveApplicationByAppIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveApplicationByEstId">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService/getActiveApplicationByEstId/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="application" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getActiveApplicationByEstIdFault">
+        <soap:fault name="getActiveApplicationByEstIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="laborRecruitmentApplicationInfo">
+    <wsdl:port binding="tns:ActiveLaborRecruitmentApplicationInfoBinding" name="ActiveLaborRecruitmentApplicationInfoPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService/laborRecruitmentApplicationInfo/ActiveLaborRecruitmentApplicationInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

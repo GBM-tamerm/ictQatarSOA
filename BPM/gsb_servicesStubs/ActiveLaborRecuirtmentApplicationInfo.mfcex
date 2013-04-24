@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:model="http:///com/ibm/wbit/sib/mediation/ui/ext/model" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http:///com/ibm/wbit/sib/mediation/ui/ext/model">
+    <extensions>
+      <extendedObject href="ActiveLaborRecuirtmentApplicationInfo.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByAppId::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByEstId::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByAppId::response"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByEstId::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="ActiveLaborRecuirtmentApplicationInfo.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByAppId::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByAppId::response"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByEstId::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}ActiveLaborRecruitmentApplicationInfo:getActiveApplicationByEstId::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

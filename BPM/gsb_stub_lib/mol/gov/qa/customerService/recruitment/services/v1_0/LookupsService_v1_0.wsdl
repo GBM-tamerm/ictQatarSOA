@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LookupsService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/Lookups_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="LookupsBinding" type="molspcxsd:Lookups">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getNationalitiesList">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/getNationalitiesList/"/>
+      <wsdl:input>
+        <soap:body parts="getNationalitiesReq" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="nationalitiesList" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getNationalitiesListFault">
+        <soap:fault name="getNationalitiesListFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getProfessionsList">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/getProfessionsList/"/>
+      <wsdl:input>
+        <soap:body parts="getProfessionsListReq" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="professionsList" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getProfessionsListFault">
+        <soap:fault name="getProfessionsListFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllLookups">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/getAllLookups/"/>
+      <wsdl:input>
+        <soap:body parts="getLookupsReq" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="allLookups" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getAllLookupsFault">
+        <soap:fault name="getAllLookupsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="lookups">
+    <wsdl:port binding="tns:LookupsBinding" name="LookupsPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService/lookups/LookupsPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

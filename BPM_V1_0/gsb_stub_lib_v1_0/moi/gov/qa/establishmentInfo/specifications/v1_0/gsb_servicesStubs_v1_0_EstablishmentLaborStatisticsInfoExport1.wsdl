@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttp_Service" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding3" xmlns:Port_0="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding3" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="EstablishmentLaborStatisticsInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpBinding" type="Port_0:EstablishmentLaborStatisticsInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLaborStatistics">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLaborStatisticsFault">
+        <soap:fault name="getLaborStatisticsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpService">
+    <wsdl:port binding="this:EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpBinding" name="EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubs_v1_0Web/sca/EstablishmentLaborStatisticsInfoExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

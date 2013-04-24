@@ -1,0 +1,17 @@
+/.classpath////*////
+/.project////*////
+/EstablishmentSecurityInfoImport1.import////*////
+/LaborRecruitmentApplicationImport1.import////*////
+/NotificationImport1.import////*////
+/PerpareGovHeader.component////*////
+/PrepareNotification.wsdl////*////
+/RecruitmentProcessSubmitNewApplicationExport1.export////*////
+/SubmitNewApplication.component////*////
+/ibm-deploy.scaj2ee////*////
+/prepareNotificationRequest.component////*////
+/sca.module////*////
+/sca.modulex////*////
+D/.settings////////
+D/META-INF////////
+D/gen////////
+D/qa////////

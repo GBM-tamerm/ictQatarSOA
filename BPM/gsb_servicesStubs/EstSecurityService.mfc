@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:v1_0="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="EstSecurityService" targetNamespace="http://gsb_servicesStubs/EstSecurityService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="v1_0:EstablishmentSecurityInfo"/>
+  </interfaces>
+  <references>
+    <reference name="EstablishmentSecurityInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="v1_0:EstablishmentSecurityInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getEstablishmentInfoById" target="getEstablishmentInfoById" sourcePortType="v1_0:EstablishmentSecurityInfo" targetReference="EstablishmentSecurityInfoPartner"/>
+  <extendedOperationBinding source="isRestricted" target="isRestricted" sourcePortType="v1_0:EstablishmentSecurityInfo" targetReference="EstablishmentSecurityInfoPartner"/>
+  <extendedOperationBinding source="getLaborStatistics" target="getLaborStatistics" sourcePortType="v1_0:EstablishmentSecurityInfo" targetReference="EstablishmentSecurityInfoPartner"/>
+  <operationFlow medflow="EstSecurityService.medflow"/>
+</mfc:interfaceMediationFlow>

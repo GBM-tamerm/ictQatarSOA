@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="SendSMSRequest">
+        <xsd:sequence>
+          <xsd:element name="smsMessage" type="molxsd:SMSMessageType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SMSNotificationsendSMSRequest1" type="tns:SendSMSRequest"/>
+      <xsd:complexType name="SendSMSResponse">
+        <xsd:sequence>
+          <xsd:element name="acknowledgment" type="igovxsd:AcknowledgementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SMSNotificationsendSMSResponse1" type="tns:SendSMSResponse"/>
+      <xsd:element name="SMSNotificationsendSMSFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="SMSNotificationsendSMSRequest">
+    <wsdl:part element="tns:SMSNotificationsendSMSRequest1" name="smsMessage"/>
+  </wsdl:message>
+  <wsdl:message name="SMSNotificationsendSMSResponse">
+    <wsdl:part element="tns:SMSNotificationsendSMSResponse1" name="sent"/>
+  </wsdl:message>
+  <wsdl:message name="SMSNotificationsendSMSFault">
+    <wsdl:part element="tns:SMSNotificationsendSMSFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="SMSNotification">
+    <wsdl:operation name="sendSMS">
+      <wsdl:input message="tns:SMSNotificationsendSMSRequest"/>
+      <wsdl:output message="tns:SMSNotificationsendSMSResponse"/>
+      <wsdl:fault message="tns:SMSNotificationsendSMSFault" name="sendSMSFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

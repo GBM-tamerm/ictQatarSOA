@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns3="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="NotificationService" targetNamespace="http://gsb_servicesStubs/NotificationService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns3:Notification"/>
+  </interfaces>
+  <references>
+    <reference name="NotificationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:Notification"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="sendNotification" target="sendNotification" sourcePortType="ns3:Notification" targetReference="NotificationPartner"/>
+  <operationFlow medflow="NotificationService.medflow"/>
+</mfc:interfaceMediationFlow>

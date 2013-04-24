@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="BillInfoExport2_BillInfoHttp_Service" targetNamespace="urn:kahramaa.com.qa/billing/specifications/v1_0//Binding2" xmlns:Port_0="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="urn:kahramaa.com.qa/billing/specifications/v1_0//Binding2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="kahramaa/com/qa/billing/specifications/v1_0/BillingInfo_v1_0.wsdl" namespace="urn:kahramaa.com.qa/billing/specifications/v1_0/"/>
+  <wsdl:binding name="BillInfoExport2_BillInfoHttpBinding" type="Port_0:BillInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLastBillSummary">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLastBillSummaryFault">
+        <soap:fault name="getLastBillSummaryFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBillDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLastBillDetailsFault">
+        <soap:fault name="getLastBillDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BillInfoExport2_BillInfoHttpService">
+    <wsdl:port binding="this:BillInfoExport2_BillInfoHttpBinding" name="BillInfoExport2_BillInfoHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubsWeb/sca/BillInfoExport2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

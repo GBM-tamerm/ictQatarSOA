@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; CommonTypes_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 02/02/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is IGOV Common Types to be used across government agencies&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 1.4&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    02-01-2010: Hassan Ali: v 0.1 Initial draft version&lt;br /&gt;
+    18-02-2010: Mohamed Kattaya : v 0.2&amp;nbsp;Initial draft version output from UML generation&lt;br /&gt;
+    21-02-2010: Mohamed Kattaya : v 0.3&lt;br /&gt;
+    24-02-2010: Mohamed Kattaya : v 0.4&lt;br /&gt;
+    25-02-2010: Mohamed Kattaya : v 1.0 changes to refactore out establishment ID and Electricity number&lt;br /&gt;
+    28-02-2010: Mohamed Kattaya : v 1.1&lt;br /&gt;
+    02-03-2010: Mohamed Kattaya : v 1.2&lt;br /&gt;
+    04-03-2010: Mohamed Kattaya : v 1.3&lt;br /&gt;
+    15-03-2010: Mohamed Kattaya : v 1.4 changes to person info type
+&lt;/p&gt;
+&lt;p&gt;
+    21-04-2010: Mohamed Kattaya : v 1.5 changes to personNameType&amp;nbsp;to make its attributs types string instead of
+    anyType&amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+    16-06-2010: Mohamed Kattaya : v 1.6 changes to CommonErrorStructure to make userMessage and timeStamp mandatory
+&lt;/p&gt;
+&lt;p&gt;
+    25-08-2010: Mohamed Kattaya: v 1.7 change nationality and profession of personInfoType optional instead of mandatory
+&lt;/p&gt;
+&lt;p&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; and chane
+    name_EN of PersonNameType optional instead of mandatory&amp;nbsp;
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="CommonErrorStructure">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string"/>
+      <xsd:element name="userMessage" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="detailMessage" type="xsd:anyType"/>
+      <xsd:element minOccurs="0" name="failedMessage" type="xsd:string"/>
+      <xsd:element name="timeStamp" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="networkLocation" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NationalityType">
+    <xsd:sequence>
+      <xsd:element name="name_En" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Nationality name in English.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="name_Ar" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Nationality name in Arabic.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ID" type="igovxsd:IdType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="poBox" type="igovxsd:POBoxType">
+        <xsd:annotation>
+          <xsd:documentation>P.O.Box number.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="zone" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Zone number of the address.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="streetNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Street number of the address.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="buildingNumber" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Building number of the address</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="addressText" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Address text field where one can write the whole address as a one text field.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="GenderType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MALE"/>
+      <xsd:enumeration value="FEMALE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmailAddressType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9A-Za-z'\.\-_]{1,127}@[0-9A-Za-z'\.\-_]{1,127}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TelephoneNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9 \-]{1,20}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ProfessionType">
+    <xsd:sequence>
+      <xsd:element name="name_En" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Profession name in English.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="name_Ar" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Profession name in Arabic.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="ID" type="igovxsd:IdType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="POBoxType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType name="PersonNameType">
+    <xsd:annotation>
+      <xsd:documentation>&lt;p&gt;
+    Name in English must be specified. Arabic name is not always mandatory as there are some persons who can not write
+    their names in Arabic
+&lt;/p&gt;</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="name_Ar" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Person name in Arabic.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="name_En" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Person name in English.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="IdType">
+    <xsd:restriction base="xsd:int"/>
+  </xsd:simpleType>
+  <xsd:complexType name="UserIdType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="AcknowledgementType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TRUE"/>
+      <xsd:enumeration value="FALSE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PersonInfoType">
+    <xsd:sequence>
+      <xsd:element name="qID" type="moixsd:QIdType"/>
+      <xsd:element name="personName" type="igovxsd:PersonNameType"/>
+      <xsd:element minOccurs="0" name="homePhone" type="igovxsd:TelephoneNumberType">
+        <xsd:annotation>
+          <xsd:documentation>&lt;p&gt;
+    Home phone of the person.
+&lt;/p&gt;</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="businessPhone" type="igovxsd:TelephoneNumberType">
+        <xsd:annotation>
+          <xsd:documentation>Business phone of the person.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="mobilePhone" type="igovxsd:TelephoneNumberType">
+        <xsd:annotation>
+          <xsd:documentation>Mobile phone of the person.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="emailAddress" type="igovxsd:EmailAddressType"/>
+      <xsd:element minOccurs="0" name="address" type="igovxsd:AddressType"/>
+      <xsd:element minOccurs="0" name="nationality" type="igovxsd:NationalityType"/>
+      <xsd:element minOccurs="0" name="profession" type="igovxsd:ProfessionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="Language">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ARABIC"/>
+      <xsd:enumeration value="ENGLISH"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:NotificationService="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="NotificationImport1CopyCopy" name="NotificationImport1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:Notification">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" endpoint="https://ictlbesb:20443/igov/services/NotificationService" port="NotificationService:NotificationPort" service="NotificationService:notification"/>
+</scdl:import>

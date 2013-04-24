@@ -1,0 +1,72 @@
+BROKER SCHEMA qa.gov.igov.shared.notification
+DECLARE ns7 NAMESPACE 'http://www.hukoomi.gov.qa/notification/NotificationTypes';
+DECLARE ns NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE ns8 NAMESPACE 'urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/';
+
+DECLARE smsFQDN EXTERNAL CHARACTER 'http://ictSMS:8080/receiver/mt/';
+DECLARE smsOperator EXTERNAL CHARACTER 'Qtel';
+DECLARE smsSender EXTERNAL CHARACTER '92616';
+DECLARE smsPassword EXTERNAL CHARACTER 'nimic';
+
+CREATE COMPUTE MODULE SMSMF_PrepareSMSRequest
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE smsServiceID CHARACTER;
+		DECLARE smsFormString CHARACTER;
+		DECLARE rInput REFERENCE TO InputRoot.XMLNSC.ns8:notificationMessage.ns8:smsDetails;
+		CALL CopyMessageHeaders();		
+		SET smsServiceID = rInput.ns8:senderCode ;
+		SET OutputLocalEnvironment.Destination.HTTP.RequestURL = smsFQDN || smsServiceID || '/' || smsPassword ;
+		SET OutputRoot.HTTPRequestHeader."Content-Type" = 'application/x-www-form-urlencoded; charset=UTF-8';
+		SET smsFormString = 'data_coding=8&operator=Qtel&sender=92616&receiver=' || rInput.ns8:mobileNumber || '&content=' || rInput.ns8:message;
+		SET OutputRoot.BLOB.BLOB = CAST(smsFormString AS BLOB CCSID InputRoot.Properties.CodedCharSetId); 
+		
+--      SET OutputLocalEnvironment.Destination.HTTP.QueryString.sender = smsSender;
+--		DECLARE rSMS REFERENCE TO OutputLocalEnvironment.Destination.HTTP.QueryString ;	
+--		SET rSMS.data_coding = '8';
+--		SET rSMS.operator = smsOperator;	
+--		SET rSMS.content = rInput.ns8:message;
+--		SET rSMS.receiver = rInput.ns8:mobileNumber;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
+
+CREATE COMPUTE MODULE SMSMF_CheckResponse
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE rspMsg CHARACTER;		
+		SET rspMsg = CAST(InputRoot.BLOB.BLOB AS CHARACTER CCSID InputRoot.Properties.CodedCharSetId);
+		IF NOT STARTSWITH(rspMsg, 'OK') THEN
+			THROW USER EXCEPTION CATALOG 'igovExCatalog' MESSAGE 2373 VALUES ('SMS Gateway Failure',('Gateway was unable to successfuly process SMS request. Gateway response: ' || rspMsg) , (''));
+		END IF;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

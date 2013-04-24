@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application id="Application_ID" version="1.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/application_1_4.xsd">
+	<display-name>mol_recruit_suspendedAppTasks_Service_v1_0EAR</display-name>
+	<module id="EjbModule_1275307588265">
+		<ejb>mol_recruit_suspendedAppTasks_Service_v1_0.jar</ejb>
+	</module>
+	<module id="WebModule_1275307599109">
+		<web>
+			<web-uri>mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter.war</web-uri>
+			<context-root>mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter</context-root>
+		</web>
+	</module>
+	<security-role>
+		<description>
+		</description>
+		<role-name>AdminIdentity</role-name>
+	</security-role>
+</application>

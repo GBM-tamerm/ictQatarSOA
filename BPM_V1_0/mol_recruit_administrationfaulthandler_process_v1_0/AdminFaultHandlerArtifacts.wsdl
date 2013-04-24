@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="AdminFaultHandler" targetNamespace="http://LR_AdministrationFaultHandler/AdminFaultHandlerArtifacts" xmlns:ns="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plnk:partnerLinkType name="IAdminFaultHandlerPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns:IAdminFaultHandler"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:import location="process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+</wsdl:definitions>

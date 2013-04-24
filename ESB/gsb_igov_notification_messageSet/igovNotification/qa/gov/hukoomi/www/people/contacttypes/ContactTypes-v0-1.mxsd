@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	the baseine version 0.1
+ -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.hukoomi.gov.qa/core" xmlns:tns="http://www.hukoomi.gov.qa/people/ContactTypes" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.hukoomi.gov.qa/people/ContactTypes">
+	<xsd:annotation>
+		<xsd:appinfo>
+			<Metadata xmlns="http://www.hukoomi.gov.qa/metadata/egms">
+				<Contributor>Webmedia Group AS (WMG)</Contributor>
+				<Contributor Href="mailto:aare.laponin@webmedia.ee">Aare Lapõnin</Contributor>
+				<Creator>WMG</Creator>
+				<Created>2008-10-126</Created>
+				<Description>Schema for contacts data type definitions</Description>
+				<Identifier>ContactTypes-v0-1</Identifier>
+				<Language codeListID="ISO639-2">eng</Language>
+				<Publisher Href="mailto:contact@hukoomi.qa">ictQatar</Publisher>
+				<ConformsTo>http://www.w3.org/2001/XMLSchema</ConformsTo>
+				<Copyright>WMG Copyright 2008,2009</Copyright>
+				<ProtectiveMarking>Unclassified</ProtectiveMarking>
+				<Status>draft</Status>
+				<StatusDescription>In Progress</StatusDescription>
+				<Version>0.1</Version>
+				<Category codeListID="GCL">People, communities and living</Category>
+				<Project>ictQatar/MOI e-service for passports and ID cards</Project>
+				<Title>Contact Types 0.1</Title>
+				<Type>architectural</Type>
+			</Metadata>
+		</xsd:appinfo>
+	</xsd:annotation>
+	<xsd:import namespace="http://www.hukoomi.gov.qa/core" schemaLocation="../../core/CommonSimpleTypes-v0-1.mxsd"/>
+	<!-- start of TelephoneStructure type definition -->
+	<xsd:complexType name="TelephoneStructure">
+		<xsd:sequence>
+			<xsd:element name="TelNationalNumber" type="core:TelephoneNumberType"/>
+			<xsd:element minOccurs="0" name="TelExtensionNumber" type="core:TelephoneExtensionType"/>
+			<xsd:element minOccurs="0" name="TelCountryCode" type="core:TelCountryCodeType"/>
+		</xsd:sequence>
+		<xsd:attribute name="TelUse" type="core:WorkHomeType"/>
+		<xsd:attribute name="TelMobile" type="core:YesNoType"/>
+		<xsd:attribute name="TelPreferred" type="core:YesNoType"/>
+	</xsd:complexType>
+	<!-- end of TelephoneStructure type definition -->
+	<!-- start of FaxStructure type definition -->
+	<xsd:complexType name="FaxStructure">
+		<xsd:sequence>
+			<xsd:element name="FaxNationalNumber" type="core:TelephoneNumberType"/>
+			<xsd:element minOccurs="0" name="FaxExtensionNumber" type="core:TelephoneExtensionType"/>
+			<xsd:element minOccurs="0" name="FaxCountryCode" type="core:TelCountryCodeType"/>
+		</xsd:sequence>
+		<xsd:attribute name="FaxUse" type="core:WorkHomeType"/>
+		<xsd:attribute name="FaxMobile" type="core:YesNoType"/>
+		<xsd:attribute name="FaxPreferred" type="core:YesNoType"/>
+	</xsd:complexType>
+	<!-- end of FaxStructure type definition -->
+	<!-- start of EmailStructure type definition -->
+	<xsd:complexType name="EmailStructure">
+		<xsd:sequence>
+			<xsd:element name="EmailAddress" type="core:RestrictedStringType"/>
+		</xsd:sequence>
+		<xsd:attribute name="EmailUsage" type="core:WorkHomeType"/>
+		<xsd:attribute name="EmailPreferred" type="core:YesNoType"/>
+	</xsd:complexType>
+	<!-- end of EmailStructure type definition -->	
+</xsd:schema>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.ccl.soa.test.common.models.datatable:ComplexDataPool xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ccl.soa.test.common.models.datatable="http:///com/ibm/ccl/soa/test/common/models/datatable.ecore" xmlns:com.ibm.ccl.soa.test.common.models.value="http:///com/ibm/ccl/soa/test/common/models/value.ecore" id="1267569429937_4748">
+  <dataSets name="Default" id="1267569429937_4750">
+    <entries xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumn" name="Value" id="1267569429937_4751">
+      <elements xsi:type="com.ibm.ccl.soa.test.common.models.datatable:DataSetColumnComplexValue">
+        <value xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="submitApplicationReq" id="1267573815328_8227" value="" defaultValue="" typeURI="xsd:/mol.gov.qa/customerService/recruitment/specifications/v1_0/#SubmitApplicationRequest" baseTypeURI="xsd:/mol.gov.qa/customerService/recruitment/specifications/v1_0/#SubmitApplicationRequest" hasChildren="true">
+          <context>
+            <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+          </context>
+          <properties name="paramlist_context" value="mol_recruit_submitapplication_process.SubmitNewApplication.submitApplication"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="applicationDetails" id="1267573815328_8228" value="" defaultValue="" typeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationDetailsLW" baseTypeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationDetailsLW" required="true" hasChildren="true">
+            <context>
+              <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+            </context>
+            <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="estID" id="1267573815328_8229" value="111" defaultValue="" typeURI="xsd:/moi.gov.qa/establishmentInfo/xml/schemas/v1_0/#EstablishmentIdType" baseTypeURI="xsd:/moi.gov.qa/establishmentInfo/xml/schemas/v1_0/#EstablishmentIdType" required="true">
+              <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="electricityNumber" id="1267573815328_8230" value="222" defaultValue="" typeURI="xsd:/kahramaa.com.qa/billing/xml/schemas/v1_0/#ElectricityNumberType" baseTypeURI="xsd:/kahramaa.com.qa/billing/xml/schemas/v1_0/#ElectricityNumberType">
+              <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="agentQID" id="1267573815328_8231" value="1222" defaultValue="" typeURI="xsd:/moi.gov.qa/establishmentInfo/xml/schemas/v1_0/#QIdType" baseTypeURI="xsd:/moi.gov.qa/establishmentInfo/xml/schemas/v1_0/#QIdType">
+              <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="agentEmail" id="1267573815328_8232" value="agent@hotmail.com" defaultValue="" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#EmailAddressType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#EmailAddressType" required="true">
+              <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="agentPhone" id="1267573815328_8233" value="32332" defaultValue="" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#TelephoneNumberType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#TelephoneNumberType" required="true">
+              <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueArray" name="requiredProfessions" id="1267573815328_8234" writeable="false" value="" defaultValue="" typeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType[]" baseTypeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType[]" required="true" elementTypeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType" elementBaseTypeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType">
+              <context>
+                <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+              </context>
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+              <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="requiredProfessions[0]" id="1267573815328_8235" value="" defaultValue="" typeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType" baseTypeURI="xsd:/mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#DetailedProfessionsType" hasChildren="true">
+                <context>
+                  <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+                </context>
+                <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="profession" id="1267573815328_8236" value="" defaultValue="" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#ProfessionType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#ProfessionType" required="true" hasChildren="true">
+                  <context>
+                    <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+                  </context>
+                  <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ID" id="1267573815328_8237" value="0" defaultValue="0" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#IdType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#IdType" required="true">
+                    <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#int"/>
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name_En" id="1267573815328_8238" value="ee" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name_Ar" id="1267573815328_8239" value="dd" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                </elements>
+                <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="nationality" id="1267573815328_8240" value="" defaultValue="" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#NationalityType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#NationalityType" required="true" hasChildren="true">
+                  <context>
+                    <properties name="project_context" value="mol_recruit_submitapplication_process"/>
+                  </context>
+                  <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ID" id="1267573815328_8241" value="0" defaultValue="0" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#IdType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#IdType" required="true">
+                    <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#int"/>
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name_En" id="1267573815328_8242" value="aa" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                  <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name_Ar" id="1267573815328_8243" value="bb" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+                    <properties name="elementNS" value="igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+                  </elements>
+                </elements>
+                <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueEnum" name="gender" id="1267573815328_8244" value="Male" defaultValue="Male" typeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#GenderType" baseTypeURI="xsd:/igov.gov.qa/commonTypes/xml/schemas/v1_0/#GenderType" required="true">
+                  <properties name="primitiveUri" value="xsd:/http://www.w3.org/2001/XMLSchema#string"/>
+                  <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+                  <enumValues>Male</enumValues>
+                  <enumValues>Female</enumValues>
+                </elements>
+                <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="requiredNumber" id="1267573815328_8245" value="5" defaultValue="0" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#int" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#int" required="true">
+                  <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+                </elements>
+              </elements>
+            </elements>
+            <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="estName" id="1267573815328_8246" value="beeeb" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+              <properties name="elementNS" value="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+            </elements>
+          </elements>
+        </value>
+      </elements>
+    </entries>
+  </dataSets>
+  <columnTemplates name="Value" id="1267569429937_4749" typeURI="java:/java.lang#Object"/>
+</com.ibm.ccl.soa.test.common.models.datatable:ComplexDataPool>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="InsertNewApplicationRequest">
+        <xsd:sequence>
+          <xsd:element name="appDetails" type="molxsd:ApplicationDetailsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LaborRecruitmentApplicationinsertNewApplicationRequest1" type="tns:InsertNewApplicationRequest"/>
+      <xsd:complexType name="InsertNewApplicationResponse">
+        <xsd:sequence>
+          <xsd:element name="appID" type="molxsd:ApplicationIdType"/>
+          <xsd:element name="appStatus" type="molxsd:ApplicationStatusType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LaborRecruitmentApplicationinsertNewApplicationResponse1" type="tns:InsertNewApplicationResponse"/>
+      <xsd:element name="LaborRecruitmentApplicationinsertNewApplicationFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="InsertCSRReviewResultRequest">
+        <xsd:sequence>
+          <xsd:element name="appID" type="molxsd:ApplicationIdType"/>
+          <xsd:element name="reviewResult" type="molxsd:ReviewResultType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LaborRecruitmentApplicationinsertCSRReviewResultRequest1" type="tns:InsertCSRReviewResultRequest"/>
+      <xsd:complexType name="InsertCSRReviewResultResponse">
+        <xsd:sequence>
+          <xsd:element name="acknowledgement" type="igovxsd:AcknowledgementType"/>
+          <xsd:element minOccurs="0" name="appStatus" type="molxsd:ApplicationStatusType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LaborRecruitmentApplicationinsertCSRReviewResultResponse1" type="tns:InsertCSRReviewResultResponse"/>
+      <xsd:element name="LaborRecruitmentApplicationinsertCSRReviewResultFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LaborRecruitmentApplicationinsertNewApplicationRequest">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertNewApplicationRequest1" name="appDetails"/>
+  </wsdl:message>
+  <wsdl:message name="LaborRecruitmentApplicationinsertNewApplicationResponse">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertNewApplicationResponse1" name="appID"/>
+  </wsdl:message>
+  <wsdl:message name="LaborRecruitmentApplicationinsertNewApplicationFault">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertNewApplicationFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="LaborRecruitmentApplicationinsertCSRReviewResultRequest">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertCSRReviewResultRequest1" name="reviewResult"/>
+  </wsdl:message>
+  <wsdl:message name="LaborRecruitmentApplicationinsertCSRReviewResultResponse">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertCSRReviewResultResponse1" name="ack"/>
+  </wsdl:message>
+  <wsdl:message name="LaborRecruitmentApplicationinsertCSRReviewResultFault">
+    <wsdl:part element="tns:LaborRecruitmentApplicationinsertCSRReviewResultFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="LaborRecruitmentApplication">
+    <wsdl:operation name="insertNewApplication">
+      <wsdl:input message="tns:LaborRecruitmentApplicationinsertNewApplicationRequest"/>
+      <wsdl:output message="tns:LaborRecruitmentApplicationinsertNewApplicationResponse"/>
+      <wsdl:fault message="tns:LaborRecruitmentApplicationinsertNewApplicationFault" name="insertNewApplicationFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="insertCSRReviewResult">
+      <wsdl:input message="tns:LaborRecruitmentApplicationinsertCSRReviewResultRequest"/>
+      <wsdl:output message="tns:LaborRecruitmentApplicationinsertCSRReviewResultResponse"/>
+      <wsdl:fault message="tns:LaborRecruitmentApplicationinsertCSRReviewResultFault" name="insertCSRReviewResultFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

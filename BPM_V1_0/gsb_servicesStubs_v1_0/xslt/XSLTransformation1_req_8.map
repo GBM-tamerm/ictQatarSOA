@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_8" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_8">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DLookupsgetPaymentFeesRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DLookupsgetPaymentFeesResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_8">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <output path="LookupsgetPaymentFeesResponse1/paymentFees/amount"/>
+            <function ref="assign">
+                <property key="value" value="10"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="LookupsgetPaymentFeesResponse1/paymentFees/description"/>
+            <function ref="assign">
+                <property key="value" value="رسوم طلب الموافقة على إستقدام عمالة - جديد"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="LookupsgetPaymentFeesResponse1/paymentFees/paymentFeesID"/>
+            <function ref="assign">
+                <property key="value" value="101"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

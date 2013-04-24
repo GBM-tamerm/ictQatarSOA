@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding6="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding6" xmlns:EstablishmentHasActiveLaborAppInfoService="http://mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService/" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstablishmentHasActiveLaborAppInfoImport3" name="EstablishmentHasActiveLaborAppInfoImport3">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EstablishmentHasActiveLaborAppInfo">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" contextPropagationEnabled="false" endpoint="https://molgw/ictqatar/EstablishmentHasActiveLaborAppInfoService.svc" port="EstablishmentHasActiveLaborAppInfoService:EstablishmentHasActiveLaborAppInfoPort" service="EstablishmentHasActiveLaborAppInfoService:establishmentHasActiveLaborAppInfo"/>
+</scdl:import>

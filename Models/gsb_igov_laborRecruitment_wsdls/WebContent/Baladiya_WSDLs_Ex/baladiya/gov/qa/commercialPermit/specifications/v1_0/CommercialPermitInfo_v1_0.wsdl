@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="v1_0" targetNamespace="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/" 
+ xmlns:tns="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" 
+    targetNamespace="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/" 
+    xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" 
+    xmlns:mmupcpxsd="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/"
+    xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/CommercialPermitSchema_v1_0.xsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+      
+      <xsd:complexType name="GetCommercialPermitInfoRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+          <xsd:element minOccurs="0" name="commercialRegistration" type="mmupcpxsd:CommercialRegistration"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CommercialPermitInfogetCommercialPermitInfoRequest1" type="tns:GetCommercialPermitInfoRequest"/>
+      <xsd:complexType name="GetCommercialPermitInfoResponse">
+        <xsd:sequence>
+          <xsd:element name="commercialPermit" type="mmupcpxsd:CommercialPermitType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CommercialPermitInfogetCommercialPermitInfoResponse1" type="tns:GetCommercialPermitInfoResponse"/>
+      <xsd:element name="CommercialPermitInfogetCommercialPermitInfoFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CommercialPermitInfogetCommercialPermitInfoRequest">
+    <wsdl:part element="tns:CommercialPermitInfogetCommercialPermitInfoRequest1" name="getCommPermitReq"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="CommercialPermitInfogetCommercialPermitInfoResponse">
+    <wsdl:part element="tns:CommercialPermitInfogetCommercialPermitInfoResponse1" name="getCommPermitRes"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="CommercialPermitInfogetCommercialPermitInfoFault">
+    <wsdl:part element="tns:CommercialPermitInfogetCommercialPermitInfoFault1" name="fault"/>
+  </wsdl:message>
+  
+  <wsdl:portType name="CommercialPermitInfo">
+    <wsdl:operation name="getCommercialPermitInfo">
+      <wsdl:input message="tns:CommercialPermitInfogetCommercialPermitInfoRequest"/>
+      <wsdl:output message="tns:CommercialPermitInfogetCommercialPermitInfoResponse"/>
+      <wsdl:fault message="tns:CommercialPermitInfogetCommercialPermitInfoFault" name="getCommercialPermitInfoFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

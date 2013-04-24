@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Created-By: 1.5.0 (IBM Corporation)
+Class-Path: mol_recruit_process_lib.jar 
+ mol_recruit_common_utilities.jar 
+ mol_recruit_process_utilities.jar 
+

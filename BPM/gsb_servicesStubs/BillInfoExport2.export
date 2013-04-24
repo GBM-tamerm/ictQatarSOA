@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding2="urn:kahramaa.com.qa/billing/specifications/v1_0//Binding2" xmlns:ns1="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="BillInfoExport2" name="BillInfoExport2" target="ElectricityInfoService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:BillInfo"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding2:BillInfoExport2_BillInfoHttpPort" service="Binding2:BillInfoExport2_BillInfoHttpService"/>
+</scdl:export>

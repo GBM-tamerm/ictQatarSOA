@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ComIbmThrow.msgnode="ComIbmThrow.msgnode" xmlns:ComIbmWSRequest.msgnode="ComIbmWSRequest.msgnode" xmlns:Log4jLoggingPlugin.msgnode="Log4jLoggingPlugin.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="qa/gov/igov/shared/notification/SMSMF.msgflow"
+    nsPrefix="qa_gov_igov_shared_notification_SMSMF.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.smsFQDN" name="smsFQDN" lowerBound="1" defaultValueLiteral="http://ictSMS:8080/receiver/mt/">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.smsOperator" name="smsOperator" lowerBound="1" defaultValueLiteral="Qtel">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.smsSender" name="smsSender" lowerBound="1" defaultValueLiteral="92616">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.smsPassword" name="smsPassword" lowerBound="1" defaultValueLiteral="nimic">
+      <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <translation xmi:type="utility:TranslatableString" key="SMSMF" bundleName="qa/gov/igov/shared/notification/SMSMF" pluginId="gsb_igov_notification_brokerFlow"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_notification_brokerFlow/icons/full/obj16/SMSMF.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/gsb_igov_notification_brokerFlow/icons/full/obj30/SMSMF.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" queueName="IGOV_NTF_SMS_Q" messageDomainProperty="XMLNSC" parserXmlnscUseForXmlnsDomain="true">
+        <translation xmi:type="utility:ConstantString" string="MQInput"/>
+      </nodes>
+      <nodes xmi:type="ComIbmWSRequest.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="231,20" URLSpecifier="http://ictSMS/receive/mt/service_id/password">
+        <translation xmi:type="utility:ConstantString" string="SendSMSRequest"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_5" location="93,20" computeExpression="esql://routine/qa.gov.igov.shared.notification#SMSMF_PrepareSMSRequest.Main" computeMode="all">
+        <translation xmi:type="utility:ConstantString" string="PrepareSMSRequest"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="355,99" computeExpression="esql://routine/qa.gov.igov.shared.notification#SMSMF_CheckResponse.Main" computeMode="exception">
+        <translation xmi:type="utility:ConstantString" string="CheckResponse"/>
+      </nodes>
+      <nodes xmi:type="Log4jLoggingPlugin.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="471,20" log4jConfigFile="/var/mqsi/logConfig/ictJLogCnf.xml" logLevel="INFO" logText="$ExceptionList$">
+        <translation xmi:type="utility:ConstantString" string="LogError"/>
+      </nodes>
+      <nodes xmi:type="ComIbmThrow.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="565,20">
+        <translation xmi:type="utility:ConstantString" string="Rollback"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_6" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.Output" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_3" sourceTerminalName="OutTerminal.failure" targetTerminalName="InTerminal.Input"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.error" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer>
+      <propertyDescriptor groupName="Group.SMSConfig" configurable="true" userDefined="true" describedAttribute="Property.smsFQDN">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.smsFQDN" bundleName="qa/gov/igov/shared/notification/SMSMF" pluginId="gsb_igov_notification_brokerFlow"/>
+        <propertyDescriptor groupName="Group.SMSConfig" configurable="true" userDefined="true" describedAttribute="Property.smsOperator">
+          <propertyName xmi:type="utility:TranslatableString" key="Property.smsOperator" bundleName="qa/gov/igov/shared/notification/SMSMF" pluginId="gsb_igov_notification_brokerFlow"/>
+          <propertyDescriptor groupName="Group.SMSConfig" configurable="true" userDefined="true" describedAttribute="Property.smsSender">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.smsSender" bundleName="qa/gov/igov/shared/notification/SMSMF" pluginId="gsb_igov_notification_brokerFlow"/>
+            <propertyDescriptor groupName="Group.SMSConfig" configurable="true" userDefined="true" describedAttribute="Property.smsPassword">
+              <propertyName xmi:type="utility:TranslatableString" key="Property.smsPassword" bundleName="qa/gov/igov/shared/notification/SMSMF" pluginId="gsb_igov_notification_brokerFlow"/>
+            </propertyDescriptor>
+          </propertyDescriptor>
+        </propertyDescriptor>
+      </propertyDescriptor>
+    </propertyOrganizer>
+  </eClassifiers>
+</ecore:EPackage>

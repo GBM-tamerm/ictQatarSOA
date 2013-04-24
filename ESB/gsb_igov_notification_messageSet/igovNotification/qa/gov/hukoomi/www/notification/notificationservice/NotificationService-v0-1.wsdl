@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:core="http://www.hukoomi.gov.qa/core" xmlns:ictnts="http://www.hukoomi.gov.qa/notification/NotificationService" xmlns:ntf="http://www.hukoomi.gov.qa/notification/NotificationTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NotificationService" targetNamespace="http://www.hukoomi.gov.qa/notification/NotificationService">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="NotificationServiceSoapBinding" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+
+	<wsp:Policy wsu:Id="CommonPolicy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<wsaw:UsingAddressing wsdl:required="true"/>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+
+	<wsdl:types>
+		<xsd:schema xmlns:core="http://www.hukoomi.gov.qa/core" xmlns:ictnts="http://www.hukoomi.gov.qa/notification/NotificationService" xmlns:ntf="http://www.hukoomi.gov.qa/notification/NotificationTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.hukoomi.gov.qa/core" schemaLocation="../../core/CommonSimpleTypes-v0-1.mxsd"/>
+			<xsd:import namespace="http://www.hukoomi.gov.qa/notification/NotificationTypes" schemaLocation="../notificationtypes/NotificationTypes-v0-1.mxsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="SendNotificationRequest">
+		<wsdl:part element="ntf:NotificationRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="SendNotificationResponse">
+		<wsdl:part element="ntf:NotificationRequestConfirmation" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="SendSMSRequest">
+		<wsdl:part element="ntf:SendSMSRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="SendSMSResponse">
+		<wsdl:part element="ntf:SendSMSRequestConfirmation" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetStatusReportRequest">
+		<wsdl:part element="ntf:NotificationStatusRequest" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="GetStatusReportResponse">
+		<wsdl:part element="ntf:NotificationStatus" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="Error">
+		<wsdl:part element="core:Error" name="parameters"/>
+	</wsdl:message>
+
+	<wsdl:portType name="NotificationService">
+		<wsdl:operation name="SendNotification">
+			<wsdl:input message="ictnts:SendNotificationRequest" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendNotificationRequest"/>
+			<wsdl:output message="ictnts:SendNotificationResponse" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendNotificationResponse"/>
+			<wsdl:fault message="ictnts:Error" name="Error" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendNotificationError"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="SendSMS">
+			<wsdl:input message="ictnts:SendSMSRequest" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendSMSRequest"/>
+			<wsdl:output message="ictnts:SendSMSResponse" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendSMSResponse"/>
+			<wsdl:fault message="ictnts:Error" name="Error" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/SendSMSError"/>
+		</wsdl:operation>
+
+		<wsdl:operation name="GetStatusReport">
+			<wsdl:input message="ictnts:GetStatusReportRequest" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/GetStatusReportRequest"/>
+			<wsdl:output message="ictnts:GetStatusReportResponse" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/GetStatusReportResponse"/>
+			<wsdl:fault message="ictnts:Error" name="Error" wsaw:Action="http://www.hukoomi.gov.qa/notification/NotificationService/GetStatusReportError"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="NotificationServiceSoapBinding" type="ictnts:NotificationService">
+		<!--<wsp:PolicyReference URI="#CommonPolicy" />-->
+		<wsaw:UsingAddressing wsdl:required="true"/>
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="SendNotification">
+			<soap:operation soapAction=""/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Error">
+				<soap:fault name="Error" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="SendSMS">
+			<soap:operation soapAction=""/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Error">
+				<soap:fault name="Error" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="GetStatusReport">
+			<soap:operation soapAction=""/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="Error">
+				<soap:fault name="Error" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="NotificationService">
+		<wsdl:port binding="ictnts:NotificationServiceSoapBinding" name="NotificationServiceSoap">
+			<soap:address location="http://www.hukoomi.gov.qa/"/>
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

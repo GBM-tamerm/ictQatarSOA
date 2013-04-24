@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+      <xsd:complexType name="isEstablishmentBlacklistedRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedRequest1" type="tns:isEstablishmentBlacklistedRequest"/>
+      <xsd:complexType name="isEstablishmentBlacklistedResponse">
+        <xsd:sequence>
+          <xsd:element name="blacklisted" type="molxsd:BlackListedStatusType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse1" type="tns:isEstablishmentBlacklistedResponse"/>
+      <xsd:element name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedRequest">
+    <wsdl:part element="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedRequest1" name="estID"/>
+  </wsdl:message>
+  <wsdl:message name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse">
+    <wsdl:part element="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse1" name="blacklisted"/>
+  </wsdl:message>
+  <wsdl:message name="BlacklistedEstablishmentsInfoisEstablishmentBlacklistedFault">
+    <wsdl:part element="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="BlacklistedEstablishmentsInfo">
+    <wsdl:operation name="isEstablishmentBlacklisted">
+      <wsdl:input message="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedRequest"/>
+      <wsdl:output message="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse"/>
+      <wsdl:fault message="tns:BlacklistedEstablishmentsInfoisEstablishmentBlacklistedFault" name="isEstablishmentBlacklistedFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

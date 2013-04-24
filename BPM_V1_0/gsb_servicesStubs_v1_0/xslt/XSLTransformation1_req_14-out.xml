@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:io6="http://schemas.ict.gov.qa/2010/01/iGovHeader" xmlns:io4="wsdl.http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:io5="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:io3="http://ict.gov.qa/IGOVError/xml/schemas/version1.0" xmlns:io2="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:io="http://moi.gov.qa/EstablishmentInfo/xml/schemas/version1.0">
+  <io2:EstablishmentInfo>
+    <io:EstablishmentId>tns:GetEstablishmentInfo</io:EstablishmentId>
+    <io:Name>المانع</io:Name>
+    <io:Phone>2132</io:Phone>
+    <io:Owner>
+      <io:QId>21321434343</io:QId>
+      <io:Name>عبد المنعم</io:Name>
+      <io:Phone>34324232432</io:Phone>
+      <io:Email>fdff@ddd.ddd</io:Email>
+    </io:Owner>
+    <io:Agent>
+      <io:QId>2323213333</io:QId>
+      <io:Name>مرام</io:Name>
+      <io:Phone>321322</io:Phone>
+      <io:Email>ddsd@ddd.dd</io:Email>
+    </io:Agent>
+    <io:Specialization>everything</io:Specialization>
+  </io2:EstablishmentInfo>
+</body>

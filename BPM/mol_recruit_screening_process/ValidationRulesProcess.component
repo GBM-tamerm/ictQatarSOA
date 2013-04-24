@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1" xmlns:ns10="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns11="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns12="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns13="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns2="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:ns3="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0" xmlns:ns4="http://mol.gov.qa/Labor/RecruitmentBusinessRules/version/1.0" xmlns:ns5="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:ns6="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/EstablishmentLaborInfo/" xmlns:ns7="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns8="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentBusinessRules/" xmlns:ns9="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="ValidationRulesProcess" name="ValidationRulesProcess">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns2:IValidateEstablishment">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="EstHasActiveAppPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:EstablishmentHasActiveLaborAppInfo"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EstablishmentHasActiveLaborAppInfoImport3"/>
+    </reference>
+    <reference name="EstSecInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns12:EstablishmentSecurityInfo"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EstablishmentSecurityInfoImport1"/>
+    </reference>
+    <reference name="LaborBusinessRules">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:LaborRecruitmentBusinessRules"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="LaborRecruitmentBusinessRulesImport1"/>
+    </reference>
+    <reference name="EstIsBlackListedPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:BlacklistedEstablishmentsInfo"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="BlacklistedEstablishmentsInfoImport1"/>
+    </reference>
+    <reference name="IPrepareGovHeaderPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns13:IPrepareGovHeader"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="PerpareGovHeader"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/qa/gov/ict/process/prevalidation/ValidationRulesProcess.bpel"/>
+  </implementation>
+</scdl:component>

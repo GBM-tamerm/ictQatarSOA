@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns3="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="AddtionalRulesService" targetNamespace="http://gsb_servicesStubs/AddtionalRulesService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns3:LaborRecruitmentBusinessRules"/>
+  </interfaces>
+  <references>
+    <reference name="LaborRecruitmentBusinessRulesPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:LaborRecruitmentBusinessRules"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="checkEstablishment" target="checkEstablishment" sourcePortType="ns3:LaborRecruitmentBusinessRules" targetReference="LaborRecruitmentBusinessRulesPartner"/>
+  <operationFlow medflow="AddtionalRulesService.medflow"/>
+</mfc:interfaceMediationFlow>

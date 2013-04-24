@@ -1,0 +1,11 @@
+/BlacklistedEstablishmentInfo_v1_0.wsdl////*////
+/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl////*////
+/LaborRecruitmentApplicationInfo_v1_0.wsdl////*////
+/LaborRecruitmentApplication_v1_0.wsdl////*////
+/LaborRecruitmentBusinessRules_v1_0.wsdl////*////
+/Lookups_v1_0.wsdl////*////
+/RecruitmentProcessGetSuspendedApplicationsTasks_v1_0.wsdl////*////
+/RecruitmentProcessPreconditionValidation_v1_0.wsdl////*////
+/RecruitmentProcessResumeApplication_v1_0.wsdl////*////
+/RecruitmentProcessSubmitNewApplication_v1_0.wsdl////*////
+/gsb_servicesStubs_v1_0_LookupsExport1.wsdl////*////

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1" xmlns:ns10="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns11="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns12="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:ns13="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns2="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:ns3="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:ns4="http://kahramaa.com.qa/Electricity/ElectricityInfo/version/1.0" xmlns:ns5="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns6="http://kahramaa.com.qa/electricityInfo/specifications/version1_0/ElectricityBillInfoPort/" xmlns:ns7="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns8="kahramaa.com.qa/billing/specifications/v1_0/" xmlns:ns9="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="PerformScreening" name="PerformScreening">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns10:RecruitmentProcessPreconditionValidation">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="ValidateEstalishmentPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:IValidateEstablishment"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="ValidationRulesProcess"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/qa/gov/ict/process/prevalidation/PerformScreening.bpel"/>
+  </implementation>
+</scdl:component>

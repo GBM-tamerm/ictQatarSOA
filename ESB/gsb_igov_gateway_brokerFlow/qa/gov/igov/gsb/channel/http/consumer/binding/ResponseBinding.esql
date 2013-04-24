@@ -1,0 +1,32 @@
+BROKER SCHEMA qa.gov.igov.gsb.channel.http.consumer.binding
+
+CREATE COMPUTE MODULE ResponseBinding_ApplyBinding
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE iBSoptions INTEGER BITOR(FolderBitStream, ValidateNone);		
+		DECLARE InMsgBlob BLOB;
+		DECLARE InMESSAGE CHARACTER;
+		SET InMsgBlob = ASBITSTREAM(InputRoot.XMLNSC.soapenv:Envelope CCSID InputRoot.Properties.CodedCharSetId OPTIONS iBSoptions TYPE '{http://schemas.xmlsoap.org/soap/envelope/}:Envelope' FORMAT 'XML1' );
+		SET InMESSAGE = CAST(InMsgBlob AS CHARACTER CCSID 1208);
+		-- SET Environment.Variables.Log4j.LogText = 'trackingID: ' ||  (CAST(Environment.igov.trackingID AS CHARACTER)) || '. inboundRequest: ' || InMESSAGE;
+		IF InMESSAGE IS NULL THEN
+			SET InMESSAGE = 'NULL' ;	
+		END IF;
+		SET Environment.Variables.Log4j.LogText = Environment.Variables.Log4j.LogPrefix || 'inboundResponse: ' || InMESSAGE;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

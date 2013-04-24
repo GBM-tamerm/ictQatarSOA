@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentRestrictionInfoExport1_EstablishmentRestrictionInfoHttp_Service" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding" xmlns:Port_0="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="EstablishmentRestrictionInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentRestrictionInfoExport1_EstablishmentRestrictionInfoHttpBinding" type="Port_0:EstablishmentRestrictionInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="isRestricted">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="isRestrictedFault">
+        <soap:fault name="isRestrictedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EstablishmentRestrictionInfoExport1_EstablishmentRestrictionInfoHttpService">
+    <wsdl:port binding="this:EstablishmentRestrictionInfoExport1_EstablishmentRestrictionInfoHttpBinding" name="EstablishmentRestrictionInfoExport1_EstablishmentRestrictionInfoHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubs_v1_0Web/sca/EstablishmentRestrictionInfoExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

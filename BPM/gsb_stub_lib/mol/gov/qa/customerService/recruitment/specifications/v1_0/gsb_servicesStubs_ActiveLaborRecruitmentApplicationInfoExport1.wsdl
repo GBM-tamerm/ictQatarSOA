@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ActiveLaborRecruitmentApplicationInfoExport1_ActiveLaborRecruitmentApplicationInfoHttp_Service" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding12" xmlns:Port_0="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding12" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="LaborRecruitmentApplicationInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="ActiveLaborRecruitmentApplicationInfoExport1_ActiveLaborRecruitmentApplicationInfoHttpBinding" type="Port_0:ActiveLaborRecruitmentApplicationInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getActiveApplicationByAppId">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getActiveApplicationByAppIdFault">
+        <soap:fault name="getActiveApplicationByAppIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveApplicationByEstId">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getActiveApplicationByEstIdFault">
+        <soap:fault name="getActiveApplicationByEstIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActiveLaborRecruitmentApplicationInfoExport1_ActiveLaborRecruitmentApplicationInfoHttpService">
+    <wsdl:port binding="this:ActiveLaborRecruitmentApplicationInfoExport1_ActiveLaborRecruitmentApplicationInfoHttpBinding" name="ActiveLaborRecruitmentApplicationInfoExport1_ActiveLaborRecruitmentApplicationInfoHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubsWeb/sca/ActiveLaborRecruitmentApplicationInfoExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

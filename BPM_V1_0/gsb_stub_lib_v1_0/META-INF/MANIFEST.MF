@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: mol_recruit_process_lib_v1_0.jar
+

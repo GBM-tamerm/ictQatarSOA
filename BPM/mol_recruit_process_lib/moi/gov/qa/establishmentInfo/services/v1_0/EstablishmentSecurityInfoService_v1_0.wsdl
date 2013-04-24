@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentSecurityInfoService" targetNamespace="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/" xmlns:moispcxsd="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/EstablishmentSecurityInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentSecurityInfoBinding" type="moispcxsd:EstablishmentSecurityInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEstablishmentInfoById">
+      <soap:operation soapAction="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/getEstablishmentInfoById/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+        <soap:header part="header" message="moispcxsd:EstablishmentSecurityInfogetEstablishmentInfoByIdRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="estInfo" use="literal"/>
+        <soap:header part="header" message="moispcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getEstablishmentInfoByIdFault">
+        <soap:fault name="getEstablishmentInfoByIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="isRestricted">
+      <soap:operation soapAction="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/isRestricted/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+        <soap:header part="header" message="moispcxsd:EstablishmentSecurityInfoisRestrictedRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="restricted" use="literal"/>
+        <soap:header part="header" message="moispcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="isRestrictedFault">
+        <soap:fault name="isRestrictedFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLaborStatistics">
+      <soap:operation soapAction="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/getLaborStatistics/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+        <soap:header part="header" message="moispcxsd:EstablishmentSecurityInfogetLaborStatisticsRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="laborStatistics" use="literal"/>
+        <soap:header part="header" message="moispcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLaborStatisticsFault">
+        <soap:fault name="getLaborStatisticsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="establishmentSecurityInfo">
+    <wsdl:port binding="tns:EstablishmentSecurityInfoBinding" name="EstablishmentSecurityInfoPort">
+      <soap:address location="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentSecurityInfoService/establishmentSecurityInfo/EstablishmentSecurityInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

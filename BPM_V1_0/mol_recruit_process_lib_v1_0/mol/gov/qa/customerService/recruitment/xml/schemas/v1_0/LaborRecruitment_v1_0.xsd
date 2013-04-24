@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:khmxsd="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:mbtcrxsd="urn:mbt.gov.qa/commercialRegistration/xml/schemas/v1_0/" xmlns:mmupcpxsd="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/" schemaLocation="../../../../../../../../baladiya/gov/qa/commercialPermit/xml/schemas/v1_0/CommercialPermitSchema_v1_0.xsd"/>
+  <xsd:import namespace="urn:mbt.gov.qa/commercialRegistration/xml/schemas/v1_0/" schemaLocation="../../../../../../../../mbt/gov/qa/commercialRegistration/xml/schemas/v1_0/CommercialRegistrationSchema_v1_0.xsd"/>
+  <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../../../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+  <xsd:import namespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" schemaLocation="../../../../../../../../kahramaa/com/qa/billing/xml/schemas/v1_0/Billing_v1_0.xsd"/>
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; LaborRecruitment_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 02/02/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is MOL scemaTypes&amp;nbsp;for all recruitment application services&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 2.0&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    02-01-2010: Hassan Ali: v 0.1 Initial draft version&lt;br /&gt;
+    18-02-2010: Mohamed Kattaya : v 0.2&amp;nbsp;Initial draft version output from UML generation&lt;br /&gt;
+    24-02-2010: Mohamed Kattaya : v 0.4 changes to update MOL&amp;nbsp;actual types of database&amp;nbsp;&lt;br /&gt;
+    25-02-2010: Mohamed Kattaya : v 1.0 changes to refactore out establishment ID and Electricity number&lt;br /&gt;
+    28-02-2010: Mohamed Kattaya : v 1.1 changes to update MOL&amp;nbsp;actual types of database&amp;nbsp;&lt;br /&gt;
+    02-03-2010: Mohamed Kattaya : v 1.2 changes to update MOL&amp;nbsp;actual types of database&amp;nbsp;&lt;br /&gt;
+    04-03-2010: Mohamed Kattaya : v 1.3 changes to update MOL&amp;nbsp;actual types of database&amp;nbsp;&lt;br /&gt;
+    15-03-2010: Mohamed Kattaya : v 1.4 changes to approved professions
+&lt;/p&gt;
+&lt;p&gt;
+    22-03-2010: Mohamed Kattaya: v 1.5 add Restricted to serviceType enumeration, add rejection reason to invalidtype and
+    change failureNote to kahramaaFailureNote in processAcknoledgment
+&lt;/p&gt;
+&lt;p&gt;
+    04-05-2010: Mohamed Kattaya: v 1.6 make vpNumber in DetailedProfessionsType as an optional element
+&lt;/p&gt;
+&lt;p&gt;
+    13-05-2010: Mohamed Kattaya: v 1.6 change kahramaaFailureNote to failureNote in processAcknoledgment as it was changed
+    before in
+&lt;/p&gt;
+&lt;p&gt;
+    22-03-2010 by mistake.
+&lt;/p&gt;
+&lt;p&gt;
+    30-05-2010: Mohamed Kattaya: v 1.7 add SuspendedApplication complex type to the process objects
+&lt;/p&gt;
+&lt;p&gt;
+    this is needed for the getSuspendedApplicationsTasks
+&lt;/p&gt;
+&lt;p&gt;
+    13-07-2010: Mohamed Kattaya: v 1.8&amp;nbsp;create PaymentFeesType and add it to ApplicationDetailsType and
+&lt;/p&gt;
+&lt;p&gt;
+    ApplicationDetailsLW. This is as per the change request for the payment.&amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+    27-07-2010: Mohamed Kattaya: v 1.9&amp;nbsp;create PaymentTransactionType and add it to ApplicationDetailsType and
+&lt;/p&gt;
+&lt;p&gt;
+    ApplicationDetailsLW. This is as per the change request for the payment.&amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+    28-07-2010: Mohamed Kattaya: v 1.9.1&amp;nbsp;Correct speeling mistake in PaymentTransactionType&amp;nbsp;&amp;nbsp;
+&lt;/p&gt;
+&lt;p&gt;
+    29-08-2010: Mohamed Kattaya: v 2.0 Add CommercialPermitID and CommercialRegistrationCode to ApplicatioDetailsType, and
+    ApplicationDetailsLW and ApplicationLW
+&lt;/p&gt;
+&lt;p&gt;
+    07-11-2010: Mohamed Kattaya: v 2.1 Reference mbt namespace and package&amp;nbsp;instead of mec
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="ReviewResultType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="remarks" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="notification" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="timeStamp" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="notificationLang" type="igovxsd:Language"/>
+      <xsd:element name="userID" type="igovxsd:UserIdType"/>
+      <xsd:element name="result" type="molxsd:ApplicationReviewResultType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="molxsd:ApplicationIdType"/>
+      <xsd:element name="details" type="molxsd:ApplicationDetailsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationDetailsType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="applicationDate" type="xsd:dateTime"/>
+      <xsd:element name="establishmentName" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" name="requiredProfessions" type="molxsd:DetailedProfessionsType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="approvedProfessions" type="molxsd:DetailedProfessionsType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="reviewResults" type="molxsd:ReviewResultType"/>
+      <xsd:element minOccurs="0" name="status" type="molxsd:ApplicationStatusType"/>
+      <xsd:element name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element name="agentQID" type="moixsd:QIdType"/>
+      <xsd:element minOccurs="0" name="agentEmail" type="igovxsd:EmailAddressType"/>
+      <xsd:element minOccurs="0" name="agentPhone" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element name="establishmentID" type="moixsd:EstablishmentIdType"/>
+      <xsd:element minOccurs="0" name="establishmentAddress" type="igovxsd:AddressType"/>
+      <xsd:element minOccurs="0" name="remarks" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paymentFees" type="molxsd:PaymentFeesType"/>
+      <xsd:element minOccurs="0" name="paymentTransaction" type="molxsd:PaymentTransactionType"/>
+      <xsd:element minOccurs="0" name="commercialRegistrationCode" type="mbtcrxsd:CommercialRegistrationCodeType"/>
+      <xsd:element minOccurs="0" name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationIdType">
+    <xsd:sequence>
+      <xsd:element name="ApplicationNumber" type="xsd:string"/>
+      <xsd:element name="year" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailedProfessionsType">
+    <xsd:sequence>
+      <xsd:element name="requiredNumber" type="xsd:int"/>
+      <xsd:element name="profession" type="igovxsd:ProfessionType"/>
+      <xsd:element name="nationality" type="igovxsd:NationalityType"/>
+      <xsd:element name="gender" type="igovxsd:GenderType"/>
+      <xsd:element minOccurs="0" name="vpNumber" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationStatusType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:string"/>
+      <xsd:element name="nameAr" type="xsd:string"/>
+      <xsd:element name="nameEn" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ApplicationReviewResultType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="APPROVED"/>
+      <xsd:enumeration value="REJECTED"/>
+      <xsd:enumeration value="SUSPENDED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ActiveLaborRecruitmentApplicationStatusType">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="BlackListedStatusType">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="ValidEstablishment">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+  <xsd:complexType name="ApplicationDetailsLW">
+    <xsd:sequence>
+      <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+      <xsd:element minOccurs="0" name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element minOccurs="0" name="agentQID" type="moixsd:QIdType"/>
+      <xsd:element name="agentEmail" type="igovxsd:EmailAddressType"/>
+      <xsd:element name="agentPhone" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element maxOccurs="unbounded" name="requiredProfessions" type="molxsd:DetailedProfessionsType"/>
+      <xsd:element name="estName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="paymentFees" type="molxsd:PaymentFeesType"/>
+      <xsd:element minOccurs="0" name="paymentTransaction" type="molxsd:PaymentTransactionType"/>
+      <xsd:element minOccurs="0" name="commercialRegistrationCode" type="mbtcrxsd:CommercialRegistrationCodeType"/>
+      <xsd:element minOccurs="0" name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicationLW">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+      <xsd:element name="applicationID" type="molxsd:ApplicationIdType"/>
+      <xsd:element minOccurs="0" name="agentQID" type="moixsd:QIdType"/>
+      <xsd:element name="agentEmail" type="igovxsd:EmailAddressType"/>
+      <xsd:element name="agentPhone" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element name="estName" type="xsd:string"/>
+      <xsd:element name="applicationDate" type="xsd:dateTime"/>
+      <xsd:element name="processMetadata" type="molxsd:ProcessMetadata"/>
+      <xsd:element name="status" type="molxsd:ApplicationStatusType"/>
+      <xsd:element minOccurs="0" name="commercialRegistrationCode" type="mbtcrxsd:CommercialRegistrationCodeType"/>
+      <xsd:element minOccurs="0" name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessMetadata">
+    <xsd:sequence>
+      <xsd:element name="stepID" type="xsd:string"/>
+      <xsd:element name="faultMessage" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="correlationID" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessAcknowledgment">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="applicationID" type="molxsd:ApplicationIdType"/>
+      <xsd:element minOccurs="0" name="inValidResults" type="molxsd:InValidType"/>
+      <xsd:element minOccurs="0" name="failureNote" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InValidType">
+    <xsd:sequence>
+      <xsd:element name="agency" type="molxsd:AgencyType"/>
+      <xsd:element name="service" type="molxsd:ServiceType"/>
+      <xsd:element name="molRejectionReason" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="AgencyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MOI"/>
+      <xsd:enumeration value="MOL"/>
+      <xsd:enumeration value="KAHRAMAA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ServiceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ACTIVE_APP"/>
+      <xsd:enumeration value="BLACKLIST"/>
+      <xsd:enumeration value="ADDITIONAL_RULES"/>
+      <xsd:enumeration value="RESTRICTED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ValidType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="statistics" type="moixsd:StatisticsType"/>
+      <xsd:element minOccurs="0" name="electricityInfo" type="khmxsd:BillSummaryType"/>
+      <xsd:element name="statisticsNote" type="xsd:string"/>
+      <xsd:element name="electricityNote" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ValidationResults">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="validResult" type="molxsd:ValidType"/>
+      <xsd:element minOccurs="0" name="inValidResults" type="molxsd:InValidType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProcessHeader">
+    <xsd:sequence>
+      <xsd:element name="userID" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SuspendedApplication">
+    <xsd:sequence>
+      <xsd:element name="applicationID" type="molxsd:ApplicationIdType"/>
+      <xsd:element name="estName" type="xsd:string"/>
+      <xsd:element name="applicationDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="agentQID" type="moixsd:QIdType"/>
+      <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+      <xsd:element minOccurs="0" name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element name="suspendedDate" type="xsd:dateTime"/>
+      <xsd:element name="csrUserID" type="xsd:string"/>
+      <xsd:element name="csrUserRemarks" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="commercialRegistrationCode" type="mbtcrxsd:CommercialRegistrationCodeType"/>
+      <xsd:element minOccurs="0" name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PaymentFeesType">
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="description" type="xsd:string"/>
+      <xsd:element name="paymentFeesID" type="molxsd:PaymentFeesIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="PaymentFeesIDType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType name="PaymentTransactionType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="amount" type="xsd:double"/>
+      <xsd:element minOccurs="0" name="transactionID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="transactionDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="receiptNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="transactionStatus" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

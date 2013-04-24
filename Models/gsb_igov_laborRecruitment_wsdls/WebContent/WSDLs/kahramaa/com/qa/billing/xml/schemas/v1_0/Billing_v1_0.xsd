@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:khmxsd="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; Billing_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 02/02/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is&amp;nbsp;Kahramaa schema for billing info service&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 1.4&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    02-01-2010: Hassan Ali: v 0.1 Initial draft version
+&lt;/p&gt;
+&lt;p&gt;
+    18-02-2010: Mohamed Kattaya : v 0.2 Initial draft version output from UML generation&amp;nbsp;&lt;br /&gt;
+    21-02-2010: Mohamed Kattaya : v 0.3
+&lt;/p&gt;
+&lt;p&gt;
+    24-02-2010: Mohamed Kattaya : v 0.4 changes according to latest Kahramaa model sent by Center of Excellence&lt;br /&gt;
+    &lt;br /&gt;
+    25-02-2010: Mohamed Kattaya : v 1.0 changes to refactore out establishment ID and Electricity number&lt;br /&gt;
+    15-03-2010: Mohamed Kattaya : v 1.4 changes to person info type
+&lt;/p&gt;
+&lt;p&gt;
+    17-03-2010: Mohamed Kattaya: v 1.5 creation of TenantTypeID and adding it BillSummaryType and BillDetailType
+&lt;/p&gt;
+&lt;p&gt;
+    04-05-2010: Mohamed Kattaya: v 1.6&amp;nbsp;all fields are made optional excep electricity number and tenant ID&amp;nbsp;
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="ElectricityNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value=".{1,8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BillSummaryType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="waterNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="billNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="address" type="igovxsd:AddressType"/>
+      <xsd:element minOccurs="0" name="areaCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="billPeriod" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="billDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="customerNameArabic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="customerNameEnglish" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="accountId" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ownerNameArabic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="ownerNameEnglish" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="remarksArabic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="remarksEnglish" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="status" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="lastPaidDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="outstandingAmount" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="grandTotal" type="xsd:string"/>
+      <xsd:element name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element name="tenantId" type="khmxsd:TenantIDType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ElectricityBillType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="presentReadingAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="presentReadingDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="previousReadingAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="previousReadingDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="consumptionAverageAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="consumptionAverageDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="firstLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="firstLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="secondLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="secondLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="thirdLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="thirdLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="meterRentAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="meterRentDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="otherChargesAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="otherChargesDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="deductionAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="deductionDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="arrearsAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="arrearsDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="totalAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="totalDetails" type="xsd:float"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BillDetailType">
+    <xsd:sequence>
+      <xsd:element name="electricityBillData" type="khmxsd:ElectricityBillType"/>
+      <xsd:element name="waterBillData" type="khmxsd:WaterBillType"/>
+      <xsd:element name="tenantId" type="khmxsd:TenantIDType"/>
+      <xsd:element name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WaterBillType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="presentReadingAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="presentReadingDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="previousReadingAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="previousReadingDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="consumptionAverageAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="consumptionAverageDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="firstLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="firstLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="secondLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="secondLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="thirdLimitAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="thirdLimitDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="meterRentAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="meterRentDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="otherChargesAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="otherChargesDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="deductionAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="deductionDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="arrearsAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="arrearsDetails" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="totalAmount" type="xsd:float"/>
+      <xsd:element minOccurs="0" name="totalDetails" type="xsd:float"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="TenantIDType">
+    <xsd:annotation>
+      <xsd:documentation>This could be Establishment ID or QID. Its length is from 7 to 11 digits.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{7,11}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

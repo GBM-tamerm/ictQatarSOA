@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="reviewapplication" targetNamespace="http://LR_ReviewApplication/qa/gov/ict/process/review/reviewapplicationArtifacts" xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns0="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns2="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:ns3="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://LR_ReviewApplication/qa/gov/ict/process/review/reviewapplicationArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://LR_ReviewApplication/ReviewWaitingActivity" xmlns:wsdl1="http://ict.gov.qa/Process/WSDL/IReviewApplication/v1" xmlns:wsdl2="http://LR_ReviewApplication/ReciveWaitingActivity" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="ReviewWaitingActivityPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:ResumeWaitingActivity"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="IReviewApplicationPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns0:ILaborRecuirmentApplication"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <bpws:property name="correlationID" type="xsd:string"/>
+    <bpws:propertyAlias messageType="wsdl0:submitNewResultsRequestMsg" part="submitNewResultsParameters" propertyName="tns:correlationID">
+    <bpws:query><![CDATA[/correlationID]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="wsdl1:reviewApplicationRequestMsg" part="reviewApplicationParameters" propertyName="tns:correlationID">
+    <bpws:query><![CDATA[/application/processMetaData/correlationID]]></bpws:query>
+  </bpws:propertyAlias>
+    <plnk:partnerLinkType name="SwimLane2PartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns3:IDepartmentStudy"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <bpws:propertyAlias messageType="wsdl0:resumeApplicationRequestMsg" part="resumeApplicationParameters" propertyName="tns:correlationID">
+    <bpws:query><![CDATA[/correlationID]]></bpws:query>
+  </bpws:propertyAlias>
+    <plnk:partnerLinkType name="RecieveWaitingActivityPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:ResumeApplicationRequest"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ReviewApplicationProcessHTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns2:ReviewApplicationProcess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ResumeApplicationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="wsdl0:ResumeWaitingActivity"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <bpws:propertyAlias messageType="wsdl2:requestResumeRequestMsg" part="requestResumeParameters1" propertyName="tns:correlationID">
+    <bpws:query><![CDATA[/correlationID]]></bpws:query>
+  </bpws:propertyAlias>
+    <bpws:propertyAlias messageType="ns0:processApplicationRequest" part="application" propertyName="tns:correlationID">
+    <bpws:query><![CDATA[/processMetadata/correlationID]]></bpws:query>
+  </bpws:propertyAlias>
+    <wsdl:import location="../../../../../ResumeWaitingActivity.wsdl" namespace="http://LR_ReviewApplication/ReviewWaitingActivity"/>
+    <wsdl:import location="../../../../../process/ILaborRecuirmentApplication.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1"/>
+    <wsdl:import location="../../../../../process/IDepartmentStudy.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1"/>
+    <wsdl:import location="../../../../../ResumeApplicationRequest.wsdl" namespace="http://LR_ReviewApplication/ReciveWaitingActivity"/>
+    <wsdl:import location="../../../../../ReviewApplicationProcess.wsdl" namespace="http://LR_ReviewApplication/ReviewApplicationHT"/>
+</wsdl:definitions>

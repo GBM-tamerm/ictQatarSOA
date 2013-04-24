@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.etools.mft.unittest.core.models.client="http:///com/ibm/etools/mft/unittest/core/models/client.ecore" xmlns:com.ibm.wbit.comptest.common.models.event="http:///com/ibm/etools/mft/unittest/common/models/event.ecore" xmlns:com.ibm.wbit.comptest.common.models.value="http:///com/ibm/etools/mft/unittest/common/models/value.ecore" xmlns:http="http:///com/ibm//etools/mft/unittest/common/model2/http" xmlns:http_1="http:///com/ibm//etools/mft/unittest/common/model2/status" xmlns:jms="http:///com/ibm//etools/mft/unittest/common/model2/jms" xmlns:model2="http:///com/ibm//etools/mft/unittest/common/model2" xmlns:mq="http:///com/ibm//etools/mft/unittest/common/model2/mq" xmlns:node="http:///com/ibm//etools/mft/unittest/common/model2/node">
+  <com.ibm.etools.mft.unittest.core.models.client:EclipseClient iD="1272447663281-0" eventTrace="/1" clientID="1272447663281-0">
+    <scopes xsi:type="model2:FlowTestScope" name="Configuration" iD="default" dirty="false">
+      <testModules xsi:type="model2:TestMsgFlow" name="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" iD="1272447663296-4">
+        <monitors xsi:type="mq:MQMonitor" name="SMS_Queue" iD="1273068224640-24878" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue"/>
+        <monitors xsi:type="mq:MQMonitor" name="email_queue" iD="1273068224640-24879" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="email_queue"/>
+        <inputNodes xsi:type="http:HTTPInputNode" nodeName="SOAP Input" urlSpecifier="/NotificationService"/>
+      </testModules>
+      <settings xsi:type="model2:FlowSettings"/>
+      <settings xsi:type="model2:DeploymentSettings" runtimeEnvType="WebSphere Message Broker v6.1" runtimeInstance="ict_cm^ict_broker^default^10.10.29.51^1414" runtimeMode="1" deployOption="DEPLOY_NEVER" barFile="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/Notification_Main_Test.bar" StopAtBeginning="true"/>
+      <settings xsi:type="mq:MQSettings"/>
+      <settings xsi:type="jms:JMSSettings"/>
+      <settings xsi:type="mq:MQMessageHeaders"/>
+      <settings xsi:type="jms:JMSMessageHeaders"/>
+      <messageHeaders xsi:type="mq:MQHeader" iD="1272447663281-3" headerName="Default Header"/>
+      <messageHeaders xsi:type="jms:JMSHeader" headerName="Default Header"/>
+    </scopes>
+  </com.ibm.etools.mft.unittest.core.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.models.event:ExecutionEventTrace iD="1272447663281-1" children="/2 /16"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1273067767953-23331" readOnly="true" clientID="1272447663281-0" timestamp="1273067767953" children="/3 /4 /15" msgFlow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" nodeId="FCMComposite_1_10" testScopeID="default" nodeName="SOAP Input" nodeType="ComIbmSOAPInput.msgnode" targetDeploymentLocationID="1273063144453-17935">
+    <request xsi:type="model2:TestMessage" iD="1273067767953-23332">
+      <properties name="messageSource" stringValue="linkedFile"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/gsb_igov_notification_messageSet/igovNotification/qa/gov/igov/sharedservices/notification/services/v10/notificationservice/NotificationService_v1_0.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="sendNotification"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+      <properties name="SHOW_HEX_VIEW" stringValue="false"/>
+      <properties name="linkedFile" stringValue="File+System%3AC%3A%5CDocuments+and+Settings%5Cislam%5CDesktop%5CictQATAR%5CNotificationTestCases%5Cvalid-MailOnly.xml"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1273067767953-23333" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273067767953-23334" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IGOVHeader" iD="1273067768093-23359" type="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeaderType" typeDisplayText="IGOVHeaderType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeader"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SenderInfo" iD="1273067768093-23360" type="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo" typeDisplayText="SenderInfo" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273067768093-23361" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="ApplicationID" iD="1273067768093-23362" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="ApplicationID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="UID" iD="1273067768093-23363" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="UID"/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="MEP" iD="1273067768093-23364" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="MEP"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="QOS" iD="1273067768093-23365" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="QOS"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="Key" iD="1273067768093-23366" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="Key"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="DataMode" iD="1273067768093-23367" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="DataMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="RunMode" iD="1273067768093-23368" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="RunMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273067768093-23369" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResults" iD="1273067768093-23370" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults" typeDisplayText="TraceResults" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="TraceResult" iD="1273067768093-23377" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResult" typeDisplayText="TraceResult" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceSettings" iD="1273067768093-23378" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings" typeDisplayText="TraceSettings" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="enabled" iD="1273067768093-23379" type="boolean" typeDisplayText="boolean" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true">
+                <enumerations iD="1273067768093-23380" value="true"/>
+                <enumerations iD="1273067768093-23381" value="false"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273067767953-23335" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067768093-23343" type="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#SendNotificationRequest" typeDisplayText="SendNotificationRequest" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#NotificationsendNotificationRequest1"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067768093-23344" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationRequestType" typeDisplayText="NotificationRequestType" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#sendNotification"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="notificationMessage" iD="1273067768093-23358" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationMessageType" typeDisplayText="NotificationMessageType" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="encodingStyle" iD="1273067767953-23342" type="anyURI" typeDisplayText="anyURI" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true"/>
+      </parameters>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1273067791125-23382" parentID="1273067767953-23331" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1273067792312-23423" readOnly="true" clientID="1272447663281-0" parentID="1273067767953-23331" timestamp="1273067792312" invokeCommandId="1273067792312-23396" children="/5 /6 /7 /8 /9 /10 /11 /12 /13 /14"/>
+  <http:HTTPInformationEvent name="Sending Message to &quot;SOAP Input&quot;" iD="1273067792390-23427" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" invokeCommandId="1273067792312-23397" endpoint="http://10.10.29.51:7800/NotificationService">
+    <message xsi:type="model2:TestMessage" iD="1273067767953-23332">
+      <properties name="messageSource" stringValue="linkedFile"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/gsb_igov_notification_messageSet/igovNotification/qa/gov/igov/sharedservices/notification/services/v10/notificationservice/NotificationService_v1_0.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="sendNotification"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+      <properties name="SHOW_HEX_VIEW" stringValue="false"/>
+      <properties name="linkedFile" stringValue="File+System%3AC%3A%5CDocuments+and+Settings%5Cislam%5CDesktop%5CictQATAR%5CNotificationTestCases%5Cvalid-MailOnly.xml"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1273067767953-23333" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273067767953-23334" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IGOVHeader" iD="1273067768093-23359" type="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeaderType" typeDisplayText="IGOVHeaderType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeader"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SenderInfo" iD="1273067768093-23360" type="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo" typeDisplayText="SenderInfo" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273067768093-23361" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="ApplicationID" iD="1273067768093-23362" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="ApplicationID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="UID" iD="1273067768093-23363" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="UID"/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="MEP" iD="1273067768093-23364" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="MEP"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="QOS" iD="1273067768093-23365" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="QOS"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="Key" iD="1273067768093-23366" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="Key"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="DataMode" iD="1273067768093-23367" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="DataMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="RunMode" iD="1273067768093-23368" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="RunMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273067768093-23369" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResults" iD="1273067768093-23370" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults" typeDisplayText="TraceResults" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="TraceResult" iD="1273067768093-23377" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResult" typeDisplayText="TraceResult" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceSettings" iD="1273067768093-23378" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings" typeDisplayText="TraceSettings" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="enabled" iD="1273067768093-23379" type="boolean" typeDisplayText="boolean" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true">
+                <enumerations iD="1273067768093-23380" value="true"/>
+                <enumerations iD="1273067768093-23381" value="false"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273067767953-23335" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067768093-23343" type="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#SendNotificationRequest" typeDisplayText="SendNotificationRequest" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#NotificationsendNotificationRequest1"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067768093-23344" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationRequestType" typeDisplayText="NotificationRequestType" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#sendNotification"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="notificationMessage" iD="1273067768093-23358" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationMessageType" typeDisplayText="NotificationMessageType" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="encodingStyle" iD="1273067767953-23342" type="anyURI" typeDisplayText="anyURI" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true"/>
+      </parameters>
+    </message>
+  </http:HTTPInformationEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792484-23453" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792484" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="SOAP Input" targetNode="SOAPExtract" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1273067792484-23454">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792484-23455">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792484-23456" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792484-23457" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792484-23458" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792484-23459" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792484-23460" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792484-23461" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792484-23462" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792484-23463" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792484-23464" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792484-23465" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792484-23466" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792484-23467" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792484-23468" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792484-23469" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792484-23470" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792484-23471" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792484-23472" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792484-23473" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792484-23474" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792484-23475" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792484-23476" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792484-23477" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792484-23478">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792484-23479" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792484-23480" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792484-23481" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792484-23482" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792484-23483" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792484-23484" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792484-23485" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792484-23486" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792484-23487" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792484-23488" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792484-23489" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792484-23490" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792484-23491" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP" iD="1273067792484-23492">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Context" iD="1273067792484-23493">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="operation" iD="1273067792484-23494" value="sendNotification"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="operationType" iD="1273067792484-23495" value="REQUEST_RESPONSE"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="portType" iD="1273067792484-23496" value="Notification"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="portTypeNamespace" iD="1273067792484-23497" value="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="port" iD="1273067792484-23498" value="NotificationPort"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="service" iD="1273067792484-23499" value="notification"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="serviceNamespace" iD="1273067792484-23500" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="fileName" iD="1273067792484-23501" value="/var/mqsi/components/ict_broker/8cef8c1f-2701-0000-0080-bb1a8cc39a91/config/XSD/igovNotification/qa/gov/igov/sharedservices/notification/services/v10/notificationservice/NotificationService_v1_0.wsdl"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP_Version" iD="1273067792484-23502" value="1.1"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Namespace" iD="1273067792484-23503">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="soapenv" iD="1273067792484-23504" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="v1" iD="1273067792484-23505" value="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="v11" iD="1273067792484-23506" value="urn:igov.gov.qa/xml/schemas/v1_0/"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="v12" iD="1273067792484-23507" value="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273067792484-23508">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IGOVHeader" iD="1273067792484-23509">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SenderInfo" iD="1273067792484-23510">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TrackingID" iD="1273067792484-23511" value="?"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ApplicationID" iD="1273067792484-23512" value="?"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="UID" iD="1273067792484-23513" value="?"/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MEP" iD="1273067792484-23514" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="QOS" iD="1273067792484-23515" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Key" iD="1273067792484-23516" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="DataMode" iD="1273067792484-23517" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RunMode" iD="1273067792484-23518" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TrackingID" iD="1273067792484-23519" value="?"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResults" iD="1273067792484-23520">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResult" iD="1273067792484-23521">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IPAddress" iD="1273067792484-23522" value="?"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Instance" iD="1273067792484-23523" value="?"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Actor" iD="1273067792484-23524" value="?"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Timestamp" iD="1273067792484-23525" value="?"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="DetailedMessage" iD="1273067792484-23526" value="?"/>
+              </elements>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceSettings" iD="1273067792484-23527">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="enabled" iD="1273067792484-23528" value="false"/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273067792484-23529">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067792484-23530">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067792484-23531">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationMessage" iD="1273067792484-23532">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="emailDetails" iD="1273067792484-23533">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sender" iD="1273067792484-23534" value="islam.azaz@gmail.com"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="recipient" iD="1273067792484-23535" value="islam.azaz@gmail.com"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="subject" iD="1273067792484-23536" value="1"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="message" iD="1273067792484-23537" value="1"/>
+                </elements>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792546-23538" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792546" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="sendNotification" targetNode="FlowOrder" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1273067792546-23539">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792546-23540">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792546-23541" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792546-23542" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792546-23543" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792546-23544" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792546-23545" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792546-23546" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792546-23547" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792546-23548" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792546-23549" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792546-23550" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792546-23551" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792546-23552" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792546-23553" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792546-23554" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792546-23555" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792546-23556" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792546-23557" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792546-23558" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792546-23559" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792546-23560" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792546-23561" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792546-23562" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792546-23563">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792546-23564" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792546-23565" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792546-23566" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792546-23567" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792546-23568" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792546-23569" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792546-23570" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792546-23571" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792546-23572" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792546-23573" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792546-23574" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792546-23575" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792546-23576" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="XMLNSC" iD="1273067792546-23577">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067792546-23578">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067792546-23579">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationMessage" iD="1273067792546-23580">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="emailDetails" iD="1273067792546-23581">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sender" iD="1273067792546-23582" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="recipient" iD="1273067792546-23583" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="subject" iD="1273067792546-23584" value="1"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="message" iD="1273067792546-23585" value="1"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792625-23586" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792625" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="FlowOrder" targetNode="ExtractNotificationRecords" targetTerminal="in" sourceTerminal="first">
+    <message xsi:type="model2:TestMessage" iD="1273067792625-23587">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792625-23588">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792625-23589" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792625-23590" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792625-23591" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792625-23592" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792625-23593" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792625-23594" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792625-23595" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792625-23596" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792625-23597" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792625-23598" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792625-23599" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792625-23600" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792625-23601" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792625-23602" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792625-23603" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792625-23604" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792625-23605" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792625-23606" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792625-23607" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792625-23608" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792625-23609" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792625-23610" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792625-23611">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792625-23612" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792625-23613" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792625-23614" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792625-23615" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792625-23616" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792625-23617" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792625-23618" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792625-23619" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792625-23620" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792625-23621" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792625-23622" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792625-23623" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792625-23624" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="XMLNSC" iD="1273067792625-23625">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067792625-23626">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067792625-23627">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationMessage" iD="1273067792625-23628">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="emailDetails" iD="1273067792625-23629">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sender" iD="1273067792625-23630" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="recipient" iD="1273067792625-23631" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="subject" iD="1273067792625-23632" value="1"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="message" iD="1273067792625-23633" value="1"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792703-23634" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792703" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="ExtractNotificationRecords" targetNode="email" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1273067792703-23635">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792703-23636">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792703-23637" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792703-23638" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792703-23639" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792703-23640" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792703-23641" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792703-23642" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792703-23643" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792703-23644" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792703-23645" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792703-23646" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792703-23647" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792703-23648" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792703-23649" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792703-23650" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792703-23651" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792703-23652" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792703-23653" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792703-23654" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792703-23655" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792703-23656" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792703-23657" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792703-23658" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792703-23659" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792703-23660">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792703-23661" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792703-23662" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792703-23663" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792703-23664" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792703-23665" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792703-23666" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792703-23667" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792703-23668" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792703-23669" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792703-23670" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792703-23671" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792703-23672" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792703-23673" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="XMLNSC" iD="1273067792703-23674">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationMessage" iD="1273067792703-23675">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="emailDetails" iD="1273067792703-23676">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sender" iD="1273067792703-23677" value="islam.azaz@gmail.com"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="recipient" iD="1273067792703-23678" value="islam.azaz@gmail.com"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="subject" iD="1273067792703-23679" value="1"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="message" iD="1273067792703-23680" value="1"/>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792796-23681" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792796" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="FlowOrder" targetNode="ConstructResponse" targetTerminal="in" sourceTerminal="second">
+    <message xsi:type="model2:TestMessage" iD="1273067792796-23682">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792796-23683">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792796-23684" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792796-23685" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792796-23686" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792796-23687" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792796-23688" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792796-23689" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792796-23690" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792796-23691" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792796-23692" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792796-23693" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792796-23694" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792796-23695" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792796-23696" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792796-23697" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792796-23698" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792796-23699" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792796-23700" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792796-23701" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792796-23702" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792796-23703" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792796-23704" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792796-23705" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792796-23706">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792796-23707" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792796-23708" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792796-23709" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792796-23710" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792796-23711" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792796-23712" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792796-23713" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792796-23714" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792796-23715" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792796-23716" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792796-23717" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792796-23718" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792796-23719" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="XMLNSC" iD="1273067792796-23720">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273067792796-23721">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273067792796-23722">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationMessage" iD="1273067792796-23723">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="emailDetails" iD="1273067792796-23724">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sender" iD="1273067792796-23725" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="recipient" iD="1273067792796-23726" value="islam.azaz@gmail.com"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="subject" iD="1273067792796-23727" value="1"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="message" iD="1273067792796-23728" value="1"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273067792906-23729" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" timestamp="1273067792906" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="ConstructResponse" targetNode="SuccessReply" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1273067792906-23730">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273067792906-23731">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273067792906-23732" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273067792906-23733" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273067792906-23734" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273067792906-23735" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273067792906-23736" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273067792906-23737" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273067792906-23738" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273067792906-23739" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273067792906-23740" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273067792906-23741" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273067792906-23742" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273067792906-23743" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273067792906-23744" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273067792906-23745" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273067792906-23746" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273067792906-23747" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273067792906-23748" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273067792906-23749" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273067792906-23750" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273067792906-23751" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273067792906-23752" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273067792906-23753" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273067792906-23754">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273067792906-23755" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273067792906-23756" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273067792906-23757" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273067792906-23758" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273067792906-23759" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273067792906-23760" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273067792906-23761" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273067792906-23762" value="1588"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273067792906-23763" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273067792906-23764" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273067792906-23765" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273067792906-23766" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273067792906-23767" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP" iD="1273067792906-23768">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273067792906-23769"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273067792906-23770">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationResponse1" iD="1273067792906-23771">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="acknowledgment" iD="1273067792906-23772">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="acknowledgment" iD="1273067792906-23773" value="SENT"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="notificationId" iD="1273067792906-23774" value="534f41500000000001000000000000001400000000000000"/>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExitEvent>
+  <http:HTTPReplyEvent name="Received HTTP Reply message for &quot;SOAP Input&quot;" iD="1273067792906-23775" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" invokeCommandId="1273067792312-23397" endpoint="http://10.10.29.51:7800/NotificationService">
+    <message xsi:type="model2:TestMessage" iD="1273067792906-23776">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText" stringValue="%3CNS1%3AEnvelope+xmlns%3ANS1%3D%22http%3A%2F%2Fschemas.xmlsoap.org%2Fsoap%2Fenvelope%2F%22%3E%3CNS1%3ABody%3E%3CNS2%3ANotificationsendNotificationResponse1+xmlns%3ANS2%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fspecifications%2Fv1_0%2F%22%3E%3CNS2%3Aacknowledgment%3E%3CNS3%3Aacknowledgment+xmlns%3ANS3%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3ESENT%3C%2FNS3%3Aacknowledgment%3E%3CNS4%3AnotificationId+xmlns%3ANS4%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E534f41500000000001000000000000001400000000000000%3C%2FNS4%3AnotificationId%3E%3C%2FNS2%3Aacknowledgment%3E%3C%2FNS2%3ANotificationsendNotificationResponse1%3E%3C%2FNS1%3ABody%3E%3C%2FNS1%3AEnvelope%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS1:Envelope" iD="1273067792906-23777">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:NS1" iD="1273067792906-23786" value="http://schemas.xmlsoap.org/soap/envelope/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS1:Body" iD="1273067792906-23778">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS2:NotificationsendNotificationResponse1" iD="1273067792906-23779">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:NS2" iD="1273067792906-23785" value="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS2:acknowledgment" iD="1273067792906-23780">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS3:acknowledgment" iD="1273067792906-23781" value="SENT">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:NS3" iD="1273067792906-23782" value="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+              </elements>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NS4:notificationId" iD="1273067792906-23783" value="534f41500000000001000000000000001400000000000000">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="xmlns:NS4" iD="1273067792906-23784" value="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </http:HTTPReplyEvent>
+  <mq:MQQueueMonitorEvent name="MQ Queue Monitor &quot;email_queue&quot;" iD="1273067794343-23787" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="email_queue" readOnly="true" clientID="1272447663281-0" parentID="1273067792312-23423" invokeCommandId="1273067792312-23397">
+    <message xsi:type="model2:TestMessage" iD="1273067794343-23788">
+      <properties name="messageSource" stringValue="sourceView"/>
+      <properties name="plainText" stringValue="POST+http%3A%2F%2F10.10.29.51%3A7800%2FNotificationService+HTTP%2F1.1%0D%0ASOAPAction%3A+http%3A%2F%2Figov.gov.qa%2FsharedServices%2Fnotification%2Fservices%2Fv1_0%2FNotificationService%2FsendNotification%2F%0D%0AContent-Type%3A+text%2Fxml%3B+charset%3Dutf-8%0D%0AUser-Agent%3A+Java%2F1.5.0%0D%0AHost%3A+10.10.29.51%3A7800%0D%0AAccept%3A+text%2Fhtml%2C+image%2Fgif%2C+image%2Fjpeg%2C+*%3B+q%3D.2%2C+*%2F*%3B+q%3D.2%0D%0AConnection%3A+keep-alive%0D%0AContent-Length%3A+1588%0D%0AX-Remote-Addr%3A+32.93.29.215%0D%0AX-Remote-Host%3A+32.93.29.215%0D%0AX-Server-Name%3A+10.10.29.51%0D%0AX-Server-Port%3A+7800%0D%0AX-Query-String%3A+%0D%0A%0D%0A%3CNS1%3AnotificationMessage+xmlns%3ANS1%3D%22urn%3Aigov.gov.qa%2FsharedServices%2Fnotification%2Fxml%2Fschemas%2Fv1_0%2F%22%3E%3CNS1%3AemailDetails%3E%3CNS1%3Asender%3Eislam.azaz%40gmail.com%3C%2FNS1%3Asender%3E%3CNS1%3Arecipient%3Eislam.azaz%40gmail.com%3C%2FNS1%3Arecipient%3E%3CNS1%3Asubject%3E1%3C%2FNS1%3Asubject%3E%3CNS1%3Amessage%3E1%3C%2FNS1%3Amessage%3E%3C%2FNS1%3AemailDetails%3E%3C%2FNS1%3AnotificationMessage%3E"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <headerBeenUsed xsi:type="mq:MQHeader" iD="1273067794343-23789" applicationIdData="                                " applicationOriginData="    " characterSet="1208" encoding="546" format="        " persistence="0" priority="0" putApplicationName="DataFlowEngine              " putApplicationType="6" putDateTime="Wed May 05 17:00:02 AST 2010" replyToQueueManagerName="ict_qm                                          " replyToQueueName="                                                " userId="mqm         " accountingToken="%03501%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%06" groupId="%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00%00"/>
+    </message>
+  </mq:MQQueueMonitorEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1273067792375-23426" clientID="1272447663281-0" parentID="1273067792312-23423">
+    <monitors xsi:type="mq:MQMonitor" name="SMS_Queue" iD="1273067791140-23383" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue" status="OK"/>
+    <monitors xsi:type="mq:MQMonitor" name="email_queue" iD="1273067791140-23384" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="email_queue" status="OK"/>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1273067794343-23790" readOnly="true" clientID="1272447663281-0" parentID="1273067767953-23331" timestamp="1273067794343" invokeCommandId="1273067792312-23397"/>
+  <model2:InteractiveInputNodeInvocationEvent iD="1273068215609-24826" readOnly="true" clientID="1272447663281-0" timestamp="1273068215609" children="/17 /18 /23" msgFlow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" nodeId="FCMComposite_1_10" testScopeID="default" nodeName="SOAP Input" nodeType="ComIbmSOAPInput.msgnode" targetDeploymentLocationID="1273063144453-17935">
+    <request xsi:type="model2:TestMessage" iD="1273068215609-24827">
+      <properties name="messageSource" stringValue="linkedFile"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/gsb_igov_notification_messageSet/igovNotification/qa/gov/igov/sharedservices/notification/services/v10/notificationservice/NotificationService_v1_0.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="sendNotification"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+      <properties name="SHOW_HEX_VIEW" stringValue="false"/>
+      <properties name="linkedFile" stringValue="File+System%3AC%3A%5CDocuments+and+Settings%5Cislam%5CDesktop%5CictQATAR%5CNotificationTestCases%5CCopy+of+valid-MailOnly.xml"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1273068215609-24828" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273068215609-24829" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IGOVHeader" iD="1273068215750-24854" type="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeaderType" typeDisplayText="IGOVHeaderType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeader"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SenderInfo" iD="1273068215750-24855" type="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo" typeDisplayText="SenderInfo" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273068215750-24856" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="ApplicationID" iD="1273068215750-24857" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="ApplicationID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="UID" iD="1273068215750-24858" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="UID"/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="MEP" iD="1273068215750-24859" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="MEP"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="QOS" iD="1273068215750-24860" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="QOS"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="Key" iD="1273068215750-24861" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="Key"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="DataMode" iD="1273068215750-24862" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="DataMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="RunMode" iD="1273068215750-24863" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="RunMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273068215750-24864" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResults" iD="1273068215750-24865" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults" typeDisplayText="TraceResults" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="TraceResult" iD="1273068215750-24872" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResult" typeDisplayText="TraceResult" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceSettings" iD="1273068215750-24873" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings" typeDisplayText="TraceSettings" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="enabled" iD="1273068215750-24874" type="boolean" typeDisplayText="boolean" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true">
+                <enumerations iD="1273068215750-24875" value="true"/>
+                <enumerations iD="1273068215750-24876" value="false"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273068215609-24830" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273068215750-24838" type="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#SendNotificationRequest" typeDisplayText="SendNotificationRequest" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#NotificationsendNotificationRequest1"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273068215750-24839" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationRequestType" typeDisplayText="NotificationRequestType" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#sendNotification"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="notificationMessage" iD="1273068215750-24853" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationMessageType" typeDisplayText="NotificationMessageType" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="encodingStyle" iD="1273068215609-24837" type="anyURI" typeDisplayText="anyURI" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true"/>
+      </parameters>
+    </request>
+  </model2:InteractiveInputNodeInvocationEvent>
+  <http_1:DeploymentStatus iD="1273068224625-24877" parentID="1273068215609-24826" log="[Info]  Begin deploying message flows&#xD;&#xA;[Info]  Deploying the message flow application&#xD;&#xA;[Info]  Initializing test message monitors...&#xD;&#xA;[Info]  Test client is ready to send and monitor messages.&#xD;&#xA;[Info]  Starting message flows&#xD;&#xA;[Info]  Message flows deployment successfully completed" status="OK" totalWork="10" worked="10" scope="/0/@scopes.0"/>
+  <com.ibm.wbit.comptest.common.models.event:StartEvent name="Starting" iD="1273068225812-24918" readOnly="true" clientID="1272447663281-0" parentID="1273068215609-24826" timestamp="1273068225812" invokeCommandId="1273068225812-24891" children="/19 /20 /21 /22"/>
+  <http:HTTPInformationEvent name="Sending Message to &quot;SOAP Input&quot;" iD="1273068225921-24922" readOnly="true" clientID="1272447663281-0" parentID="1273068225812-24918" invokeCommandId="1273068225812-24892" endpoint="http://10.10.29.51:7800/NotificationService">
+    <message xsi:type="model2:TestMessage" iD="1273068215609-24827">
+      <properties name="messageSource" stringValue="linkedFile"/>
+      <properties name="SOAP_VERSION" stringValue="SOAP 1.1"/>
+      <properties name="WSDL_URI" stringValue="platform:/resource/gsb_igov_notification_messageSet/igovNotification/qa/gov/igov/sharedservices/notification/services/v10/notificationservice/NotificationService_v1_0.wsdl"/>
+      <properties name="WSDL_OPERATION_NAME" stringValue="sendNotification"/>
+      <properties name="WSDL_OPERATION_IN_NAME"/>
+      <properties name="WSDL_OPERATION_OUT_NAME"/>
+      <properties name="plainText"/>
+      <properties name="SOAP_OPERATION" stringValue="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+      <properties name="SHOW_HEX_VIEW" stringValue="false"/>
+      <properties name="linkedFile" stringValue="File+System%3AC%3A%5CDocuments+and+Settings%5Cislam%5CDesktop%5CictQATAR%5CNotificationTestCases%5CCopy+of+valid-MailOnly.xml"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Envelope" iD="1273068215609-24828" type="http://schemas.xmlsoap.org/soap/envelope/#Envelope" typeDisplayText="Envelope" factoryId="WSDL">
+        <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Envelope"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Header" iD="1273068215609-24829" type="http://schemas.xmlsoap.org/soap/envelope/#Header" typeDisplayText="Header" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Header"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IGOVHeader" iD="1273068215750-24854" type="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeaderType" typeDisplayText="IGOVHeaderType" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#IGOVHeader"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SenderInfo" iD="1273068215750-24855" type="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo" typeDisplayText="SenderInfo" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#SenderInfo"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273068215750-24856" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="ApplicationID" iD="1273068215750-24857" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="ApplicationID"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="UID" iD="1273068215750-24858" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="UID"/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="MEP" iD="1273068215750-24859" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="MEP"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="QOS" iD="1273068215750-24860" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="QOS"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="Key" iD="1273068215750-24861" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="Key"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="DataMode" iD="1273068215750-24862" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="DataMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="RunMode" iD="1273068215750-24863" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="RunMode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="TrackingID" iD="1273068215750-24864" type="string" typeDisplayText="string" factoryId="WSDL" unsettable="true" value="TrackingID"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceResults" iD="1273068215750-24865" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults" typeDisplayText="TraceResults" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResults"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="TraceResult" iD="1273068215750-24872" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceResult" typeDisplayText="TraceResult" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="TraceSettings" iD="1273068215750-24873" type="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings" typeDisplayText="TraceSettings" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/xml/schemas/v1_0/#TraceSettings"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="enabled" iD="1273068215750-24874" type="boolean" typeDisplayText="boolean" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true">
+                <enumerations iD="1273068215750-24875" value="true"/>
+                <enumerations iD="1273068215750-24876" value="false"/>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Body" iD="1273068215609-24830" type="http://schemas.xmlsoap.org/soap/envelope/#Body" typeDisplayText="Body" factoryId="WSDL" unsettable="true">
+          <properties name="ELEMENT_URI" stringValue="http://schemas.xmlsoap.org/soap/envelope/#Body"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="NotificationsendNotificationRequest1" iD="1273068215750-24838" type="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#SendNotificationRequest" typeDisplayText="SendNotificationRequest" factoryId="WSDL">
+            <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#NotificationsendNotificationRequest1"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="sendNotification" iD="1273068215750-24839" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationRequestType" typeDisplayText="NotificationRequestType" factoryId="WSDL" unsettable="true">
+              <properties name="ELEMENT_URI" stringValue="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/#sendNotification"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueSequence" name="notificationMessage" iD="1273068215750-24853" type="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/#NotificationMessageType" typeDisplayText="NotificationMessageType" factoryId="WSDL" abstractType="java.util.List" abstractTypeDisplayText=" "/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueField" name="encodingStyle" iD="1273068215609-24837" type="anyURI" typeDisplayText="anyURI" factoryId="WSDL" unsettable="true" unset="true" value="&lt;unset>" attributeDeclaration="true"/>
+      </parameters>
+    </message>
+  </http:HTTPInformationEvent>
+  <node:NodeExitEvent name="Entry Event" description="desc" iD="1273068226015-24948" readOnly="true" clientID="1272447663281-0" parentID="1273068225812-24918" timestamp="1273068226015" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="SOAP Input" targetNode="SOAPExtract" targetTerminal="in" sourceTerminal="out">
+    <message xsi:type="model2:TestMessage" iD="1273068226015-24949">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273068226015-24950">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273068226015-24951" value="igovNotification"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273068226015-24952" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273068226015-24953" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273068226015-24954" value="546"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273068226015-24955" value="1208"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273068226015-24956" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273068226015-24957" value="false"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273068226015-24958" value="2010-05-05 13:58:29.370"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273068226015-24959" value="-1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273068226015-24960" value="0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273068226015-24961" value="000000000000000000000000000000000000000000000000"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273068226015-24962" value="SOAP-AXIS2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273068226015-24963" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273068226015-24964" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273068226015-24965" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273068226015-24966" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273068226015-24967" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273068226015-24968" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273068226015-24969" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273068226015-24970" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273068226015-24971" value=""/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273068226015-24972" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273068226015-24973">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273068226015-24974" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273068226015-24975" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273068226015-24976" value="text/xml; charset=utf-8"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273068226015-24977" value="Java/1.5.0"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273068226015-24978" value="10.10.29.51:7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273068226015-24979" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273068226015-24980" value="keep-alive"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273068226015-24981" value="1593"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273068226015-24982" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273068226015-24983" value="32.93.29.215"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273068226015-24984" value="10.10.29.51"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273068226015-24985" value="7800"/>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273068226015-24986" value=""/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP" iD="1273068226015-24987"/>
+    </message>
+  </node:NodeExitEvent>
+  <node:NodeExceptionEvent name="Entry Event" description="desc" iD="1273068242281-24988" readOnly="true" clientID="1272447663281-0" parentID="1273068225812-24918" timestamp="1273068242281" flow="/gsb_igov_notification_brokerFlow/qa/gov/igov/shared/notification/MainMF.msgflow" sourceNode="SOAP Input" targetNode="" targetTerminal="" sourceTerminal="">
+    <message xsi:type="model2:TestMessage" iD="1273068242281-24989">
+      <properties name="messageSource" stringValue="structureView"/>
+      <properties name="plainText"/>
+      <properties name="SHOW_HEX_VIEW"/>
+      <properties name="linkedFile"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="WMQI_Message" iD="1273068242281-24990">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Properties" iD="1273068242281-24991">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageSet" iD="1273068242281-24992" value="igovNotification"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageType" iD="1273068242281-24993" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="MessageFormat" iD="1273068242281-24994" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Encoding" iD="1273068242281-24995" value="546"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CodedCharSetId" iD="1273068242281-24996" value="1208"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Transactional" iD="1273068242281-24997" value="false"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Persistence" iD="1273068242281-24998" value="false"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="CreationTime" iD="1273068242281-24999" value="2010-05-05 13:58:29.370"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ExpirationTime" iD="1273068242281-25000" value="-1"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Priority" iD="1273068242281-25001" value="0"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273068242281-25002" value="000000000000000000000000000000000000000000000000"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyProtocol" iD="1273068242281-25003" value="SOAP-AXIS2"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Topic" iD="1273068242281-25004" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ContentType" iD="1273068242281-25005" value="text/xml; charset=utf-8"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceType" iD="1273068242281-25006" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceToken" iD="1273068242281-25007" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourcePassword" iD="1273068242281-25008" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentitySourceIssuedBy" iD="1273068242281-25009" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedType" iD="1273068242281-25010" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedToken" iD="1273068242281-25011" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedPassword" iD="1273068242281-25012" value=""/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="IdentityMappedIssuedBy" iD="1273068242281-25013" value=""/>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="HTTPInputHeader" iD="1273068242281-25014">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Original-HTTP-Command" iD="1273068242281-25015" value="POST http://10.10.29.51:7800/NotificationService HTTP/1.1"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAPAction" iD="1273068242281-25016" value="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Type" iD="1273068242281-25017" value="text/xml; charset=utf-8"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="User-Agent" iD="1273068242281-25018" value="Java/1.5.0"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Host" iD="1273068242281-25019" value="10.10.29.51:7800"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Accept" iD="1273068242281-25020" value="text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Connection" iD="1273068242281-25021" value="keep-alive"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Content-Length" iD="1273068242281-25022" value="1593"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Addr" iD="1273068242281-25023" value="32.93.29.215"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Remote-Host" iD="1273068242281-25024" value="32.93.29.215"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Name" iD="1273068242281-25025" value="10.10.29.51"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Server-Port" iD="1273068242281-25026" value="7800"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="X-Query-String" iD="1273068242281-25027" value=""/>
+        </elements>
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP" iD="1273068242281-25028"/>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="WMQI_LocalEnvironment" iD="1273068242281-25029">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Destination" iD="1273068242281-25030">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="SOAP" iD="1273068242281-25031">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Reply" iD="1273068242281-25032">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="ReplyIdentifier" iD="1273068242281-25033" value="534f41500000000005000000000000001400000000000000"/>
+            </elements>
+          </elements>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RouterList" iD="1273068242281-25034">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="DestinationData" iD="1273068242281-25035">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="labelName" iD="1273068242281-25036" value="ws_sendNotification"/>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="WMQI_Environment" iD="1273068242281-25037"/>
+      <parameters xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="WMQI_ExceptionList" iD="1273068242281-25038">
+        <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RecoverableException" iD="1273068242281-25039">
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="File" iD="1273068242281-25040" value="/build/S610_P/src/DataFlowEngine/ImbDataFlowNode.cpp"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Line" iD="1273068242281-25041" value="957"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Function" iD="1273068242281-25042" value="ImbDataFlowNode::createExceptionList"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25043" value="ComIbmSOAPInputNode"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Name" iD="1273068242281-25044" value="qa/gov/igov/shared/notification/MainMF#FCMComposite_1_10"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Label" iD="1273068242281-25045" value="qa.gov.igov.shared.notification.MainMF.SOAP Input"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Catalog" iD="1273068242281-25046" value="BIPv610"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Severity" iD="1273068242281-25047" value="3"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Number" iD="1273068242281-25048" value="2230"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25049" value="Node throwing exception"/>
+          <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RecoverableException" iD="1273068242281-25050">
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="File" iD="1273068242281-25051" value="/build/S610_P/src/DataFlowEngine/PluginInterface/ImbJniNode.cpp"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Line" iD="1273068242281-25052" value="1028"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Function" iD="1273068242281-25053" value="ImbJniNode::evaluate"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25054" value="ComIbmSOAPExtractNode"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Name" iD="1273068242281-25055" value="qa/gov/igov/shared/notification/MainMF#FCMComposite_1_16"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Label" iD="1273068242281-25056" value="qa.gov.igov.shared.notification.MainMF.SOAPExtract"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Catalog" iD="1273068242281-25057" value="BIPv610"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Severity" iD="1273068242281-25058" value="3"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Number" iD="1273068242281-25059" value="2230"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25060" value="Caught exception and rethrowing"/>
+            <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RecoverableException" iD="1273068242281-25061">
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="File" iD="1273068242281-25062" value="/build/S610_P/src/DataFlowEngine/PluginInterface/com_ibm_broker_plugin_CMbService.cpp"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Line" iD="1273068242281-25063" value="1861"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Function" iD="1273068242281-25064" value="ImbJavaExceptionUtils::throwableToNativeException"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25065" value=""/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Name" iD="1273068242281-25066" value=""/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Label" iD="1273068242281-25067" value=""/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Catalog" iD="1273068242281-25068" value="BIPv610"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Severity" iD="1273068242281-25069" value="3"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Number" iD="1273068242281-25070" value="4367"/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25071" value="Unhandled exception in plugin method."/>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25072">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25073" value="5"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25074" value="evaluate"/>
+              </elements>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25075">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25076" value="5"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25077" value="SOAPExtract"/>
+              </elements>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25078">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25079" value="5"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25080" value="java.lang.RuntimeException: An invalid SOAP message was received in the SOAPExtract node: SOAPExtract"/>
+              </elements>
+              <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="RecoverableException" iD="1273068242281-25081">
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="File" iD="1273068242281-25082" value="/build/S610_P/src/DataFlowEngine/PluginInterface/com_ibm_broker_plugin_CMbService.cpp"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Line" iD="1273068242281-25083" value="1879"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Function" iD="1273068242281-25084" value="ImbJavaExceptionUtils::throwableToNativeException"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25085" value=""/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Name" iD="1273068242281-25086" value=""/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Label" iD="1273068242281-25087" value=""/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Catalog" iD="1273068242281-25088" value="BIPv610"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Severity" iD="1273068242281-25089" value="3"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Number" iD="1273068242281-25090" value="4395"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25091" value="Unhandled exception in plugin method"/>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25092">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25093" value="5"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25094" value="java.lang.RuntimeException"/>
+                </elements>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25095">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25096" value="5"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25097" value="com.ibm.broker.soap.SoapExtractNode"/>
+                </elements>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25098">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25099" value="5"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25100" value="removeSOAPEnvelope"/>
+                </elements>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25101">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25102" value="5"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25103" value="SoapExtractNode.java"/>
+                </elements>
+                <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Insert" iD="1273068242281-25104">
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Type" iD="1273068242281-25105" value="2"/>
+                  <elements xsi:type="com.ibm.wbit.comptest.common.models.value:ValueStructure" name="Text" iD="1273068242281-25106" value="267"/>
+                </elements>
+              </elements>
+            </elements>
+          </elements>
+        </elements>
+      </parameters>
+    </message>
+  </node:NodeExceptionEvent>
+  <http_1:MonitoringStatus name="Stopped listening for response" iD="1273068225906-24921" clientID="1272447663281-0" parentID="1273068225812-24918">
+    <monitors xsi:type="mq:MQMonitor" name="SMS_Queue" iD="1273068224640-24878" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="SMS_Queue" status="OK"/>
+    <monitors xsi:type="mq:MQMonitor" name="email_queue" iD="1273068224640-24879" host="10.10.29.51" port="1414" queueManager="ict_qm" queue="email_queue" status="OK"/>
+  </http_1:MonitoringStatus>
+  <com.ibm.wbit.comptest.common.models.event:EndEvent name="Stopped" iD="1273068242281-25107" readOnly="true" clientID="1272447663281-0" parentID="1273068215609-24826" timestamp="1273068242281" invokeCommandId="1273068225812-24892"/>
+</xmi:XMI>

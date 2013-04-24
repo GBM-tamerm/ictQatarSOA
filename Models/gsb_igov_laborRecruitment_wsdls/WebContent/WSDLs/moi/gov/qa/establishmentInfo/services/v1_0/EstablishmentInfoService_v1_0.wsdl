@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentInfoService" targetNamespace="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService/" xmlns:moispcxsd="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/EstablishmentInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentInfoBinding" type="moispcxsd:EstablishmentInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getEstablishmentInfoById">
+      <soap:operation soapAction="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService/getEstablishmentInfoById/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="estInfo" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getEstablishmentInfoByIdFault">
+        <soap:fault name="getEstablishmentInfoByIdFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="establishmentInfo">
+    <wsdl:port binding="tns:EstablishmentInfoBinding" name="EstablishmentInfoPort">
+      <soap:address location="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService/establishmentInfo/EstablishmentInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

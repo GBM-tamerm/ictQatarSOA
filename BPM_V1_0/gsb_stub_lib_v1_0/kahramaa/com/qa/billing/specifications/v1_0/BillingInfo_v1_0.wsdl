@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="v1_0" 
+	targetNamespace="urn:kahramaa.com.qa/billing/specifications/v1_0/" 
+	xmlns:tns="urn:kahramaa.com.qa/billing/specifications/v1_0/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" 
+    targetNamespace="urn:kahramaa.com.qa/billing/specifications/v1_0/" 
+    xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" 
+    xmlns:khmxsd="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/"
+    xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/Billing_v1_0.xsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+      
+      <xsd:complexType name="GetLastBillSummaryRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="elecNumber" type="khmxsd:ElectricityNumberType"/>
+          <xsd:element minOccurs="0" name="tenantId" type="khmxsd:TenantIDType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BillInfogetLastBillSummaryRequest1" type="tns:GetLastBillSummaryRequest"/>
+      <xsd:complexType name="GetLastBillSummaryResponse">
+        <xsd:sequence>
+          <xsd:element name="billSummary" type="khmxsd:BillSummaryType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BillInfogetLastBillSummaryResponse1" type="tns:GetLastBillSummaryResponse"/>
+      <xsd:element name="BillInfogetLastBillSummaryFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="GetLastBillDetailsRequest">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="elecNumber" type="khmxsd:ElectricityNumberType"/>
+          <xsd:element minOccurs="0" name="tenantId" type="khmxsd:TenantIDType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BillInfogetLastBillDetailsRequest1" type="tns:GetLastBillDetailsRequest"/>
+      <xsd:complexType name="GetLastBillDetailsResponse">
+        <xsd:sequence>
+          <xsd:element name="billDetails" type="khmxsd:BillDetailType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="BillInfogetLastBillDetailsResponse1" type="tns:GetLastBillDetailsResponse"/>
+      <xsd:element name="BillInfogetLastBillDetailsFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGOVHeaderMessage">
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillSummaryRequest">
+    <wsdl:part element="tns:BillInfogetLastBillSummaryRequest1" name="elecNumber"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillSummaryResponse">
+    <wsdl:part element="tns:BillInfogetLastBillSummaryResponse1" name="billSummary"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillSummaryFault">
+    <wsdl:part element="tns:BillInfogetLastBillSummaryFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillDetailsRequest">
+    <wsdl:part element="tns:BillInfogetLastBillDetailsRequest1" name="elecNumber"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillDetailsResponse">
+    <wsdl:part element="tns:BillInfogetLastBillDetailsResponse1" name="billDetails"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="BillInfogetLastBillDetailsFault">
+    <wsdl:part element="tns:BillInfogetLastBillDetailsFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="BillInfo">
+    <wsdl:operation name="getLastBillSummary">
+      <wsdl:input message="tns:BillInfogetLastBillSummaryRequest"/>
+      <wsdl:output message="tns:BillInfogetLastBillSummaryResponse"/>
+      <wsdl:fault message="tns:BillInfogetLastBillSummaryFault" name="getLastBillSummaryFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBillDetails">
+      <wsdl:input message="tns:BillInfogetLastBillDetailsRequest"/>
+      <wsdl:output message="tns:BillInfogetLastBillDetailsResponse"/>
+      <wsdl:fault message="tns:BillInfogetLastBillDetailsFault" name="getLastBillDetailsFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="getActiveApplicationByAppIdRequest">
+        <xsd:sequence>
+          <xsd:element name="appID" type="molxsd:ApplicationIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest1" type="tns:getActiveApplicationByAppIdRequest"/>
+      <xsd:complexType name="getActiveApplicationByAppIdResponse">
+        <xsd:sequence>
+          <xsd:element name="application" type="molxsd:ApplicationType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1" type="tns:getActiveApplicationByAppIdResponse"/>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="getActiveApplicationByEstIdRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdRequest1" type="tns:getActiveApplicationByEstIdRequest"/>
+      <xsd:complexType name="getActiveApplicationByEstIdResponse">
+        <xsd:sequence>
+          <xsd:element name="application" type="molxsd:ApplicationType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdResponse1" type="tns:getActiveApplicationByEstIdResponse"/>
+      <xsd:element name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest1" name="appID"/>
+  </wsdl:message>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1" name="application"/>
+  </wsdl:message>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdFault">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdRequest">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdRequest1" name="estID"/>
+  </wsdl:message>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdResponse">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdResponse1" name="application"/>
+  </wsdl:message>
+  <wsdl:message name="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdFault">
+    <wsdl:part element="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="ActiveLaborRecruitmentApplicationInfo">
+    <wsdl:operation name="getActiveApplicationByAppId">
+      <wsdl:input message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest"/>
+      <wsdl:output message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse"/>
+      <wsdl:fault message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdFault" name="getActiveApplicationByAppIdFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getActiveApplicationByEstId">
+      <wsdl:input message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdRequest"/>
+      <wsdl:output message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdResponse"/>
+      <wsdl:fault message="tns:ActiveLaborRecruitmentApplicationInfogetActiveApplicationByEstIdFault" name="getActiveApplicationByEstIdFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

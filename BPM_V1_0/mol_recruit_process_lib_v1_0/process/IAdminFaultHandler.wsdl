@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IAdminFaultHandler" targetNamespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons2="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+            <xsd:element name="ApplicationLW" nillable="true" type="bons1:ApplicationLW"/>
+            <xsd:element name="retry" nillable="true" type="xsd:boolean"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="retryFaultRequestMsg">
+    <wsdl:part element="bons2:ApplicationLW" name="ApplicationLW"/>
+  </wsdl:message>
+    <wsdl:message name="retryFaultResponseMsg">
+    <wsdl:part element="bons2:retry" name="retry"/>
+  </wsdl:message>
+    <wsdl:portType name="IAdminFaultHandler">
+    <wsdl:operation name="retryFault">
+      <wsdl:input message="bons2:retryFaultRequestMsg" name="retryFaultRequest"/>
+      <wsdl:output message="bons2:retryFaultResponseMsg" name="retryFaultResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

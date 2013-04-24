@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:model="http:///com/ibm/wbit/sib/mediation/ui/ext/model" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http:///com/ibm/wbit/sib/mediation/ui/ext/model">
+    <extensions>
+      <extendedObject href="Component1.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
+        <messageFlowUI autoLayout="true" id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillSummary::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillDetails::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillSummary::response"/>
+        <messageFlowUI autoLayout="true" id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillDetails::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="Component1.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillSummary::request"/>
+        <stickyBoard id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillSummary::response"/>
+        <stickyBoard id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillDetails::request"/>
+        <stickyBoard id="{urn:kahramaa.com.qa/billing/specifications/v1_0/}BillInfo:getLastBillDetails::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

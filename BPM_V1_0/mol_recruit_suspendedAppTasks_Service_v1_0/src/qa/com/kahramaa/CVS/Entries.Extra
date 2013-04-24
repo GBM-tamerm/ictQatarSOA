@@ -1,0 +1,16 @@
+/BillDetailType.java////*////
+/BillDetailType_Deser.java////*////
+/BillDetailType_Helper.java////*////
+/BillDetailType_Ser.java////*////
+/BillSummaryType.java////*////
+/BillSummaryType_Deser.java////*////
+/BillSummaryType_Helper.java////*////
+/BillSummaryType_Ser.java////*////
+/ElectricityBillType.java////*////
+/ElectricityBillType_Deser.java////*////
+/ElectricityBillType_Helper.java////*////
+/ElectricityBillType_Ser.java////*////
+/WaterBillType.java////*////
+/WaterBillType_Deser.java////*////
+/WaterBillType_Helper.java////*////
+/WaterBillType_Ser.java////*////

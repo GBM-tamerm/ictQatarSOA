@@ -1,0 +1,4 @@
+#Sun Mar 07 17:06:16 AST 2010
+eclipse.preferences.version=1
+org.eclipse.jdt.core.compiler.processAnnotations=enabled
+org.eclipse.jdt.core.compiler.problem.unusedLocal=ignore

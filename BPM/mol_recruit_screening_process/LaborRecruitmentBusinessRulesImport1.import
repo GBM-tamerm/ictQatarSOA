@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding4="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding4" xmlns:LaborRecruitmentBusinessRulesService="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentBusinessRulesService/" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="LaborRecruitmentBusinessRulesImport1" name="LaborRecruitmentBusinessRulesImport1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:LaborRecruitmentBusinessRules">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" contextPropagationEnabled="false" endpoint="http://molgw/ictqatar/LaborRecruitmentBusinessRulesService.svc" port="LaborRecruitmentBusinessRulesService:LaborRecruitmentBusinessRulesPort" service="LaborRecruitmentBusinessRulesService:laborRecruitmentBusinessRules"/>
+</scdl:import>

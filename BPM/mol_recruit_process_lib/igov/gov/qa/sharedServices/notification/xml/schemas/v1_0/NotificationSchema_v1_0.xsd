@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:notifyxsd="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; NotificationSchema_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 02/02/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is&amp;nbsp;IGOV shared services schema. Now, it has only notification service types&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 1.4&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    02-01-2010: Hassan Ali: v 0.1 Initial draft version
+&lt;/p&gt;
+&lt;p&gt;
+    18-02-2010: Mohamed Kattaya : v 0.2 Initial draft version output from UML generation&lt;br /&gt;
+    15-03-2010: Mohamed Kattaya : v 1.4&amp;nbsp;&amp;nbsp;notification status enumeration became: SENT and FAILED.&lt;br /&gt;
+    sender code added to the SMS details type (SMSDetailsType).&lt;br /&gt;
+    EmailNotificationType and SMSNotificationType are deleted.&lt;br /&gt;
+    NotificationIdType pattern has been removed.
+&lt;/p&gt;
+&lt;p&gt;
+    15-03-2010: Mohamed Kattaya : v 1.5 senderCode is made as string, NotificationProviderCodeType is removed.
+&lt;/p&gt;
+&lt;p&gt;
+    messageLanguage is made as optional in SMSDetailsType
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="NotificationIdType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="MessageType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value=".{1,4000}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SMSMessageType">
+    <xsd:restriction base="notifyxsd:MessageType">
+      <xsd:pattern value=".{1,450}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmailMessageType">
+    <xsd:restriction base="notifyxsd:MessageType">
+      <xsd:pattern value=".{1,4000}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmailSubjectType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value=".{0,100}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="SMSDetailsType">
+    <xsd:sequence>
+      <xsd:element name="message" type="notifyxsd:SMSMessageType"/>
+      <xsd:element name="mobileNumber" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element minOccurs="0" name="messageLanguage" type="igovxsd:Language"/>
+      <xsd:element name="senderCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmailDetailsType">
+    <xsd:sequence>
+      <xsd:element name="sender" type="igovxsd:EmailAddressType"/>
+      <xsd:element name="recipient" type="igovxsd:EmailAddressType"/>
+      <xsd:element name="subject" type="notifyxsd:EmailSubjectType"/>
+      <xsd:element name="message" type="notifyxsd:EmailMessageType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NotificationAcknowledgementType">
+    <xsd:sequence>
+      <xsd:element name="acknowledgment" type="notifyxsd:NotificationStatusType"/>
+      <xsd:element name="notificationId" type="notifyxsd:NotificationIdType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="NotificationStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SENT"/>
+      <xsd:enumeration value="FAILED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="NotificationRequestType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="100" name="notificationMessage" type="notifyxsd:NotificationMessageType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NotificationMessageType">
+    <xsd:choice>
+      <xsd:element name="smsDetails" type="notifyxsd:SMSDetailsType"/>
+      <xsd:element name="emailDetails" type="notifyxsd:EmailDetailsType"/>
+    </xsd:choice>
+  </xsd:complexType>
+</xsd:schema>

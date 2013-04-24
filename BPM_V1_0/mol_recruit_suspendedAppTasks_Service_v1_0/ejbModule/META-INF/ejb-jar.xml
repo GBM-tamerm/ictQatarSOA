@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+	<display-name>mol_recruit_suspendedAppTasks_Service_v1_0</display-name>
+	<enterprise-beans>
+		<session id="Session_1275327002531">
+			<ejb-name>RecruitmentProcessGetSuspendedApplicationsBindingImpl</ejb-name>
+			<home>qa.gov.mol.RecruitmentProcessGetSuspendedApplicationsHome</home>
+			<remote>qa.gov.mol.RecruitmentProcessGetSuspendedApplications_RI</remote>
+			<service-endpoint>qa.gov.mol.RecruitmentProcessGetSuspendedApplications</service-endpoint>
+			<ejb-class>qa.gov.mol.RecruitmentProcessGetSuspendedApplicationsBindingImpl</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+			<security-identity>
+				<run-as>
+					<role-name>AdminIdentity</role-name>
+				</run-as>
+			</security-identity>
+		</session>
+	</enterprise-beans>
+	<assembly-descriptor>
+		<security-role>
+			<description>
+			</description>
+			<role-name>AdminIdentity</role-name>
+		</security-role>
+	</assembly-descriptor>
+</ejb-jar>

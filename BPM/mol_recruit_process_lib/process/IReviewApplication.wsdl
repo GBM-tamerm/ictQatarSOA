@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IReviewApplicationHT" targetNamespace="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:bons0="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons2="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1" xmlns:tns="http://ict.gov.qa/Process/WSDL/IReviewApplicationHT/v1">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+            <xsd:element name="ApplicationLW" nillable="true" type="bons1:ApplicationLW"/>
+            <xsd:element name="ReviewResultType" nillable="true" type="bons1:ReviewResultType"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="reviewApplicationRequestMsg">
+    <wsdl:part element="bons2:ApplicationLW" name="ApplicationLW"/>
+  </wsdl:message>
+    <wsdl:message name="reviewApplicationResponseMsg">
+    <wsdl:part element="bons2:ReviewResultType" name="ReviewResultType"/>
+  </wsdl:message>
+    <wsdl:portType name="IReviewApplicationHT">
+    <wsdl:operation name="reviewApplication">
+      <wsdl:input message="bons2:reviewApplicationRequestMsg" name="reviewApplicationRequest"/>
+      <wsdl:output message="bons2:reviewApplicationResponseMsg" name="reviewApplicationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

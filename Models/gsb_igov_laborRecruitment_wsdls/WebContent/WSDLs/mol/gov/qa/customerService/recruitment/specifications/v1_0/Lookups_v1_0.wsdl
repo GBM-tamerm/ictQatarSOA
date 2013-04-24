@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:complexType name="getNationalitiesListRequest"/>
+      <xsd:element name="LookupsgetNationalitiesListRequest1" type="tns:getNationalitiesListRequest"/>
+      <xsd:complexType name="getNationalitiesListResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="nationalitiesList" type="igovxsd:NationalityType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LookupsgetNationalitiesListResponse1" type="tns:getNationalitiesListResponse"/>
+      <xsd:element name="LookupsgetNationalitiesListFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="getProfessionsListRequest"/>
+      <xsd:element name="LookupsgetProfessionsListRequest1" type="tns:getProfessionsListRequest"/>
+      <xsd:complexType name="getProfessionsListResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="professionsList" type="igovxsd:ProfessionType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LookupsgetProfessionsListResponse1" type="tns:getProfessionsListResponse"/>
+      <xsd:element name="LookupsgetProfessionsListFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="getAllLookupsRequest"/>
+      <xsd:element name="LookupsgetAllLookupsRequest1" type="tns:getAllLookupsRequest"/>
+      <xsd:complexType name="getAllLookupsResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="nationalitiesList" type="igovxsd:NationalityType"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="professionsList" type="igovxsd:ProfessionType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LookupsgetAllLookupsResponse1" type="tns:getAllLookupsResponse"/>
+      <xsd:element name="LookupsgetAllLookupsFault1" type="igovxsd:CommonErrorStructure"/>
+      <xsd:complexType name="getPaymentFeesRequest">
+        <xsd:sequence>
+          <xsd:element name="paymentFeesID" type="molxsd:PaymentFeesIDType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LookupsgetPaymentFeesRequest1" type="tns:getPaymentFeesRequest"/>
+      <xsd:complexType name="getPaymentFeesResponse">
+        <xsd:sequence>
+          <xsd:element name="paymentFees" type="molxsd:PaymentFeesType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="LookupsgetPaymentFeesResponse1" type="tns:getPaymentFeesResponse"/>
+      <xsd:element name="LookupsgetPaymentFeesFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LookupsgetNationalitiesListRequest">
+    <wsdl:part element="tns:LookupsgetNationalitiesListRequest1" name="getNationalitiesReq"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetNationalitiesListResponse">
+    <wsdl:part element="tns:LookupsgetNationalitiesListResponse1" name="nationalitiesList"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetNationalitiesListFault">
+    <wsdl:part element="tns:LookupsgetNationalitiesListFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetProfessionsListRequest">
+    <wsdl:part element="tns:LookupsgetProfessionsListRequest1" name="getProfessionsListReq"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetProfessionsListResponse">
+    <wsdl:part element="tns:LookupsgetProfessionsListResponse1" name="professionsList"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetProfessionsListFault">
+    <wsdl:part element="tns:LookupsgetProfessionsListFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetAllLookupsRequest">
+    <wsdl:part element="tns:LookupsgetAllLookupsRequest1" name="getLookupsReq"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetAllLookupsResponse">
+    <wsdl:part element="tns:LookupsgetAllLookupsResponse1" name="allLookups"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetAllLookupsFault">
+    <wsdl:part element="tns:LookupsgetAllLookupsFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetPaymentFeesRequest">
+    <wsdl:part element="tns:LookupsgetPaymentFeesRequest1" name="paymentFeesReq"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetPaymentFeesResponse">
+    <wsdl:part element="tns:LookupsgetPaymentFeesResponse1" name="paymentFeesRes"/>
+  </wsdl:message>
+  <wsdl:message name="LookupsgetPaymentFeesFault">
+    <wsdl:part element="tns:LookupsgetPaymentFeesFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="Lookups">
+    <wsdl:operation name="getNationalitiesList">
+      <wsdl:input message="tns:LookupsgetNationalitiesListRequest"/>
+      <wsdl:output message="tns:LookupsgetNationalitiesListResponse"/>
+      <wsdl:fault message="tns:LookupsgetNationalitiesListFault" name="getNationalitiesListFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProfessionsList">
+      <wsdl:input message="tns:LookupsgetProfessionsListRequest"/>
+      <wsdl:output message="tns:LookupsgetProfessionsListResponse"/>
+      <wsdl:fault message="tns:LookupsgetProfessionsListFault" name="getProfessionsListFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllLookups">
+      <wsdl:input message="tns:LookupsgetAllLookupsRequest"/>
+      <wsdl:output message="tns:LookupsgetAllLookupsResponse"/>
+      <wsdl:fault message="tns:LookupsgetAllLookupsFault" name="getAllLookupsFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="getPaymentFees">
+      <wsdl:input message="tns:LookupsgetPaymentFeesRequest"/>
+      <wsdl:output message="tns:LookupsgetPaymentFeesResponse"/>
+      <wsdl:fault message="tns:LookupsgetPaymentFeesFault" name="getPaymentFeesFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

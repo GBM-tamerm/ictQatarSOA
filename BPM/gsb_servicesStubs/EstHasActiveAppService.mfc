@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns2="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="EstHasActiveAppService" targetNamespace="http://gsb_servicesStubs/EstHasActiveAppService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns2:EstablishmentHasActiveLaborAppInfo"/>
+  </interfaces>
+  <references>
+    <reference name="EstablishmentHasActiveLaborAppInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:EstablishmentHasActiveLaborAppInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="hasEstablishmentActiveLaborRecApp" target="hasEstablishmentActiveLaborRecApp" sourcePortType="ns2:EstablishmentHasActiveLaborAppInfo" targetReference="EstablishmentHasActiveLaborAppInfoPartner"/>
+  <operationFlow medflow="EstHasActiveAppService.medflow"/>
+</mfc:interfaceMediationFlow>

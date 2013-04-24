@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:model="http:///com/ibm/wbit/sib/mediation/ui/ext/model" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http:///com/ibm/wbit/sib/mediation/ui/ext/model">
+    <extensions>
+      <extendedObject href="lookupsStubService.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="model:MediationFlowUIExtension" saveAsMultipleFiles="false">
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getNationalitiesList::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getProfessionsList::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getAllLookups::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getPaymentFees::request"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getNationalitiesList::response"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getProfessionsList::response"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getAllLookups::response"/>
+        <messageFlowUI autoLayout="true" id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getPaymentFees::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="lookupsStubService.mfc#//@interfaceMediationFlow"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getNationalitiesList::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getNationalitiesList::response"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getProfessionsList::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getProfessionsList::response"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getAllLookups::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getAllLookups::response"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getPaymentFees::request"/>
+        <stickyBoard id="{urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}Lookups:getPaymentFees::response"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

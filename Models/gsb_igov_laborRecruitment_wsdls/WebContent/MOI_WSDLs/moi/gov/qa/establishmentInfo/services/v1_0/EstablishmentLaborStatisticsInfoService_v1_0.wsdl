@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentLaborStatisticsInfoService" targetNamespace="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentLaborStatisticsInfoService/" xmlns:moispcxsd="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentLaborStatisticsInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/EstablishmentLaborStatisticsInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentLaborStatisticsInfoBinding" type="moispcxsd:EstablishmentLaborStatisticsInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLaborStatistics">
+      <soap:operation soapAction="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentLaborStatisticsInfoService/getLaborStatistics/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="laborStatistics" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLaborStatisticsFault">
+        <soap:fault name="getLaborStatisticsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="establishmentLaborStatisticsInfo">
+    <wsdl:port binding="tns:EstablishmentLaborStatisticsInfoBinding" name="EstablishmentLaborStatisticsInfoPort">
+      <soap:address location="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentLaborStatisticsInfoService/establishmentLaborStatisticsInfo/EstablishmentLaborStatisticsInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

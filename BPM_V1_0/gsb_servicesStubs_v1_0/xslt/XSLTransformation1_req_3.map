@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_3" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_3">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentLaborStatisticsInfogetLaborStatisticsRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentLaborStatisticsInfogetLaborStatisticsResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_3">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/permittedVisaCount"/>
+            <function ref="assign">
+                <property key="value" value="12"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/usedVisaCount"/>
+            <function ref="assign">
+                <property key="value" value="2"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/remainingVisaCount"/>
+            <function ref="assign">
+                <property key="value" value="10"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/profession/ID"/>
+            <function ref="assign">
+                <property key="value" value="123"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/profession/name_Ar"/>
+            <function ref="assign">
+                <property key="value" value="Engineer"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/nationality/ID"/>
+            <function ref="assign">
+                <property key="value" value="444"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/nationality/name_Ar"/>
+            <function ref="assign">
+                <property key="value" value="Egpyrion"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/gender"/>
+            <function ref="assign">
+                <property key="value" value="Male"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1/estStatistics/professions/vpNumber"/>
+            <function ref="assign">
+                <property key="value" value="34343232"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

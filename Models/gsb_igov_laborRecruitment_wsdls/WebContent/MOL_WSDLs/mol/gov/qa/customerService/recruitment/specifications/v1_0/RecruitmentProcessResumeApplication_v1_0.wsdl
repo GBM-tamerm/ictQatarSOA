@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:tns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:molxsd="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:complexType name="ResumeApplicationRequest">
+        <xsd:sequence>
+          <xsd:element name="applicationID" type="molxsd:ApplicationIdType"/>
+          <xsd:element name="userID" type="igovxsd:UserIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecruitmentProcessResumeApplicationresumeApplicationRequest1" type="tns:ResumeApplicationRequest"/>
+      <xsd:element name="RecruitmentProcessResumeApplicationresumeApplicationRequest2" type="molxsd:ProcessHeader"/>
+      <xsd:complexType name="ResumeApplicationResponse">
+        <xsd:sequence>
+          <xsd:element name="acknowledgement" type="igovxsd:AcknowledgementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="RecruitmentProcessResumeApplicationresumeApplicationResponse1" type="tns:ResumeApplicationResponse"/>
+      <xsd:element name="RecruitmentProcessResumeApplicationresumeApplicationFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RecruitmentProcessResumeApplicationresumeApplicationRequest">
+    <wsdl:part element="tns:RecruitmentProcessResumeApplicationresumeApplicationRequest1" name="resumeApplicationRequest"/>
+    <wsdl:part element="tns:RecruitmentProcessResumeApplicationresumeApplicationRequest2" name="processHeader"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessResumeApplicationresumeApplicationResponse">
+    <wsdl:part element="tns:RecruitmentProcessResumeApplicationresumeApplicationResponse1" name="resumeApplicationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="RecruitmentProcessResumeApplicationresumeApplicationFault">
+    <wsdl:part element="tns:RecruitmentProcessResumeApplicationresumeApplicationFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="RecruitmentProcessResumeApplication">
+    <wsdl:operation name="resumeApplication">
+      <wsdl:input message="tns:RecruitmentProcessResumeApplicationresumeApplicationRequest"/>
+      <wsdl:output message="tns:RecruitmentProcessResumeApplicationresumeApplicationResponse"/>
+      <wsdl:fault message="tns:RecruitmentProcessResumeApplicationresumeApplicationFault" name="resumeApplicationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

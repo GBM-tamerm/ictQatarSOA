@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_4" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_4">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentSecurityInfogetEstablishmentInfoByIdRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentSecurityInfogetEstablishmentInfoByIdResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_4">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <input path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdRequest1/estId"/>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/Id"/>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/name"/>
+            <function ref="assign">
+                <property key="value" value="المانع جروب"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/phone"/>
+            <function ref="assign">
+                <property key="value" value="32141321"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/specialization"/>
+            <function ref="assign">
+                <property key="value" value="everything"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/qID"/>
+            <function ref="assign"/>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/address/poBox"/>
+            <function ref="assign">
+                <property key="value" value="32421"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/agents/qID"/>
+            <function ref="assign">
+                <property key="value" value="321321"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/emailAddress"/>
+            <function ref="assign">
+                <property key="value" value="owner@hotmail.com"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/nationality/name_En"/>
+            <function ref="assign">
+                <property key="value" value="egyption"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/nationality/ID"/>
+            <function ref="assign">
+                <property key="value" value="12321"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/profession/name_En"/>
+            <function ref="assign">
+                <property key="value" value="Engineer"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfogetEstablishmentInfoByIdResponse1/establishmentInfo/owners/profession/ID"/>
+            <function ref="assign">
+                <property key="value" value="21321"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

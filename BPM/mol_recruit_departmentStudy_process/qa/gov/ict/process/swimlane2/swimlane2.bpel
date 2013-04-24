@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://LR_SiwmLane2/qa/gov/ict/process/swimlane2/swimlane2Artifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1" xmlns:ns1="http:///ict.gov.qa/Process/XSD/ProcessHeader" xmlns:ns2="http://ict.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:ns3="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns4="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns5="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="departmentStudy" suppressJoinFailure="yes" targetNamespace="http://LR_SiwmLane2/qa/gov/ict/process/swimlane2" wpc:autoDelete="no" wpc:autonomy="child" wpc:continueOnError="yes" wpc:displayName="departmentStudy" wpc:executionMode="longRunning" wpc:id="7" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-14T20:27:09">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IDepartmentStudy.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../ProcessHeader.xsd" namespace="http:///ict.gov.qa/Process/XSD/ProcessHeader"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../process/ApplicationBO-v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="swimlane2Artifacts.wsdl" namespace="http://LR_SiwmLane2/qa/gov/ict/process/swimlane2/swimlane2Artifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IDepartmentStudy.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="ISwimLane2" partnerLinkType="ns:ISwimLane2PLT"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="application" type="ns4:ApplicationLW" wpc:id="4"/>
+    <bpws:variable name="pHeader" type="ns4:ProcessHeader" wpc:id="5"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="startProcess" partnerLink="ISwimLane2" portType="ns5:IDepartmentStudy" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="application" variable="application"/>
+        <wpc:parameter name="pHeader" variable="pHeader"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:reply name="Reply" operation="startProcess" partnerLink="ISwimLane2" portType="ns5:IDepartmentStudy" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="application" variable="application"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

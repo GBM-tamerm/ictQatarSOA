@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IValidateEstablishment" targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:bons0="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:bons1="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:bons2="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:bons5="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:bons6="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment">
+            <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+            <xsd:import namespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" schemaLocation="../../../../../kahramaa/com/qa/billing/xml/schemas/v1_0/Billing_v1_0.xsd"/>
+            <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+            <xsd:element name="validateEstablishment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="estID" nillable="true" type="bons5:EstablishmentIdType"/>
+                        <xsd:element name="electricityNo" nillable="true" type="bons2:ElectricityNumberType"/>
+                        <xsd:element name="pHeader" nillable="true" type="bons6:ProcessHeader"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validateEstablishmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="validationResults" nillable="true" type="bons6:ValidationResults"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="string_element" nillable="true" type="xsd:string"/>
+        </xsd:schema>
+    <xsd:schema/>
+  </wsdl:types>
+    <wsdl:message name="validateEstablishmentRequestMsg">
+    <wsdl:part element="bons0:validateEstablishment" name="validateEstablishmentParameters"/>
+  </wsdl:message>
+    <wsdl:message name="validateEstablishmentResponseMsg">
+    <wsdl:part element="bons0:validateEstablishmentResponse" name="validateEstablishmentResult"/>
+  </wsdl:message>
+    <wsdl:message name="validateEstablishment_faultMsg">
+    <wsdl:part name="fault" type="bons1:CommonErrorStructure"/>
+    </wsdl:message>
+    <wsdl:portType name="IValidateEstablishment">
+    <wsdl:operation name="validateEstablishment">
+            <wsdl:input message="bons0:validateEstablishmentRequestMsg" name="validateEstablishmentRequest"/>
+            <wsdl:output message="bons0:validateEstablishmentResponseMsg" name="validateEstablishmentResponse"/>
+            <wsdl:fault message="bons0:validateEstablishment_faultMsg" name="fault"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

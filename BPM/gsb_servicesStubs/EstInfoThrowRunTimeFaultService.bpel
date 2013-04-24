@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://gsb_servicesStubs/EstInfoThrowRunTimeFaultServiceArtifacts" xmlns:ns0="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns1="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="EstInfoThrowRunTimeFaultService" suppressJoinFailure="yes" targetNamespace="http://gsb_servicesStubs" wpc:continueOnError="no" wpc:displayName="EstInfoThrowRunTimeFaultService" wpc:executionMode="longRunning" wpc:id="6" wpc:validFrom="2010-02-24T13:02:04">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_process_lib/mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentInfo_v1_0.wsdl" namespace="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentInfo_v1_0.wsdl" namespace="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="EstInfoThrowRunTimeFaultServiceArtifacts.wsdl" namespace="http://gsb_servicesStubs/EstInfoThrowRunTimeFaultServiceArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="mol/gov/qa/customerService/recruitment/specifications/v1_0/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="EstablishmentHasActiveLaborAppInfo" partnerLinkType="ns:EstablishmentHasActiveLaborAppInfoPLT"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="estID" type="ns1:hasEstablishmentActiveLaborRecAppRequest" wpc:id="4"/>
+    <bpws:variable name="hasActiveApp" type="ns1:hasEstablishmentActiveLaborRecAppResponse" wpc:id="5"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="hasEstablishmentActiveLaborRecApp" partnerLink="EstablishmentHasActiveLaborAppInfo" portType="ns1:EstablishmentHasActiveLaborAppInfo" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="estID" variable="estID"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="throwexcpetion" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="throw excpetion" wpc:id="7">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[throw new RuntimeException();]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:reply name="Reply" operation="hasEstablishmentActiveLaborRecApp" partnerLink="EstablishmentHasActiveLaborAppInfo" portType="ns1:EstablishmentHasActiveLaborAppInfo" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="hasActiveApp" variable="hasActiveApp"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

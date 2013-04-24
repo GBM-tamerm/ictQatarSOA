@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject>
+    <contextroot>
+      <name>customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService</name>
+    </contextroot>
+  </appProject>
+  <wsExports>
+    <wsExport>
+      <name>RecruitmentProcessPreconditionValidationExport1</name>
+      <keepDefaultURLPattern>false</keepDefaultURLPattern>
+      <urlpattern>
+        <pattern>/recruitmentProcessPreconditionValidation/RecruitmentProcessPreconditionValidationPort</pattern>
+      </urlpattern>
+    </wsExport>
+    <wsDescExtensions>
+      <wsDescExt wsDescNameLink="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpService">
+        <pcBinding pcNameLink="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpPort"/>
+      </wsDescExt>
+    </wsDescExtensions>
+    <wsDescBindings>
+      <wsdescBindings wsDescNameLink="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpService">
+        <pcBindings pcNameLink="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpPort"/>
+      </wsdescBindings>
+    </wsDescBindings>
+  </wsExports>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

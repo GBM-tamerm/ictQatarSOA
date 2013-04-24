@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_5" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_5">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amec.gov.qa%252FcommercialRegistration%252Fspecifications%252Fv1_0%252F%257DCommercialRegistrationInfogetCommercialRegistrationInfoRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amec.gov.qa%252FcommercialRegistration%252Fspecifications%252Fv1_0%252F%257DCommercialRegistrationInfogetCommercialRegistrationInfoResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_5">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <output path="CommercialRegistrationInfogetCommercialRegistrationInfoResponse1/commercialRegistration/location"/>
+            <function ref="assign">
+                <property key="value" value="الدوحه"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialRegistrationInfogetCommercialRegistrationInfoResponse1/commercialRegistration/creationDate"/>
+            <function ref="assign">
+                <property key="value" value="2001-10-26T21:32:52"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialRegistrationInfogetCommercialRegistrationInfoResponse1/commercialRegistration/arabicCommercialName"/>
+            <function ref="assign">
+                <property key="value" value="العمادى"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialRegistrationInfogetCommercialRegistrationInfoResponse1/commercialRegistration/companyCapital"/>
+            <function ref="assign">
+                <property key="value" value="20"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

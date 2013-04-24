@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_3" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_3">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DLaborRecruitmentApplicationinsertCSRReviewResultRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DLaborRecruitmentApplicationinsertCSRReviewResultResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_3">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/LaborRecruitmentApplicationinsertCSRReviewResultResponse1/acknowledgement"/>
+            <function ref="assign">
+                <property key="value" value="true"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/LaborRecruitmentApplicationinsertCSRReviewResultResponse1/appStatus/ID"/>
+            <function ref="assign">
+                <property key="value" value="2"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/LaborRecruitmentApplicationinsertCSRReviewResultResponse1/appStatus/nameAr"/>
+            <function ref="assign">
+                <property key="value" value="approved"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/LaborRecruitmentApplicationinsertCSRReviewResultResponse1/appStatus/nameEn"/>
+            <function ref="assign">
+                <property key="value" value="موافقه"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

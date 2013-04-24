@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_10" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_10">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Akahramaa.com.qa%252Fbilling%252Fspecifications%252Fv1_0%252F%257DBillInfogetLastBillDetailsRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Akahramaa.com.qa%252Fbilling%252Fspecifications%252Fv1_0%252F%257DBillInfogetLastBillDetailsResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_10">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/electricityBillData/presentReadingAmount"/>
+            <function ref="assign">
+                <property key="value" value="324244"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/electricityBillData/deductionAmount"/>
+            <function ref="assign">
+                <property key="value" value="2342442"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/electricityBillData/totalDetails"/>
+            <function ref="assign">
+                <property key="value" value="465465"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/waterBillData/presentReadingAmount"/>
+            <function ref="assign">
+                <property key="value" value="132444"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/waterBillData/firstLimitAmount"/>
+            <function ref="assign">
+                <property key="value" value="5454656"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/waterBillData/otherChargesAmount"/>
+            <function ref="assign">
+                <property key="value" value="4535454545"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillDetailsResponse1/billDetails/waterBillData/totalAmount"/>
+            <function ref="assign">
+                <property key="value" value="2332"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

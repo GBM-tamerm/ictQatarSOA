@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="RecruitmentProcessSubmitNewApplicationService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessSubmitNewApplicationService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessSubmitNewApplicationService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/RecruitmentProcessSubmitNewApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="RecruitmentProcessSubmitNewApplicationBinding" type="molspcxsd:RecruitmentProcessSubmitNewApplication">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="submitApplication">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessSubmitNewApplicationService/submitApplication/"/>
+      <wsdl:input>
+        <soap:body parts="submitApplicationReq" use="literal"/>
+         <soap:header part="processHeader" message="molspcxsd:RecruitmentProcessSubmitNewApplicationsubmitApplicationRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="submitApplicationRes" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="submitApplicationFault">
+        <soap:fault name="submitApplicationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="recruitmentProcessSubmitNewApplication">
+    <wsdl:port binding="tns:RecruitmentProcessSubmitNewApplicationBinding" name="RecruitmentProcessSubmitNewApplicationPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessSubmitNewApplicationService/recruitmentProcessSubmitNewApplication/RecruitmentProcessSubmitNewApplicationPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

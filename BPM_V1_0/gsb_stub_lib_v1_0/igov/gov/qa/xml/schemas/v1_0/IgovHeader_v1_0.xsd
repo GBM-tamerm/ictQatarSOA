@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="IGOVHeader" type="igovhdrxsd:IGOVHeaderType"/>
+	<xsd:complexType name="IGOVHeaderType">
+		<xsd:sequence>
+			<xsd:element name="SenderInfo" type="igovhdrxsd:SenderInfo" />
+			<xsd:element name="MEP" type="xsd:string" />
+			<!--
+				The message exchange pattern (MEP) element specifies the mode in
+				which the message will be delivered. Valid values for MEP include:
+				(1) RequestReply, (2) FireAndForget. If the value of MEP is set to
+				RequestReply, wsa-messageID MUST be present.
+			-->
+			<xsd:element minOccurs="0" name="QOS" type="xsd:string" />
+			<!--
+				The quality of service (QoS) element specifies whether a message
+				MUST be Assured (persistent). A Sender SHOULD NOT populate the QoS
+				if the message does
+			-->
+			<xsd:element minOccurs="0" name="Key" type="xsd:string" />
+			<!--
+				The value is a content routing key co-related to the data being sent
+				or received during the request/reply interaction. The content and
+				format of this key will be provided by the Receiver as part of the
+				routing information necessary to route to the service. The key value
+				MAY be REQUIRED by certain Receivers. A Sender MUST coordinate with
+				the Receiver to know whether or not a key value is REQUIRED. The
+				Examples of a key are country and address
+			-->
+			<xsd:element minOccurs="0" name="DataMode" type="xsd:string" />
+			<xsd:element name="RunMode" type="xsd:string" />
+			<!--
+				The environment or region in which the service requested should be
+				routed to. For example, "P", "D", "T", and "Q".
+			-->
+			<xsd:element minOccurs="0" name="TrackingID" type="xsd:string" />
+			<!--
+				This tracking id serves as a unique identifier to track a message
+				from the Sender to Receiver. The tracking id nested under the root
+				i-Gov Header element is used to correlate log messages. This
+				tracking id is populated by messaging infrastructure (ESB) and
+				SHOULD NOT be populated by the Sender. The Sender MAY populate the
+				tracking id under Sender Information Header to track messages.
+			-->
+			<xsd:element minOccurs="0" name="TraceResults" type="igovhdrxsd:TraceResults" />
+			<xsd:element minOccurs="0" name="TraceSettings"
+				type="igovhdrxsd:TraceSettings" />
+			<!--
+				The trace results section is strictly for debugging purposes. Each
+				node (intermediary, receivers, legacy calls from receivers) SHOULD
+				add a trace result to the trace results element. Debuggers can
+				examine the trace results to get a holistic view of a message’s
+				route.
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SenderInfo">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="TrackingID" type="xsd:string" />
+			<!--
+				The tracking id is an identifier that a Sender MAY populate to track
+				a particular message from when the message is sent to when the
+				response is received. A separate tracking id is set by the routing
+				infrastructure that the Sender SHOULD NOT populate. It’s RECOMMENDED
+				that the Sender make the tracking id unique across all messages. For
+				example Sender’s could generate a unique tracking id from the
+				combination of the application id + UID + timestamp.
+			-->
+			<xsd:element name="ApplicationID" type="xsd:string" />
+			<!--
+				The application id assigned to a particular application to perform
+				authentication and authorization.
+			-->
+			<xsd:element name="UID" type="xsd:string" />
+			<!--
+				The user id element represents a means of uniquely identifying an
+				end user for the purpose of authorization and auditing. This value
+				is typically an end user’s ID.
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TraceResults">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="TraceResult" type="igovhdrxsd:TraceResult" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TraceResult">
+		<xsd:sequence>
+			<xsd:element name=" IPAddress" type="xsd:string" />
+			<!--
+				The value of the IP address element is defined as IP address of the
+				entity (e.g. 90.136.55.165).
+			-->
+			<xsd:element name="Instance" type="xsd:string" />
+			<!--
+				The value of the instance element MAY be the managed service name
+				instance or the port (e.g. 8001).
+			-->
+			<xsd:element name="Actor" type="xsd:string" />
+			<!--
+				The value of the actor is the name of the component (service or
+				intermediary) being traced. For a service endpoint this SHOULD be
+				the wsa-To element.
+			-->
+			<xsd:element name="Timestamp" type="xsd:dateTime" />
+			<!--
+				The date time element follows the standardized W3C data and time
+				formats (ISO 8601) that defines the complete date plus hours,
+				minutes, seconds and a decimal fraction of a second as
+				YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00). where:
+				YYYY = four-digit year MM = two-digit month (01=January, etc.) DD =
+				two-digit day of month (01 through 31) hh = two digits of hour (00
+				through 23) (am/pm NOT allowed) mm = two digits of minute (00
+				through 59) ss = two digits of second (00 through 59) s = one or
+				more digits representing a decimal fraction of a second TZD = time
+				zone designator (Z or +hh:mm or -hh:mm)
+			-->
+			<xsd:element minOccurs="0" name="DetailedMessage" type="xsd:string" />
+			<!--
+				The value of the detailed message element is an optional free-form
+				text message to provide context around the trace result.
+			-->
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TraceSettings">
+		<xsd:attribute default="false" name="enabled" type="xsd:boolean" />
+		<!--
+			The value of the enabled attribute is defined whether trace results
+			are recorded.
+		-->
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/" xmlns:mmupcomxsd="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:mmupcpxsd="urn:baladiya.gov.qa/commercialPermit/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../commonTypes/xml/schemas/v1_0/MMUPCommonTypesSchema_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; CommercialPermit_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 27/06/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is&amp;nbsp;MMUP schema for Commercial Permit Service&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 0.3&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    27-06-2010: Mohamed Kattaya: v 0.1 Initial draft version
+&lt;/p&gt;
+&lt;p&gt;
+    17-08-2010: Mohamed Kattaya: v 0.2 changing types of some elements from anyType to string
+&lt;/p&gt;
+&lt;p&gt;
+    25-08-2010: Mohamed Kattaya: v 0.3 Correct Typo mistake of Registeration to be Registration
+&lt;/p&gt;
+&lt;p&gt;
+    02-12-2010: Mohamed Kattaya: v 0.4 make&amp;nbsp;ID and branchNumber in CommercialRegistration type optional
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="CommercialPermitType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="commercialRegistration" type="mmupcpxsd:CommercialRegistration"/>
+      <xsd:element name="establishmentCommercialName" type="mmupcomxsd:BilingualName"/>
+      <xsd:element name="issueDate" type="xsd:dateTime"/>
+      <xsd:element name="expiryDate" type="xsd:dateTime"/>
+      <xsd:element minOccurs="0" name="municipalityName" type="mmupcomxsd:BilingualName"/>
+      <xsd:element minOccurs="0" name="location" type="mmupcomxsd:AddressType"/>
+      <xsd:element name="commercialPermitID" type="mmupcpxsd:CommercialPermitIDType"/>
+      <xsd:element minOccurs="0" name="licenseeQID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="licenseeName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="licenseeNationality" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="managerQID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="managerName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="managerNationality" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="companyActivity" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="buildingOwner" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="licenseType" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="remarks" type="xsd:string"/>
+      <xsd:element name="applicationNumber" type="mmupcpxsd:ApplicationNumber"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommercialRegistration">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ID" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="branchNumber" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CommercialPermitIDType">
+    <xsd:restriction base="xsd:string"/>
+  </xsd:simpleType>
+  <xsd:complexType name="ApplicationNumber">
+    <xsd:sequence>
+      <xsd:element name="municipalityID" type="xsd:string"/>
+      <xsd:element name="year" type="xsd:string"/>
+      <xsd:element name="number" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

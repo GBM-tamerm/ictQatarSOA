@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:mmupcomxsd="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="BilingualName">
+    <xsd:sequence>
+      <xsd:element name="nameArabic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="nameEnglish" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Street">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="number" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" type="mmupcomxsd:BilingualName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Zone">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="number" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" type="mmupcomxsd:BilingualName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="buildingNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="street" type="mmupcomxsd:Street"/>
+      <xsd:element minOccurs="0" name="zone" type="mmupcomxsd:Zone"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

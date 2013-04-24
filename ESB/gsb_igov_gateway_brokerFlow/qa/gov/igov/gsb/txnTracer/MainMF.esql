@@ -1,0 +1,56 @@
+
+BROKER SCHEMA qa.gov.igov.gsb.txnTracer
+DECLARE soapenv NAMESPACE 'http://schemas.xmlsoap.org/soap/envelope/';
+DECLARE evnt NAMESPACE 'http://www.ibm.com/xmlns/prod/websphere/messagebroker/6.1.0/monitoring/event';
+-- Declare variables to hold the data source, schema, and table names
+-- and set their default values
+CREATE COMPUTE MODULE MainMF_StoreIntoDatabase
+	DECLARE Source CHARACTER 'ESBDB';
+	DECLARE DbSchema CHARACTER 'ADMINISTRATOR';
+	DECLARE Table CHARACTER 'GW_AUDIT';	
+
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		DECLARE rEventData REFERENCE TO InputRoot.XMLNSC.evnt:event.evnt:eventPointData.evnt:eventData;
+		DECLARE rEventAppData REFERENCE TO InputRoot.XMLNSC.evnt:event.evnt:applicationData;
+		
+		DECLARE rEventIGOVData REFERENCE TO rEventAppData.evnt:complexContent[1].*[2];
+		DECLARE rEventMessageData REFERENCE TO rEventAppData.evnt:complexContent[2].*[3];	
+				
+		DECLARE EvFLOWTYPE CHARACTER rEventData.evnt:eventIdentity.evnt:eventName;
+		DECLARE EvTIMESTAMP TIMESTAMP CAST(rEventData.evnt:eventSequence.evnt:creationTime AS TIMESTAMP FORMAT 'yyyy-MM-dd''T''HH:mm:ss.SSSSSS');
+--		DECLARE TZ INTERVAL LOCAL_TIMEZONE;
+--		DECLARE EvTIMESTAMP TIMESTAMP;
+--		SET  EvTIMESTAMP = EvTIMESTAMPGMT + LOCAL_TIMEZONE ;
+		DECLARE EvTXNID CHARACTER rEventIGOVData.trackingID;
+		DECLARE EvSERVICEID CHARACTER rEventIGOVData.service.lookupKey ;
+		DECLARE EvCHANNEL CHARACTER rEventIGOVData.channel ;
+		DECLARE iBSoptions INTEGER BITOR(FolderBitStream, ValidateNone);		
+		DECLARE EvMsgBlob BLOB;
+		DECLARE EvMESSAGE CHARACTER;
+		SET EvMsgBlob = ASBITSTREAM(rEventMessageData.soapenv:Header.*:IGOVHeader CCSID InputRoot.Properties.CodedCharSetId OPTIONS iBSoptions TYPE '{igov.gov.qa/xml/schemas/v1_0/}:IGOVHeader' FORMAT 'XML1' );
+		-- Now cast a character string to write to a character field
+		-- in the database.
+		SET EvMESSAGE = CAST(EvMsgBlob AS CHARACTER);
+		
+		--SET EvMESSAGE = ASBITSTREAM (rEventAppData.evnt:complexContent.soapenv:Envelope, '{http://schemas.xmlsoap.org/soap/envelope/}:Envelope', propRef.Encoding, propRef.CodedCharSetId);		
+		INSERT INTO Database.ADMINISTRATOR.GW_TXN_TRACE (TXNID,FLOWTYPE,TIMESTAMP,MESSAGE,SERVICEID,CHANNEL) values (EvTXNID, EvFLOWTYPE, EvTIMESTAMP, EvMESSAGE, EvSERVICEID, EvCHANNEL);
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
+
+

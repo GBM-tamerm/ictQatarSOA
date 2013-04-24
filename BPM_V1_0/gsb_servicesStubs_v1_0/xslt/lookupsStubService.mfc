@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="lookupsStubService" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/lookupsStubService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:Lookups"/>
+  </interfaces>
+  <references>
+    <reference name="LookupsPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:Lookups"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getNationalitiesList" target="getNationalitiesList" sourcePortType="ns1:Lookups" targetReference="LookupsPartner"/>
+  <extendedOperationBinding source="getProfessionsList" target="getProfessionsList" sourcePortType="ns1:Lookups" targetReference="LookupsPartner"/>
+  <extendedOperationBinding source="getAllLookups" target="getAllLookups" sourcePortType="ns1:Lookups" targetReference="LookupsPartner"/>
+  <extendedOperationBinding source="getPaymentFees" target="getPaymentFees" sourcePortType="ns1:Lookups" targetReference="LookupsPartner"/>
+  <operationFlow medflow="lookupsStubService.medflow"/>
+</mfc:interfaceMediationFlow>

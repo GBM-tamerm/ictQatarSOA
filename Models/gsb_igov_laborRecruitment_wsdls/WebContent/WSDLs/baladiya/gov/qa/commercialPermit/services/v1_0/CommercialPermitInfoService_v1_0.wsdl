@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CommercialPermitInfoService" targetNamespace="http://baladiya.gov.qa/commercialPermit/services/v1_0/CommercialPermitInfoService/" xmlns:mmupcpspcxsd="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://baladiya.gov.qa/commercialPermit/services/v1_0/CommercialPermitInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/CommercialPermitInfo_v1_0.wsdl" namespace="urn:baladiya.gov.qa/commercialPermit/specifications/v1_0/"/>
+  <wsdl:binding name="CommercialPermitInfoBinding" type="mmupcpspcxsd:CommercialPermitInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCommercialPermitInfo">
+      <soap:operation soapAction="http://baladiya.gov.qa/commercialPermit/services/v1_0/CommercialPermitInfoService/getCommercialPermitInfo/"/>
+      <wsdl:input>
+        <soap:body parts="getCommPermitReq" use="literal"/>
+        <soap:header part="header" message="mmupcpspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="getCommPermitRes" use="literal"/>
+        <soap:header part="header" message="mmupcpspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getCommercialPermitInfoFault">
+        <soap:fault name="getCommercialPermitInfoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="commercialPermitInfoPort">
+    <wsdl:port binding="tns:CommercialPermitInfoBinding" name="CommercialPermitInfoPort">
+      <soap:address location="http://baladiya.gov.qa/commercialPermit/services/v1_0/CommercialPermitInfoService/commercialPermitInfoPort/CommercialPermitInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

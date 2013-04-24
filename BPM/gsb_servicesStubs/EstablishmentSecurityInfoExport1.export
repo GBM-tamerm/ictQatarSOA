@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstablishmentSecurityInfoExport1" name="EstablishmentSecurityInfoExport1" target="EstSecurityService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EstablishmentSecurityInfo"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding:EstablishmentSecurityInfoExport1_EstablishmentSecurityInfoHttpPort" service="Binding:EstablishmentSecurityInfoExport1_EstablishmentSecurityInfoHttpService"/>
+</scdl:export>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1265834113281" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions>
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MOIIsRestrictedStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="30"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="EstablishmentRestrictionInfoExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="30" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MOIEstablishementInfoStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="172"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="EstablishmentInfoExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="172" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MOIStatisticsStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="385"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="EstablishmentLaborStatisticsInfoExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="385" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="BaladyiaCommercialPermitStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="314"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="mecCommercialRegStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="101"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CommercialRegistrationInfoExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="101" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="lookupsStubService.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="315" y="243"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="LookupsExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="243" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CommercialPermitInfoExport2.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="37" y="314" bound="true"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1265834113282" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1265834113283">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument" xmi:id="StickyDocument_1265834113281">
+        <stickyBoard xmi:id="StickyBoard_1265834113281" id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

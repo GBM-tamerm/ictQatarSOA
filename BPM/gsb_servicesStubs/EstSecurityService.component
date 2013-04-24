@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0" xmlns:ns1="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns2="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns3="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstSecurityService" name="EstSecurityService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns3:EstablishmentSecurityInfo">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="EstablishmentSecurityInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:EstablishmentSecurityInfo"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+    </reference>
+  </references>
+  <implementation xsi:type="mfc:MediationFlowImplementation" mfcFile="EstSecurityService.mfc">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

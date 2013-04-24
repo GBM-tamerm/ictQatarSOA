@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="CommercialRegistrationInfoService" targetNamespace="http://mbt.gov.qa/commercialRegistration/services/v1_0/CommercialRegistrationInfoService/" xmlns:mbtcrspcxsd="urn:mbt.gov.qa/commercialRegistration/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mbt.gov.qa/commercialRegistration/services/v1_0/CommercialRegistrationInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/CommercialRegistrationInfo_v1_0.wsdl" namespace="urn:mbt.gov.qa/commercialRegistration/specifications/v1_0/"/>
+  <wsdl:binding name="CommercialRegistrationInfoBinding" type="mbtcrspcxsd:CommercialRegistrationInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCommercialRegistrationInfo">
+      <soap:operation soapAction="http://mbt.gov.qa/commercialRegistration/services/v1_0/CommercialRegistrationInfoService/getCommercialRegistrationInfo/"/>
+      <wsdl:input>
+        <soap:body parts="commRegCode" use="literal"/>
+        <soap:header part="header" message="mbtcrspcxsd:CommercialRegistrationInfogetCommercialRegistrationInfoRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="commReg" use="literal"/>
+        <soap:header part="header" message="mbtcrspcxsd:CommercialRegistrationInfogetCommercialRegistrationInfoResponse" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getCommercialRegistrationInfoFault">
+        <soap:fault name="getCommercialRegistrationInfoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="commercialRegistrationInfoPort">
+    <wsdl:port binding="tns:CommercialRegistrationInfoBinding" name="CommercialRegistrationInfoPort">
+      <soap:address location="http://mbt.gov.qa/commercialRegistration/services/v1_0/CommercialRegistrationInfoService/commercialRegistrationInfoPort/CommercialRegistrationInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

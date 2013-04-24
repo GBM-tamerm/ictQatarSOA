@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="LaborRecruitmentBusinessRulesExport1_LaborRecruitmentBusinessRulesHttp_Service" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding4" xmlns:Port_0="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding4" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentBusinessRules_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="LaborRecruitmentBusinessRulesExport1_LaborRecruitmentBusinessRulesHttpBinding" type="Port_0:LaborRecruitmentBusinessRules">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="checkEstablishment">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="checkEstablishmentFault">
+        <soap:fault name="checkEstablishmentFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LaborRecruitmentBusinessRulesExport1_LaborRecruitmentBusinessRulesHttpService">
+    <wsdl:port binding="this:LaborRecruitmentBusinessRulesExport1_LaborRecruitmentBusinessRulesHttpBinding" name="LaborRecruitmentBusinessRulesExport1_LaborRecruitmentBusinessRulesHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubsWeb/sca/LaborRecruitmentBusinessRulesExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

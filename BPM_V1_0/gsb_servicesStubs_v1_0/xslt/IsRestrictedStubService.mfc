@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="IsRestrictedStubService" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/IsRestrictedStubService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EstablishmentRestrictionInfo"/>
+  </interfaces>
+  <references>
+    <reference name="EstablishmentRestrictionInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EstablishmentRestrictionInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="isRestricted" target="isRestricted" sourcePortType="ns1:EstablishmentRestrictionInfo" targetReference="EstablishmentRestrictionInfoPartner"/>
+  <operationFlow medflow="IsRestrictedStubService.medflow"/>
+</mfc:interfaceMediationFlow>

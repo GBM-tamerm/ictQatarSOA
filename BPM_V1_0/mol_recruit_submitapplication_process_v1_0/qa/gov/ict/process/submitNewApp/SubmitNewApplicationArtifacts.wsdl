@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="SubmitNewApplication" targetNamespace="http://NewRecuirtmentApplication/qa/gov/ict/process/submitNewApp/SubmitNewApplicationArtifacts" xmlns:ns10="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns11="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns12="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns5="http://NewRecuirtmentApplication/PrepareNotification" xmlns:ns9="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://NewRecuirtmentApplication/qa/gov/ict/process/submitNewApp/SubmitNewApplicationArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://mol_recruit_process_lib/process/IPrepareGovHeader">
+  <plnk:partnerLinkType name="INewRecuirtmentApplicationPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns9:RecruitmentProcessSubmitNewApplication"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="LaborRecuirtmentAppPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns9:LaborRecruitmentApplication"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns9:RecruitmentProcessPreconditionValidation"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="NotificationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns11:Notification"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PrepareNotificationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns5:PrepareNotification"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ReviewAppPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns12:ILaborRecuirmentApplication"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="IPrepareGovHeaderPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:IPrepareGovHeader"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EstablishmentInfoPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns10:EstablishmentInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessSubmitNewApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../igov/gov/qa/sharedServices/notification/specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../PrepareNotification.wsdl" namespace="http://NewRecuirtmentApplication/PrepareNotification"/>
+    <wsdl:import location="../../../../../process/ILaborRecuirmentApplication.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1"/>
+    <wsdl:import location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+    <wsdl:import location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+</wsdl:definitions>

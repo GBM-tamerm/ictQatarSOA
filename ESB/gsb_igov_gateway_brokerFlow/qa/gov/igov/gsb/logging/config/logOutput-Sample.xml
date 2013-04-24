@@ -1,0 +1,32 @@
+<XMLNSC>
+	<XmlDeclaration>
+		<Version>1.0</Version>
+		<Encoding>UTF-8</Encoding>
+	</XmlDeclaration>
+	<Envelope>
+		<soapenv>http://schemas.xmlsoap.org/soap/envelope/</soapenv>
+		<Header>
+			<IGOVHeader>
+				<v10>urn:igov.gov.qa/xml/schemas/v1_0/</v10>
+				<SenderInfo>
+					<TrackingID>
+						MOL_Recruitmentagent11273143301309
+					</TrackingID>
+					<ApplicationID>MOL_Recruitment</ApplicationID>
+					<UID>agent1</UID>
+				</SenderInfo>
+				<MEP>RequestReply</MEP>
+				<RunMode>P</RunMode>
+			</IGOVHeader>
+		</Header>
+		<Body>
+			<BillInfogetLastBillSummaryRequest1>
+				<v10>
+					urn:kahramaa.com.qa/billing/specifications/v1_0/
+				</v10>
+				<elecNumber>3</elecNumber>
+				<tenantId>EST25</tenantId>
+			</BillInfogetLastBillSummaryRequest1>
+		</Body>
+	</Envelope>
+</XMLNSC>

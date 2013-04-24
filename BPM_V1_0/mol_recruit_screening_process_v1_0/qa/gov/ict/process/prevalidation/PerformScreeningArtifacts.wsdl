@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="PerformScreening" targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/PerformScreeningArtifacts" xmlns:ns="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:ns5="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns6="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns7="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/PerformScreeningArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://mol_recruit_process_lib/process/IPrepareGovHeader">
+  <plnk:partnerLinkType name="IPreconditionValidationPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns5:RecruitmentProcessPreconditionValidation"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ValidateEstalishmentPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns:IValidateEstablishment"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../wsdl/IValidateEstablishment.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment"/>
+</wsdl:definitions>

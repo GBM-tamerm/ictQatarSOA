@@ -1,0 +1,55 @@
+<soapenv:Envelope
+	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:v1="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"
+	xmlns:v11="urn:igov.gov.qa/xml/schemas/v1_0/"
+	xmlns:v12="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/">
+	<soapenv:Header>
+		<v1:IGOVHeader>
+			<v11:SenderInfo>
+				<!--Optional:-->
+				<v11:TrackingID>?</v11:TrackingID>
+				<v11:ApplicationID>?</v11:ApplicationID>
+				<v11:UID>?</v11:UID>
+			</v11:SenderInfo>
+			<v11:MEP>?</v11:MEP>
+			<!--Optional:-->
+			<v11:QOS>?</v11:QOS>
+			<!--Optional:-->
+			<v11:Key>?</v11:Key>
+			<!--Optional:-->
+			<v11:DataMode>?</v11:DataMode>
+			<v11:RunMode>?</v11:RunMode>
+			<!--Optional:-->
+			<v11:TrackingID>?</v11:TrackingID>
+			<!--Optional:-->
+			<v11:TraceResults>
+				<!--Zero or more repetitions:-->
+				<v11:TraceResult>
+					<v11:IPAddress>?</v11:IPAddress>
+					<v11:Instance>?</v11:Instance>
+					<v11:Actor>?</v11:Actor>
+					<v11:Timestamp>?</v11:Timestamp>
+					<!--Optional:-->
+					<v11:DetailedMessage>?</v11:DetailedMessage>
+				</v11:TraceResult>
+			</v11:TraceResults>
+			<!--Optional:-->
+			<v11:TraceSettings enabled="false" />
+		</v1:IGOVHeader>
+	</soapenv:Header>
+	<soapenv:Body>
+		<v1:NotificationsendNotificationRequest1>
+			<v1:sendNotification>
+				<!--1 to 100 repetitions:-->
+				<v12:notificationMessage>
+					<v12:smsDetails>
+						<v12:senderCode>1234</v12:senderCode>
+						<v12:message>Hello</v12:message>
+						<v12:mobileNumber>12345</v12:mobileNumber>
+						<v12:messageLanguage>ENGLISH</v12:messageLanguage>
+					</v12:smsDetails>
+				</v12:notificationMessage>
+			</v1:sendNotification>
+		</v1:NotificationsendNotificationRequest1>
+	</soapenv:Body>
+</soapenv:Envelope>

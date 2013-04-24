@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_4" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs_v1_0/xslt/XSLTransformation1_req_4">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Abaladiya.gov.qa%252FcommercialPermit%252Fspecifications%252Fv1_0%252F%257DCommercialPermitInfogetCommercialPermitInfoRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Abaladiya.gov.qa%252FcommercialPermit%252Fspecifications%252Fv1_0%252F%257DCommercialPermitInfogetCommercialPermitInfoResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_4">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/commercialRegistration/ID"/>
+            <function ref="assign">
+                <property key="value" value="232223"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/commercialRegistration/branchNumber"/>
+            <function ref="assign">
+                <property key="value" value="0"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/establishmentCommercialName/nameArabic"/>
+            <function ref="assign">
+                <property key="value" value="المعادى"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/issueDate"/>
+            <function ref="assign">
+                <property key="value" value="2008-10-26T21:32:52"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/expiryDate"/>
+            <function ref="assign">
+                <property key="value" value="2011-10-26T21:32:52"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/commercialPermitID"/>
+            <function ref="assign">
+                <property key="value" value="12"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/applicationNumber/municipalityID"/>
+            <function ref="assign">
+                <property key="value" value="4324"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/applicationNumber/year"/>
+            <function ref="assign">
+                <property key="value" value="2010"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="CommercialPermitInfogetCommercialPermitInfoResponse1/commercialPermit/applicationNumber/number"/>
+            <function ref="assign">
+                <property key="value" value="15"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

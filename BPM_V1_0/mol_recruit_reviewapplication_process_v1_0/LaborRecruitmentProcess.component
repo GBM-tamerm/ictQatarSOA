@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://LR_ReviewApplication/ReviewWaitingActivity" xmlns:ns2="http://LR_ReviewApplication/ReciveWaitingActivity" xmlns:ns3="http://ict.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns4="http://ict.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:ns5="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:v1="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:v1_1="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="LaborRecruitmentProcess" name="LaborRecruitmentProcess">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns1:ResumeWaitingActivity">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns2:ResumeApplicationRequest">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="v1:ILaborRecuirmentApplication">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="SwimLane2Partner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="v1_1:IDepartmentStudy"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+    <reference name="ResumeApplicationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:ResumeWaitingActivity"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="LaborRecruitmentProcess"/>
+    </reference>
+    <reference name="ReviewApplicationPartner1">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:ReviewApplicationProcess"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/qa/gov/ict/process/review/reviewapplication.bpel"/>
+  </implementation>
+</scdl:component>

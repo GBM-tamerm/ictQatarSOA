@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:ns1="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="MOIStatisticsStubService" targetNamespace="http://gsb_servicesStubs_v1_0/xslt/MOIStatisticsStubService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EstablishmentLaborStatisticsInfo"/>
+  </interfaces>
+  <references>
+    <reference name="EstablishmentLaborStatisticsInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns1:EstablishmentLaborStatisticsInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getLaborStatistics" target="getLaborStatistics" sourcePortType="ns1:EstablishmentLaborStatisticsInfo" targetReference="EstablishmentLaborStatisticsInfoPartner"/>
+  <operationFlow medflow="MOIStatisticsStubService.medflow"/>
+</mfc:interfaceMediationFlow>

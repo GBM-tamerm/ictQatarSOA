@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><TransformationConfiguration forwardTransformation="com.ibm.xtools.transform.uml.xsd.umltoxsd.transform.root" reverseTransformation="com.ibm.xtools.transform.xsd.uml.Xsd2umlTransformation" reverseTransformationEnabled="false" version="7.0.0">
+<!--xtools2_universal_type_manager-->
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableDefaultFile" value="@45,=@com.ibm.xtools.transform.core.metatype.stringv1_0"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableDefaultFolder" value="@45,=@com.ibm.xtools.transform.core.metatype.stringmec/gov/qa/commercialRegistration/xml/schemas/v1_0"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableFile" value="@45,=@com.ibm.xtools.transform.core.metatype.stringCommercialRegistrationSchema_v1_0"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableFileDefaultNamespace" value="@45,=@com.ibm.xtools.transform.core.metatype.stringurn:mec.gov.qa/commercialRegistration/xml/schemas/v1_0/"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableFileExtension" value="@45,=@com.ibm.xtools.transform.core.metatype.stringxsd"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableFileNamespace" value="@45,=@com.ibm.xtools.transform.core.metatype.stringurn:mec.gov.qa/commercialRegistration/xml/schemas/v1_0/"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableFolder" value="@45,=@com.ibm.xtools.transform.core.metatype.stringmec/gov/qa/commercialRegistration/xml/schemas/v1_0"/>
+<Property id="/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQResourceTableQName" value="@45,=@com.ibm.xtools.transform.core.metatype.stringmbt_serviceModel::mbt.gov.qa::commercialRegistration::xml::schemas::v1_0"/>
+<Property id="AuroSaveRule" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="AuroValidateRule" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="AuxiliarySources" value="@49,0@com.ibm.xtools.transform.core.metatype.Collectionjava.util.ArrayList&amp;lt;ELEM_START&amp;gt;"/>
+<Property id="AuxiliaryTargets" value="@49,0@com.ibm.xtools.transform.core.metatype.Collectionjava.util.ArrayList&amp;lt;ELEM_START&amp;gt;"/>
+<Property id="AuxiliaryTargetsChecks" value="@49,0@com.ibm.xtools.transform.core.metatype.Collectionjava.util.ArrayList&amp;lt;ELEM_START&amp;gt;"/>
+<Property id="CONTEXT_SOURCE" value="@49,72@com.ibm.xtools.transform.core.metatype.Collectionmbt_serviceModel::mbt.gov.qa::commercialRegistration::xml::schemas::v1_0java.util.ArrayList,215&amp;lt;ELEM_START&amp;gt;@47,72@com.ibm.xtools.uml.transform.core.metatype.uml2mbt_serviceModel::mbt.gov.qa::commercialRegistration::xml::schemas::v1_0platform:/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_c-qBgKuGEd-fv6LyW7qTXQ"/>
+<Property id="CONTEXT_TARGET_CONTAINER" value="@45,=@com.ibm.xtools.transform.core.metatype.folder/gsb_igov_laborRecruitment_wsdls/WebContent/WSDLs"/>
+<Property id="DCMP" value="@43,10@com.ibm.xtools.transform.core.metatype.DCMPConceptual1"/>
+<Property id="EnableReverseTransformation" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="FORWARD_TRANSFORMATION_EXTENSIONS_STATUS" value="@42,0@com.ibm.xtools.transform.core.metatype.Mapjava.util.HashMap&amp;lt;ELEM_START&amp;gt;"/>
+<Property id="ManySourcesToOneTarget" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="MergeKind" value="@45,=@com.ibm.xtools.transform.core.metatype.choice2"/>
+<Property id="MergeWarning" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="OpenReportDialog" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="REVERSE_TRANSFORMATION_EXTENSIONS_STATUS" value="@42,0@com.ibm.xtools.transform.core.metatype.Mapjava.util.HashMap&amp;lt;ELEM_START&amp;gt;"/>
+<Property id="ShowWarningsInReportDialog" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="TRANSFORM_REVERSE_SILENT" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="com.ibm.xtools.transform.merge.option" value="@45,=@com.ibm.xtools.transform.core.metatype.stringPartial_Overwrite"/>
+<Property id="convertNestedClassImplicitly" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="logTrace" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="processUnmarkedClass" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="processUnmarkedPackage" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="replaceUML" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="reverseNsFirstSegment" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+<Property id="silentlyAddRule" value="@46,=@com.ibm.xtools.transform.core.metatype.booleantrue"/>
+<Property id="targetFolder" value="@45,=@com.ibm.xtools.transform.core.metatype.choice1"/>
+<Property id="targetNamespace" value="@45,=@com.ibm.xtools.transform.core.metatype.string"/>
+<Property id="targetNamespacePrefix" value="@45,=@com.ibm.xtools.transform.core.metatype.string"/>
+<Property id="useWidStyle" value="@46,=@com.ibm.xtools.transform.core.metatype.booleanfalse"/>
+</TransformationConfiguration>

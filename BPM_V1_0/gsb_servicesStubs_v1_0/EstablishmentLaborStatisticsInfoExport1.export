@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Binding3="urn:moi.gov.qa/establishmentInfo/specifications/v1_0//Binding3" xmlns:ns1="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstablishmentLaborStatisticsInfoExport1" name="EstablishmentLaborStatisticsInfoExport1" target="MOIStatisticsStubService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EstablishmentLaborStatisticsInfo"/>
+  </interfaces>
+  <esbBinding xsi:type="webservice:WebServiceExportBinding" port="Binding3:EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpPort" service="Binding3:EstablishmentLaborStatisticsInfoExport1_EstablishmentLaborStatisticsInfoHttpService"/>
+</scdl:export>

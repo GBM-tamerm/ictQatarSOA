@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ReviewApplicationHT" targetNamespace="http://LR_ReviewApplication/qa/gov/ict/process/review/ReviewApplicationHTArtifacts" xmlns:ns1="http://LR_ReviewApplication/IPrepareNotifcationReview" xmlns:ns3="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns6="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns7="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://LR_ReviewApplication/qa/gov/ict/process/review/ReviewApplicationHTArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://LR_ReviewApplication/ReviewApplicationHT" xmlns:wsdl1="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:wsdl2="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters" xmlns:wsdl3="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/">
+  <plnk:partnerLinkType name="ReviewApplicationProcessHTPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:ReviewApplicationProcess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PrepareNotificationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns1:PrepareNotifcationReview"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="NotificaitonPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns3:Notification"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="LRApplicationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns6:LaborRecruitmentApplication"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="AdminFaultHandlerPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns7:IAdminFaultHandler"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="IPrepareGovHeaderPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:IPrepareGovHeader"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PerpareEscalationsParamtersPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:PerpareEscalationsParamters"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EstablishmentInfoPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl3:EstablishmentInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../../../../../ReviewApplicationProcess.wsdl" namespace="http://LR_ReviewApplication/ReviewApplicationHT"/>
+    <wsdl:import location="../../../../../PrepareNotifcationReview.wsdl" namespace="http://LR_ReviewApplication/IPrepareNotifcationReview"/>
+    <wsdl:import location="../../../../../igov/gov/qa/sharedServices/notification/specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+    <wsdl:import location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+    <wsdl:import location="../../../../../PerpareEscalationsParamters.wsdl" namespace="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters"/>
+    <wsdl:import location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+</wsdl:definitions>

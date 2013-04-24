@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstInfoThrowCommonErrorFaultService" targetNamespace="http://gsb_servicesStubs/EstInfoThrowCommonErrorFaultServiceArtifacts" xmlns:ns="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://gsb_servicesStubs/EstInfoThrowCommonErrorFaultServiceArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="EstablishmentHasActiveLaborAppInfoPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns:EstablishmentHasActiveLaborAppInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="mol/gov/qa/customerService/recruitment/specifications/v1_0/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+</wsdl:definitions>

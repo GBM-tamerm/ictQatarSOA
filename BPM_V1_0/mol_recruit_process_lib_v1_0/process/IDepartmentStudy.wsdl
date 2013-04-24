@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ISwimLane2" targetNamespace="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons2="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://mol.gov.qa/Process/WSDL/ISwimLane2/v1" xmlns:Q1="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/">
+            <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="startProcess">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="application" nillable="true" type="bons1:ApplicationLW"/>
+            <xsd:element name="pHeader" nillable="true" type="bons1:ProcessHeader"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="startProcessResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="application" nillable="true" type="bons1:ApplicationLW"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CommonErrorStructure_element" nillable="true" type="Q1:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="startProcessRequestMsg">
+    <wsdl:part element="bons2:startProcess" name="startProcessParameters"/>
+  </wsdl:message>
+    <wsdl:message name="startProcessResponseMsg">
+    <wsdl:part element="bons2:startProcessResponse" name="startProcessResult"/>
+  </wsdl:message>
+    <wsdl:message name="startProcess_faultMsg">
+    <wsdl:part element="bons2:CommonErrorStructure_element" name="fault"/>
+  </wsdl:message>
+    <wsdl:portType name="IDepartmentStudy">
+    <wsdl:operation name="startProcess">
+            <wsdl:input message="bons2:startProcessRequestMsg" name="startProcessRequest"/>
+            <wsdl:output message="bons2:startProcessResponseMsg" name="startProcessResponse"/>
+      <wsdl:fault message="bons2:startProcess_faultMsg" name="fault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ejs.models.base.bindings.applicationbnd="applicationbnd.xmi" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject>
+    <contextroot>
+      <name>customerService/recruitment/services/v1_0/RecruitmentProcessSubmitNewApplicationService</name>
+    </contextroot>
+    <authorizationTable>
+      <authorizations role="//@appProject/@securityrole.0">
+        <specialSubjects xsi:type="com.ibm.ejs.models.base.bindings.applicationbnd:AllAuthenticatedUsers" name="AllAuthenticatedUsers"/>
+      </authorizations>
+    </authorizationTable>
+    <securityrole description="" roleName="AdminIdentity"/>
+  </appProject>
+  <wsExports>
+    <wsExport>
+      <name>RecruitmentProcessSubmitNewApplicationExport1</name>
+      <keepDefaultURLPattern>false</keepDefaultURLPattern>
+      <urlpattern>
+        <pattern>/recruitmentProcessSubmitNewApplication/RecruitmentProcessSubmitNewApplicationPort</pattern>
+      </urlpattern>
+    </wsExport>
+    <wsDescExtensions>
+      <wsDescExt wsDescNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpService">
+        <pcBinding pcNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpPort"/>
+      </wsDescExt>
+    </wsDescExtensions>
+    <wsDescBindings>
+      <wsdescBindings wsDescNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpService">
+        <pcBindings pcNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpPort"/>
+      </wsdescBindings>
+    </wsDescBindings>
+  </wsExports>
+  <webProject/>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; EstablishmentSecurity_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 02/02/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is&amp;nbsp;MOI schema&amp;nbsp;Types&amp;nbsp;for establishment info&amp;nbsp;services
+&lt;/p&gt;
+&lt;p&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 1.5&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    02-01-2010: Hassan Ali: v 0.1 Initial draft version&lt;br /&gt;
+    18-02-2010: Mohamed Kattaya : v 0.2&amp;nbsp;Initial draft version output from UML generation&lt;br /&gt;
+    21-02-2010: Mohamed Kattaya : v 0.3&lt;br /&gt;
+    24-02-2010: Mohamed Kattaya : v 0.4&lt;br /&gt;
+    25-02-2010: Mohamed Kattaya : v 1.0 changes to refactore out establishment ID and Electricity number&lt;br /&gt;
+    28-02-2010: Mohamed Kattaya : v 1.1&lt;br /&gt;
+    02-03-2010: Mohamed Kattaya : v 1.2&lt;br /&gt;
+    04-03-2010: Mohamed Kattaya : v 1.3&lt;br /&gt;
+    15-03-2010: Mohamed Kattaya : v 1.4 changes to person info type
+&lt;/p&gt;
+&lt;p&gt;
+    25-08-2010: Mohamed Kattaya: v 1.5 Update of the whole schema to match the DB requirements of MOL as the services will
+    be provided from MOL
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="EstablishmentIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{7,8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="QIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{11}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="EstablishmentInfoType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="Id" type="moixsd:EstablishmentIdType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="address" type="igovxsd:AddressType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="phone" type="igovxsd:TelephoneNumberType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="owners" type="igovxsd:PersonInfoType"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="agents" type="igovxsd:PersonInfoType"/>
+      <xsd:element minOccurs="0" name="currentCountOfWorkers" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="email" type="xsd:string"/>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="authorizedSignatories" type="igovxsd:PersonInfoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProfessionDetailsType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="permittedVisaCount" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="usedVisaCount" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="remainingVisaCount" type="xsd:int"/>
+      <xsd:element name="profession" type="igovxsd:ProfessionType"/>
+      <xsd:element name="nationality" type="igovxsd:NationalityType"/>
+      <xsd:element name="gender" type="igovxsd:GenderType"/>
+      <xsd:element minOccurs="0" name="vpNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="applicationNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="year" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="expiryDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="StatisticsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="professions" type="moixsd:ProfessionDetailsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="RestrictedEstablishment">
+    <xsd:restriction base="xsd:boolean"/>
+  </xsd:simpleType>
+</xsd:schema>

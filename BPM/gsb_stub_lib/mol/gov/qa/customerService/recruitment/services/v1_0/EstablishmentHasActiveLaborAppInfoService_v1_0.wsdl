@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="EstablishmentHasActiveLaborAppInfoService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="EstablishmentHasActiveLaborAppInfoBinding" type="molspcxsd:EstablishmentHasActiveLaborAppInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hasEstablishmentActiveLaborRecApp">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService/hasEstablishmentActiveLaborRecApp/"/>
+      <wsdl:input>
+        <soap:body parts="estID" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="hasActiveApp" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="hasEstablishmentActiveLaborRecAppFault">
+        <soap:fault name="hasEstablishmentActiveLaborRecAppFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="establishmentHasActiveLaborAppInfo">
+    <wsdl:port binding="tns:EstablishmentHasActiveLaborAppInfoBinding" name="EstablishmentHasActiveLaborAppInfoPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService/establishmentHasActiveLaborAppInfo/EstablishmentHasActiveLaborAppInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

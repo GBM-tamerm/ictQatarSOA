@@ -1,0 +1,12 @@
+
+
+Importing file: C:\Documents and Settings\islam\Desktop\WSDL\WSDL\IGOVHeader-v1-0.xsd
+
+
+Elapsed time processing this message definition file: 0.109 seconds
+Number of warnings for this message definition file: 0
+
+
+Number of files processed: 1
+
+

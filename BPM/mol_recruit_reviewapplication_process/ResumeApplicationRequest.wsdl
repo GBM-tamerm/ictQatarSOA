@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ReciveWaitingActivity" targetNamespace="http://LR_ReviewApplication/ReciveWaitingActivity" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:tns="http://LR_ReviewApplication/ReciveWaitingActivity" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LR_ReviewApplication/ReciveWaitingActivity">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="requestResume">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="correlationID" nillable="true" type="xsd:string"/>
+            <xsd:element name="userID" nillable="true" type="xsd:string"/>
+            <xsd:element name="pHeader" nillable="true" type="bons1:ProcessHeader"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="requestResumeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="acknowledgment" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="requestResumeRequestMsg">
+    <wsdl:part element="tns:requestResume" name="requestResumeParameters1"/>
+  </wsdl:message>
+    <wsdl:message name="requestResumeResponseMsg">
+    <wsdl:part element="tns:requestResumeResponse" name="requestResumeResult"/>
+  </wsdl:message>
+    <wsdl:portType name="ResumeApplicationRequest">
+    <wsdl:operation name="requestResume">
+      <wsdl:input message="tns:requestResumeRequestMsg" name="requestResumeRequest"/>
+            <wsdl:output message="tns:requestResumeResponseMsg" name="requestResumeResponse"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

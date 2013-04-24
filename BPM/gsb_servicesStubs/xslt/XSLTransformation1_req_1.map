@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_1" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_1">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DBlacklistedEstablishmentsInfoisEstablishmentBlacklistedRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DBlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse/xpath%3D%252F/smo.xsd"/>
+    <annotation key="@testSourceLocation" value="XSLTransformation1_req_1.xml"/>
+    <mappingDeclaration name="XSLTransformation1_req_1">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/BlacklistedEstablishmentsInfoisEstablishmentBlacklistedResponse1/blacklisted"/>
+            <function ref="assign">
+                <property key="value" value="false"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

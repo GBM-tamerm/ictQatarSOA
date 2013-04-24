@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NotificationService" targetNamespace="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/" xmlns:notifyspcxsd="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+  <wsdl:binding name="NotificationBinding" type="notifyspcxsd:Notification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendNotification">
+      <soap:operation soapAction="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/sendNotification/"/>
+      <wsdl:input>
+        <soap:body parts="notificationRequest" use="literal"/>
+        <soap:header part="header" message="notifyspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="notificationResponse" use="literal"/>
+        <soap:header part="header" message="notifyspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="sendNotificationFault">
+        <soap:fault name="sendNotificationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="notification">
+    <wsdl:port binding="tns:NotificationBinding" name="NotificationPort">
+      <soap:address location="http://igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService/notification/NotificationPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

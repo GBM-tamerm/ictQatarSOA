@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_12" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_12">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest/xpath%3D%252Fbody/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amol.gov.qa%252FcustomerService%252Frecruitment%252Fspecifications%252Fv1_0%252F%257DActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse/xpath%3D%252Fbody/smo.xsd"/>
+    <annotation key="@testSourceLocation" value="XSLTransformation1_req_12.xml"/>
+    <mappingDeclaration name="XSLTransformation1_req_12">
+        <input path="body"/>
+        <output path="body"/>
+        <mapping>
+            <input path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest1/appID/ApplicationNumber"/>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/Id/ApplicationNumber"/>
+        </mapping>
+        <mapping>
+            <input path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdRequest1/appID/year"/>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/Id/year"/>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/establishmentName"/>
+            <function ref="assign">
+                <property key="value" value="Al Manaa"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/requiredNumber"/>
+            <function ref="assign">
+                <property key="value" value="5"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/profession/name_En"/>
+            <function ref="assign">
+                <property key="value" value="Engineer"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/profession/name_Ar"/>
+            <function ref="assign">
+                <property key="value" value="Mohandes"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/profession/ID"/>
+            <function ref="assign">
+                <property key="value" value="1"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/nationality/name_En"/>
+            <function ref="assign">
+                <property key="value" value="Egyption"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/nationality/name_Ar"/>
+            <function ref="assign">
+                <property key="value" value="masri"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/nationality/ID"/>
+            <function ref="assign">
+                <property key="value" value="1"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/gender"/>
+            <function ref="assign">
+                <property key="value" value="MALE"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/requiredProfessions/vpNumber"/>
+            <function ref="assign">
+                <property key="value" value="5"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/status/ID"/>
+            <function ref="assign">
+                <property key="value" value="1"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/status/nameEn"/>
+            <function ref="assign">
+                <property key="value" value="under CSR Review"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/electricityNumber"/>
+            <function ref="assign">
+                <property key="value" value="32432432432"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/agentQID"/>
+            <function ref="assign">
+                <property key="value" value="2321321"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/agentEmail"/>
+            <function ref="assign">
+                <property key="value" value="agent@yahoo.com"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/agentPhone"/>
+            <function ref="assign">
+                <property key="value" value="2132121"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="ActiveLaborRecruitmentApplicationInfogetActiveApplicationByAppIdResponse1/application/details/establishmentAddress/poBox"/>
+            <function ref="assign">
+                <property key="value" value="2014"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

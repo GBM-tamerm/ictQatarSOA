@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://NewRecuirtmentApplication/qa/gov/ict/process/submitNewApp/SubmitNewApplicationArtifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1" xmlns:ns1="http:///ict.gov.qa/Process/XSD/ProcessHeader" xmlns:ns10="http://moi.gov.qa/EstablishmentInfo/xml/schemas/version1.0" xmlns:ns11="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:ns12="http://schemas.ict.gov.qa/2010/01/iGovHeader" xmlns:ns13="http://NewRecuirtmentApplication/PrepareNotification" xmlns:ns14="http://ict.gov.qa/Notification/xml/schemas/version1.0" xmlns:ns15="http://ict.gov.qa/Process/WSDL/IReviewApplication/v1" xmlns:ns16="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1" xmlns:ns17="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1" xmlns:ns18="http://ict.gov.qa/Process/WSDL/ISubmitNewRecuirtmentApplication/v1" xmlns:ns19="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/" xmlns:ns2="http://ict.gov.qa/Process/WSDL/INewRecuirtmentApplication/v1" xmlns:ns20="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/" xmlns:ns21="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns22="http://moi.gov.qa/establishmentInfo/xml/schemas/version1_0/" xmlns:ns23="http://ict.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns24="igov.gov.qa/xml/schemas/v1_0/" xmlns:ns25="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns26="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns27="moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns28="igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:ns29="igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns3="http://mol.gov.qa/LaborRecruitmentApplication/xml/schemas/version1.0" xmlns:ns30="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns31="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:ns32="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns33="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns34="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns35="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns36="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns37="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:ns38="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:ns39="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns4="http://ict.gov.qa/Notification/NotificationService/version/1.0" xmlns:ns40="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns5="http://mol.gov.qa/Labor/RecruitmentApplication/version/1.0" xmlns:ns6="http://kahramaa.com.qa/Electricity/ElectricityInfo/version/1.0" xmlns:ns7="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0" xmlns:ns8="http:///ict.gov.qa/Process/XSD/commonTypes/v1" xmlns:ns9="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="SubmitNewApplication" suppressJoinFailure="yes" targetNamespace="http://NewRecuirtmentApplication/qa/gov/ict/process/submitNewApp" wpc:autoDelete="onSuccessfulCompletion" wpc:autonomy="peer" wpc:compensationSphere="supports" wpc:continueOnError="yes" wpc:displayName="SubmitNewApplication" wpc:executionMode="microflow" wpc:id="7" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-14T14:28:34">
+  <wpc:javaGlobals>
+    <wpc:import packages="java.util.logging.Logger"/>
+    <wpc:import packages="qa.gov.mol.lr.common.ICommonConstants"/>
+    <wpc:import packages="qa.gov.mol.lr.common.GovHeaderHelper"/>
+  </wpc:javaGlobals>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/INewRecuirtmentApplication.wsdl" namespace="http://ict.gov.qa/Process/WSDL/INewRecuirtmentApplication/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ApplicationBO.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ProcessHeader.xsd" namespace="http:///ict.gov.qa/Process/XSD/ProcessHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="SubmitNewApplicationArtifacts.wsdl" namespace="http://NewRecuirtmentApplication/qa/gov/ict/process/submitNewApp/SubmitNewApplicationArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/INewRecuirtmentApplication.wsdl" namespace="http://ict.gov.qa/Process/WSDL/INewRecuirtmentApplication/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/LaborRecruitmentApplication-v1-0.xsd" namespace="http://mol.gov.qa/LaborRecruitmentApplication/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/NotificationService-v1-0.wsdl" namespace="http://ict.gov.qa/Notification/NotificationService/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/LaborRecruitmentApplication-v1-0.wsdl" namespace="http://mol.gov.qa/Labor/RecruitmentApplication/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/ElectricityBillInfo-v1-0.wsdl" namespace="http://kahramaa.com.qa/Electricity/ElectricityInfo/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/EstablishmentLaborInfo-v1-0.wsdl" namespace="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../process/ProcessCommonTypes-v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/commonTypes/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/CommonTypes-v1-0.xsd" namespace="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/MOIEstablishmentInfo-v1-0.xsd" namespace="http://moi.gov.qa/EstablishmentInfo/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/EstablishmentSecurityInfo-v1-0.wsdl" namespace="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.schemas.ict.gov.qa.2010.01.iGovHeader.xsd" namespace="http://schemas.ict.gov.qa/2010/01/iGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../PrepareNotification.wsdl" namespace="http://NewRecuirtmentApplication/PrepareNotification"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.ict.gov.qa.Notification.xml.schemas.version1.0.xsd" namespace="http://ict.gov.qa/Notification/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/PrepareNotification.wsdl" namespace="http://NewRecuirtmentApplication/PrepareNotification"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IReviewApplication.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IReviewApplicationHT/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.IPreconditionValidation.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPreconditionValidation-v1.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPreconditionValidation.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../ict/gov/qa/Notification/NotificationService-v1-0.wsdl" namespace="http://ict.gov.qa/Notification/NotificationService/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/ISubmitNewRecuirtmentApplication.wsdl" namespace="http://ict.gov.qa/Process/WSDL/ISubmitNewRecuirtmentApplication/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication.wsdl" namespace="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.mol.gov.qa.labor.recruitmentApplication.xml.schemas.version1_0.xsd" namespace="http://mol.gov.qa/labor/recruitmentApplication/xml/schemas/version1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo.wsdl" namespace="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../moi/gov/qa/establishmentInfo/xml/schemas/version1_0/EstablishmentInfoType.xsd" namespace="http://moi.gov.qa/establishmentInfo/xml/schemas/version1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/ILaborRecuirmentApplication.wsdl" namespace="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd" namespace="urn:igov.gov.qa/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentInfo_v1_0.wsdl" namespace="mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentSecurityInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd" namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/Notification_v1_0.xsd" namespace="igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../igov/gov/qa/sharedServices/notification/specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessSubmitNewApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentApplication_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/NotificationSchema_v1_0.xsd" namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd" namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_process_lib/process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="ISubmitNewRecuirtmentApplication" partnerLinkType="ns:INewRecuirtmentApplicationPLT"/>
+    <bpws:partnerLink name="LaborRecuirtmentAppPartner" partnerLinkType="ns:LaborRecuirtmentAppPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="IPreconditionValidation" partnerLinkType="ns:PartnerPLT" partnerRole="Reference">
+      <wpc:processResolver processTemplateName="PerformScreening"/>
+    </bpws:partnerLink>
+    <bpws:partnerLink name="EstSecInfoPartner" partnerLinkType="ns:EstLaborInfoPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="NotificationPartner" partnerLinkType="ns:NotificationPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="PrepareNotificationPartner" partnerLinkType="ns:PrepareNotificationPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="LaborRecruitmentPartner" partnerLinkType="ns:ReviewAppPartnerPLT" partnerRole="Reference">
+      <wpc:processResolver processTemplateName="LaborRecruitmentProcess"/>
+    </bpws:partnerLink>
+    <bpws:partnerLink name="IPrepareGovHeaderPartner" partnerLinkType="ns:IPrepareGovHeaderPLT" partnerRole="Interface"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="pHeader" type="ns32:ProcessHeader" wpc:id="5"/>
+    <bpws:variable name="status" type="xsd:string" wpc:id="11"/>
+    <bpws:variable name="appDate" type="xsd:dateTime" wpc:id="12"/>
+    <bpws:variable name="validationResult" type="ns32:ValidationResults" wpc:id="31"/>
+    <bpws:variable name="eGovHeader" type="ns31:IGOVHeaderType" wpc:id="19"/>
+    <bpws:variable name="applicationLW" type="ns32:ApplicationLW" wpc:id="21"/>
+    <bpws:variable name="insertAppRequest" type="ns33:InsertNewApplicationRequest" wpc:id="50"/>
+    <bpws:variable name="insertAppResponse" type="ns33:InsertNewApplicationResponse" wpc:id="51"/>
+    <bpws:variable name="getEstInfoRequest" type="ns34:getEstablishmentInfoByIdRequest" wpc:id="53"/>
+    <bpws:variable name="getEstInfoResponse" type="ns34:getEstablishmentInfoByIdResponse" wpc:id="54"/>
+    <bpws:variable name="estInfo" type="ns35:EstablishmentInfoType" wpc:id="56"/>
+    <bpws:variable name="sendNotificationRequest" type="ns36:SendNotificationRequest" wpc:id="57"/>
+    <bpws:variable name="notificationResponse" type="ns36:SendNotificationResponse" wpc:id="58"/>
+    <bpws:variable name="notificationRequest" type="ns37:NotificationRequestType" wpc:id="59"/>
+    <bpws:variable name="curDate" type="xsd:dateTime" wpc:id="122"/>
+    <bpws:variable messageType="ns33:RecruitmentProcessSubmitNewApplicationsubmitApplicationFault" name="fault" wpc:id="79"/>
+    <bpws:variable name="faultMessage" type="xsd:string" wpc:id="80"/>
+    <bpws:variable name="faultCause" type="xsd:string" wpc:id="81"/>
+    <bpws:variable name="submitApplicationReq" type="ns33:SubmitApplicationRequest" wpc:id="61"/>
+    <bpws:variable name="validateEstablishmentReq" type="ns33:ValidateEstablishmentRequest" wpc:id="62"/>
+    <bpws:variable name="validateEstablishmentRes" type="ns33:ValidateEstablishmentResponse" wpc:id="63"/>
+    <bpws:variable name="submitApplicationRes" type="ns33:SubmitApplicationResponse" wpc:id="64"/>
+    <bpws:variable name="applicationDetailsLW" type="ns32:ApplicationDetailsLW" wpc:id="66"/>
+    <bpws:variable name="error" type="ns38:CommonErrorStructure" wpc:id="85"/>
+    <bpws:variable name="errorCode" type="xsd:string" wpc:id="125"/>
+    <bpws:variable name="networkLocation" type="xsd:string" wpc:id="126"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="submitApplicationReq" variable="submitApplicationReq"/>
+        <wpc:parameter name="processHeader" variable="pHeader"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:scope name="Scope1" wpc:displayName="Scope1" wpc:id="101">
+      <bpws:faultHandlers>
+        <bpws:catch faultMessageType="ns33:RecruitmentProcessPreconditionValidationValidateEstablishmentFault" faultName="ns33:ValidateEstablishmentFault" faultVariable="Variable" wpc:variableId="108">
+          <bpws:sequence name="HiddenSequence9" wpc:id="1073741933">
+            <bpws:invoke name="logexception6" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="110">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("SubmitNewApp");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror3" wpc:displayName="set common error" wpc:id="111">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns33:submitApplicationFault" name="Replywithfault6" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" variable="fault" wpc:displayName="Reply with fault" wpc:id="112"/>
+            <bpws:terminate name="Terminate6" wpc:displayName="Terminate" wpc:id="113"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catch faultMessageType="ns33:LaborRecruitmentApplicationinsertNewApplicationFault" faultName="ns33:insertNewApplicationFault" faultVariable="Variable1" wpc:variableId="114">
+          <bpws:sequence name="HiddenSequence4" wpc:id="1073741939">
+            <bpws:invoke name="logexception1" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="116">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("SubmitNewApp");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setcommonerror1" wpc:displayName="set common error" wpc:id="117">
+              <bpws:copy>
+                <bpws:from variable="error"/>
+                <bpws:to part="fault" variable="fault"/>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns33:submitApplicationFault" name="Replywithfault1" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" variable="fault" wpc:displayName="Reply with fault" wpc:id="118"/>
+            <bpws:terminate name="Terminate1" wpc:displayName="Terminate" wpc:id="119"/>
+          </bpws:sequence>
+        </bpws:catch>
+        <bpws:catchAll>
+          <bpws:sequence name="HiddenSequence8" wpc:id="1073741927">
+            <bpws:invoke name="logexception5" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="104">
+              <wpc:script>
+                <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+networkLocation=qa.gov.mol.lr.process.constants.ProcessErrorCodes.networkLocation;
+Logger logger=Logger.getLogger("SubmitNewApp");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+              </wpc:script>
+            </bpws:invoke>
+            <bpws:assign name="setfaultvariable3" wpc:displayName="set fault variable" wpc:id="105">
+              <bpws:copy>
+                <bpws:from variable="errorCode"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="faultMessage"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[userMessage]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="faultCause"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[failedMessage]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="networkLocation"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[networkLocation]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+              <bpws:copy>
+                <bpws:from variable="curDate"/>
+                <bpws:to part="fault" variable="fault">
+                  <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[timeStamp]]></bpws:query>
+                </bpws:to>
+              </bpws:copy>
+            </bpws:assign>
+            <bpws:reply faultName="ns33:submitApplicationFault" name="Replywithfault5" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" variable="fault" wpc:displayName="Reply with fault" wpc:id="106"/>
+            <bpws:terminate name="Terminate5" wpc:displayName="Terminate" wpc:id="107"/>
+          </bpws:sequence>
+        </bpws:catchAll>
+      </bpws:faultHandlers>
+      <bpws:sequence name="HiddenSequence3" wpc:id="1073741926">
+        <bpws:assign name="setserviceinputs" wpc:displayName="set service inputs" wpc:id="32">
+          <bpws:copy>
+            <bpws:from variable="submitApplicationReq">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationDetails/estID]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="validateEstablishmentReq">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+          <bpws:copy>
+            <bpws:from variable="submitApplicationReq">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationDetails/electricityNumber]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="validateEstablishmentReq">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[electricityNumber]]></bpws:query>
+            </bpws:to>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:invoke name="PerformScreening" operation="ValidateEstablishment" partnerLink="IPreconditionValidation" portType="ns33:RecruitmentProcessPreconditionValidation" wpc:displayName="PerformScreening" wpc:id="29">
+          <wpc:input>
+            <wpc:parameter name="processHeader" variable="pHeader"/>
+            <wpc:parameter name="validateEstablishmentReq" variable="validateEstablishmentReq"/>
+          </wpc:input>
+          <wpc:output>
+            <wpc:parameter name="validateEstablishmentRes" variable="validateEstablishmentRes"/>
+          </wpc:output>
+        </bpws:invoke>
+        <bpws:assign name="setvalidationresults" wpc:displayName="set validation results" wpc:id="70">
+          <bpws:copy>
+            <bpws:from variable="validateEstablishmentRes">
+              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ValidateEstablishmentResult]]></bpws:query>
+            </bpws:from>
+            <bpws:to variable="validationResult"/>
+          </bpws:copy>
+        </bpws:assign>
+        <bpws:switch name="isValidResultsreturned" wpc:displayName="is Valid Results returned" wpc:id="33">
+          <bpws:case wpc:id="34">
+            <bpws:condition expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/"><![CDATA[return validationResult.getDataObject("validResult")==null;]]></bpws:condition>
+            <bpws:sequence name="HiddenSequence1" wpc:id="1073741860">
+              <bpws:assign name="setreplyinfo" wpc:displayName="set reply info" wpc:id="37">
+                <bpws:copy>
+                  <bpws:from variable="validateEstablishmentRes">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ValidateEstablishmentResult/inValidResults]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="submitApplicationRes">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[processAcknowledgment/inValidResults]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:reply name="Replywithinvalidinfo" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" wpc:displayName="Reply with invalid info" wpc:id="35">
+                <wpc:input>
+                  <wpc:parameter name="submitApplicationRes" variable="submitApplicationRes"/>
+                </wpc:input>
+              </bpws:reply>
+            </bpws:sequence>
+          </bpws:case>
+          <bpws:otherwise>
+            <bpws:sequence name="HiddenSequence2" wpc:id="1073741862">
+              <bpws:assign name="setapplicationdetails" wpc:displayName="set application details" wpc:id="67">
+                <bpws:copy>
+                  <bpws:from variable="submitApplicationReq">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationDetails]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="applicationDetailsLW"/>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="setinsertapplicationrequestdata" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="set insert application request data" wpc:id="71">
+                <wpc:script>
+                  <wpc:javaCode><![CDATA[commonj.sdo.DataObject __result__2;
+{// create InsertNewApplicationRequest
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOFactory");
+	 __result__2 = factory.create("urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/","InsertNewApplicationRequest");
+}
+insertAppRequest = __result__2;
+java.lang.Object __result__4 = null;
+try {
+	{// applicationDetailsMap
+		java.util.HashMap inputMap = new java.util.HashMap();
+		java.util.HashMap outputMap = new java.util.HashMap();
+		inputMap.put("ApplicationDetailsLW", applicationDetailsLW);
+		outputMap.put("InsertNewApplicationRequest", insertAppRequest);
+		com.ibm.wbiserver.map.MapService _serv = 
+			(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/wbiserver/map/MapService");
+		_serv.transform("http://mol_recruit_submitapplication_process/qa/gov/ict/maps", "applicationDetailsMap", inputMap, outputMap, ((com.ibm.wbiserver.relationshipservice.common.ExecutionContext)__result__4));
+	}
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapFailureException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapFailureException __result__7;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException __result__10;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapServiceException __result__13;
+	ex.printStackTrace();
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="void"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="applicationDetailsLW" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationDetailsLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="create InsertNewApplicationRequest" description="create a new InsertNewApplicationRequest {urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/}" template="com.ibm.websphere.bo.BOFactory factory = &#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);&#xA; &lt;%return%> factory.create(&quot;urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/&quot;,&quot;InsertNewApplicationRequest&quot;);">
+//    <result>
+//      <dataOutputs target="//@executableElements.2"/>
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="InsertNewApplicationRequest" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+//    </result>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" dataInputs="//@executableElements.1/@result/@dataOutputs.0" value="insertAppRequest" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="InsertNewApplicationRequest" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="null" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.2"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="applicationDetailsMap" description="perform mappingapplicationDetailsMap {http://mol_recruit_submitapplication_process/qa/gov/ict/maps}" template="java.util.HashMap inputMap = new java.util.HashMap();&#xA;java.util.HashMap outputMap = new java.util.HashMap();&#xA;inputMap.put(&quot;ApplicationDetailsLW&quot;, &lt;%ApplicationDetailsLW%>);&#xA;outputMap.put(&quot;InsertNewApplicationRequest&quot;, &lt;%InsertNewApplicationRequest%>);&#xA;com.ibm.wbiserver.map.MapService _serv = &#xA;&#x9;(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/wbiserver/map/MapService&quot;);&#xA;_serv.transform(&quot;http://mol_recruit_submitapplication_process/qa/gov/ict/maps&quot;, &quot;applicationDetailsMap&quot;, inputMap, outputMap, &lt;%executionContext%>);">
+//    <parameters name="ApplicationDetailsLW" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationDetailsLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//    </parameters>
+//    <parameters name="InsertNewApplicationRequest" dataInputs="//@executableElements.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="InsertNewApplicationRequest" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+//    </parameters>
+//    <parameters name="executionContext" dataInputs="//@executableElements.3/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.relationshipservice.common.ExecutionContext"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.5/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.5/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.6/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.6/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.7/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.7/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!2:1,6
+//!SMAP!3:7,1
+//!SMAP!4:8,1
+//!SMAP!5:10,9
+//!SMAP!7:21,1
+//!SMAP!8:22,1
+//!SMAP!10:25,1
+//!SMAP!11:26,1
+//!SMAP!13:29,1
+//!SMAP!14:30,1
+//!SMAP!1000000:140,1]]></wpc:javaCode>
+                </wpc:script>
+              </bpws:invoke>
+              <bpws:invoke name="Setapplicationdate" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Set application date" wpc:id="10">
+                <wpc:script>
+                  <wpc:javaCode><![CDATA[appDate=new java.util.Date();
+insertAppRequest.getDataObject("appDetails").setDate("applicationDate",appDate);
+]]></wpc:javaCode>
+                </wpc:script>
+              </bpws:invoke>
+              <bpws:invoke name="Persistnewapplication" operation="insertNewApplication" partnerLink="LaborRecuirtmentAppPartner" portType="ns33:LaborRecruitmentApplication" wpc:displayName="Persist new application" wpc:id="13">
+                <wpc:input>
+                  <wpc:parameter name="appDetails" variable="insertAppRequest"/>
+                </wpc:input>
+                <wpc:output>
+                  <wpc:parameter name="appID" variable="insertAppResponse"/>
+                </wpc:output>
+              </bpws:invoke>
+              <bpws:invoke name="populateapplicationLW" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="populate application LW" wpc:id="72">
+                <wpc:script>
+                  <wpc:javaCode><![CDATA[commonj.sdo.DataObject __result__2;
+{// create ApplicationLW
+	com.ibm.websphere.bo.BOFactory factory = 
+	   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/websphere/bo/BOFactory");
+	 __result__2 = factory.create("urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/","ApplicationLW");
+}
+applicationLW = __result__2;
+java.lang.Object __result__4 = null;
+try {
+	{// applicationLWMap
+		java.util.HashMap inputMap = new java.util.HashMap();
+		java.util.HashMap outputMap = new java.util.HashMap();
+		inputMap.put("ApplicationDetailsLW", applicationDetailsLW);
+		outputMap.put("ApplicationLW", applicationLW);
+		com.ibm.wbiserver.map.MapService _serv = 
+			(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService("com/ibm/wbiserver/map/MapService");
+		_serv.transform("http://mol_recruit_submitapplication_process/qa/gov/ict/maps", "applicationLWMap", inputMap, outputMap, ((com.ibm.wbiserver.relationshipservice.common.ExecutionContext)__result__4));
+	}
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapFailureException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapFailureException __result__7;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException __result__10;
+	ex.printStackTrace();
+}
+catch(com.ibm.wbiserver.map.exceptions.WBIMapServiceException ex){
+	com.ibm.wbiserver.map.exceptions.WBIMapServiceException __result__13;
+	ex.printStackTrace();
+}
+
+//@generated:com.ibm.wbit.activity.ui
+//<?xml version="1.0" encoding="UTF-8"?>
+//<com.ibm.wbit.activity:CompositeActivity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.activity="http:///com/ibm/wbit/activity.ecore" name="ActivityMethod">
+//  <result name="Result">
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="void"/>
+//  </result>
+//  <exceptions>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.bpe.api.ProcessException"/>
+//  </exceptions>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="applicationDetailsLW" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.0"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationDetailsLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="create ApplicationLW" description="create a new ApplicationLW {urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/}" template="com.ibm.websphere.bo.BOFactory factory = &#xA;   (com.ibm.websphere.bo.BOFactory) new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/websphere/bo/BOFactory&quot;);&#xA; &lt;%return%> factory.create(&quot;urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/&quot;,&quot;ApplicationLW&quot;);">
+//    <result>
+//      <dataOutputs target="//@executableElements.2"/>
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//    </result>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" dataInputs="//@executableElements.1/@result/@dataOutputs.0" value="applicationLW" variable="true">
+//    <dataOutputs target="//@executableElements.4/@parameters.1"/>
+//    <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="null" assignable="false">
+//    <dataOutputs target="//@executableElements.4/@parameters.2"/>
+//    <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Object"/>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:LibraryActivity" name="applicationLWMap" description="perform mappingapplicationLWMap {http://mol_recruit_submitapplication_process/qa/gov/ict/maps}" template="java.util.HashMap inputMap = new java.util.HashMap();&#xA;java.util.HashMap outputMap = new java.util.HashMap();&#xA;inputMap.put(&quot;ApplicationDetailsLW&quot;, &lt;%ApplicationDetailsLW%>);&#xA;outputMap.put(&quot;ApplicationLW&quot;, &lt;%ApplicationLW%>);&#xA;com.ibm.wbiserver.map.MapService _serv = &#xA;&#x9;(com.ibm.wbiserver.map.MapService)new com.ibm.websphere.sca.ServiceManager().locateService(&quot;com/ibm/wbiserver/map/MapService&quot;);&#xA;_serv.transform(&quot;http://mol_recruit_submitapplication_process/qa/gov/ict/maps&quot;, &quot;applicationLWMap&quot;, inputMap, outputMap, &lt;%executionContext%>);">
+//    <parameters name="ApplicationDetailsLW" dataInputs="//@executableElements.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationDetailsLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//    </parameters>
+//    <parameters name="ApplicationLW" dataInputs="//@executableElements.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:XSDElementType" name="ApplicationLW" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+//    </parameters>
+//    <parameters name="executionContext" dataInputs="//@executableElements.3/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.relationshipservice.common.ExecutionContext"/>
+//    </parameters>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.5/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.6/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </exceptions>
+//    <exceptions>
+//      <dataOutputs target="//@executableElements.7/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </exceptions>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.0/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.5/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapFailureException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.5/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.1/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.6/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapNotFoundException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.6/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//  <executableElements xsi:type="com.ibm.wbit.activity:ExceptionHandler" name="Exception Handler" collapsed="true">
+//    <parameters name="ex" dataInputs="//@executableElements.4/@exceptions.2/@dataOutputs.0">
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </parameters>
+//    <executableElements xsi:type="com.ibm.wbit.activity:Expression" value="ex" input="true">
+//      <dataOutputs target="//@executableElements.7/@executableElements.1/@parameters.0"/>
+//      <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="com.ibm.wbiserver.map.exceptions.WBIMapServiceException"/>
+//    </executableElements>
+//    <executableElements xsi:type="com.ibm.wbit.activity:JavaActivity" name="printStackTrace" category="java.lang.Throwable" className="java.lang.Throwable" memberName="printStackTrace">
+//      <parameters name="Throwable" dataInputs="//@executableElements.7/@executableElements.0/@dataOutputs.0">
+//        <type xsi:type="com.ibm.wbit.activity:JavaElementType" name="java.lang.Throwable"/>
+//      </parameters>
+//    </executableElements>
+//  </executableElements>
+//</com.ibm.wbit.activity:CompositeActivity>
+//@generated:end
+//!SMAP!*S WBIACTDBG
+//!SMAP!*L
+//!SMAP!2:1,6
+//!SMAP!3:7,1
+//!SMAP!4:8,1
+//!SMAP!5:10,9
+//!SMAP!7:21,1
+//!SMAP!8:22,1
+//!SMAP!10:25,1
+//!SMAP!11:26,1
+//!SMAP!13:29,1
+//!SMAP!14:30,1
+//!SMAP!1000000:140,1]]></wpc:javaCode>
+                </wpc:script>
+              </bpws:invoke>
+              <bpws:assign name="setapplicationLWnostatusdate" wpc:displayName="set applicationLW no &amp; status &amp; date" wpc:id="23">
+                <bpws:copy>
+                  <bpws:from variable="insertAppResponse">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[appStatus]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="applicationLW">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="appDate"/>
+                  <bpws:to variable="applicationLW">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationDate]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+                <bpws:copy>
+                  <bpws:from variable="insertAppResponse">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[appID]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="applicationLW">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[applicationID]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="setapplicationcorrelationID" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="set application correlationID" wpc:id="28">
+                <wpc:script>
+                  <wpc:javaCode><![CDATA[String applicationNo=applicationLW.getDataObject("applicationID").getString("ApplicationNumber");
+String year=applicationLW.getDataObject("applicationID").getString("year");
+String correlationID=qa.gov.mol.lr.process.util.ProcessUtil.createCorrelation(applicationNo,year);
+applicationLW.set(qa.gov.mol.lr.process.constants.XpathConstants.Correlation_ID,correlationID);]]></wpc:javaCode>
+                </wpc:script>
+              </bpws:invoke>
+              <bpws:scope name="Scope" wpc:displayName="Scope" wpc:id="99">
+                <bpws:faultHandlers>
+                  <bpws:catchAll>
+                    <bpws:sequence name="HiddenSequence5" wpc:id="1073741947">
+                      <bpws:invoke name="logexception2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="124">
+                        <wpc:script>
+                          <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.NotifyAgentFailure;
+Logger logger=Logger.getLogger("SubmitNewApp");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+                        </wpc:script>
+                      </bpws:invoke>
+                      <bpws:assign name="updateprocessack" wpc:displayName="update process ack" wpc:id="120">
+                        <bpws:copy>
+                          <bpws:from variable="errorCode"/>
+                          <bpws:to variable="submitApplicationRes">
+                            <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[processAcknowledgment/failureNote]]></bpws:query>
+                          </bpws:to>
+                        </bpws:copy>
+                      </bpws:assign>
+                    </bpws:sequence>
+                  </bpws:catchAll>
+                </bpws:faultHandlers>
+                <bpws:sequence name="HiddenSequence7" wpc:id="1073741924">
+                  <bpws:assign name="setEstID" wpc:displayName="set Est ID " wpc:id="17">
+                    <bpws:copy>
+                      <bpws:from variable="applicationDetailsLW">
+                        <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+                      </bpws:from>
+                      <bpws:to variable="getEstInfoRequest">
+                        <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estId]]></bpws:query>
+                      </bpws:to>
+                    </bpws:copy>
+                  </bpws:assign>
+                  <bpws:invoke name="perpareGovHeader" operation="perpareGovHeader" partnerLink="IPrepareGovHeaderPartner" portType="ns40:IPrepareGovHeader" wpc:continueOnError="inherit" wpc:displayName="perpare GovHeader" wpc:id="127">
+                    <wpc:input>
+                      <wpc:parameter name="processHeader" variable="pHeader"/>
+                    </wpc:input>
+                    <wpc:output>
+                      <wpc:parameter name="govHeader" variable="eGovHeader"/>
+                    </wpc:output>
+                  </bpws:invoke>
+                  <bpws:invoke name="getEstinfofromMOItogetownerslist" operation="getEstablishmentInfoById" partnerLink="EstSecInfoPartner" portType="ns34:EstablishmentSecurityInfo" wpc:displayName="get Est info from MOI to get owners list" wpc:id="15">
+                    <wpc:input>
+                      <wpc:parameter name="estID" variable="getEstInfoRequest"/>
+                      <wpc:parameter name="header" variable="eGovHeader"/>
+                    </wpc:input>
+                    <wpc:output>
+                      <wpc:parameter name="estInfo" variable="getEstInfoResponse"/>
+                    </wpc:output>
+                  </bpws:invoke>
+                  <bpws:assign name="setestinfovariable" wpc:displayName="set est info variable" wpc:id="47">
+                    <bpws:copy>
+                      <bpws:from variable="getEstInfoResponse">
+                        <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[establishmentInfo]]></bpws:query>
+                      </bpws:from>
+                      <bpws:to variable="estInfo"/>
+                    </bpws:copy>
+                  </bpws:assign>
+                  <bpws:invoke name="Preparenotificationrequest" operation="PrepareNotificationRequest" partnerLink="PrepareNotificationPartner" portType="ns13:PrepareNotification" wpc:continueOnError="inherit" wpc:displayName="Prepare notification request" wpc:id="20">
+                    <wpc:input>
+                      <wpc:parameter name="app" variable="applicationLW"/>
+                      <wpc:parameter name="estInfo" variable="estInfo"/>
+                    </wpc:input>
+                    <wpc:output>
+                      <wpc:parameter name="notificationRequest" variable="notificationRequest"/>
+                    </wpc:output>
+                  </bpws:invoke>
+                  <bpws:assign name="setnotificationrequest" wpc:displayName="set notification request" wpc:id="60">
+                    <bpws:copy>
+                      <bpws:from variable="notificationRequest"/>
+                      <bpws:to variable="sendNotificationRequest">
+                        <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[sendNotification]]></bpws:query>
+                      </bpws:to>
+                    </bpws:copy>
+                  </bpws:assign>
+                  <bpws:invoke name="notifyagentowners" operation="sendNotification" partnerLink="NotificationPartner" portType="ns36:Notification" wpc:displayName="notify agent &amp; owners" wpc:id="25">
+                    <wpc:input>
+                      <wpc:parameter name="notificationRequest" variable="sendNotificationRequest"/>
+                      <wpc:parameter name="header" variable="eGovHeader"/>
+                    </wpc:input>
+                    <wpc:output>
+                      <wpc:parameter name="notificationResponse" variable="notificationResponse"/>
+                    </wpc:output>
+                  </bpws:invoke>
+                </bpws:sequence>
+              </bpws:scope>
+              <bpws:assign name="populateacknowledgment" wpc:displayName="populate acknowledgment" wpc:id="39">
+                <bpws:copy>
+                  <bpws:from variable="insertAppResponse">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[appID]]></bpws:query>
+                  </bpws:from>
+                  <bpws:to variable="submitApplicationRes">
+                    <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[processAcknowledgment/applicationID]]></bpws:query>
+                  </bpws:to>
+                </bpws:copy>
+              </bpws:assign>
+              <bpws:invoke name="reviewapplication" operation="processApplication" partnerLink="LaborRecruitmentPartner" portType="ns39:ILaborRecuirmentApplication" wpc:continueOnError="inherit" wpc:displayName="review application" wpc:id="27" wpc:transactionalBehavior="requiresOwn">
+                <wpc:input>
+                  <wpc:parameter name="application" variable="applicationLW"/>
+                  <wpc:parameter name="pHeader" variable="pHeader"/>
+                </wpc:input>
+              </bpws:invoke>
+            </bpws:sequence>
+          </bpws:otherwise>
+        </bpws:switch>
+      </bpws:sequence>
+    </bpws:scope>
+    <bpws:reply name="Reply" operation="submitApplication" partnerLink="ISubmitNewRecuirtmentApplication" portType="ns33:RecruitmentProcessSubmitNewApplication" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="submitApplicationRes" variable="submitApplicationRes"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

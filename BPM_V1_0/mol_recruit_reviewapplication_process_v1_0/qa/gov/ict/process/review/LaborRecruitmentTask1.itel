@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/mol_recruit_swimlane1_process/qa/gov/ict/process/review/reviewapplication.bpel]##
+ ##[lineageStampEnd]##
+-->
+
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" businessRelevance="no" calendarName="Simple" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/samplevmmconfiguration" kind="aTask" name="LaborRecruitmentAdministrationTask" priorityDefinition="5" supportsDelegation="no" supportsFollowOnTask="no" supportsSubTask="no" targetNamespace="http://LR_ReviewApplication/qa/gov/ict/process/review/Task1">
+  <tel:staffSettings>
+    <tel:administrator>
+      <tel:verb>
+        <tel:name>Everybody</tel:name>
+      </tel:verb>
+    </tel:administrator>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+</tel:task>

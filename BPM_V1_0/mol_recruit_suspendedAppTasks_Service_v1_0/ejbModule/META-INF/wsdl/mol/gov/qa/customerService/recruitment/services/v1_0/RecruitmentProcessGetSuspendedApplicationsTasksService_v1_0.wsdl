@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="RecruitmentProcessGetSuspendedApplicationsTasksService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessGetSuspendedApplicationsTasksService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessGetSuspendedApplicationsTasksService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/RecruitmentProcessGetSuspendedApplicationsTasks_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="RecruitmentProcessGetSuspendedApplicationsBinding" type="molspcxsd:RecruitmentProcessGetSuspendedApplications">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSuspendedApplicationsTasks">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessGetSuspendedApplicationsTasksService/getSuspendedApplicationsTasks/"/>
+      <wsdl:input>
+        <soap:body parts="getSuspendedAppsTasksReq" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="getSuspendedAppsTasksRes" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getSuspendedApplicationsTasksFault">
+        <soap:fault name="getSuspendedApplicationsTasksFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="recruitmentProcessGetSuspendedApplicationsTasks">
+    <wsdl:port binding="tns:RecruitmentProcessGetSuspendedApplicationsBinding" name="RecruitmentProcessGetSuspendedApplicationsPort">
+      <soap:address location="http://localhost:9082/mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter/services/RecruitmentProcessGetSuspendedApplicationsPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

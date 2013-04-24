@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" blockDefault="#all" elementFormDefault="qualified" targetNamespace="http://ict.gov.qa/2010/01/iGovHeader" xmlns:igov="http://ict.gov.qa/2010/01/iGovHeader" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+     
+     <xs:element name="IGOVHeader" type="igov:IGOVHeaderType"/>
+     
+         <xs:complexType name="IGOVHeaderType">
+             <xs:sequence>
+                 <xs:element name="SenderInfo" type="igov:SenderInfo"/>
+                 <xs:element name="MEP" type="xs:string"/>
+				<!--The message exchange pattern (MEP) element specifies the mode in which the message will be delivered. Valid values for MEP include: (1) RequestReply, (2) FireAndForget. If the value of MEP is set to RequestReply, wsa-messageID MUST be present. -->
+                 <xs:element minOccurs="0" name="QOS" type="xs:string"/>
+                 <!--The quality of service (QoS) element specifies whether a message MUST be Assured (persistent). A Sender SHOULD NOT populate the QoS if the message does -->
+                 <xs:element minOccurs="0" name="Key" type="xs:string"/>
+                 <!--The value is a content routing key co-related to the data being sent or received during the request/reply interaction. The content and format of this key will be provided by the Receiver as part of the routing information necessary to route to the service. The key value MAY be REQUIRED by certain Receivers. A Sender MUST coordinate with the Receiver to know whether or not a key value is REQUIRED. The Examples of a key are country and address-->
+           <xs:element minOccurs="0" name="DataMode" type="xs:string"/>
+                <xs:element name="RunMode" type="xs:string"/>
+			<!--The environment or region in which the service requested should be routed to. For example, "P", "D", "T", and "Q".-->
+                 <xs:element minOccurs="0" name="TrackingID" type="xs:string"/>
+                 <!--This tracking id serves as a unique identifier to track a message from the Sender to Receiver. The tracking id nested under the root i-Gov Header element is used to correlate log messages. This tracking id is populated by messaging infrastructure (ESB) and SHOULD NOT be populated by the Sender. The Sender MAY populate the tracking id under Sender Information Header to track messages.-->
+                 	<xs:element minOccurs="0" name="TraceResults" type="igov:TraceResults"/>
+                 	<xs:element minOccurs="0" name="TraceSettings" type="igov:TraceSettings"/>
+                 <!--	The trace results section is strictly for debugging purposes. Each node (intermediary, receivers, legacy calls from receivers) SHOULD add a trace result to the trace results element. Debuggers can examine the trace results to get a holistic view of a message’s route.-->
+             </xs:sequence>
+         </xs:complexType>
+         
+         <xs:complexType name="SenderInfo">
+             <xs:sequence>
+                 	<xs:element minOccurs="0" name="TrackingID" type="xs:string"/>
+                 	<!--The tracking id is an identifier that a Sender MAY populate to track a particular message from when the message is sent to when the response is received. A separate tracking id is set by the routing infrastructure that the Sender SHOULD NOT populate. It’s RECOMMENDED that the Sender make the tracking id unique across all messages. For example Sender’s could generate a unique tracking id from the combination of the application id + UID + timestamp.-->                 	
+                 <xs:element name="ApplicationID" type="xs:string"/>
+                 <!--The application id assigned to a particular application to perform authentication and authorization.-->
+                 <xs:element name="UID" type="xs:string"/>
+      <!--
+                 The user id element represents a means of uniquely identifying an end user for the purpose of authorization and auditing. This value is typically an end user’s ID.
+             -->
+            </xs:sequence>
+         </xs:complexType>
+         
+         <xs:complexType name="TraceResults">
+            <xs:sequence>
+                 	<xs:element maxOccurs="unbounded" minOccurs="0" name="TraceResult" type="igov:TraceResult"/>
+             </xs:sequence>
+         </xs:complexType>
+         
+         <xs:complexType name="TraceResult">
+             <xs:sequence>
+                 <xs:element name=" IPAddress" type="xs:string"/>
+                 <!--The value of the IP address element is defined as IP address of the entity (e.g. 90.136.55.165).-->
+                 <xs:element name="Instance" type="xs:string"/>
+                 <!--The value of the instance element MAY be the managed service name instance or the port (e.g. 8001).-->
+                 <xs:element name="Actor" type="xs:string"/>
+                <!-- The value of the actor is the name of the component (service or intermediary) being traced. For a service endpoint this SHOULD be the wsa-To element.-->
+                 <xs:element name="Timestamp" type="xs:dateTime"/>
+                 <!--The date time element follows the standardized W3C data and time formats (ISO 8601) that defines the complete date plus hours, minutes, seconds and a decimal fraction of a second as YYYY-MM-DDThh:mm:ss.sTZD (eg 1997-07-16T19:20:30.45+01:00).
+where:
+     YYYY = four-digit year
+     MM   = two-digit month (01=January, etc.)
+     DD   = two-digit day of month (01 through 31)
+     hh   = two digits of hour (00 through 23) (am/pm NOT allowed)
+     mm   = two digits of minute (00 through 59)
+     ss   = two digits of second (00 through 59)
+     s    = one or more digits representing a decimal fraction of a second
+     TZD  = time zone designator (Z or +hh:mm or -hh:mm)-->
+                 	<xs:element minOccurs="0" name="DetailedMessage" type="xs:string"/>
+                 	<!--The value of the detailed message element is an optional free-form text message to provide context around the trace result.-->
+             </xs:sequence>
+         </xs:complexType>
+         
+         <xs:complexType name="TraceSettings">
+            <xs:attribute default="false" name="enabled" type="xs:boolean"/>
+            <!--The value of the enabled attribute is defined whether trace results are recorded.-->
+         </xs:complexType>
+         
+ </xs:schema>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="PerpareEscalationsParamters" targetNamespace="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons2="http://mol.gov.qa/recruitment/process" xmlns:tns="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://mol_recruit_reviewapplication_process/PerpareEscalationsParamters">
+            <xsd:import namespace="http://mol.gov.qa/recruitment/process" schemaLocation="process/EscalationParamters.xsd"/>
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="getEscalationParams">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="app" nillable="true" type="bons1:ApplicationLW"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getEscalationParamsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+                        <xsd:element name="escalationParam" nillable="true" type="bons2:EscalationParamters"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="getEscalationParamsRequestMsg">
+    <wsdl:part element="tns:getEscalationParams" name="getEscalationParamsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="getEscalationParamsResponseMsg">
+    <wsdl:part element="tns:getEscalationParamsResponse" name="getEscalationParamsResult"/>
+  </wsdl:message>
+    <wsdl:portType name="PerpareEscalationsParamters">
+    <wsdl:operation name="getEscalationParams">
+      <wsdl:input message="tns:getEscalationParamsRequestMsg" name="getEscalationParamsRequest"/>
+      <wsdl:output message="tns:getEscalationParamsResponseMsg" name="getEscalationParamsResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

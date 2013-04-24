@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:mmupcomxsd="urn:baladiya.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:annotation>
+    <xsd:documentation>&lt;p&gt;
+    File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; MMUPCommonTypesSchema_v1_0.xsd&lt;br /&gt;
+    Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+    Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+    Creation date&amp;nbsp; :&amp;nbsp; 27/06/2010&lt;br /&gt;
+    Description&amp;nbsp; :&amp;nbsp; This is&amp;nbsp;MMUP Common Types schema&lt;br /&gt;
+    Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 0.2&lt;br /&gt;
+    Change History :&lt;br /&gt;
+    27-06-2010: Mohamed Kattaya: v 0.1 Initial draft version
+&lt;/p&gt;
+&lt;p&gt;
+    17-08-2010: Mohamed Kattaya: v 0.2 changing types of some elements from anyType to string
+&lt;/p&gt;</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="buildingNumber" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="street" type="mmupcomxsd:Street"/>
+      <xsd:element minOccurs="0" name="zone" type="mmupcomxsd:Zone"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Street">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="number" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" type="mmupcomxsd:BilingualName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Zone">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="number" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="name" type="mmupcomxsd:BilingualName"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BilingualName">
+    <xsd:sequence>
+      <xsd:element name="nameArabic" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="nameEnglish" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

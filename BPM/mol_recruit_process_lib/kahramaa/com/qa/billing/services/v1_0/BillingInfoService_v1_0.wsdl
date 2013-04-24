@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="BillingInfoService" targetNamespace="http://kahramaa.com.qa/billing/services/v1_0/BillingInfoService/" xmlns:khmspcxsd="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://kahramaa.com.qa/billing/services/v1_0/BillingInfoService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/BillingInfo_v1_0.wsdl" namespace="urn:kahramaa.com.qa/billing/specifications/v1_0/"/>
+  <wsdl:binding name="BillInfoBinding" type="khmspcxsd:BillInfo">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLastBillSummary">
+      <soap:operation soapAction="http://kahramaa.com.qa/billing/services/v1_0/BillingInfoService/getLastBillSummary/"/>
+      <wsdl:input>
+        <soap:body parts="elecNumber" use="literal"/>
+        <soap:header part="header" message="khmspcxsd:BillInfogetLastBillSummaryRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="billSummary" use="literal"/>
+        <soap:header part="header" message="khmspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLastBillSummaryFault">
+        <soap:fault name="getLastBillSummaryFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getLastBillDetails">
+      <soap:operation soapAction="http://kahramaa.com.qa/billing/services/v1_0/BillingInfoService/getLastBillDetails/"/>
+      <wsdl:input>
+        <soap:body parts="elecNumber" use="literal"/>
+        <soap:header part="header" message="khmspcxsd:BillInfogetLastBillDetailsRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="billDetails" use="literal"/>
+        <soap:header part="header" message="khmspcxsd:IGOVHeaderMessage" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="getLastBillDetailsFault">
+        <soap:fault name="getLastBillDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="electricityBillInfoPort">
+    <wsdl:port binding="tns:BillInfoBinding" name="BillInfoPort">
+      <soap:address location="http://kahramaa.com.qa/billing/services/v1_0/BillingInfoService/electricityBillInfoPort/BillInfoPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

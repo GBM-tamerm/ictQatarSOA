@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scaj2ee:IntegrationModuleDeploymentConfiguration xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ejs.models.base.bindings.applicationbnd="applicationbnd.xmi" xmlns:scaj2ee="http://www.ibm.com/xmlns/prod/websphere/sca/j2ee/6.0.2">
+  <appProject>
+    <authorizationTable>
+      <authorizations role="//@appProject/@securityrole.0">
+        <specialSubjects xsi:type="com.ibm.ejs.models.base.bindings.applicationbnd:AllAuthenticatedUsers" name="AllAuthenticatedUsers"/>
+      </authorizations>
+    </authorizationTable>
+    <securityrole description="" roleName="AdminIdentity"/>
+  </appProject>
+  <wsImports>
+    <componentScopedRefsBindings>
+      <componentScopedRefs componentNameLink="Module">
+        <serviceRefs serviceRefLink="sca/import/EstablishmentSecurityInfoImport1">
+          <portQnameBindings portQnameLocalNameLink="EstablishmentSecurityInfoPort" overriddenEndpointURI="http://localhost:9080/gsb_servicesStubsWeb/sca/EstablishmentSecurityInfoExport1"/>
+        </serviceRefs>
+        <serviceRefs serviceRefLink="sca/import/LaborRecruitmentApplicationImport1">
+          <portQnameBindings portQnameLocalNameLink="LaborRecruitmentApplicationPort" overriddenEndpointURI="http://localhost:9080/gsb_servicesStubsWeb/sca/LaborRecruitmentApplicationExport1"/>
+        </serviceRefs>
+        <serviceRefs serviceRefLink="sca/import/NotificationImport1">
+          <portQnameBindings portQnameLocalNameLink="NotificationPort" overriddenEndpointURI="http://localhost:9080/gsb_servicesStubsWeb/sca/NotificationExport1"/>
+        </serviceRefs>
+      </componentScopedRefs>
+    </componentScopedRefsBindings>
+    <componentScopedRefsExtensions>
+      <componentScopedRefs componentNameLink="Module">
+        <serviceRefs serviceRefLink="sca/import/EstablishmentSecurityInfoImport1">
+          <portQnameBindings portQnameLocalNameLink="EstablishmentSecurityInfoPort"/>
+        </serviceRefs>
+        <serviceRefs serviceRefLink="sca/import/LaborRecruitmentApplicationImport1">
+          <portQnameBindings portQnameLocalNameLink="LaborRecruitmentApplicationPort"/>
+        </serviceRefs>
+        <serviceRefs serviceRefLink="sca/import/NotificationImport1">
+          <portQnameBindings portQnameLocalNameLink="NotificationPort"/>
+        </serviceRefs>
+      </componentScopedRefs>
+    </componentScopedRefsExtensions>
+  </wsImports>
+  <wsExports>
+    <wsDescExtensions>
+      <wsDescExt wsDescNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpService">
+        <pcBinding pcNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpPort"/>
+      </wsDescExt>
+    </wsDescExtensions>
+    <wsDescBindings>
+      <wsdescBindings wsDescNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpService">
+        <pcBindings pcNameLink="RecruitmentProcessSubmitNewApplicationExport1_RecruitmentProcessSubmitNewApplicationHttpPort"/>
+      </wsdescBindings>
+    </wsDescBindings>
+  </wsExports>
+  <webProject/>
+</scaj2ee:IntegrationModuleDeploymentConfiguration>

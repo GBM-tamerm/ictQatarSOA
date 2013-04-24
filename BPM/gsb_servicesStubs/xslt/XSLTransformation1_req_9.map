@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_9" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_9">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Akahramaa.com.qa%252Fbilling%252Fspecifications%252Fv1_0%252F%257DBillInfogetLastBillSummaryRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Akahramaa.com.qa%252Fbilling%252Fspecifications%252Fv1_0%252F%257DBillInfogetLastBillSummaryResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_9">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <input path="body/BillInfogetLastBillSummaryRequest1/elecNumber"/>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/electricityNumber"/>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/waterNumber"/>
+            <function ref="assign">
+                <property key="value" value="232231"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/billNumber"/>
+            <function ref="assign">
+                <property key="value" value="23212"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/customerNameArabic"/>
+            <function ref="assign">
+                <property key="value" value="عبد الرحمن"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/accountId"/>
+            <function ref="assign">
+                <property key="value" value="22132"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/outstandingAmount"/>
+            <function ref="assign">
+                <property key="value" value="21321213"/>
+            </function>
+        </mapping>
+        <mapping>
+            <output path="body/BillInfogetLastBillSummaryResponse1/billSummary/lastPaidDate"/>
+            <function ref="assign">
+                <property key="value" value="2010-05-30T09:00:00"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

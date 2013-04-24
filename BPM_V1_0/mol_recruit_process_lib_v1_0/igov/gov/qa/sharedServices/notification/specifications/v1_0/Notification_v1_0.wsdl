@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="v1_0" 
+	targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" 
+	xmlns:tns="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" 
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" 
+    targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" 
+    xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" 
+    xmlns:notifyxsd="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/"
+    xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/NotificationSchema_v1_0.xsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+
+      
+      <xsd:complexType name="SendNotificationRequest">
+        <xsd:sequence>
+          <xsd:element name="sendNotification" type="notifyxsd:NotificationRequestType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NotificationsendNotificationRequest1" type="tns:SendNotificationRequest"/>
+      <xsd:complexType name="SendNotificationResponse">
+        <xsd:sequence>
+          <xsd:element name="acknowledgment" type="notifyxsd:NotificationAcknowledgementType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="NotificationsendNotificationResponse1" type="tns:SendNotificationResponse"/>
+      <xsd:element name="NotificationsendNotificationFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGOVHeaderMessage">
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationRequest">
+    <wsdl:part element="tns:NotificationsendNotificationRequest1" name="notificationRequest"/>
+    <wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationResponse">
+    <wsdl:part element="tns:NotificationsendNotificationResponse1" name="notificationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationFault">
+    <wsdl:part element="tns:NotificationsendNotificationFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="Notification">
+    <wsdl:operation name="sendNotification">
+      <wsdl:input message="tns:NotificationsendNotificationRequest"/>
+      <wsdl:output message="tns:NotificationsendNotificationResponse"/>
+      <wsdl:fault message="tns:NotificationsendNotificationFault" name="sendNotificationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ReviewWaitingActivity" targetNamespace="http://LR_ReviewApplication/ReviewWaitingActivity" xmlns:bons0="http://LR_ReviewApplication/ReviewWaitingActivity" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LR_ReviewApplication/ReviewWaitingActivity">
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+            <xsd:element name="resumeApplication">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="correlationID" nillable="true" type="xsd:string"/>
+                        <xsd:element name="userID" nillable="true" type="xsd:string"/>
+                        <xsd:element name="pHeader" nillable="true" type="bons1:ProcessHeader"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="resumeApplicationRequestMsg">
+    <wsdl:part element="bons0:resumeApplication" name="resumeApplicationParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="ResumeWaitingActivity">
+    <wsdl:operation name="resumeApplication">
+            <wsdl:input message="bons0:resumeApplicationRequestMsg" name="resumeApplicationRequest"/>
+        </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.ccl.soa.test.common.models.value="http:///com/ibm/ccl/soa/test/common/models/value.ecore" xmlns:com.ibm.wbit.comptest.common.tc.models.event="http:///com/ibm/wbit/comptest/common/tc/models/event.ecore" xmlns:com.ibm.wbit.comptest.common.tc.models.scope="http:///com/ibm/wbit/comptest/common/tc/models/scope.ecore" xmlns:com.ibm.wbit.comptest.core.tc.models.client="http:///com/ibm/wbit/comptest/core/tc/models/client.ecore" xmlns:com.ibm.wbit.comptest.fgt.model.config="http:///com/ibm/wbit/fgt/common/model/config/finegraintrace.ecore">
+  <com.ibm.wbit.comptest.core.tc.models.client:EclipseClient name="mol_recruit_swimlane1_process_Test" id="1269162594203_3142" eventTrace="/1" clientID="1269162594203_3142">
+    <scopes name="Default Module Test" id="1269162594250_3144" dirty="true" userId="#?#server$.3login#?#">
+      <testModules name="mol_recruit_swimlane1_process" id="1269162594250_3145">
+        <stubs xsi:type="com.ibm.wbit.comptest.common.tc.models.scope:ReferenceStub" name="LaborRecruitmentProcess.SwimLane2Partner" id="1269162594281_3146" style="1" sourceComponent="LaborRecruitmentProcess" sourceReference="SwimLane2Partner" interface="ISwimLane2"/>
+        <stubs xsi:type="com.ibm.wbit.comptest.common.tc.models.scope:ReferenceStub" name="LaborRecruitmentProcess.ReviewApplicationPartner1" id="1269162594281_3147" style="1" sourceComponent="LaborRecruitmentProcess" sourceReference="ReviewApplicationPartner1" interface="ReviewApplicationProcess"/>
+        <stubs xsi:type="com.ibm.wbit.comptest.common.tc.models.scope:ReferenceStub" name="ReviewApplication.AdminFaultHandlerPartner" id="1269162594281_3148" style="1" sourceComponent="ReviewApplication" sourceReference="AdminFaultHandlerPartner" interface="IAdminFaultHandler"/>
+        <monitors name="LaborRecruitmentProcess.ResumeApplicationPartner->LaborRecruitmentProcess" id="1269162594281_3149" sourceComponent="LaborRecruitmentProcess" sourceReference="ResumeApplicationPartner" interface="ResumeWaitingActivity" request="true" response="true" targetComponent="LaborRecruitmentProcess"/>
+        <monitors name="ReviewApplication.PrepareNotificationPartner->perpareNotification" id="1269162594406_3150" sourceComponent="ReviewApplication" sourceReference="PrepareNotificationPartner" interface="PrepareNotifcationReview" request="true" response="true" targetComponent="perpareNotification"/>
+        <monitors name="ReviewApplication.NotificaitonPartner->NotificationImport1" id="1269162594406_3151" sourceComponent="ReviewApplication" sourceReference="NotificaitonPartner" interface="Notification" request="true" response="true" targetComponent="NotificationImport1"/>
+        <monitors name="ReviewApplication.LRApplicationPartner->LaborRecruitmentApplicationImport1" id="1269162594406_3152" sourceComponent="ReviewApplication" sourceReference="LRApplicationPartner" interface="LaborRecruitmentApplication" request="true" response="true" targetComponent="LaborRecruitmentApplicationImport1"/>
+        <monitors name="SubmitNewReviewResults.ResumeApplicationRequestPartner->LaborRecruitmentProcess" id="1269162594406_3153" sourceComponent="SubmitNewReviewResults" sourceReference="ResumeApplicationRequestPartner" interface="ResumeApplicationRequest" request="true" response="true" targetComponent="LaborRecruitmentProcess"/>
+        <monitors name="LaborRecruitmentProcessExport.&lt;export>->LaborRecruitmentProcess" id="1269162594421_3154" sourceComponent="LaborRecruitmentProcessExport" sourceReference="&lt;export>" interface="ILaborRecuirmentApplication" request="true" response="true" targetComponent="LaborRecruitmentProcess"/>
+        <monitors name="RecruitmentProcessResumeApplicationExport1.&lt;export>->SubmitNewReviewResults" id="1269162594421_3155" sourceComponent="RecruitmentProcessResumeApplicationExport1" sourceReference="&lt;export>" interface="RecruitmentProcessResumeApplication" request="true" response="true" targetComponent="SubmitNewReviewResults"/>
+        <monitors name="ReviewApplicationExport.&lt;export>->ReviewApplication" id="1269162594421_3156" sourceComponent="ReviewApplicationExport" sourceReference="&lt;export>" interface="ReviewApplicationProcess" request="true" response="true" targetComponent="ReviewApplication"/>
+        <configurationAdditions xsi:type="com.ibm.wbit.comptest.fgt.model.config:FineGrainTraceConfiguration" id="1269162594562_3158">
+          <fineGrainTrace xsi:type="com.ibm.wbit.comptest.fgt.model.config:BPELFineGrainTrace" name="LaborRecruitmentProcess (Process:LaborRecruitment)" id="1269162594562_3157" component="LaborRecruitmentProcess"/>
+        </configurationAdditions>
+        <configurationAdditions xsi:type="com.ibm.wbit.comptest.fgt.model.config:FineGrainTraceConfiguration" id="1269162594625_3160">
+          <fineGrainTrace xsi:type="com.ibm.wbit.comptest.fgt.model.config:BPELFineGrainTrace" name="ReviewApplication (Process:ReviewApplication)" id="1269162594625_3159" component="ReviewApplication"/>
+        </configurationAdditions>
+      </testModules>
+    </scopes>
+  </com.ibm.wbit.comptest.core.tc.models.client:EclipseClient>
+  <com.ibm.wbit.comptest.common.tc.models.event:ExecutionEventTrace id="1269162594203_3143" children="/2"/>
+  <com.ibm.wbit.comptest.common.tc.models.event:InteractiveComponentInvocationEvent id="1269162594625_3161" readOnly="true" clientID="1269162594203_3142" timestamp="1269162594625" children="/3 /9" module="mol_recruit_swimlane1_process" part="SubmitNewReviewResults" interface="RecruitmentProcessResumeApplication" operation="resumeApplication" testScopeID="1269162594250_3144" targetDeploymentLocationID="1269162858546_3235">
+    <request name="resumeApplication_request" id="1269162594796_3162">
+      <properties name="paramlist_context" value="mol_recruit_swimlane1_process.SubmitNewReviewResults.resumeApplication"/>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="resumeApplicationRequest" id="1269162594812_3163" value="" defaultValue="" typeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationRequest" baseTypeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationRequest" hasChildren="true">
+        <context>
+          <properties name="project_context" value="mol_recruit_swimlane1_process"/>
+        </context>
+        <properties name="paramlist_context" value="mol_recruit_swimlane1_process.SubmitNewReviewResults.resumeApplication"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="applicationID" id="1269162594812_3164" value="" defaultValue="" typeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationIdType" baseTypeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationIdType" required="true" hasChildren="true">
+          <context>
+            <properties name="project_context" value="mol_recruit_swimlane1_process"/>
+          </context>
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ApplicationNumber" id="1269162594812_3165" value="1269162400593" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+            <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="year" id="1269162594812_3169" value="2010" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+            <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="userID" id="1269162594812_3185" value="" defaultValue="" typeURI="xsd:/urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/#UserIdType" baseTypeURI="xsd:/urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/#UserIdType" required="true" hasChildren="true">
+          <context>
+            <properties name="project_context" value="mol_recruit_swimlane1_process"/>
+          </context>
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ID" id="1269162594812_3186" value="csr3" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+            <properties name="elementNS" value="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name" id="1269162594812_3189" value="csr3" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+            <properties name="elementNS" value="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+          </elements>
+        </elements>
+      </parameters>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="processHeader" id="1269162594812_3224" value="" defaultValue="" typeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader" baseTypeURI="xsd:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader" hasChildren="true">
+        <context>
+          <properties name="project_context" value="mol_recruit_swimlane1_process"/>
+        </context>
+        <properties name="paramlist_context" value="mol_recruit_swimlane1_process.SubmitNewReviewResults.resumeApplication"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="userID" id="1269162594812_3225" value="koko" defaultValue="" typeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" baseTypeURI="xsd:/http://www.w3.org/2001/XMLSchema#string" required="true">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+        </elements>
+      </parameters>
+    </request>
+  </com.ibm.wbit.comptest.common.tc.models.event:InteractiveComponentInvocationEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:StartEvent id="1269162867171_1138" clientID="1269162594203_3142" parentID="1269162594625_3161" timestamp="1269162867171" children="/4 /5 /6 /7 /8"/>
+  <com.ibm.wbit.comptest.common.tc.models.event:ComponentInvocationEvent id="1269162867187_1141" readOnly="true" clientID="1269162594203_3142" parentID="1269162867171_1138" timestamp="1269162867187" module="mol_recruit_swimlane1_process" part="SubmitNewReviewResults" interface="RecruitmentProcessResumeApplication" operation="resumeApplication" testScopeID="1269162594250_3144">
+    <request id="1269162867187_1142">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="result" id="1269162867187_1143" value="" typeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationRequest" baseTypeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationRequest">
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;result xsi:type=&quot;v10:ResumeApplicationRequest&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:v10=&quot;urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/&quot; xmlns:v10_1=&quot;urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/&quot; xmlns:v10_2=&quot;urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/&quot;>&#xD;&#xA;  &lt;v10:applicationID>&#xD;&#xA;    &lt;v10_1:ApplicationNumber>1269162400593&lt;/v10_1:ApplicationNumber>&#xD;&#xA;    &lt;v10_1:year>2010&lt;/v10_1:year>&#xD;&#xA;  &lt;/v10:applicationID>&#xD;&#xA;  &lt;v10:userID>&#xD;&#xA;    &lt;v10_2:ID>csr3&lt;/v10_2:ID>&#xD;&#xA;    &lt;v10_2:name>csr3&lt;/v10_2:name>&#xD;&#xA;  &lt;/v10:userID>&#xD;&#xA;&lt;/result>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="applicationID" id="1269162867187_1144" value="" typeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationIdType" baseTypeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ApplicationIdType">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="year" id="1269162867187_1145" value="2010" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+            <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ApplicationNumber" id="1269162867187_1146" value="1269162400593" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+            <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+          </elements>
+        </elements>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="userID" id="1269162867187_1147" value="" typeURI="sdo:/urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/#UserIdType" baseTypeURI="sdo:/urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/#UserIdType">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="name" id="1269162867187_1148" value="csr3" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+            <properties name="elementNS" value="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+          </elements>
+          <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="ID" id="1269162867187_1149" value="csr3" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+            <properties name="elementNS" value="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+          </elements>
+        </elements>
+      </parameters>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="result" id="1269162867187_1150" value="" typeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader" baseTypeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader">
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;result xsi:type=&quot;v10:ProcessHeader&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:v10=&quot;urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/&quot;>&#xD;&#xA;  &lt;v10:userID>koko&lt;/v10:userID>&#xD;&#xA;&lt;/result>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="userID" id="1269162867187_1151" value="koko" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+        </elements>
+      </parameters>
+    </request>
+  </com.ibm.wbit.comptest.common.tc.models.event:ComponentInvocationEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:MonitorRequestEvent id="1269162867234_1152" readOnly="true" clientID="1269162594203_3142" parentID="1269162867171_1138" timestamp="1269162867234" sourceComponent="SubmitNewReviewResults" targetComponent="LaborRecruitmentProcess" sourceReference="ResumeApplicationRequestPartner" interface="ResumeApplicationRequest" operation="requestResume" module="mol_recruit_swimlane1_process">
+    <request id="1269162867234_1153">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="result" id="1269162867234_1154" value="1269162400593#2010" defaultValue="" typeURI="java:/java.lang#String" baseTypeURI="java:/java.lang#String"/>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="result" id="1269162867234_1155" value="csr3" defaultValue="" typeURI="java:/java.lang#String" baseTypeURI="java:/java.lang#String"/>
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="result" id="1269162867234_1156" value="" typeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader" baseTypeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/#ProcessHeader">
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;result xsi:type=&quot;v10:ProcessHeader&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:v10=&quot;urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/&quot;>&#xD;&#xA;  &lt;v10:userID>koko&lt;/v10:userID>&#xD;&#xA;&lt;/result>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="userID" id="1269162867234_1157" value="koko" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+        </elements>
+      </parameters>
+    </request>
+  </com.ibm.wbit.comptest.common.tc.models.event:MonitorRequestEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:MonitorResponseEvent id="1269162869593_1160" readOnly="true" clientID="1269162594203_3142" parentID="1269162867171_1138" timestamp="1269162869593" sourceComponent="SubmitNewReviewResults" targetComponent="LaborRecruitmentProcess" sourceReference="ResumeApplicationRequestPartner" interface="ResumeApplicationRequest" operation="requestResume" module="mol_recruit_swimlane1_process">
+    <response id="1269162869593_1161">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="result" id="1269162869593_1162" value="true" defaultValue="false" typeURI="java:/java.lang#Boolean" baseTypeURI="java:/java.lang#Boolean"/>
+    </response>
+  </com.ibm.wbit.comptest.common.tc.models.event:MonitorResponseEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:MonitorResponseEvent id="1269162869593_1163" readOnly="true" clientID="1269162594203_3142" parentID="1269162867171_1138" timestamp="1269162869593" sourceComponent="SubmitNewReviewResults" targetComponent="LaborRecruitmentProcess" sourceReference="ResumeApplicationRequestPartner" interface="ResumeApplicationRequest" operation="requestResume" module="mol_recruit_swimlane1_process">
+    <response id="1269162869593_1164">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="result" id="1269162869593_1165" value="true" defaultValue="false" typeURI="java:/java.lang#Boolean" baseTypeURI="java:/java.lang#Boolean"/>
+    </response>
+  </com.ibm.wbit.comptest.common.tc.models.event:MonitorResponseEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:InvocationResponseEvent id="1269162869593_1166" readOnly="true" clientID="1269162594203_3142" parentID="1269162867171_1138" timestamp="1269162869593" testScopeID="1269162594250_3144" module="mol_recruit_swimlane1_process" component="SubmitNewReviewResults" interface="RecruitmentProcessResumeApplication" operation="resumeApplication">
+    <response id="1269162869593_1167">
+      <parameters xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueStructure" name="resumeApplicationResponse" id="1269162869593_1168" value="" typeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationResponse" baseTypeURI="sdo:/urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/#ResumeApplicationResponse">
+        <context>
+          <properties name="project_context" value="mol_recruit_swimlane1_process"/>
+        </context>
+        <properties name="sdoxml" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;resumeApplicationResponse xsi:type=&quot;v10:ResumeApplicationResponse&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:v10=&quot;urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/&quot;>&#xD;&#xA;  &lt;v10:acknowledgement>true&lt;/v10:acknowledgement>&#xD;&#xA;&lt;/resumeApplicationResponse>&#xD;&#xA;"/>
+        <elements xsi:type="com.ibm.ccl.soa.test.common.models.value:ValueField" name="acknowledgement" id="1269162869593_1169" value="true" typeURI="sdo:/java.lang#String" baseTypeURI="sdo:/java.lang#String">
+          <properties name="elementNS" value="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+        </elements>
+      </parameters>
+    </response>
+  </com.ibm.wbit.comptest.common.tc.models.event:InvocationResponseEvent>
+  <com.ibm.wbit.comptest.common.tc.models.event:EndEvent id="1269162869593_1170" clientID="1269162594203_3142" parentID="1269162594625_3161" timestamp="1269162869593"/>
+</xmi:XMI>

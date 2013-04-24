@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="IPrepareNotifcationReview" targetNamespace="http://LR_ReviewApplication/IPrepareNotifcationReview" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons2="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:tns="http://LR_ReviewApplication/IPrepareNotifcationReview" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://LR_ReviewApplication/IPrepareNotifcationReview">
+            <xsd:import namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" schemaLocation="igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/NotificationSchema_v1_0.xsd"/>
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="perpareNotification">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="application" nillable="true" type="bons1:ApplicationLW"/>
+                        <xsd:element name="reviewResults" nillable="true" type="bons1:ReviewResultType"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="perpareNotificationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notificationRequest" nillable="true" type="bons2:NotificationRequestType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="perpareNotificationRequestMsg">
+    <wsdl:part element="tns:perpareNotification" name="perpareNotificationParameters"/>
+  </wsdl:message>
+    <wsdl:message name="perpareNotificationResponseMsg">
+    <wsdl:part element="tns:perpareNotificationResponse" name="perpareNotificationResult"/>
+  </wsdl:message>
+    <wsdl:portType name="PrepareNotifcationReview">
+    <wsdl:operation name="perpareNotification">
+            <wsdl:input message="tns:perpareNotificationRequestMsg" name="perpareNotificationRequest"/>
+            <wsdl:output message="tns:perpareNotificationResponseMsg" name="perpareNotificationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

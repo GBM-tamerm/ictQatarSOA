@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map:businessObjectMap xmlns:ApplicationDetailsLW="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:InsertNewApplicationRequest="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:applicationDetailsMap="http://mol_recruit_submitapplication_process/qa/gov/ict/maps" xmlns:map="http://www.ibm.com/xmlns/prod/websphere/wbiserver/map/6.0.0" targetNamespace="http://mol_recruit_submitapplication_process/qa/gov/ict/maps">
+  <map:name>applicationDetailsMap</map:name>
+  <map:inputBusinessObjectVariable businessObjectRef="ApplicationDetailsLW:ApplicationDetailsLW" name="ApplicationDetailsLW"/>
+  <map:outputBusinessObjectVariable businessObjectRef="InsertNewApplicationRequest:InsertNewApplicationRequest" name="InsertNewApplicationRequest"/>
+  <map:propertyMap executionOrder="1">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="estID"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/establishmentID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="2">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="electricityNumber"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/electricityNumber"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="3">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="agentQID"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/agentQID"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="4">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="agentEmail"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/agentEmail"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="5">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="agentPhone"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/agentPhone"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="6">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="estName"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/establishmentName"/>
+    </map:move>
+  </map:propertyMap>
+  <map:propertyMap executionOrder="7">
+    <map:move>
+      <map:input businessObjectVariableRef="ApplicationDetailsLW" property="requiredProfessions"/>
+      <map:output businessObjectVariableRef="InsertNewApplicationRequest" property="appDetails/requiredProfessions"/>
+    </map:move>
+  </map:propertyMap>
+</map:businessObjectMap>

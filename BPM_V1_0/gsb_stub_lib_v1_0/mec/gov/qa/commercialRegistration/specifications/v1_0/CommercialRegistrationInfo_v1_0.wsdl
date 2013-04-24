@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <wsdl:definitions name="v1_0" 
+ targetNamespace="urn:mec.gov.qa/commercialRegistration/specifications/v1_0/" 
+ xmlns:tns="urn:mec.gov.qa/commercialRegistration/specifications/v1_0/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+  <wsdl:documentation>File Name&amp;nbsp;&amp;nbsp; :&amp;nbsp; CommercialRegistrationInfo_v1_0.wsdl&lt;br /&gt;
+Author&amp;nbsp;&amp;nbsp; :&amp;nbsp; GBM&lt;br /&gt;
+Owner&amp;nbsp;&amp;nbsp;&amp;nbsp; :&amp;nbsp; ICT&lt;br /&gt;
+Creation date&amp;nbsp; :&amp;nbsp; 23/08/2010&lt;br /&gt;
+Description&amp;nbsp; :&amp;nbsp; This is MBT for Commercial Registration Info Service Definition WSDL&lt;br /&gt;
+Version&amp;nbsp;&amp;nbsp; :&amp;nbsp; v 0.1&lt;br /&gt;
+Change History :&lt;br /&gt;
+23-08-2010: Mohamed Kattaya: v 0.1 Initial draft version </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" 
+     targetNamespace="urn:mec.gov.qa/commercialRegistration/specifications/v1_0/" 
+     xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" 
+     xmlns:meccrxsd="urn:mec.gov.qa/commercialRegistration/xml/schemas/v1_0/"
+     xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:mec.gov.qa/commercialRegistration/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/CommercialRegistrationSchema_v1_0.xsd"/>
+      
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd"/>
+      
+      <xsd:complexType name="GetCommercialRegistrationInfoRequest">
+        <xsd:sequence>
+          <xsd:element name="commercialRegistrationCode" type="meccrxsd:CommercialRegistrationCodeType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CommercialRegistrationInfogetCommercialRegistrationInfoRequest1" type="tns:GetCommercialRegistrationInfoRequest"/>
+      <xsd:complexType name="GetCommercialRegistrationInfoResponse">
+        <xsd:sequence>
+          <xsd:element name="commercialRegistration" type="meccrxsd:CommercialRegistrationType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="CommercialRegistrationInfogetCommercialRegistrationInfoResponse1" type="tns:GetCommercialRegistrationInfoResponse"/>
+      <xsd:element name="CommercialRegistrationInfogetCommercialRegistrationInfoFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGOVHeaderMessage">
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="CommercialRegistrationInfogetCommercialRegistrationInfoRequest">
+    <wsdl:part element="tns:CommercialRegistrationInfogetCommercialRegistrationInfoRequest1" name="commRegCode"/>
+	<wsdl:part element="igovhdrxsd:IGOVHeader" name="header" />
+  </wsdl:message>
+  <wsdl:message name="CommercialRegistrationInfogetCommercialRegistrationInfoResponse">
+    <wsdl:part element="tns:CommercialRegistrationInfogetCommercialRegistrationInfoResponse1" name="commReg"/>
+  </wsdl:message>
+  <wsdl:message name="CommercialRegistrationInfogetCommercialRegistrationInfoFault">
+    <wsdl:part element="tns:CommercialRegistrationInfogetCommercialRegistrationInfoFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="CommercialRegistrationInfo">
+    <wsdl:operation name="getCommercialRegistrationInfo">
+      <wsdl:input message="tns:CommercialRegistrationInfogetCommercialRegistrationInfoRequest"/>
+      <wsdl:output message="tns:CommercialRegistrationInfogetCommercialRegistrationInfoResponse"/>
+      <wsdl:fault message="tns:CommercialRegistrationInfogetCommercialRegistrationInfoFault" name="getCommercialRegistrationInfoFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

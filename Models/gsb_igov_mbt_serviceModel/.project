@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>gsb_igov_mbt_serviceModel</name>
+	<comment></comment>
+	<projects>
+		<project>gsb_igov_laborRecruitment_model</project>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+</projectDescription>

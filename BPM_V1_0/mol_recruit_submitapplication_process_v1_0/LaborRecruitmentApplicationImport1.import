@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:LaborRecruitmentApplicationService="http://mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService/" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:webservice="http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="LaborRecruitmentApplicationImport1CopyCopy" name="LaborRecruitmentApplicationImport1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:LaborRecruitmentApplication">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" endpoint="https://molgw/ictqatar/LaborRecruitmentApplicationService.svc" port="LaborRecruitmentApplicationService:LaborRecruitmentApplicationPort" service="LaborRecruitmentApplicationService:laborRecruitmentApplication"/>
+</scdl:import>

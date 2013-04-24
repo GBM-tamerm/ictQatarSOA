@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.bpel.ui.uiextensionmodel="http:///com/ibm/wbit/bpel/ui/uiextensionmodel.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#/"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1297275094890" autoLayout="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.10"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.11"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.12"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.13"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.14"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.19"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.20"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="hasEstablishmentActiveLaborRecApp"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="EstablishmentHasActiveLaborAppInfo" portTypeNamespaceHint="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="isEstablishmentBlacklisted"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="BlacklistedEstablishmentsInfo" portTypeNamespaceHint="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="checkEstablishment"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="LaborRecruitmentBusinessRules" portTypeNamespaceHint="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.2/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.1/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@faultHandlers/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.16"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.17"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.18"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.21"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.13"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.12"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.11"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.10"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.16"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="341" y="940" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.4/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="205" y="1209"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.5/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="786"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="775"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="896"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.15/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.15/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="351" y="895"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="204" y="1057"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.14"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="119" y="940"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.13/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.13/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.13/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.13/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.13"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="120" y="895"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.21/@sources/@children.0/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.21/@sources/@children.1/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.12"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="321" y="740"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.11/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.11"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="349" y="650"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.10"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="128" y="695"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.9/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.9/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.9/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="130" y="650"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.22/@sources/@children.1/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.22/@sources/@children.0/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="330" y="495"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.6/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="338" y="365"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="117" y="450"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.4/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.4/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.4/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="119" y="365"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.20/@sources/@children.0/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.20/@sources/@children.1/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="193" y="200"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="221" y="110"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@sources/@children.1/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="266" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@variables/@children.22"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.2/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.6/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.11/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="9" y="1050"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="206" y="935"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" y="1320" width="-1" height="-1"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.14"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catchAll/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catchAll/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.16/@sources/@children.0/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.16"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.19"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="573" y="1635"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.17"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.18"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.16/@sources/@children.1/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.1/@sources/@children.0/@transitionCondition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="getLaborStatistics"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="EstablishmentLaborStatisticsInfo" portTypeNamespaceHint="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@faultHandlers/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="getLastBillSummary"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="BillInfo" portTypeNamespaceHint="urn:kahramaa.com.qa/billing/specifications/v1_0/"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@activity/@activities.1/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@faultHandlers/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="243" y="155"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.20"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="239" y="245"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.20/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.19"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.20"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="360" y="450"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.7/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.21"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.22"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="356" y="540"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.22/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.22"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.23"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="371" y="695"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.23/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.23"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.21"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="367" y="785"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.21/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@links/@children.24"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:LinkExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="173" y="695"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.1/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="169" y="785"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.17/@activity/@activities.3/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="173" y="695"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.2/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="169" y="785"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#//@activity/@activities.1/@activity/@activities.18/@activity/@activities.4/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="ValidationRulesProcess.bpel#/"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

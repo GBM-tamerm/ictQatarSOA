@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:EstablishmentLaborStatisticsInfoService="http://moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentLaborStatisticsInfoService/" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstablishmentLaborStatisticsInfoImport1" name="EstablishmentLaborStatisticsInfoImport1">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:EstablishmentLaborStatisticsInfo">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" endpoint="https://molgw/ictqatar/EstablishmentLaborStatisticalInfo.svc" port="EstablishmentLaborStatisticsInfoService:EstablishmentLaborStatisticsInfoPort" service="EstablishmentLaborStatisticsInfoService:establishmentLaborStatisticsInfo"/>
+</scdl:import>

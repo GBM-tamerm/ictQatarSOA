@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:core="http://www.hukoomi.gov.qa/core" xmlns:tns="http://www.hukoomi.gov.qa/notification/NotificationTypes" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.hukoomi.gov.qa/notification/NotificationTypes">
+
+	<xsd:import namespace="http://www.hukoomi.gov.qa/core" schemaLocation="../../core/CommonSimpleTypes-v0-1.mxsd"/>
+
+	<xsd:complexType name="NotificationRequestStrucuture">
+		<xsd:sequence>
+			<xsd:element name="SenderCode" type="tns:NotificationProviderCodeType"/>
+			<xsd:element name="NotificationType" type="tns:NotificationCategoryType"/>
+			<xsd:element minOccurs="0" name="Target" type="tns:UniqueIdentifierReferenceType"/>
+			<xsd:element name="RequestedDeliveryDate" type="xsd:date">
+				<xsd:annotation>
+					<xsd:documentation>Date when this notification request will be
+						processed and messages sent.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestedDeliveryStart" type="xsd:time">
+				<xsd:annotation>
+					<xsd:documentation>Start of time period within messages will be
+						sent. For example 9:00</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="RequestedDeliveryEnd" type="xsd:time">
+				<xsd:annotation>
+					<xsd:documentation>End of time period within messages will be sent.
+						For example 22:00</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="TopicCode" type="tns:TopicCodeType"/>
+			<xsd:element name="Content" type="tns:NotificationContentStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotificationContentStructure">
+		<xsd:choice>
+			<xsd:element name="TemplateCode" type="tns:TemplateCodeType"/>
+			<xsd:element name="LocalizedContents" type="tns:LocalizedNotificationContentListStructure">
+				<xsd:annotation>
+					<xsd:documentation>Content must be provided in English and Arabic.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="LocalizedNotificationContentListStructure">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="LocalizedContent" type="tns:LocalizedNotificationContentStructure"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="LocalizedNotificationContentStructure">
+		<xsd:sequence>
+			<xsd:element name="Language" type="core:LanguageType">
+			</xsd:element>
+			<xsd:element name="EmailSubject" type="tns:EmailSubjectType"/>
+			<xsd:element name="EmailBody" type="tns:EmailBodyType">
+				<xsd:annotation>
+					<xsd:documentation>E-mail text that will be sent. If HTML content
+						is sent then this element must contain body with content type
+						attributes.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SmsText" type="tns:SmsTextType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotificationRequestConfirmationStrucuture">
+		<xsd:sequence>
+			<xsd:element name="NotificationRequestID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>If notification request was received
+						successfully then request ID is sent back to caller. Caller should
+						store this ID in order to send status queries for this request.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotificationStatusRequestStructure">
+		<xsd:sequence>
+			<xsd:element name="SenderCode" type="tns:NotificationProviderCodeType"/>
+			<xsd:element name="NotificationRequestID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Notification ID that was returned to caller when
+						notification was registered.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotificationStatusStructure">
+		<xsd:sequence>
+			<xsd:element name="NotificationRequestID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>Notification request ID that was submitted in
+						request.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Status" type="tns:NotificationStatusType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SendSMSRequestStructure">
+		<xsd:sequence>
+			<xsd:element name="SenderCode" type="tns:NotificationProviderCodeType"/>
+			<xsd:element name="Language" type="core:LanguageType"/>
+			<xsd:element name="Message" type="tns:SmsTextType"/>
+			<xsd:element name="Recipients" type="tns:MobileNumberListStructure">
+				<xsd:annotation>
+					<xsd:documentation>List of recipients to whom message will be sent
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MobileNumberListStructure">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" name="MobileNumber" type="core:TelephoneNumberType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SendSMSRequestConfirmationStructure">
+		<xsd:sequence>
+			<xsd:element name="SendSMSRequestID" type="xsd:int">
+				<xsd:annotation>
+					<xsd:documentation>If SMS notification request was received
+						successfully then request ID is sent back to caller. Caller should
+						store this ID in order to send status queries for this request.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ConfirmedRecipients" type="tns:MobileNumberListStructure">
+				<xsd:annotation>
+					<xsd:documentation>List of recipients to who message has been sent
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="NotificationProviderCodeType">
+		<xsd:annotation>
+			<xsd:documentation>Identification code issued to every authorized
+				user of this API.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TemplateCodeType">
+		<xsd:annotation>
+			<xsd:documentation>Notification template code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TopicCodeType">
+		<xsd:annotation>
+			<xsd:documentation>Notification topic code.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="3"/>
+			<xsd:maxLength value="100"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="UniqueIdentifierReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>Unique identifier of person or establishment
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{11}|[0-9]{8}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NotificationCategoryType">
+		<xsd:annotation>
+			<xsd:documentation>Defines type of notification. Possible values
+				are:
+				"targeted" and "broadcast". Any other type will not be
+				accepted.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="targeted"/>
+			<xsd:enumeration value="broadcast"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="NotificationStatusType">
+		<xsd:annotation>
+			<xsd:documentation>Status of notification. Possible values are:
+				"processed" and "unprocessed". </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="processed"/>
+			<xsd:enumeration value="unprocessed"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="EmailSubjectType">
+		<xsd:annotation>
+			<xsd:documentation>E-mail subject.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="core:PopulatedStringType">
+			<xsd:maxLength value="200"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="EmailBodyType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SmsTextType">
+		<xsd:annotation>
+			<xsd:documentation>SMS message text.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="10"/>
+			<xsd:maxLength value="320"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:element name="NotificationRequest" type="tns:NotificationRequestStrucuture"/>
+	<xsd:element name="NotificationRequestConfirmation" type="tns:NotificationRequestConfirmationStrucuture"/>
+	<xsd:element name="NotificationStatusRequest" type="tns:NotificationStatusRequestStructure"/>
+	<xsd:element name="NotificationStatus" type="tns:NotificationStatusStructure"/>
+	<xsd:element name="SendSMSRequest" type="tns:SendSMSRequestStructure"/>
+	<xsd:element name="SendSMSRequestConfirmation" type="tns:SendSMSRequestConfirmationStructure"/>
+
+</xsd:schema>

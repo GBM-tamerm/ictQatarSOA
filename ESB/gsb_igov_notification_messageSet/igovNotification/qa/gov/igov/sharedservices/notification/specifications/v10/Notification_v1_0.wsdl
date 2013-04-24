@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:tns="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="v1_0" targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedMXSD location="Notification_v1_0_InlineSchema1.mxsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:notifyxsd="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" elementFormDefault="qualified" targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:igovhdrxsd="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:tns="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../commontypes/xml/schemas/v10/CommonTypes_v1_0.mxsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v10/NotificationSchema_v1_0.mxsd"/>
+      <xsd:import namespace="urn:igov.gov.qa/xml/schemas/v1_0/" schemaLocation="../../../../xml/schemas/v10/IgovHeader_v1_0.mxsd"/>
+
+      <xsd:include schemaLocation="Notification_v1_0_InlineSchema1.mxsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGOVHeaderMessage">
+		<wsdl:part element="igovhdrxsd:IGOVHeader" name="header"/>
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationRequest">
+    <wsdl:part element="tns:NotificationsendNotificationRequest1" name="notificationRequest"/>
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationResponse">
+    <wsdl:part element="tns:NotificationsendNotificationResponse1" name="notificationResponse"/>
+  </wsdl:message>
+  <wsdl:message name="NotificationsendNotificationFault">
+    <wsdl:part element="tns:NotificationsendNotificationFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="Notification">
+    <wsdl:operation name="sendNotification">
+      <wsdl:input message="tns:NotificationsendNotificationRequest"/>
+      <wsdl:output message="tns:NotificationsendNotificationResponse"/>
+      <wsdl:fault message="tns:NotificationsendNotificationFault" name="sendNotificationFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

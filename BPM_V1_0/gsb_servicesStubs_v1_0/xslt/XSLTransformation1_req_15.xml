@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<body xmlns:httpsca="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0" xmlns:igov="http://schemas.ict.gov.qa/2010/01/iGovHeader" xmlns:mq="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0" xmlns:smo="http://www.ibm.com/websphere/sibx/smo/v6.0.1" xmlns:tns="http://kahramaa.com.qa/electricityInfo/specifications/version1_0/" xmlns:tns1="http://www.w3.org/2005/08/addressing" xmlns:tns_1="wsdl.http://kahramaa.com.qa/electricityInfo/specifications/version1_0/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:xsd_1="http://ict.gov.qa/IGOVError/xml/schemas/version1_0/" xmlns:xsd_11="http://kahramaa.com.qa/electricityInfo/xml/schemas/version1_0/" xmlns:xsd_12="http://ict.gov.qa/commonTypes/xml/schemas/version1_0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="foo.xsd" xsi:schemaLocation="wsdl.http://kahramaa.com.qa/electricityInfo/specifications/version1_0/ /name%3Dwsdl-body/correlationContext%3Dhttp%253A%252F%252Fkahramaa.com.qa%252FelectricityInfo%252Fspecifications%252Fversion1_0%252F/message%3D%257Bhttp%253A%252F%252Fkahramaa.com.qa%252FelectricityInfo%252Fspecifications%252Fversion1_0%252F%257DElectricityBillInfoPortgetLastBillDetailsRequest/smo.xsd http://kahramaa.com.qa/electricityInfo/specifications/version1_0/ platform:/resource/qsb_LR_lib/kahramaa/com/qa/electricityInfo/specifications/version1_0/version1_0.wsdl http://schemas.ict.gov.qa/2010/01/iGovHeader platform:/resource/qsb_LR_lib/ict/gov/qa/IGOVHeader-v1-0.xsd http://ict.gov.qa/IGOVError/xml/schemas/version1_0/ platform:/resource/qsb_LR_lib/ict/gov/qa/IGOVError/xml/schemas/version1_0/version1_0.xsd http://kahramaa.com.qa/electricityInfo/xml/schemas/version1_0/ platform:/resource/qsb_LR_lib/kahramaa/com/qa/electricityInfo/xml/schemas/version1_0/version1_0.xsd http://ict.gov.qa/commonTypes/xml/schemas/version1_0/ platform:/resource/qsb_LR_lib/ict/gov/qa/commonTypes/xml/schemas/version1_0/version1_0.xsd http://www.ibm.com/websphere/sibx/smo/v6.0.1 platform:/plugin/com.ibm.ws.sibx.smo/smo.xsd http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-mq.xsd http://schemas.xmlsoap.org/ws/2004/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addressing2004.xsd http://www.w3.org/2005/08/addressing platform:/plugin/com.ibm.ws.sibx.smo/ws-addr-10.xsd http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0 platform:/plugin/com.ibm.ws.sibx.smo/smo-http.xsd ">
+  <tns:ElectricityBillInfoPortgetLastBillDetailsRequest1>
+    <elecNumber>elecNumber</elecNumber>
+  </tns:ElectricityBillInfoPortgetLastBillDetailsRequest1>
+  <tns:IGOVHeaderType_element>
+    <igov:SenderInfo>
+      <igov:TrackingID>igov:TrackingID</igov:TrackingID>
+      <igov:ApplicationID>igov:ApplicationID</igov:ApplicationID>
+      <igov:UID>igov:UID</igov:UID>
+    </igov:SenderInfo>
+    <igov:MEP>igov:MEP</igov:MEP>
+    <igov:QOS>igov:QOS</igov:QOS>
+    <igov:Key>igov:Key</igov:Key>
+    <igov:DataMode>igov:DataMode</igov:DataMode>
+    <igov:RunMode>igov:RunMode</igov:RunMode>
+    <igov:TrackingID>igov:TrackingID</igov:TrackingID>
+    <igov:TraceResults>
+      <igov:TraceResult>
+        <igov:IPAddress>igov:IPAddress</igov:IPAddress>
+        <igov:Instance>igov:Instance</igov:Instance>
+        <igov:Actor>igov:Actor</igov:Actor>
+        <igov:Timestamp>2001-12-31T12:00:00</igov:Timestamp>
+        <igov:DetailedMessage>igov:DetailedMessage</igov:DetailedMessage>
+      </igov:TraceResult>
+    </igov:TraceResults>
+    <igov:TraceSettings enabled="false"/>
+  </tns:IGOVHeaderType_element>
+</body>

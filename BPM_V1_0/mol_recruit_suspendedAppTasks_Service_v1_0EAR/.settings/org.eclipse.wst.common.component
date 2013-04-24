@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="mol_recruit_suspendedAppTasks_Service_v1_0EAR">
+        <wb-resource deploy-path="/" source-path="/"/>
+        <dependent-module archiveName="mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter.war" deploy-path="/" handle="module:/resource/mol_recruit_suspendedAppTasks_Service_v1_0/mol_recruit_suspendedAppTasks_Service_v1_0">
+            <dependent-object>EjbModule_1275307588265</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/" handle="module:/resource/mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter/mol_recruit_suspendedAppTasks_Service_v1_0HttpRouter">
+            <dependent-object>WebModule_1275307599109</dependent-object>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/mol_recruit_process_lib_v1_0/mol_recruit_process_lib_v1_0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

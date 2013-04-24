@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="ValidationRulesProcess" targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/ValidationRulesProcessArtifacts" xmlns:ns4="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns5="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:tns="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/ValidationRulesProcessArtifacts" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl0="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:wsdl1="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:wsdl2="urn:kahramaa.com.qa/billing/specifications/v1_0/">
+  <plnk:partnerLinkType name="IValidateEstablishmentPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:IValidateEstablishment"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EstLaborInfoPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns4:EstablishmentHasActiveLaborAppInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="LaborBusinessRulesPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns4:LaborRecruitmentBusinessRules"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EstIsBlackListedPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns4:BlacklistedEstablishmentsInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="BillInfoPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:BillInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="EstablishmentLaborStatisticsInfoPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns5:EstablishmentLaborStatisticsInfo"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="IPrepareGovHeaderPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:IPrepareGovHeader"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="../wsdl/IValidateEstablishment.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/EstablishmentHasActiveLaborAppInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/LaborRecruitmentBusinessRules_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/BlacklistedEstablishmentInfo_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../kahramaa/com/qa/billing/specifications/v1_0/BillingInfo_v1_0.wsdl" namespace="urn:kahramaa.com.qa/billing/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentLaborStatisticsInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+    <wsdl:import location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+</wsdl:definitions>

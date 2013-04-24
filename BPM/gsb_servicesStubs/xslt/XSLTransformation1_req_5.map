@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot domainID="com.ibm.ccl.mapping.codegen.xslt.domain" targetNamespace="http://gsb_servicesStubs/xslt/XSLTransformation1_req_5" xmlns="http://www.ibm.com/2008/ccl/Mapping" xmlns:map="http://gsb_servicesStubs/xslt/XSLTransformation1_req_5">
+    <input path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentSecurityInfoisRestrictedRequest/xpath%3D%252F/smo.xsd"/>
+    <output path="smo://smo/name%3Dwsdl-primary/message%3D%257Burn%253Amoi.gov.qa%252FestablishmentInfo%252Fspecifications%252Fv1_0%252F%257DEstablishmentSecurityInfoisRestrictedResponse/xpath%3D%252F/smo.xsd"/>
+    <mappingDeclaration name="XSLTransformation1_req_5">
+        <input path="smo"/>
+        <output path="smo"/>
+        <mapping>
+            <output path="body/EstablishmentSecurityInfoisRestrictedResponse1/restricted"/>
+            <function ref="assign">
+                <property key="value" value="false"/>
+            </function>
+        </mapping>
+    </mappingDeclaration>
+</mappingRoot>

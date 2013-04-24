@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.uml.msl.model" version="7.0.0"><feature description="" name="com.ibm.xtools.ruml.feature" url="" version="7.0.0"/></signature>?>
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Rational Modeling Platform (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xmi:id="_yXFQKBZSEd-rX6F-K9-XjQ" name="gsb_igov_servicesDependenciesModel">
+  <eAnnotations xmi:id="_yXFQKRZSEd-rX6F-K9-XjQ" source="uml2.diagrams" references="_yXFQKhZSEd-rX6F-K9-XjQ">
+    <contents xmi:type="notation:Diagram" xmi:id="_yXFQKhZSEd-rX6F-K9-XjQ" type="Freeform" name="Main">
+      <children xmi:id="_4c5XkBZSEd-rX6F-K9-XjQ" element="_nvqY8BNXEd-KaZRyNC-JIQ">
+        <children xmi:id="_4c5XkRZSEd-rX6F-K9-XjQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_4c5XkhZSEd-rX6F-K9-XjQ" width="1296" height="1296"/>
+        </children>
+        <children xmi:id="_4c5XkxZSEd-rX6F-K9-XjQ" type="Stereotype"/>
+        <children xmi:id="_4c5XlBZSEd-rX6F-K9-XjQ" type="Kind"/>
+        <children xmi:id="_4c5XlRZSEd-rX6F-K9-XjQ" type="Name"/>
+        <children xmi:id="_4c5XlhZSEd-rX6F-K9-XjQ" type="Parent"/>
+        <children xmi:id="_4c5XlxZSEd-rX6F-K9-XjQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XmBZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XmRZSEd-rX6F-K9-XjQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XmhZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XmxZSEd-rX6F-K9-XjQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XnBZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XnRZSEd-rX6F-K9-XjQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XnhZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XnxZSEd-rX6F-K9-XjQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XoBZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XoRZSEd-rX6F-K9-XjQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_4c5XohZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_4c5XoxZSEd-rX6F-K9-XjQ" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4c5XpBZSEd-rX6F-K9-XjQ" x="-4499" y="555"/>
+      </children>
+      <children xmi:id="_4c5XpRZSEd-rX6F-K9-XjQ" element="_r1oIwBNXEd-KaZRyNC-JIQ">
+        <children xmi:id="_4c5XphZSEd-rX6F-K9-XjQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_4c5XpxZSEd-rX6F-K9-XjQ" width="1296" height="1296"/>
+        </children>
+        <children xmi:id="_4c5XqBZSEd-rX6F-K9-XjQ" type="Stereotype"/>
+        <children xmi:id="_4c5XqRZSEd-rX6F-K9-XjQ" type="Kind"/>
+        <children xmi:id="_4c5XqhZSEd-rX6F-K9-XjQ" type="Name"/>
+        <children xmi:id="_4c5XqxZSEd-rX6F-K9-XjQ" type="Parent"/>
+        <children xmi:id="_4c5XrBZSEd-rX6F-K9-XjQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XrRZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XrhZSEd-rX6F-K9-XjQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XrxZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XsBZSEd-rX6F-K9-XjQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XsRZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XshZSEd-rX6F-K9-XjQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XsxZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XtBZSEd-rX6F-K9-XjQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_4c5XtRZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <children xmi:id="_4c5XthZSEd-rX6F-K9-XjQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_4c5XtxZSEd-rX6F-K9-XjQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_4c5XuBZSEd-rX6F-K9-XjQ" showStereotype="Label"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_4c5XuRZSEd-rX6F-K9-XjQ" x="951" y="5072"/>
+      </children>
+      <children xmi:id="_p3IGECGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_p3IGEyGMEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_p3IGFCGMEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_p3IGFSGMEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_p3IGFiGMEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_p3IGFyGMEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_p3IGGCGMEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_p3IGGSGMEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p3IGGiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_p3IGGyGMEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p3IGHCGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_p3IGHSGMEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p3IGHiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_p3RQACGMEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p3RQASGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_p3RQAiGMEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_p3RQAyGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_p3RQBCGMEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_p3RQBSGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_p3IGESGMEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOI_Service_Model.emx#_07B2sBtdEd-F9taomSBbMw?moi_serviceModel/moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_p3IGEiGMEd-fOPgDBjRvMQ" x="-5389" y="12363"/>
+      </children>
+      <children xmi:id="_xq6LcCGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_xq6LcyGMEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_xq6LdCGMEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_xq6LdSGMEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_xq6LdiGMEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_xq6LdyGMEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_xq6LeCGMEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_xq6LeSGMEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_xq6LeiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_xq6LeyGMEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_xq6LfCGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_xq6LfSGMEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_xq6LfiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_xrD8cCGMEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_xrD8cSGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_xrD8ciGMEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_xrD8cyGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_xrD8dCGMEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_xrD8dSGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_xq6LcSGMEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_7JfscBtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentBusinessRulesService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xq6LciGMEd-fOPgDBjRvMQ" x="3170" y="12363"/>
+      </children>
+      <children xmi:id="_3e148CGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_3e148yGMEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_3e149CGMEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_3e149SGMEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_3e149iGMEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_3e149yGMEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_3e14-CGMEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_3e14-SGMEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3e14-iGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_3e14-yGMEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3e14_CGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_3e14_SGMEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3e14_iGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_3e14_yGMEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3e15ACGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_3e15ASGMEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_3e15AiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_3e15AyGMEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_3e15BCGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_3e148SGMEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_s2Q3YBtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/BlacklistedEstablishmentInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3e148iGMEd-fOPgDBjRvMQ" x="12938" y="12514"/>
+      </children>
+      <children xmi:id="_9XGFwCGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_9XGFwyGMEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_9XGFxCGMEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_9XGFxSGMEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_9XGFxiGMEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_9XGFxyGMEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_9XGFyCGMEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_9XGFySGMEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9XGFyiGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_9XGFyyGMEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9XGFzCGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_9XGFzSGMEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9XGFziGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_9XGFzyGMEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9XGF0CGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_9XGF0SGMEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_9XGF0iGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_9XGF0yGMEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_9XGF1CGMEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_9XGFwSGMEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_nZ8lwCCLEd-_4IZeUk47Xw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9XGFwiGMEd-fOPgDBjRvMQ" x="21239" y="12363"/>
+      </children>
+      <children xmi:id="_g5wtACGNEd-fOPgDBjRvMQ">
+        <children xmi:id="_g5wtAyGNEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_g5wtBCGNEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_g5wtBSGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_g5wtBiGNEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_g5wtByGNEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_g5wtCCGNEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_g5wtCSGNEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g5wtCiGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_g5wtCyGNEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g5wtDCGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_g5wtDSGNEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g5wtDiGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_g5wtDyGNEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g5wtECGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_g5wtESGNEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g5wtEiGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_g5wtEyGNEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_g5wtFCGNEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_g5wtASGNEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="Blank%20Package.emx#_8qPucBS1Ed-RfKD00GcVWg?kahramaa_serviceModel/kahramaa.com.qa/billing/services/v1_0/BillingInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g5wtAiGNEd-fOPgDBjRvMQ" x="13948" y="6023"/>
+      </children>
+      <children xmi:id="_EyBw0CGOEd-fOPgDBjRvMQ">
+        <children xmi:id="_EyLh0CGOEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_EyLh0SGOEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_EyxXsCGOEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_EyxXsSGOEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_EyxXsiGOEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_EyxXsyGOEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_Ey7IsCGOEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ey7IsSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Ey7IsiGOEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ey7IsyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Ey7ItCGOEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ey7ItSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Ey7ItiGOEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ey7ItyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Ey7IuCGOEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Ey7IuSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Ey7IuiGOEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Ey7IuyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_EyBw0SGOEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_F5oOMBtQEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LookupsService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EyBw0iGOEd-fOPgDBjRvMQ" x="16801" y="-1268"/>
+      </children>
+      <children xmi:id="_Js5IUCGOEd-fOPgDBjRvMQ">
+        <children xmi:id="_Js5IUyGOEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_Js5IVCGOEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_Js5IVSGOEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_Js5IViGOEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_Js5IVyGOEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_Js5IWCGOEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_Js5IWSGOEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Js5IWiGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_Js5IWyGOEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Js5IXCGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JtCSQCGOEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JtCSQSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JtCSQiGOEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JtCSQyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JtCSRCGOEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JtCSRSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JtCSRiGOEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_JtCSRyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_Js5IUSGOEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_XJVQ4BtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Js5IUiGOEd-fOPgDBjRvMQ" x="11095" y="2853"/>
+      </children>
+      <children xmi:id="_Mp_LkCGOEd-fOPgDBjRvMQ">
+        <children xmi:id="_MqIVgCGOEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_MqIVgSGOEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_MqIVgiGOEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_MqIVgyGOEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_MqIVhCGOEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_MqIVhSGOEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_MqIVhiGOEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_MqIVhyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_MqIViCGOEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_MqIViSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_MqIViiGOEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_MqIViyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_MqIVjCGOEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_MqIVjSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_MqIVjiGOEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_MqIVjyGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_MqIVkCGOEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_MqIVkSGOEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_Mp_LkSGOEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_WDjxEBtOEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Mp_LkiGOEd-fOPgDBjRvMQ" x="7925" y="-634"/>
+      </children>
+      <children xmi:id="_JAph0CGYEd-fOPgDBjRvMQ">
+        <children xmi:id="_JAph0yGYEd-fOPgDBjRvMQ" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_JAph1CGYEd-fOPgDBjRvMQ" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_JAph1SGYEd-fOPgDBjRvMQ" type="Stereotype"/>
+        <children xmi:id="_JAph1iGYEd-fOPgDBjRvMQ" type="Kind"/>
+        <children xmi:id="_JAph1yGYEd-fOPgDBjRvMQ" type="Name"/>
+        <children xmi:id="_JAph2CGYEd-fOPgDBjRvMQ" type="Parent"/>
+        <children xmi:id="_JAph2SGYEd-fOPgDBjRvMQ" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JAph2iGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JAph2yGYEd-fOPgDBjRvMQ" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JAph3CGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JAph3SGYEd-fOPgDBjRvMQ" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JAph3iGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JAph3yGYEd-fOPgDBjRvMQ" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JAph4CGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JAyrwCGYEd-fOPgDBjRvMQ" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JAyrwSGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <children xmi:id="_JAyrwiGYEd-fOPgDBjRvMQ" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_JAyrwyGYEd-fOPgDBjRvMQ"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_JAph0SGYEd-fOPgDBjRvMQ" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="ICT_SOA_Pilot_ICT_Service_Model.emx#_LmXxgCDVEd-bzZByCnsR5Q?gsb_igov_serviceModel/igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JAph0iGYEd-fOPgDBjRvMQ" x="4121" y="3487"/>
+      </children>
+      <children xmi:id="_Jca5oNElEd-dFMCecfv8rw">
+        <children xmi:id="_JcuboNElEd-dFMCecfv8rw" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_JcubodElEd-dFMCecfv8rw" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_JcubotElEd-dFMCecfv8rw" type="Stereotype"/>
+        <children xmi:id="_Jcubo9ElEd-dFMCecfv8rw" type="Kind"/>
+        <children xmi:id="_JcubpNElEd-dFMCecfv8rw" type="Name"/>
+        <children xmi:id="_JcubpdElEd-dFMCecfv8rw" type="Parent"/>
+        <children xmi:id="_JcubptElEd-dFMCecfv8rw" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Jcubp9ElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_JeqVUNElEd-dFMCecfv8rw" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JeqVUdElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_JeqVUtElEd-dFMCecfv8rw" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JeqVU9ElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_JeqVVNElEd-dFMCecfv8rw" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JeqVVdElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_JeqVVtElEd-dFMCecfv8rw" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_JeqVV9ElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_JeqVWNElEd-dFMCecfv8rw" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_JeqVWdElEd-dFMCecfv8rw"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_Jca5odElEd-dFMCecfv8rw" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="platform:/resource/gsb_igov_mbt_serviceModel/mbt_serviceModel.emx#_VWlyYK5DEd-9Gd_CLtih1w?mbt_serviceModel/mbt.gov.qa/commercialRegistration/services/v1_0/CommercialRegistrationInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Jca5otElEd-dFMCecfv8rw" x="19971" y="8876"/>
+      </children>
+      <children xmi:id="_QAMIoNElEd-dFMCecfv8rw">
+        <children xmi:id="_QAMIo9ElEd-dFMCecfv8rw" type="ImageCompartment">
+          <layoutConstraint xmi:type="notation:Size" xmi:id="_QAMIpNElEd-dFMCecfv8rw" width="1320" height="1320"/>
+        </children>
+        <children xmi:id="_QAMIpdElEd-dFMCecfv8rw" type="Stereotype"/>
+        <children xmi:id="_QAMIptElEd-dFMCecfv8rw" type="Kind"/>
+        <children xmi:id="_QAMIp9ElEd-dFMCecfv8rw" type="Name"/>
+        <children xmi:id="_QAMIqNElEd-dFMCecfv8rw" type="Parent"/>
+        <children xmi:id="_QAMIqdElEd-dFMCecfv8rw" visible="false" type="AttributeCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QAMIqtElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_QAV5oNElEd-dFMCecfv8rw" visible="false" type="OperationCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QAV5odElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_QAV5otElEd-dFMCecfv8rw" visible="false" type="RealizationListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QAV5o9ElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_QAV5pNElEd-dFMCecfv8rw" type="RequiredInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QAV5pdElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_QAV5ptElEd-dFMCecfv8rw" type="ProvidedInterfaceListCompartment">
+          <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_QAV5p9ElEd-dFMCecfv8rw"/>
+        </children>
+        <children xmi:id="_QAV5qNElEd-dFMCecfv8rw" visible="false" type="StructureCompartment">
+          <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_QAV5qdElEd-dFMCecfv8rw"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLComponentStyle" xmi:id="_QAMIodElEd-dFMCecfv8rw" showStereotype="Label"/>
+        <element xmi:type="uml:Component" href="platform:/resource/gsb_igov_mmup_serviceModel/baladiya.gov.qa.emx#_-8Hu4IHsEd-VuoUe7CRwAg?baladiya_serviceModel/baladiya.gov.qa/commercialPermit/services/v1_0/CommercialPermitInfoService?"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QAMIotElEd-dFMCecfv8rw" x="19971" y="6023"/>
+      </children>
+      <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_yXFQKxZSEd-rX6F-K9-XjQ"/>
+      <edges xmi:id="_KuHxQCGNEd-fOPgDBjRvMQ" element="_Kth7YCGNEd-fOPgDBjRvMQ" source="_4c5XpRZSEd-rX6F-K9-XjQ" target="_3e148CGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_KuHxQyGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_KuHxRSGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_KuHxRiGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KuHxRCGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KuHxQSGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KuHxQiGNEd-fOPgDBjRvMQ" points="[50, 25, -499, -267]$[492, 250, -57, -42]"/>
+      </edges>
+      <edges xmi:id="_OTmqMCGNEd-fOPgDBjRvMQ" element="_OTc5MCGNEd-fOPgDBjRvMQ" source="_4c5XpRZSEd-rX6F-K9-XjQ" target="_9XGFwCGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_OTmqMyGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_OTmqNSGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_OTmqNiGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OTmqNCGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_OTmqMSGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_OTmqMiGNEd-fOPgDBjRvMQ" points="[50, 17, -835, -270]$[717, 248, -168, -39]"/>
+      </edges>
+      <edges xmi:id="_Tb4LkCGNEd-fOPgDBjRvMQ" element="_TbuakCGNEd-fOPgDBjRvMQ" source="_4c5XpRZSEd-rX6F-K9-XjQ" target="_xq6LcCGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_Tb4LkyGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_Tb4LlSGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_Tb4LliGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tb4LlCGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Tb4LkSGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Tb4LkiGNEd-fOPgDBjRvMQ" points="[11, 30, -175, -257]$[99, 329, -87, 42]"/>
+      </edges>
+      <edges xmi:id="_VqVAISGNEd-fOPgDBjRvMQ" element="_VqVAICGNEd-fOPgDBjRvMQ" source="_4c5XpRZSEd-rX6F-K9-XjQ" target="_p3IGECGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_VqVAJCGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_VqVAJiGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_VqVAJyGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VqVAJSGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_VqVAIiGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VqVAIyGNEd-fOPgDBjRvMQ" points="[-21, 30, 131, -273]$[-181, 245, -29, -58]"/>
+      </edges>
+      <edges xmi:id="_YtsDcSGNEd-fOPgDBjRvMQ" element="_YtsDcCGNEd-fOPgDBjRvMQ" source="_4c5XkBZSEd-rX6F-K9-XjQ" target="_p3IGECGMEd-fOPgDBjRvMQ">
+        <children xmi:id="_YtsDdCGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_YtsDdiGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_YtsDdyGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YtsDdSGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_YtsDciGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YtsDcyGNEd-fOPgDBjRvMQ" points="[-1, 30, -2, -444]$[-136, 424, -137, -50]"/>
+      </edges>
+      <edges xmi:id="_kkmnECGNEd-fOPgDBjRvMQ" element="_kkc2ECGNEd-fOPgDBjRvMQ" source="_4c5XpRZSEd-rX6F-K9-XjQ" target="_g5wtACGNEd-fOPgDBjRvMQ">
+        <children xmi:id="_kkmnEyGNEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_kkmnFSGNEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_kkmnFiGNEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kkmnFCGNEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_kkmnESGNEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kkmnEiGNEd-fOPgDBjRvMQ" points="[50, 9, -628, -121]$[590, 115, -88, -15]"/>
+      </edges>
+      <edges xmi:id="_QkeEICGOEd-fOPgDBjRvMQ" element="_QkU6MCGOEd-fOPgDBjRvMQ" source="_4c5XkBZSEd-rX6F-K9-XjQ" target="_Mp_LkCGOEd-fOPgDBjRvMQ">
+        <children xmi:id="_QkeEIyGOEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_QkeEJSGOEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_QkeEJiGOEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_QkeEJCGOEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_QkeEISGOEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QkeEIiGOEd-fOPgDBjRvMQ" points="[102, -8, -650, 6]$[607, -50, -145, -36]"/>
+      </edges>
+      <edges xmi:id="_YKQJwCGOEd-fOPgDBjRvMQ" element="_YKGYwCGOEd-fOPgDBjRvMQ" source="_4c5XkBZSEd-rX6F-K9-XjQ" target="_Js5IUCGOEd-fOPgDBjRvMQ">
+        <children xmi:id="_YKQJwyGOEd-fOPgDBjRvMQ" type="NameLabel">
+          <children xmi:id="_YKQJxSGOEd-fOPgDBjRvMQ" type="Stereotype"/>
+          <children xmi:id="_YKQJxiGOEd-fOPgDBjRvMQ" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YKQJxCGOEd-fOPgDBjRvMQ" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_YKQJwSGOEd-fOPgDBjRvMQ" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_YKQJwiGOEd-fOPgDBjRvMQ" points="[102, 12, -857, -94]$[786, 89, -173, -17]"/>
+      </edges>
+      <edges xmi:id="_BmpaQCd-Ed-795w_hDtXvw" element="_Bk3RkCd-Ed-795w_hDtXvw" source="_4c5XkBZSEd-rX6F-K9-XjQ" target="_JAph0CGYEd-fOPgDBjRvMQ">
+        <children xmi:id="_BmpaQyd-Ed-795w_hDtXvw" type="NameLabel">
+          <children xmi:id="_BmpaRSd-Ed-795w_hDtXvw" type="Stereotype"/>
+          <children xmi:id="_BmpaRid-Ed-795w_hDtXvw" type="Name"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BmpaRCd-Ed-795w_hDtXvw" y="-186"/>
+        </children>
+        <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_BmpaQSd-Ed-795w_hDtXvw" lineWidth="1" showStereotype="Text"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_BmpaQid-Ed-795w_hDtXvw" points="[80, 30, -241, -92]$[223, 85, -98, -37]"/>
+      </edges>
+    </contents>
+  </eAnnotations>
+  <eAnnotations xmi:id="_yXFQLBZSEd-rX6F-K9-XjQ" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+    <details xmi:id="_yXFQLRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.mq" value="1"/>
+    <details xmi:id="_yXFQLhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.ldap" value="1"/>
+    <details xmi:id="_yXFQLxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.j2ee" value="1"/>
+    <details xmi:id="_yXFQMBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBPrimitiveTypeTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQMRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.analysisAndDesign.zephyrUML" value="1"/>
+    <details xmi:id="_yXFQMhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBElementImport1" value="1"/>
+    <details xmi:id="_yXFQMxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBFragment" value="1"/>
+    <details xmi:id="_yXFQNBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBElementImport2" value="1"/>
+    <details xmi:id="_yXFQNRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.mq" value="1"/>
+    <details xmi:id="_yXFQNhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.db2" value="1"/>
+    <details xmi:id="_yXFQNxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBInterfaceTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQOBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.was" value="1"/>
+    <details xmi:id="_yXFQORZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.ldap" value="1"/>
+    <details xmi:id="_yXFQOhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.j2ee" value="1"/>
+    <details xmi:id="_yXFQOxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBProfile" value="1"/>
+    <details xmi:id="_yXFQPBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.storage" value="1"/>
+    <details xmi:id="_yXFQPRZSEd-rX6F-K9-XjQ" key="updm.standard.activity" value="1"/>
+    <details xmi:id="_yXFQPhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.waswebplugin" value="1"/>
+    <details xmi:id="_yXFQPxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.portlet" value="1"/>
+    <details xmi:id="_yXFQQBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSignal" value="1"/>
+    <details xmi:id="_yXFQQRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.EJB3VisualizerActivity" value="1"/>
+    <details xmi:id="_yXFQQhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBClass" value="1"/>
+    <details xmi:id="_yXFQQxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStateMachine1" value="1"/>
+    <details xmi:id="_yXFQRBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStateMachine2" value="1"/>
+    <details xmi:id="_yXFQRRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.waswebplugin" value="1"/>
+    <details xmi:id="_yXFQRhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBComponent" value="1"/>
+    <details xmi:id="_yXFQRxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.jms" value="1"/>
+    <details xmi:id="_yXFQSBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.messaging" value="1"/>
+    <details xmi:id="_yXFQSRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.transform.uml2.ejb3.ui.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQShZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBActivity1" value="1"/>
+    <details xmi:id="_yXFQSxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBActivity2" value="1"/>
+    <details xmi:id="_yXFQTBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBActivityDiagram" value="1"/>
+    <details xmi:id="_yXFQTRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBActivity3" value="1"/>
+    <details xmi:id="_yXFQThZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBActivity4" value="1"/>
+    <details xmi:id="_yXFQTxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBClassTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQUBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBTemplate" value="1"/>
+    <details xmi:id="_yXFQURZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.net" value="1"/>
+    <details xmi:id="_yXFQUhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSpecificInstanceType1" value="1"/>
+    <details xmi:id="_yXFQUxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.viz.webservice.capabilty" value="1"/>
+    <details xmi:id="_yXFQVBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSpecificInstanceType2" value="1"/>
+    <details xmi:id="_yXFQVRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSequenceDiagram" value="1"/>
+    <details xmi:id="_yXFQVhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBObjectDiagram" value="1"/>
+    <details xmi:id="_yXFQVxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.os" value="1"/>
+    <details xmi:id="_yXFQWBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.transform.uml2.sca.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQWRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBUsage" value="1"/>
+    <details xmi:id="_yXFQWhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBInstance" value="1"/>
+    <details xmi:id="_yXFQWxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.derby" value="1"/>
+    <details xmi:id="_yXFQXBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.os" value="1"/>
+    <details xmi:id="_yXFQXRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStereotypedArtifact" value="1"/>
+    <details xmi:id="_yXFQXhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBEvent1" value="1"/>
+    <details xmi:id="_yXFQXxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBTypes1" value="1"/>
+    <details xmi:id="_yXFQYBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.systemz" value="1"/>
+    <details xmi:id="_yXFQYRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBEvent2" value="1"/>
+    <details xmi:id="_yXFQYhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBTypes2" value="1"/>
+    <details xmi:id="_yXFQYxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBTypes3" value="1"/>
+    <details xmi:id="_yXFQZBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBTypes4" value="1"/>
+    <details xmi:id="_yXFQZRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCommunicationDiagram" value="1"/>
+    <details xmi:id="_yXFQZhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.EJB3JPAVisualizerActivity" value="1"/>
+    <details xmi:id="_yXFQZxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.virtualization" value="1"/>
+    <details xmi:id="_yXFQaBZSEd-rX6F-K9-XjQ" key="updm.performance.activity" value="1"/>
+    <details xmi:id="_yXFQaRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.ihs" value="1"/>
+    <details xmi:id="_yXFQahZSEd-rX6F-K9-XjQ" key="com.ibm.ccl.soa.deploy.core.ui.activity.core" value="1"/>
+    <details xmi:id="_yXFQaxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBPackageTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQbBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.virtualization" value="1"/>
+    <details xmi:id="_yXFQbRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBInterface" value="1"/>
+    <details xmi:id="_yXFQbhZSEd-rX6F-K9-XjQ" key="updm.system.activity" value="1"/>
+    <details xmi:id="_yXFQbxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.viz.java.webservice.capability" value="1"/>
+    <details xmi:id="_yXFQcBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBComment1" value="1"/>
+    <details xmi:id="_yXFQcRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBComment2" value="1"/>
+    <details xmi:id="_yXFQchZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.uml.profile.tooling.ui.editor.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQcxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStateChartDiagram" value="1"/>
+    <details xmi:id="_yXFQdBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBUseCase1" value="1"/>
+    <details xmi:id="_yXFQdRZSEd-rX6F-K9-XjQ" key="updm.service.activity" value="1"/>
+    <details xmi:id="_yXFQdhZSEd-rX6F-K9-XjQ" key="updm.enterprise.activity" value="1"/>
+    <details xmi:id="_yXFQdxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBUseCase2" value="1"/>
+    <details xmi:id="_yXFQeBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.modeling.enterprise.services.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQeRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBClassDiagram" value="1"/>
+    <details xmi:id="_yXFQehZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBDeploymentDiagram" value="1"/>
+    <details xmi:id="_yXFQexZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCommunication" value="1"/>
+    <details xmi:id="_yXFQfBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBFunctionTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQfRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.was" value="1"/>
+    <details xmi:id="_yXFQfhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBArtifact" value="1"/>
+    <details xmi:id="_yXFQfxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.operation" value="1"/>
+    <details xmi:id="_yXFQgBZSEd-rX6F-K9-XjQ" key="updm.project.activity" value="1"/>
+    <details xmi:id="_yXFQgRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBFunction" value="1"/>
+    <details xmi:id="_yXFQghZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.portlet" value="1"/>
+    <details xmi:id="_yXFQgxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStructureDiagram" value="1"/>
+    <details xmi:id="_yXFQhBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSubsystem" value="1"/>
+    <details xmi:id="_yXFQhRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.db2" value="1"/>
+    <details xmi:id="_yXFQhhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.messaging" value="1"/>
+    <details xmi:id="_yXFQhxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.server" value="1"/>
+    <details xmi:id="_yXFQiBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.storage" value="1"/>
+    <details xmi:id="_yXFQiRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.tomcat" value="1"/>
+    <details xmi:id="_yXFQihZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBRelationship1" value="1"/>
+    <details xmi:id="_yXFQixZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBRelationship2" value="1"/>
+    <details xmi:id="_yXFQjBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBRelationship3" value="1"/>
+    <details xmi:id="_yXFQjRZSEd-rX6F-K9-XjQ" key="updm.strategic.activity" value="1"/>
+    <details xmi:id="_yXFQjhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBDeploymentSpecification" value="1"/>
+    <details xmi:id="_yXFQjxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.server" value="1"/>
+    <details xmi:id="_yXFQkBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBAbstractionRelation" value="1"/>
+    <details xmi:id="_yXFQkRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.tomcat" value="1"/>
+    <details xmi:id="_yXFQkhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.javaVisualizerActivity" value="1"/>
+    <details xmi:id="_yXFQkxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.EJBVisualizerActivity" value="1"/>
+    <details xmi:id="_yXFQlBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBAction" value="1"/>
+    <details xmi:id="_yXFQlRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBPackage" value="1"/>
+    <details xmi:id="_yXFQlhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStereotypedDeployment1" value="1"/>
+    <details xmi:id="_yXFQlxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.transform.uml2.xsd.profile.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQmBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.modeling.soa.ml.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQmRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.jms" value="1"/>
+    <details xmi:id="_yXFQmhZSEd-rX6F-K9-XjQ" key="com.ibm.ccl.soa.deploy.core.ui.activity.generic" value="1"/>
+    <details xmi:id="_yXFQmxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSequence1" value="1"/>
+    <details xmi:id="_yXFQnBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCollaborationUse" value="1"/>
+    <details xmi:id="_yXFQnRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBSequence2" value="1"/>
+    <details xmi:id="_yXFQnhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.transform.uml2.jpa.ui.uireduction.activity" value="1"/>
+    <details xmi:id="_yXFQnxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.derby" value="1"/>
+    <details xmi:id="_yXFQoBZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.net" value="1"/>
+    <details xmi:id="_yXFQoRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.systemz" value="1"/>
+    <details xmi:id="_yXFQohZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBDependancy" value="1"/>
+    <details xmi:id="_yXFQoxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBLifeLine" value="1"/>
+    <details xmi:id="_yXFQpBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBComponentTemplateParameter" value="1"/>
+    <details xmi:id="_yXFQpRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.ihs" value="1"/>
+    <details xmi:id="_yXFQphZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBFreeFormDiagram" value="1"/>
+    <details xmi:id="_yXFQpxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBComponentDiagram" value="1"/>
+    <details xmi:id="_yXFQqBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBConstraint" value="1"/>
+    <details xmi:id="_yXFQqRZSEd-rX6F-K9-XjQ" key="updm.organizational.activity" value="1"/>
+    <details xmi:id="_yXFQqhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStereotypedClass" value="1"/>
+    <details xmi:id="_yXFQqxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBProfileApplication" value="1"/>
+    <details xmi:id="_yXFQrBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBStereotypedComponent" value="1"/>
+    <details xmi:id="_yXFQrRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBInformationFlow" value="1"/>
+    <details xmi:id="_yXFQrhZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.database" value="1"/>
+    <details xmi:id="_yXFQrxZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.infrastructure.http" value="1"/>
+    <details xmi:id="_yXFQsBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.analysisAndDesign.zephyrAnalysis" value="1"/>
+    <details xmi:id="_yXFQsRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCollaboration" value="1"/>
+    <details xmi:id="_yXFQshZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCompositeStructure1" value="1"/>
+    <details xmi:id="_yXFQsxZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBRealization" value="1"/>
+    <details xmi:id="_yXFQtBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBCompositeStructure2" value="1"/>
+    <details xmi:id="_yXFQtRZSEd-rX6F-K9-XjQ" key="com.ibm.rational.deployment.activity.physical.http" value="1"/>
+    <details xmi:id="_yXFQthZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBUseCaseDiagram" value="1"/>
+    <details xmi:id="_yXFQtxZSEd-rX6F-K9-XjQ" key="updm.operational.activity" value="1"/>
+    <details xmi:id="_yXFQuBZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBDeployment1" value="1"/>
+    <details xmi:id="_yXFQuRZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBDeployment2" value="1"/>
+    <details xmi:id="_yXFQuhZSEd-rX6F-K9-XjQ" key="com.ibm.xtools.activities.umlBBInteraction" value="1"/>
+  </eAnnotations>
+  <packageImport xmi:id="_yXFQuxZSEd-rX6F-K9-XjQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Component" xmi:id="_r1oIwBNXEd-KaZRyNC-JIQ" name="Screening" clientDependency="_u0fJwBNbEd-KaZRyNC-JIQ _DKyLoB5sEd--Cq_iMXTEJA _HxFBUB5sEd--Cq_iMXTEJA _KZKd4B5sEd--Cq_iMXTEJA _Kth7YCGNEd-fOPgDBjRvMQ _OTc5MCGNEd-fOPgDBjRvMQ _TbuakCGNEd-fOPgDBjRvMQ _VqVAICGNEd-fOPgDBjRvMQ _kkc2ECGNEd-fOPgDBjRvMQ">
+    <eAnnotations xmi:id="_xZ2rMB5sEd--Cq_iMXTEJA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_xZ2rMR5sEd--Cq_iMXTEJA" key="Provider"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Component" xmi:id="_nvqY8BNXEd-KaZRyNC-JIQ" name="Labor Recruitment Process" clientDependency="_6X0U8BNZEd-KaZRyNC-JIQ _SOvTAB5sEd--Cq_iMXTEJA _jPkWwB5sEd--Cq_iMXTEJA _YtsDcCGNEd-fOPgDBjRvMQ _QkU6MCGOEd-fOPgDBjRvMQ _YKGYwCGOEd-fOPgDBjRvMQ _Bk3RkCd-Ed-795w_hDtXvw">
+    <eAnnotations xmi:id="_wg7fIB5sEd--Cq_iMXTEJA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <details xmi:id="_wg7fIR5sEd--Cq_iMXTEJA" key="Provider"/>
+    </eAnnotations>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_6X0U8BNZEd-KaZRyNC-JIQ" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOL_Service_Model.emx#_WDjxEBtOEd-F9taomSBbMw?ICT_SOA_Pilot_MOL_Service_Model/mol.gov.qa/labor/recruitmentApplication/services/version1_0/LaborRecruitmentApplicationService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_u0fJwBNbEd-KaZRyNC-JIQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/Blank%20Package.emx#_8qPucBS1Ed-RfKD00GcVWg?ICT_SOA_Pilot_Kahramaa_Service_Model/kahramaa.com.qa/electricityInfo/services/version1_0/ElectricityBillInfo?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_DKyLoB5sEd--Cq_iMXTEJA" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOL_Service_Model.emx#_s2Q3YBtPEd-F9taomSBbMw?ICT_SOA_Pilot_MOL_Service_Model/mol.gov.qa/labor/recruitmentApplication/services/version1_0/EstablishmentLaborInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_HxFBUB5sEd--Cq_iMXTEJA" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOL_Service_Model.emx#_7JfscBtPEd-F9taomSBbMw?ICT_SOA_Pilot_MOL_Service_Model/mol.gov.qa/labor/recruitmentApplication/services/version1_0/LaborRecruitmentBusinessRulesService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_KZKd4B5sEd--Cq_iMXTEJA" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOI_Service_Model.emx#_07B2sBtdEd-F9taomSBbMw?ICT_SOA_Pilot_MOI_Service_Model/moi.gov.qa/establishmentInfo/services/version1_0/EstablishmentSecurityInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_SOvTAB5sEd--Cq_iMXTEJA" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOI_Service_Model.emx#_07B2sBtdEd-F9taomSBbMw?ICT_SOA_Pilot_MOI_Service_Model/moi.gov.qa/establishmentInfo/services/version1_0/EstablishmentSecurityInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_jPkWwB5sEd--Cq_iMXTEJA" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="platform:/resource/QSB_ICT_Models/ICT_SOA_Pilot_MOL_Service_Model.emx#_XJVQ4BtPEd-F9taomSBbMw?ICT_SOA_Pilot_MOL_Service_Model/mol.gov.qa/labor/recruitmentApplication/services/version1_0/LaborRecruitmentApplicationInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Kth7YCGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_s2Q3YBtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/BlacklistedEstablishmentInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_OTc5MCGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_nZ8lwCCLEd-_4IZeUk47Xw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/EstablishmentHasActiveLaborAppInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_TbuakCGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_7JfscBtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentBusinessRulesService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_VqVAICGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOI_Service_Model.emx#_07B2sBtdEd-F9taomSBbMw?moi_serviceModel/moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_YtsDcCGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOI_Service_Model.emx#_07B2sBtdEd-F9taomSBbMw?moi_serviceModel/moi.gov.qa/establishmentInfo/services/v1_0/EstablishmentInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_kkc2ECGNEd-fOPgDBjRvMQ" name="Processing dependency" client="_r1oIwBNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="Blank%20Package.emx#_8qPucBS1Ed-RfKD00GcVWg?kahramaa_serviceModel/kahramaa.com.qa/billing/services/v1_0/BillingInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_QkU6MCGOEd-fOPgDBjRvMQ" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_WDjxEBtOEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_YKGYwCGOEd-fOPgDBjRvMQ" name="Processing dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_MOL_Service_Model.emx#_XJVQ4BtPEd-F9taomSBbMw?mol_serviceModel/mol.gov.qa/customerService/recruitment/services/v1_0/LaborRecruitmentApplicationInfoService?"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_Bk3RkCd-Ed-795w_hDtXvw" name="Composite dependency" client="_nvqY8BNXEd-KaZRyNC-JIQ">
+    <supplier xmi:type="uml:Component" href="ICT_SOA_Pilot_ICT_Service_Model.emx#_LmXxgCDVEd-bzZByCnsR5Q?gsb_igov_serviceModel/igov.gov.qa/sharedServices/notification/services/v1_0/NotificationService?"/>
+  </packagedElement>
+  <profileApplication xmi:id="_yXFQvBZSEd-rX6F-K9-XjQ">
+    <eAnnotations xmi:id="_yXFQvRZSEd-rX6F-K9-XjQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+  </profileApplication>
+  <profileApplication xmi:id="_yXFQvhZSEd-rX6F-K9-XjQ">
+    <eAnnotations xmi:id="_yXFQvxZSEd-rX6F-K9-XjQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Default.epx#_IN8k8MmBEdqBcN1R6EvWUw?Default/Default?"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default?"/>
+  </profileApplication>
+  <profileApplication xmi:id="_yXFQwBZSEd-rX6F-K9-XjQ">
+    <eAnnotations xmi:id="_yXFQwRZSEd-rX6F-K9-XjQ" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_IrdAUMmBEdqBcN1R6EvWUw?Deployment/Deployment?"/>
+    </eAnnotations>
+    <appliedProfile href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment?"/>
+  </profileApplication>
+</uml:Model>

@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/PerformScreeningArtifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1" xmlns:ns1="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1" xmlns:ns10="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0" xmlns:ns11="http://kahramaa.com.qa/Electricity/ElectricityInfo/version/1.0" xmlns:ns12="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns13="http://kahramaa.com.qa/electricityInfo/specifications/version1_0/ElectricityBillInfoPort/" xmlns:ns14="igov.gov.qa/xml/schemas/v1_0/" xmlns:ns15="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns16="kahramaa.com.qa/billing/specifications/v1_0/" xmlns:ns17="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns18="moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns19="igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:ns2="http:///ict.gov.qa/Process/XSD/ProcessHeader" xmlns:ns20="kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:ns21="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns22="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns23="urn:igov.gov.qa/xml/schemas/v1_0/" xmlns:ns24="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns25="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns26="urn:kahramaa.com.qa/billing/specifications/v1_0/" xmlns:ns27="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns28="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:ns29="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:ns3="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment" xmlns:ns30="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns4="http://ict.gov.qa/IGOVError/xml/schemas/version1.0" xmlns:ns5="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0" xmlns:ns6="http://schemas.ict.gov.qa/2010/01/iGovHeader" xmlns:ns7="http:///ict.gov.qa/Process/XSD/commonTypes/v1" xmlns:ns8="http://moi.gov.qa/EstablishmentInfo/xml/schemas/version1.0" xmlns:ns9="http://kahramaa.com.qa/ElectricityInfo/xml/schemas/version1.0" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="PerformScreening" suppressJoinFailure="yes" targetNamespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation" wpc:autoDelete="onSuccessfulCompletion" wpc:autonomy="peer" wpc:compensationSphere="supports" wpc:continueOnError="yes" wpc:displayName="PerformScreening" wpc:executionMode="microflow" wpc:id="10" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-10T08:48:31">
+  <wpc:javaGlobals>
+    <wpc:import packages="java.util.logging.Logger"/>
+    <wpc:import packages="qa.gov.mol.lr.common.ICommonConstants"/>
+    <wpc:import packages="qa.gov.mol.lr.common.GovHeaderHelper"/>
+  </wpc:javaGlobals>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPreconditionValidation-v1.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.IPreconditionValidation.v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="PerformScreeningArtifacts.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/prevalidation/PerformScreeningArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPreconditionValidation-v1.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http..ict.gov.qa.Process.XSD.ProcessHeader.xsd" namespace="http:///ict.gov.qa/Process/XSD/ProcessHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../wsdl/IValidateEstablishment.wsdl" namespace="http://LR_PreconditionValidationProcess/qa/gov/ict/process/wsdl/IValidateEstablishment"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/CommonError-v1-0.xsd" namespace="http://ict.gov.qa/IGOVError/xml/schemas/version1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/CommonTypes-v1-0.xsd" namespace="http://ict.gov.qa/CommonTypes/xml/schemas/version1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../xsd-includes/http.schemas.ict.gov.qa.2010.01.iGovHeader.xsd" namespace="http://schemas.ict.gov.qa/2010/01/iGovHeader"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/MOIEstablishmentInfo-v1-0.xsd" namespace="http://moi.gov.qa/EstablishmentInfo/xml/schemas/version1.0"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../process/ProcessCommonTypes-v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/commonTypes/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../services/ElectricityInfo-v1-0.xsd" namespace="http://kahramaa.com.qa/ElectricityInfo/xml/schemas/version1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/EstablishmentSecurityInfo-v1-0.wsdl" namespace="http://moi.gov.qa/Establishment/EStablishmentSecurityInfo/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../services/ElectricityBillInfo-v1-0.wsdl" namespace="http://kahramaa.com.qa/Electricity/ElectricityInfo/version/1.0"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPreconditionValidation.wsdl" namespace="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo.wsdl" namespace="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../kahramaa/com/qa/electricityInfo/specifications/version1_0/ElectricityBillInfoPort.wsdl" namespace="http://kahramaa.com.qa/electricityInfo/specifications/version1_0/ElectricityBillInfoPort/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/xml/schemas/v1_0/IgovHeader_v1_0.xsd" namespace="urn:igov.gov.qa/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../moi/gov/qa/establishmentInfo/specifications/v1_0/EstablishmentSecurityInfo_v1_0.wsdl" namespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../kahramaa/com/qa/billing/specifications/v1_0/BillingInfo_v1_0.wsdl" namespace="urn:kahramaa.com.qa/billing/specifications/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../mol/gov/qa/customerService/recruitment/specifications/v1_0/RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd" namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd" namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../kahramaa/com/qa/billing/xml/schemas/v1_0/Billing_v1_0.xsd" namespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="../../../../../kahramaa/com/qa/billing/xml/schemas/v1_0/v1_0.xsd" namespace="kahramaa.com.qa/billing/xml/schemas/v1_0/"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="/resource/mol_recruit_process_lib/process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="../../../../../process/IPrepareGovHeader.wsdl" namespace="http://mol_recruit_process_lib/process/IPrepareGovHeader"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="IPreconditionValidation" partnerLinkType="ns:IPreconditionValidationPLT"/>
+    <bpws:partnerLink name="ValidateEstalishmentPartner" partnerLinkType="ns:ValidateEstalishmentPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="EstSecInfoPartner" partnerLinkType="ns:EstSecInfoPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="ElectricityInfoPartner" partnerLinkType="ns:ElectricityInfoPartnerPLT" partnerRole="Reference"/>
+    <bpws:partnerLink name="IPrepareGovHeaderPartner" partnerLinkType="ns:IPrepareGovHeaderPLT" partnerRole="Interface"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="errorCode" type="xsd:string" wpc:id="199"/>
+    <bpws:variable name="estID" type="ns22:EstablishmentIdType" wpc:id="6"/>
+    <bpws:variable name="eGovHeader" type="ns23:IGOVHeaderType" wpc:id="30"/>
+    <bpws:variable name="validationResult" type="ns24:ValidationResults" wpc:id="7"/>
+    <bpws:variable name="pHeader" type="ns24:ProcessHeader" wpc:id="18"/>
+    <bpws:variable name="faultMessage" type="xsd:string" wpc:id="50"/>
+    <bpws:variable name="faultName" type="xsd:string" wpc:id="51"/>
+    <bpws:variable name="getStatisticsRequest" type="ns25:getLaborStatisticsRequest" wpc:id="75"/>
+    <bpws:variable name="getStatisticsResponse" type="ns25:getLaborStatisticsResponse" wpc:id="76"/>
+    <bpws:variable name="getBillSummaryRequest" type="ns26:GetLastBillSummaryRequest" wpc:id="78"/>
+    <bpws:variable name="getBillSummaryResponse" type="ns26:GetLastBillSummaryResponse" wpc:id="79"/>
+    <bpws:variable name="validateEstablishmentReq" type="ns27:ValidateEstablishmentRequest" wpc:id="81"/>
+    <bpws:variable name="validateEstablishmentRes" type="ns27:ValidateEstablishmentResponse" wpc:id="82"/>
+    <bpws:variable name="faultCause" type="xsd:string" wpc:id="100"/>
+    <bpws:variable name="networkLocation" type="xsd:string" wpc:id="204"/>
+    <bpws:variable messageType="ns27:RecruitmentProcessPreconditionValidationValidateEstablishmentFault" name="fault" wpc:id="99"/>
+    <bpws:variable name="electricityNo" type="ns28:ElectricityNumberType" wpc:id="84"/>
+    <bpws:variable name="validateEstablishmentWithInfoReq" type="ns27:ValidateEstablishmentWithInfoRequest" wpc:id="85"/>
+    <bpws:variable name="validateEstablishmentWithInfoRes" type="ns27:ValidateEstablishmentWithInfoResponse" wpc:id="86"/>
+    <bpws:variable name="error" type="ns29:CommonErrorStructure" wpc:id="106"/>
+    <bpws:variable name="curDate" type="xsd:dateTime" wpc:id="152"/>
+    <bpws:variable messageType="ns27:RecruitmentProcessPreconditionValidationValidateEstablishmentWithInfoFault" name="faultVWithInfo" wpc:id="187"/>
+  </bpws:variables>
+  <bpws:scope name="Scope2" wpc:displayName="Scope2" wpc:id="133">
+    <bpws:pick createInstance="yes" name="ReceiveChoice" wpc:displayName="Receive Choice" wpc:id="1" wpc:transactionalBehavior="commitAfter">
+      <bpws:onMessage operation="ValidateEstablishment" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation">
+        <wpc:output>
+          <wpc:parameter name="processHeader" variable="pHeader"/>
+          <wpc:parameter name="validateEstablishmentReq" variable="validateEstablishmentReq"/>
+        </wpc:output>
+        <bpws:sequence name="HiddenSequence" wpc:id="1073741845">
+          <bpws:assign name="setserviceinputs2" wpc:displayName="set service inputs" wpc:id="83">
+            <bpws:copy>
+              <bpws:from variable="validateEstablishmentReq">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="estID"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="validateEstablishmentReq">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[electricityNumber]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="electricityNo"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="runvalidations" operation="validateEstablishment" partnerLink="ValidateEstalishmentPartner" portType="ns3:IValidateEstablishment" wpc:displayName="run validations" wpc:id="20">
+            <wpc:input>
+              <wpc:parameter name="estID" variable="estID"/>
+              <wpc:parameter name="pHeader" variable="pHeader"/>
+              <wpc:parameter name="electricityNo" variable="electricityNo"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="validationResults" variable="validationResult"/>
+            </wpc:output>
+            <bpws:catch faultMessageType="ns3:validateEstablishment_faultMsg" faultName="ns3:fault" faultVariable="faultVariable" wpc:variableId="158">
+              <bpws:sequence name="HiddenSequence7" wpc:id="1073741983">
+                <bpws:invoke name="logexception2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="160">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:assign name="setcommonerror2" wpc:displayName="set common error" wpc:id="161">
+                  <bpws:copy>
+                    <bpws:from variable="error"/>
+                    <bpws:to part="fault" variable="fault"/>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply faultName="ns27:ValidateEstablishmentFault" name="Replywithfault2" operation="ValidateEstablishment" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="fault" wpc:displayName="Reply with fault" wpc:id="162"/>
+                <bpws:terminate name="Terminate2" wpc:displayName="Terminate" wpc:id="163"/>
+              </bpws:sequence>
+            </bpws:catch>
+            <bpws:catchAll>
+              <bpws:sequence name="HiddenSequence8" wpc:id="1073741977">
+                <bpws:invoke name="logexception3" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="154">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+networkLocation=qa.gov.mol.lr.process.constants.ProcessErrorCodes.networkLocation;
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:assign name="setfaultvariable3" wpc:displayName="set fault variable" wpc:id="198">
+                  <bpws:copy>
+                    <bpws:from variable="errorCode"/>
+                    <bpws:to part="fault" variable="fault">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="faultMessage"/>
+                    <bpws:to part="fault" variable="fault">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[userMessage]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="faultCause"/>
+                    <bpws:to part="fault" variable="fault">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[failedMessage]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="networkLocation"/>
+                    <bpws:to part="fault" variable="fault">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[networkLocation]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="curDate"/>
+                    <bpws:to part="fault" variable="fault">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[timeStamp]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply faultName="ns27:ValidateEstablishmentFault" name="Replywithfault3" operation="ValidateEstablishment" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="fault" wpc:displayName="Reply with fault" wpc:id="156"/>
+                <bpws:terminate name="Terminate3" wpc:displayName="Terminate" wpc:id="157"/>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:invoke>
+          <bpws:assign name="setserviceoutput" wpc:displayName="set service output" wpc:id="87">
+            <bpws:copy>
+              <bpws:from variable="validationResult"/>
+              <bpws:to variable="validateEstablishmentRes">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ValidateEstablishmentResult]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:reply name="Reply_ValidateEstablishment" operation="ValidateEstablishment" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" wpc:displayName="Reply - ValidateEstablishment" wpc:id="3">
+            <wpc:input>
+              <wpc:parameter name="validateEstablishmentRes" variable="validateEstablishmentRes"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:onMessage>
+      <bpws:onMessage operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation">
+        <wpc:output>
+          <wpc:parameter name="validateEstablishmentWithInfoReq" variable="validateEstablishmentWithInfoReq"/>
+          <wpc:parameter name="processHeader" variable="pHeader"/>
+        </wpc:output>
+        <bpws:sequence name="HiddenSequence1" wpc:id="1073741849">
+          <bpws:assign name="setserviceinputs3" wpc:displayName="set service inputs" wpc:id="88">
+            <bpws:copy>
+              <bpws:from variable="validateEstablishmentWithInfoReq">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="estID"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="validateEstablishmentWithInfoReq">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[electricityNumber]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="electricityNo"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="runvalidations1" operation="validateEstablishment" partnerLink="ValidateEstalishmentPartner" portType="ns3:IValidateEstablishment" wpc:displayName="run validations" wpc:id="26">
+            <wpc:input>
+              <wpc:parameter name="estID" variable="estID"/>
+              <wpc:parameter name="pHeader" variable="pHeader"/>
+              <wpc:parameter name="electricityNo" variable="electricityNo"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="validationResults" variable="validationResult"/>
+            </wpc:output>
+            <bpws:catch faultMessageType="ns3:validateEstablishment_faultMsg" faultName="ns3:fault" faultVariable="faultVariable1" wpc:variableId="169">
+              <bpws:sequence name="HiddenSequence9" wpc:id="1073741994">
+                <bpws:invoke name="logexception4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="171">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:assign name="setcommonerror5" wpc:displayName="set common error" wpc:id="172">
+                  <bpws:copy>
+                    <bpws:from variable="error"/>
+                    <bpws:to part="fault" variable="faultVWithInfo"/>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply faultName="ns27:ValidateEstablishmentWithInfoFault" name="Replywithfault4" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="faultVWithInfo" wpc:displayName="Reply with fault" wpc:id="173"/>
+                <bpws:terminate name="Terminate4" wpc:displayName="Terminate" wpc:id="174"/>
+              </bpws:sequence>
+            </bpws:catch>
+            <bpws:catchAll>
+              <bpws:sequence name="HiddenSequence10" wpc:id="1073741988">
+                <bpws:invoke name="logexception5" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="165">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+networkLocation=qa.gov.mol.lr.process.constants.ProcessErrorCodes.networkLocation;
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:assign name="setfaultvariable1" wpc:displayName="set fault variable" wpc:id="166">
+                  <bpws:copy>
+                    <bpws:from variable="errorCode"/>
+                    <bpws:to part="fault" variable="faultVWithInfo">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="faultMessage"/>
+                    <bpws:to part="fault" variable="faultVWithInfo">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[userMessage]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="faultCause"/>
+                    <bpws:to part="fault" variable="faultVWithInfo">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[failedMessage]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="networkLocation"/>
+                    <bpws:to part="fault" variable="faultVWithInfo">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[networkLocation]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                  <bpws:copy>
+                    <bpws:from variable="curDate"/>
+                    <bpws:to part="fault" variable="faultVWithInfo">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[timeStamp]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply faultName="ns27:ValidateEstablishmentWithInfoFault" name="Replywithfault5" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="faultVWithInfo" wpc:displayName="Reply with fault" wpc:id="167"/>
+                <bpws:terminate name="Terminate5" wpc:displayName="Terminate" wpc:id="168"/>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:invoke>
+          <bpws:switch name="isValidResultsreturned" wpc:displayName="is Valid Results returned" wpc:id="59">
+            <bpws:case wpc:id="60">
+              <bpws:condition expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/"><![CDATA[return validationResult.getDataObject("validResult")==null;
+]]></bpws:condition>
+              <bpws:sequence name="HiddenSequence6" wpc:id="1073741913">
+                <bpws:assign name="setserviceoutput1" wpc:displayName="set service output" wpc:id="90">
+                  <bpws:copy>
+                    <bpws:from variable="validationResult"/>
+                    <bpws:to variable="validateEstablishmentWithInfoRes">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ValidateEstablishmentResult]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply name="Reply-validatewithinfo1" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" wpc:displayName="Reply - validate with info" wpc:id="61">
+                  <wpc:input>
+                    <wpc:parameter name="validateEstablishmentWithInfoRes" variable="validateEstablishmentWithInfoRes"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:case>
+            <bpws:otherwise>
+              <bpws:sequence name="HiddenSequence3" wpc:id="1073741886">
+                <bpws:scope name="Scope" wpc:displayName="Scope" wpc:id="45">
+                  <bpws:sequence name="HiddenSequence2" wpc:id="1073741871">
+                    <bpws:invoke name="perpareGovHeader" operation="perpareGovHeader" partnerLink="IPrepareGovHeaderPartner" portType="ns30:IPrepareGovHeader" wpc:continueOnError="inherit" wpc:displayName="perpare GovHeader" wpc:id="205">
+                      <wpc:input>
+                        <wpc:parameter name="processHeader" variable="pHeader"/>
+                      </wpc:input>
+                      <wpc:output>
+                        <wpc:parameter name="govHeader" variable="eGovHeader"/>
+                      </wpc:output>
+                    </bpws:invoke>
+                    <bpws:assign name="setServiceinputs" wpc:displayName="set Service inputs" wpc:id="37">
+                      <bpws:copy>
+                        <bpws:from variable="estID"/>
+                        <bpws:to variable="getStatisticsRequest">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estID]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                    </bpws:assign>
+                    <bpws:invoke name="getEststatistics" operation="getLaborStatistics" partnerLink="EstSecInfoPartner" portType="ns25:EstablishmentSecurityInfo" wpc:displayName="get Est statistics" wpc:id="36">
+                      <wpc:input>
+                        <wpc:parameter name="estID" variable="getStatisticsRequest"/>
+                        <wpc:parameter name="header" variable="eGovHeader"/>
+                      </wpc:input>
+                      <wpc:output>
+                        <wpc:parameter name="laborStatistics" variable="getStatisticsResponse"/>
+                      </wpc:output>
+                      <bpws:catch faultMessageType="ns25:EstablishmentSecurityInfogetLaborStatisticsFault" faultName="ns25:getLaborStatisticsFault" faultVariable="getLaborStatisticsFaultVariable" wpc:variableId="180">
+                        <bpws:sequence name="HiddenSequence5" wpc:id="1073742017">
+                          <bpws:invoke name="logexception1" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="194">
+                            <wpc:script>
+                              <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+
+]]></wpc:javaCode>
+                            </wpc:script>
+                          </bpws:invoke>
+                          <bpws:assign name="setcommonerror1" wpc:displayName="set common error" wpc:id="195">
+                            <bpws:copy>
+                              <bpws:from variable="error"/>
+                              <bpws:to part="fault" variable="faultVWithInfo"/>
+                            </bpws:copy>
+                          </bpws:assign>
+                          <bpws:reply faultName="ns27:ValidateEstablishmentWithInfoFault" name="Replywithfault1" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="faultVWithInfo" wpc:displayName="Reply with fault" wpc:id="196"/>
+                          <bpws:terminate name="Terminate1" wpc:displayName="Terminate" wpc:id="197"/>
+                        </bpws:sequence>
+                      </bpws:catch>
+                      <bpws:catchAll>
+                        <bpws:sequence name="HiddenSequence11" wpc:id="1073742012">
+                          <bpws:invoke name="logexception7" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="189">
+                            <wpc:script>
+                              <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+networkLocation=qa.gov.mol.lr.process.constants.ProcessErrorCodes.networkLocation;
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+                            </wpc:script>
+                          </bpws:invoke>
+                          <bpws:assign name="setfaultvariable2" wpc:displayName="set fault variable" wpc:id="190">
+                            <bpws:copy>
+                              <bpws:from variable="errorCode"/>
+                              <bpws:to part="fault" variable="faultVWithInfo">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="faultMessage"/>
+                              <bpws:to part="fault" variable="faultVWithInfo">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[userMessage]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="faultCause"/>
+                              <bpws:to part="fault" variable="faultVWithInfo">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[failedMessage]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="networkLocation"/>
+                              <bpws:to part="fault" variable="faultVWithInfo">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[networkLocation]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                            <bpws:copy>
+                              <bpws:from variable="curDate"/>
+                              <bpws:to part="fault" variable="faultVWithInfo">
+                                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[timeStamp]]></bpws:query>
+                              </bpws:to>
+                            </bpws:copy>
+                          </bpws:assign>
+                          <bpws:reply faultName="ns27:ValidateEstablishmentWithInfoFault" name="Replywithfault6" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" variable="faultVWithInfo" wpc:displayName="Reply with fault" wpc:id="191"/>
+                          <bpws:terminate name="Terminate6" wpc:displayName="Terminate" wpc:id="192"/>
+                        </bpws:sequence>
+                      </bpws:catchAll>
+                    </bpws:invoke>
+                    <bpws:assign name="populatestatistics1" wpc:displayName="populate statistics" wpc:id="55">
+                      <bpws:copy>
+                        <bpws:from variable="getStatisticsResponse">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[estStatistics]]></bpws:query>
+                        </bpws:from>
+                        <bpws:to variable="validationResult">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/statistics]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                    </bpws:assign>
+                  </bpws:sequence>
+                </bpws:scope>
+                <bpws:scope name="Scope1" wpc:displayName="Scope1" wpc:id="53">
+                  <bpws:faultHandlers>
+                    <bpws:catch faultMessageType="ns26:BillInfogetLastBillSummaryFault" faultName="ns26:getLastBillSummaryFault" faultVariable="getLastBillSummaryFaultVariable" wpc:variableId="200">
+                      <bpws:sequence name="HiddenSequence13" wpc:id="1073742025">
+                        <bpws:invoke name="logexception8" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="202">
+                          <wpc:script>
+                            <wpc:javaCode><![CDATA[com.ibm.bpe.api.ApplicationFaultException exp= (com.ibm.bpe.api.ApplicationFaultException)getCurrentFaultAsException();
+error=(commonj.sdo.DataObject)exp.getFaultMessage();
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"the following excpetion raised :"+exp.getMessage()+ ": "+exp.getFaultMessage());
+
+
+]]></wpc:javaCode>
+                          </wpc:script>
+                        </bpws:invoke>
+                        <bpws:assign name="populateelectricitynote2" wpc:displayName="populate electricity note" wpc:id="203">
+                          <bpws:copy>
+                            <bpws:from variable="error">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[errorCode]]></bpws:query>
+                            </bpws:from>
+                            <bpws:to variable="validationResult">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/electricityNote]]></bpws:query>
+                            </bpws:to>
+                          </bpws:copy>
+                        </bpws:assign>
+                      </bpws:sequence>
+                    </bpws:catch>
+                    <bpws:catchAll>
+                      <bpws:sequence name="HiddenSequence12" wpc:id="1073741954">
+                        <bpws:invoke name="logexception6" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="log exception" wpc:id="131">
+                          <wpc:script>
+                            <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException exp= (com.ibm.bpe.api.BpelException)getCurrentFaultAsException();
+faultMessage=exp.getMessage();
+if(exp.getCause()!=null){
+	faultCause=exp.getCause().toString();
+}
+curDate= new java.util.Date();
+errorCode=qa.gov.mol.lr.process.constants.ProcessErrorCodes.Unmodeled_case;
+Logger logger=Logger.getLogger("PerformScreening");
+logger.log(ICommonConstants.LOGGER_LEVEL_EXCEPTION,"The following excpetion raised with errorCode: "+errorCode+" TimeStamp: "+curDate +" FaultMessage: "+exp.getMessage()+" Cause: "+exp.getCause() );
+]]></wpc:javaCode>
+                          </wpc:script>
+                        </bpws:invoke>
+                        <bpws:assign name="populateelectricitynote1" wpc:displayName="populate electricity note" wpc:id="129">
+                          <bpws:copy>
+                            <bpws:from variable="errorCode"/>
+                            <bpws:to variable="validationResult">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/electricityNote]]></bpws:query>
+                            </bpws:to>
+                          </bpws:copy>
+                        </bpws:assign>
+                      </bpws:sequence>
+                    </bpws:catchAll>
+                  </bpws:faultHandlers>
+                  <bpws:sequence name="HiddenSequence4" wpc:id="1073741878">
+                    <bpws:assign name="setServiceinputs1" wpc:displayName="set Service inputs" wpc:id="66">
+                      <bpws:copy>
+                        <bpws:from variable="electricityNo"/>
+                        <bpws:to variable="getBillSummaryRequest">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[elecNumber]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                      <bpws:copy>
+                        <bpws:from variable="estID"/>
+                        <bpws:to variable="getBillSummaryRequest">
+                          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[tenantId]]></bpws:query>
+                        </bpws:to>
+                      </bpws:copy>
+                    </bpws:assign>
+                    <bpws:invoke name="getelectricityinfo" operation="getLastBillSummary" partnerLink="ElectricityInfoPartner" portType="ns26:BillInfo" wpc:displayName="get electricity info" wpc:id="39">
+                      <wpc:input>
+                        <wpc:parameter name="header" variable="eGovHeader"/>
+                        <wpc:parameter name="elecNumber" variable="getBillSummaryRequest"/>
+                      </wpc:input>
+                      <wpc:output>
+                        <wpc:parameter name="billSummary" variable="getBillSummaryResponse"/>
+                      </wpc:output>
+                    </bpws:invoke>
+                    <bpws:switch name="Noelectricityreturn" wpc:displayName="No electricity return" wpc:id="70">
+                      <bpws:case wpc:id="71">
+                        <bpws:condition expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/"><![CDATA[return getBillSummaryResponse.get("billSummary")==null;
+]]></bpws:condition>
+                        <bpws:assign name="populateelectricitynote" wpc:displayName="populate electricity note" wpc:id="72">
+                          <bpws:copy>
+                            <bpws:from><![CDATA[No bill returned for this establsihement]]></bpws:from>
+                            <bpws:to variable="validationResult">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/electricityNote]]></bpws:query>
+                            </bpws:to>
+                          </bpws:copy>
+                        </bpws:assign>
+                      </bpws:case>
+                      <bpws:otherwise>
+                        <bpws:assign name="populateelectricity" wpc:displayName="populate electricity" wpc:id="42">
+                          <bpws:copy>
+                            <bpws:from variable="getBillSummaryResponse">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[billSummary]]></bpws:query>
+                            </bpws:from>
+                            <bpws:to variable="validationResult">
+                              <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[validResult/electricityInfo]]></bpws:query>
+                            </bpws:to>
+                          </bpws:copy>
+                        </bpws:assign>
+                      </bpws:otherwise>
+                    </bpws:switch>
+                  </bpws:sequence>
+                </bpws:scope>
+                <bpws:assign name="setserviceoutput2" wpc:displayName="set service output" wpc:id="91">
+                  <bpws:copy>
+                    <bpws:from variable="validationResult"/>
+                    <bpws:to variable="validateEstablishmentWithInfoRes">
+                      <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[ValidateEstablishmentResult]]></bpws:query>
+                    </bpws:to>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply name="Reply-validatewithinfo" operation="ValidateEstablishmentWithInfo" partnerLink="IPreconditionValidation" portType="ns27:RecruitmentProcessPreconditionValidation" wpc:displayName="Reply - validate with info" wpc:id="17">
+                  <wpc:input>
+                    <wpc:parameter name="validateEstablishmentWithInfoRes" variable="validateEstablishmentWithInfoRes"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:otherwise>
+          </bpws:switch>
+        </bpws:sequence>
+      </bpws:onMessage>
+    </bpws:pick>
+  </bpws:scope>
+</bpws:process>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="NotificationExport1_NotificationHttp_Service" targetNamespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0//Binding" xmlns:Port_0="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0//Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="igov/gov/qa/sharedServices/notification/specifications/v1_0/Notification_v1_0.wsdl" namespace="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/"/>
+  <wsdl:binding name="NotificationExport1_NotificationHttpBinding" type="Port_0:Notification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendNotification">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="sendNotificationFault">
+        <soap:fault name="sendNotificationFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationExport1_NotificationHttpService">
+    <wsdl:port binding="this:NotificationExport1_NotificationHttpBinding" name="NotificationExport1_NotificationHttpPort">
+      <soap:address location="http://localhost:9080/gsb_servicesStubsWeb/sca/NotificationExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

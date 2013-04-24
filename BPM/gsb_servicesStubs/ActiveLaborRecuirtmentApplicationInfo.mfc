@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mfc:interfaceMediationFlow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mfc="http://www.ibm.com/xmlns/prod/websphere/wbiserver/mfc/6.0.0" xmlns:v1_0="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" name="ActiveLaborRecuirtmentApplicationInfo" targetNamespace="http://gsb_servicesStubs/ActiveLaborRecuirtmentApplicationInfo">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" portType="v1_0:ActiveLaborRecruitmentApplicationInfo"/>
+  </interfaces>
+  <references>
+    <reference name="ActiveLaborRecruitmentApplicationInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="v1_0:ActiveLaborRecruitmentApplicationInfo"/>
+    </reference>
+  </references>
+  <extendedOperationBinding source="getActiveApplicationByAppId" target="getActiveApplicationByAppId" sourcePortType="v1_0:ActiveLaborRecruitmentApplicationInfo" targetReference="ActiveLaborRecruitmentApplicationInfoPartner"/>
+  <extendedOperationBinding source="getActiveApplicationByEstId" target="getActiveApplicationByEstId" sourcePortType="v1_0:ActiveLaborRecruitmentApplicationInfo" targetReference="ActiveLaborRecruitmentApplicationInfoPartner"/>
+  <operationFlow medflow="ActiveLaborRecuirtmentApplicationInfo.medflow"/>
+</mfc:interfaceMediationFlow>

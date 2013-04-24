@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ##[lineageStampBegin]##
+ ##[generatedBy:/LR_AdministrationFaultHandler/AdminFaultHandler.bpel]##
+ ##[lineageStampEnd]##
+-->
+<tel:task xmlns:tel="http://www.ibm.com/xmlns/prod/websphere/human-task/6.0.0/" xmlns:wsdl="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" allowClaimWhenSuspended="no" autoClaim="yes" businessRelevance="no" calendarName="Simple" contextAuthorizationForOwner="none" defaultLocale="en-US" jndiNameStaffPluginProvider="bpe/staff/sampleldapconfiguration" kind="pTask" name="AdminFaultHandlerTask" priorityDefinition="5" supportsDelegation="yes" supportsFollowOnTask="yes" supportsSubTask="yes" targetNamespace="http://LR_AdministrationFaultHandler/Task1">
+  <tel:import importType="http://schemas.xmlsoap.org/wsdl/" location="process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+  <tel:interface kind="inbound" operation="retryFault" portType="wsdl:IAdminFaultHandler"/>
+  <tel:staffSettings>
+    <tel:potentialOwner>
+      <tel:verb>
+        <tel:name>Group Search</tel:name>
+        <tel:parameter id="GroupID">MOLAdmin</tel:parameter>
+      </tel:verb>
+    </tel:potentialOwner>
+  </tel:staffSettings>
+  <tel:uiSettings/>
+  <tel:escalationSettings/>
+</tel:task>

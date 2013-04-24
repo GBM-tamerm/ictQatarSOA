@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="RecruitmentProcessPreconditionValidationService" targetNamespace="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/" xmlns:molspcxsd="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="../../specifications/v1_0/RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="RecruitmentProcessPreconditionValidationBinding" type="molspcxsd:RecruitmentProcessPreconditionValidation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ValidateEstablishment">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/ValidateEstablishment/"/>
+      <wsdl:input>
+        <soap:body parts="validateEstablishmentReq" use="literal"/>
+        <soap:header part="processHeader" message="molspcxsd:RecruitmentProcessPreconditionValidationValidateEstablishmentRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="validateEstablishmentRes" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidateEstablishmentFault">
+        <soap:fault name="ValidateEstablishmentFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEstablishmentWithInfo">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/ValidateEstablishmentWithInfo/"/>
+      <wsdl:input>
+        <soap:body parts="validateEstablishmentWithInfoReq" use="literal"/>
+        <soap:header part="processHeader" message="molspcxsd:RecruitmentProcessPreconditionValidationValidateEstablishmentWithInfoRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="validateEstablishmentWithInfoRes" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidateEstablishmentWithInfoFault">
+        <soap:fault name="ValidateEstablishmentWithInfoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEstablishmentForCSRWithInfo">
+      <soap:operation soapAction="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/ValidateEstablishmentForCSRWithInfo/"/>
+      <wsdl:input>
+        <soap:body parts="validateEstablishmentForCSRWithInfoReq" use="literal"/>
+        <soap:header part="processHeader" message="molspcxsd:RecruitmentProcessPreconditionValidationValidateEstablishmentForCSRWithInfoRequest" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="validateEstablishmentForCSRWithInfoRes" use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidateEstablishmentForCSRWithInfoFault">
+        <soap:fault name="ValidateEstablishmentForCSRWithInfoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="recruitmentProcessPreconditionValidation">
+    <wsdl:port binding="tns:RecruitmentProcessPreconditionValidationBinding" name="RecruitmentProcessPreconditionValidationPort">
+      <soap:address location="http://mol.gov.qa/customerService/recruitment/services/v1_0/RecruitmentProcessPreconditionValidationService/recruitmentProcessPreconditionValidation/RecruitmentProcessPreconditionValidationPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

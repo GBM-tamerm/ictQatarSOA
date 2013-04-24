@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="PrepareNotification" targetNamespace="http://NewRecuirtmentApplication/PrepareNotification" xmlns:bons1="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:bons3="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:bons5="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" xmlns:tns="http://NewRecuirtmentApplication/PrepareNotification" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://NewRecuirtmentApplication/PrepareNotification">
+            <xsd:import namespace="urn:igov.gov.qa/sharedServices/notification/xml/schemas/v1_0/" schemaLocation="igov/gov/qa/sharedServices/notification/xml/schemas/v1_0/NotificationSchema_v1_0.xsd"/>
+            <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="moi/gov/qa/establishmentInfo/xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+            <xsd:import namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" schemaLocation="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd"/>
+      <xsd:element name="PrepareNotificationRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="app" nillable="true" type="bons1:ApplicationLW"/>
+            <xsd:element name="estInfo" nillable="true" type="bons3:EstablishmentInfoType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PrepareNotificationRequestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="notificationRequest" nillable="true" type="bons5:NotificationRequestType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="PrepareNotificationRequestRequestMsg">
+    <wsdl:part element="tns:PrepareNotificationRequest" name="PrepareNotificationRequestParameters"/>
+  </wsdl:message>
+    <wsdl:message name="PrepareNotificationRequestResponseMsg">
+    <wsdl:part element="tns:PrepareNotificationRequestResponse" name="PrepareNotificationRequestResult"/>
+  </wsdl:message>
+    <wsdl:portType name="PrepareNotification">
+    <wsdl:operation name="PrepareNotificationRequest">
+      <wsdl:input message="tns:PrepareNotificationRequestRequestMsg" name="PrepareNotificationRequestRequest"/>
+      <wsdl:output message="tns:PrepareNotificationRequestResponseMsg" name="PrepareNotificationRequestResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

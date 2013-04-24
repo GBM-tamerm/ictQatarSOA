@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://ict.gov.qa/Process/WSDL/ISubmitNewRecuirtmentApplication/v1" xmlns:ns10="igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns11="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns12="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:ns13="urn:igov.gov.qa/sharedServices/notification/specifications/v1_0/" xmlns:ns14="http://mol_recruit_process_lib/process/IPrepareGovHeader" xmlns:ns2="http://ict.gov.qa/Notification/NotificationService/version/1.0" xmlns:ns3="http://NewRecuirtmentApplication/PrepareNotification" xmlns:ns4="http://ict.gov.qa/Process/WSDL/IPreconditionValidation/v1" xmlns:ns5="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/LaborRecruitmentApplication/" xmlns:ns6="http://moi.gov.qa/establishmentInfo/specifications/version1_0/EstablishmentSecurityInfo/" xmlns:ns7="http://ict.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:ns8="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns9="moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:v1="http://mol.gov.qa/Process/WSDL/ILaborRecuirmentApplication/v1" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="SubmitNewApplication" name="SubmitNewApplication">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns11:RecruitmentProcessSubmitNewApplication">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="PrepareNotificationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:PrepareNotification"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="prepareNotificationRequest"/>
+    </reference>
+    <reference name="LaborRecruitmentPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="v1:ILaborRecuirmentApplication"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+    </reference>
+    <reference name="LaborRecuirtmentAppPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:LaborRecruitmentApplication"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="LaborRecruitmentApplicationImport1"/>
+    </reference>
+    <reference name="IPreconditionValidation">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns11:RecruitmentProcessPreconditionValidation"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+    </reference>
+    <reference name="NotificationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns13:Notification"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="NotificationImport1"/>
+    </reference>
+    <reference name="IPrepareGovHeaderPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns14:IPrepareGovHeader"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="PerpareGovHeader"/>
+    </reference>
+    <reference name="EstablishmentInfoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns12:EstablishmentInfo"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="EstablishmentInfoImport1"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <scdl:implementationQualifier xsi:type="scdl:SecurityIdentity" privilege="AdminIdentity"/>
+    <process bpel="/qa/gov/ict/process/submitNewApp/SubmitNewApplication.bpel"/>
+  </implementation>
+</scdl:component>

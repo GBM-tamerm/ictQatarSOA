@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttp_Service" targetNamespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding" xmlns:Port_0="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:this="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0//Binding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import location="RecruitmentProcessPreconditionValidation_v1_0.wsdl" namespace="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/"/>
+  <wsdl:binding name="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpBinding" type="Port_0:RecruitmentProcessPreconditionValidation">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ValidateEstablishment">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidateEstablishmentFault">
+        <soap:fault name="ValidateEstablishmentFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEstablishmentWithInfo">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ValidateEstablishmentWithInfoFault">
+        <soap:fault name="ValidateEstablishmentWithInfoFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpService">
+    <wsdl:port binding="this:RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpBinding" name="RecruitmentProcessPreconditionValidationExport1_RecruitmentProcessPreconditionValidationHttpPort">
+      <soap:address location="http://localhost:9080/mol_recruit_screening_processWeb/sca/RecruitmentProcessPreconditionValidationExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://mol.gov.qa/Establishment/EstablishmentLaborInfo/version/1.0" xmlns:ns2="http://mol.gov.qa/labor/recruitmentApplication/specifications/versions1_0/EstablishmentLaborInfo/" xmlns:ns3="mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:ns4="urn:mol.gov.qa/customerService/recruitment/specifications/v1_0/" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="EstInfoThrowCommonErrorFaultService" name="EstInfoThrowCommonErrorFaultService">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns4:EstablishmentHasActiveLaborAppInfo">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/EstInfoThrowCommonErrorFaultService.bpel"/>
+  </implementation>
+</scdl:component>

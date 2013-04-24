@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1271063859328" namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions xmi:id="Extension_1271063859328">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension" xmi:id="ModuleExtension_1271063859328"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859329">
+      <extendedObject href="PerformScreening.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859328" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="364" y="227"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859330">
+      <extendedObject href="ValidationRulesProcess.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859343" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="547" y="62"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859343">
+      <extendedObject href="ValidationRulesProcessExport.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1271063859343" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="88" bound="true"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859344">
+      <extendedObject href="PerformScreeningExport.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1271063859344" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="249" bound="true"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859345">
+      <extendedObject href="LaborRecruitmentBusinessRulesImport1.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859344" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="782" y="101"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859346">
+      <extendedObject href="EstablishmentHasActiveLaborAppInfoImport3.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859345" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="754" y="30"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859347">
+      <extendedObject href="BlacklistedEstablishmentsInfoImport1.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859346" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="794" y="172"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859348">
+      <extendedObject href="EstablishmentSecurityInfoImport1.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859347" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="809" y="243"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859349">
+      <extendedObject href="BillInfoImport2.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" xmi:id="NodeExtension_1271063859348" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="902" y="456"/>
+    </extensions>
+    <extensions xmi:id="Extension_1271063859350">
+      <extendedObject href="RecruitmentProcessPreconditionValidationExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" xmi:id="ExportExtension_1271063859345" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/webservice/6.0.0}WebServiceExportBinding" unknown="false" visible="true" x="30" y="178" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="PerpareGovHeader.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" synchronizeDisplayName="false" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0}JavaImplementation" unknown="false" visible="true" x="821" y="330"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap xmi:id="ExtensionMap_1271063859343" namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions xmi:id="Extension_1271063859351">
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument" xmi:id="StickyDocument_1271063859343">
+        <stickyBoard xmi:id="StickyBoard_1271063859343" id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

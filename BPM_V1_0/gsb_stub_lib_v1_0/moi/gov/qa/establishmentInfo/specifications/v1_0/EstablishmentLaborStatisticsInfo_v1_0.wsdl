@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="v1_0" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:tns="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="urn:moi.gov.qa/establishmentInfo/specifications/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:moixsd="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/">
+      <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+      <xsd:import namespace="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" schemaLocation="../../xml/schemas/v1_0/EstablishmentSecurity_v1_0.xsd"/>
+      <xsd:complexType name="getLaborStatisticsRequest">
+        <xsd:sequence>
+          <xsd:element name="estID" type="moixsd:EstablishmentIdType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentLaborStatisticsInfogetLaborStatisticsRequest1" type="tns:getLaborStatisticsRequest"/>
+      <xsd:complexType name="getLaborStatisticsResponse">
+        <xsd:sequence>
+          <xsd:element name="estStatistics" type="moixsd:StatisticsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1" type="tns:getLaborStatisticsResponse"/>
+      <xsd:element name="EstablishmentLaborStatisticsInfogetLaborStatisticsFault1" type="igovxsd:CommonErrorStructure"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="EstablishmentLaborStatisticsInfogetLaborStatisticsRequest">
+    <wsdl:part element="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsRequest1" name="estID"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentLaborStatisticsInfogetLaborStatisticsResponse">
+    <wsdl:part element="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsResponse1" name="laborStatistics"/>
+  </wsdl:message>
+  <wsdl:message name="EstablishmentLaborStatisticsInfogetLaborStatisticsFault">
+    <wsdl:part element="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsFault1" name="fault"/>
+  </wsdl:message>
+  <wsdl:portType name="EstablishmentLaborStatisticsInfo">
+    <wsdl:operation name="getLaborStatistics">
+      <wsdl:input message="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsRequest"/>
+      <wsdl:output message="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsResponse"/>
+      <wsdl:fault message="tns:EstablishmentLaborStatisticsInfogetLaborStatisticsFault" name="getLaborStatisticsFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

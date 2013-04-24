@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: gsb_stub_lib_v1_0.jar
+Created-By: 1.5.0 (IBM Corporation)
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:java="urn:moi.gov.qa/establishmentInfo/xml/schemas/v1_0/" xmlns:ns="http://LR_AdministrationFaultHandler/AdminFaultHandlerArtifacts" xmlns:ns0="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1" xmlns:ns1="http://ict.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:ns2="mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns3="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/" xmlns:ns4="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1" xmlns:tel="http://LR_AdministrationFaultHandler/Task1" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="AdminFaultHandler" suppressJoinFailure="yes" targetNamespace="http://LR_AdministrationFaultHandler" wpc:autoDelete="no" wpc:autonomy="child" wpc:continueOnError="yes" wpc:displayName="AdminFaultHandler" wpc:executionMode="longRunning" wpc:id="6" wpc:ignoreMissingData="yes" wpc:validFrom="2010-02-15T09:00:04">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="process/IAdminFaultHandler.wsdl" namespace="http://mol.gov.qa/Process/WSDL/IAdminFaultHandler/v1"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="process/ApplicationBO-v1.xsd" namespace="http:///ict.gov.qa/Process/XSD/ApplicationBO/v1"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="AdminFaultHandlerArtifacts.wsdl" namespace="http://LR_AdministrationFaultHandler/AdminFaultHandlerArtifacts"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="mol/gov/qa/customerService/recruitment/xml/schemas/v1_0/LaborRecruitment_v1_0.xsd" namespace="urn:mol.gov.qa/customerService/recruitment/xml/schemas/v1_0/"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="IAdminFaultHandler" partnerLinkType="ns:IAdminFaultHandlerPLT"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="application" type="ns3:ApplicationLW" wpc:id="4">
+      <wpc:queryProperties>
+        <wpc:queryProperty name="appNo" type="xsd:string">
+          <wpc:query><![CDATA[applicationID/ApplicationNumber]]></wpc:query>
+        </wpc:queryProperty>
+        <wpc:queryProperty name="appYear" type="xsd:string">
+          <wpc:query><![CDATA[applicationID/year]]></wpc:query>
+        </wpc:queryProperty>
+        <wpc:queryProperty name="appDate" type="xsd:dateTime">
+          <wpc:query><![CDATA[applicationDate]]></wpc:query>
+        </wpc:queryProperty>
+        <wpc:queryProperty name="estName" type="xsd:string">
+          <wpc:query><![CDATA[estName]]></wpc:query>
+        </wpc:queryProperty>
+        <wpc:queryProperty name="estID" type="java:EstablishmentIdType">
+          <wpc:query><![CDATA[estID]]></wpc:query>
+        </wpc:queryProperty>
+      </wpc:queryProperties>
+    </bpws:variable>
+    <bpws:variable name="retry" type="xsd:boolean" wpc:id="5"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741825">
+    <bpws:receive createInstance="yes" name="Receive" operation="retryFault" partnerLink="IAdminFaultHandler" portType="ns4:IAdminFaultHandler" wpc:displayName="Receive" wpc:id="2" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="ApplicationLW" variable="application"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="AdminFaultHandlerTask" operation="retryFault" partnerLink="null" portType="ns4:IAdminFaultHandler" wpc:continueOnError="inherit" wpc:displayName="AdminFaultHandlerTask" wpc:id="7" wpc:transactionalBehavior="participates">
+      <wpc:task name="tel:AdminFaultHandlerTask"/>
+      <wpc:input>
+        <wpc:parameter name="ApplicationLW" variable="application"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="retry" variable="retry"/>
+      </wpc:output>
+    </bpws:invoke>
+    <bpws:assign name="reseterrormessage" wpc:displayName="reset error message" wpc:id="8">
+      <bpws:copy>
+        <bpws:from><![CDATA["]]></bpws:from>
+        <bpws:to variable="application">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[processMetadata/faultMessage]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:reply name="Reply" operation="retryFault" partnerLink="IAdminFaultHandler" portType="ns4:IAdminFaultHandler" wpc:displayName="Reply" wpc:id="3">
+      <wpc:input>
+        <wpc:parameter name="retry" variable="retry"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

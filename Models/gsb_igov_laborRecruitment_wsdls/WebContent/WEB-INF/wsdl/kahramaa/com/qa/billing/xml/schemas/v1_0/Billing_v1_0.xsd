@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema elementFormDefault="qualified" targetNamespace="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:igovxsd="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" xmlns:khmxsd="urn:kahramaa.com.qa/billing/xml/schemas/v1_0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import namespace="urn:igov.gov.qa/commonTypes/xml/schemas/v1_0/" schemaLocation="../../../../../../../igov/gov/qa/commonTypes/xml/schemas/v1_0/CommonTypes_v1_0.xsd"/>
+  <xsd:simpleType name="ElectricityNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value=".{1,8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="BillSummaryType">
+    <xsd:sequence>
+      <xsd:element name="waterNumber" type="xsd:string"/>
+      <xsd:element name="electricityNumber" type="khmxsd:ElectricityNumberType"/>
+      <xsd:element name="billNumber" type="xsd:string"/>
+      <xsd:element name="address" type="igovxsd:AddressType"/>
+      <xsd:element name="areaCode" type="xsd:string"/>
+      <xsd:element name="billPeriod" type="xsd:string"/>
+      <xsd:element name="billDate" type="xsd:dateTime"/>
+      <xsd:element name="customerNameArabic" type="xsd:string"/>
+      <xsd:element name="customerNameEnglish" type="xsd:string"/>
+      <xsd:element name="accountId" type="xsd:string"/>
+      <xsd:element name="ownerNameArabic" type="xsd:string"/>
+      <xsd:element name="ownerNameEnglish" type="xsd:string"/>
+      <xsd:element name="remarksArabic" type="xsd:string"/>
+      <xsd:element name="remarksEnglish" type="xsd:string"/>
+      <xsd:element name="status" type="xsd:string"/>
+      <xsd:element name="lastPaidDate" type="xsd:dateTime"/>
+      <xsd:element name="outstandingAmount" type="xsd:string"/>
+      <xsd:element name="grandTotal" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ElectricityBillType">
+    <xsd:sequence>
+      <xsd:element name="presentReadingAmount" type="xsd:float"/>
+      <xsd:element name="presentReadingDetails" type="xsd:float"/>
+      <xsd:element name="previousReadingAmount" type="xsd:float"/>
+      <xsd:element name="previousReadingDetails" type="xsd:float"/>
+      <xsd:element name="consumptionAverageAmount" type="xsd:float"/>
+      <xsd:element name="consumptionAverageDetails" type="xsd:float"/>
+      <xsd:element name="firstLimitAmount" type="xsd:float"/>
+      <xsd:element name="firstLimitDetails" type="xsd:float"/>
+      <xsd:element name="secondLimitAmount" type="xsd:float"/>
+      <xsd:element name="secondLimitDetails" type="xsd:float"/>
+      <xsd:element name="thirdLimitAmount" type="xsd:float"/>
+      <xsd:element name="thirdLimitDetails" type="xsd:float"/>
+      <xsd:element name="meterRentAmount" type="xsd:float"/>
+      <xsd:element name="meterRentDetails" type="xsd:float"/>
+      <xsd:element name="otherChargesAmount" type="xsd:float"/>
+      <xsd:element name="otherChargesDetails" type="xsd:float"/>
+      <xsd:element name="deductionAmount" type="xsd:float"/>
+      <xsd:element name="deductionDetails" type="xsd:float"/>
+      <xsd:element name="arrearsAmount" type="xsd:float"/>
+      <xsd:element name="arrearsDetails" type="xsd:float"/>
+      <xsd:element name="totalAmount" type="xsd:float"/>
+      <xsd:element name="totalDetails" type="xsd:float"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BillDetailType">
+    <xsd:sequence>
+      <xsd:element name="electricityBillData" type="khmxsd:ElectricityBillType"/>
+      <xsd:element name="waterBillData" type="khmxsd:WaterBillType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="WaterBillType">
+    <xsd:sequence>
+      <xsd:element name="presentReadingAmount" type="xsd:float"/>
+      <xsd:element name="presentReadingDetails" type="xsd:float"/>
+      <xsd:element name="previousReadingAmount" type="xsd:float"/>
+      <xsd:element name="previousReadingDetails" type="xsd:float"/>
+      <xsd:element name="consumptionAverageAmount" type="xsd:float"/>
+      <xsd:element name="consumptionAverageDetails" type="xsd:float"/>
+      <xsd:element name="firstLimitAmount" type="xsd:float"/>
+      <xsd:element name="firstLimitDetails" type="xsd:float"/>
+      <xsd:element name="secondLimitAmount" type="xsd:float"/>
+      <xsd:element name="secondLimitDetails" type="xsd:float"/>
+      <xsd:element name="thirdLimitAmount" type="xsd:float"/>
+      <xsd:element name="thirdLimitDetails" type="xsd:float"/>
+      <xsd:element name="meterRentAmount" type="xsd:float"/>
+      <xsd:element name="meterRentDetails" type="xsd:float"/>
+      <xsd:element name="otherChargesAmount" type="xsd:float"/>
+      <xsd:element name="otherChargesDetails" type="xsd:float"/>
+      <xsd:element name="deductionAmount" type="xsd:float"/>
+      <xsd:element name="deductionDetails" type="xsd:float"/>
+      <xsd:element name="arrearsAmount" type="xsd:float"/>
+      <xsd:element name="arrearsDetails" type="xsd:float"/>
+      <xsd:element name="totalAmount" type="xsd:float"/>
+      <xsd:element name="totalDetails" type="xsd:float"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
